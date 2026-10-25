@@ -36,9 +36,11 @@ export function initialBounds(places: Place[]): [[number, number], [number, numb
   let e = Math.max(...lngs)
   let s = Math.min(...lats)
   let n = Math.max(...lats)
-  if (kept.length === 1) {
+  if (e - w === 0) {
     w -= SINGLE_POINT_PAD
     e += SINGLE_POINT_PAD
+  }
+  if (n - s === 0) {
     s -= SINGLE_POINT_PAD
     n += SINGLE_POINT_PAD
   }

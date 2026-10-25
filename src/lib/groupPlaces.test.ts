@@ -34,6 +34,12 @@ describe('initialBounds', () => {
   it('falls back for empty input', () => {
     expect(initialBounds([])).toEqual(DEFAULT_BOUNDS)
   })
+  it('returns a non-degenerate box for two identical points', () => {
+    const p = { ...places[0], lng: 120.43, lat: 23.55 }
+    const [[w, s], [e, n]] = initialBounds([p, { ...p, id: 'dup' }])
+    expect(e - w).toBeGreaterThan(0)
+    expect(n - s).toBeGreaterThan(0)
+  })
   it('returns a non-degenerate box for a single point', () => {
     const [[w, s], [e, n]] = initialBounds([{ ...places[0], lng: 120.43, lat: 23.55 }])
     expect(e - w).toBeGreaterThan(0)
