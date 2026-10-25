@@ -11,29 +11,46 @@ type Props = {
   onSelect: (id: string | null) => void
 }
 
-const BASE =
-  'flex cursor-pointer items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md outline-none transition-transform focus-visible:ring-4 focus-visible:ring-[#f2b134]/70'
-const IDLE = 'bg-[#1f6f8b]'
-const ACTIVE = 'bg-[#d98e04] scale-125'
+type Entry = { group: PlaceGroup; el: HTMLButtonElement; dot: HTMLSpanElement; marker: maplibregl.Marker }
 
-const markerClass = (count: number, active: boolean) =>
-  `${BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? ACTIVE : IDLE}`
+// 外層 button 是 MapLibre 定位用的元素（會被寫入 transform），不可加 transition；
+// 視覺與動畫都放在內層 span，外層保證至少 44px 的點擊範圍。
+const BUTTON_CLASS =
+  'group flex size-11 cursor-pointer items-center justify-center rounded-full bg-transparent p-0 outline-none'
+const DOT_BASE =
+  'flex items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md transition-transform group-focus-visible:ring-4 group-focus-visible:ring-[#f2b134]/70'
+
+const dotClass = (count: number, active: boolean) =>
+  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'scale-125 bg-[#d98e04]' : 'bg-[#1f6f8b]'}`
+
+const contains = (g: PlaceGroup, id: string | null) => id !== null && g.places.some((p) => p.id === id)
 
 export default function MapView({ groups, bounds, selectedId, onSelect }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
+  const entries = useRef<Entry[]>([])
   const onSelectRef = useRef(onSelect)
   const boundsRef = useRef(bounds)
+  const selectedRef = useRef(selectedId)
   const [failed, setFailed] = useState(false)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
     onSelectRef.current = onSelect
+    selectedRef.current = selectedId
   })
 
   useEffect(() => {
     if (!container.current) return
-    let map: maplibregl.Map
+    let map: maplibregl.Map | undefined
+    let removed = false
+    const dispose = () => {
+      if (removed || !map) return
+      removed = true
+      mapRef.current = null
+      setReady(false)
+      map.remove()
+    }
     try {
       map = new maplibregl.Map({
         container: container.current,
@@ -43,44 +60,70 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
       map.fitBounds(boundsRef.current, { padding: 40, animate: false })
     } catch {
+      map?.remove()
       // 建構是否成功只有在建立外部地圖物件時才知道（例如沒有 WebGL）
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setFailed(true)
       return
     }
+    let loaded = false
+    map.once('load', () => {
+      loaded = true
+    })
+    // load 之前的錯誤代表底圖樣式載入失敗；load 之後的個別圖磚錯誤屬正常
+    map.on('error', () => {
+      if (loaded) return
+      dispose()
+      setFailed(true)
+    })
     mapRef.current = map
     setReady(true)
-    return () => {
-      mapRef.current = null
-      setReady(false)
-      map.remove()
-    }
+    return dispose
   }, [])
 
+  // 只在 groups 或地圖就緒時建立／移除標記
   useEffect(() => {
     const map = mapRef.current
     if (!ready || !map) return
-    const selectedGroup = groups.find((g) => g.places.some((p) => p.id === selectedId))
-    const markers = groups.map((g) => {
+    const created: Entry[] = groups.map((g) => {
+      const count = g.places.length
       const el = document.createElement('button')
       el.type = 'button'
-      const count = g.places.length
-      el.className = markerClass(count, g === selectedGroup)
+      el.className = BUTTON_CLASS
       el.setAttribute('aria-label', count > 1 ? `${count} 個地點` : g.places[0].title)
-      if (count > 1) el.textContent = String(count)
+      const dot = document.createElement('span')
+      dot.textContent = count > 1 ? String(count) : ''
+      el.appendChild(dot)
       el.addEventListener('click', () => onSelectRef.current(g.places[0].id))
-      return new maplibregl.Marker({ element: el }).setLngLat([g.lng, g.lat]).addTo(map)
+      const marker = new maplibregl.Marker({ element: el }).setLngLat([g.lng, g.lat]).addTo(map)
+      return { group: g, el, dot, marker }
     })
-    return () => markers.forEach((m) => m.remove())
-  }, [groups, selectedId, ready])
+    entries.current = created
+    for (const e of created) paint(e, selectedRef.current)
+    return () => {
+      created.forEach((e) => e.marker.remove())
+      entries.current = []
+    }
+  }, [groups, ready])
+
+  // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
+  useEffect(() => {
+    for (const e of entries.current) paint(e, selectedId)
+  }, [selectedId, groups, ready])
 
   useEffect(() => {
     const map = mapRef.current
     if (!ready || !map || !selectedId) return
-    const g = groups.find((x) => x.places.some((p) => p.id === selectedId))
-    if (g) map.flyTo({ center: [g.lng, g.lat], essential: true })
+    const g = groups.find((x) => contains(x, selectedId))
+    if (g) map.flyTo({ center: [g.lng, g.lat] })
   }, [groups, selectedId, ready])
 
   if (failed) return <MapFallback />
   return <div ref={container} className="h-full w-full" />
+}
+
+function paint(e: Entry, selectedId: string | null) {
+  const active = contains(e.group, selectedId)
+  e.dot.className = dotClass(e.group.places.length, active)
+  e.el.setAttribute('aria-pressed', String(active))
 }
