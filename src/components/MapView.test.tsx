@@ -8,6 +8,8 @@ type FakeMap = {
   flyTo: ReturnType<typeof vi.fn>
   remove: ReturnType<typeof vi.fn>
   emit: (type: string) => void
+  options: Record<string, unknown>
+  addControl: ReturnType<typeof vi.fn>
 }
 type FakeMarker = { el: HTMLElement; remove: ReturnType<typeof vi.fn> }
 
@@ -24,7 +26,9 @@ vi.mock('maplibre-gl', () => {
     remove = vi.fn()
     addControl = vi.fn()
     handlers: Record<string, Handler[]> = {}
-    constructor() {
+    options: Record<string, unknown>
+    constructor(options: Record<string, unknown>) {
+      this.options = options
       if (h.throwOnConstruct) throw new Error('no webgl')
       h.mapInstances.push(this)
     }
@@ -59,7 +63,14 @@ vi.mock('maplibre-gl', () => {
     }
   }
   class NavigationControl {}
-  return { default: { Map, Marker, NavigationControl }, Map, Marker, NavigationControl }
+  class AttributionControl {}
+  return {
+    default: { Map, Marker, NavigationControl, AttributionControl },
+    Map,
+    Marker,
+    NavigationControl,
+    AttributionControl,
+  }
 })
 
 import MapView from './MapView'
@@ -91,6 +102,16 @@ beforeEach(() => {
 })
 
 describe('MapView', () => {
+  it('版權標示放在上方（不被底部抽屜遮住），且不與縮放控制重疊在同一位置之外', () => {
+    render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+    const map = h.mapInstances[0]
+    expect(map.options.attributionControl).toBe(false)
+    const calls = map.addControl.mock.calls as [object, string][]
+    const attr = calls.find(([c]) => c.constructor.name === 'AttributionControl')
+    expect(attr).toBeTruthy()
+    expect(attr![1]).toMatch(/^top-/)
+  })
+
   it('地圖建構失敗時顯示 MapFallback', () => {
     h.throwOnConstruct = true
     render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)

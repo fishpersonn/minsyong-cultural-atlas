@@ -55,8 +55,10 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       map = new maplibregl.Map({
         container: container.current,
         style: BASEMAP_STYLE_URL,
-        attributionControl: { compact: true },
+        // 預設的右下角版權標示會被手機底部抽屜遮住，改放到上方
+        attributionControl: false,
       })
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right')
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
       map.fitBounds(boundsRef.current, { padding: 40, animate: false })
     } catch {
