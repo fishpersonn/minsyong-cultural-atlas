@@ -22,7 +22,17 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
   return (
-    <article className="flex max-h-full w-full flex-col overflow-y-auto bg-white text-[#14313b]">
+    <article className="relative flex max-h-full w-full flex-col overflow-hidden bg-white text-[#14313b]">
+      <Button
+        type="button"
+        size="icon"
+        aria-label="關閉"
+        onClick={onClose}
+        className="absolute top-2 right-2 z-10 size-9 rounded-full bg-[#14313b]/80 text-[#f4f6f3] hover:bg-[#14313b]"
+      >
+        <X aria-hidden="true" />
+      </Button>
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
       <div className="relative aspect-video shrink-0 bg-[#e3e9e6]">
         <img
           src={src}
@@ -32,15 +42,6 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
           }}
           className="size-full object-cover"
         />
-        <Button
-          type="button"
-          size="icon"
-          aria-label="關閉"
-          onClick={onClose}
-          className="absolute top-2 right-2 size-9 rounded-full bg-[#14313b]/80 text-[#f4f6f3] hover:bg-[#14313b]"
-        >
-          <X aria-hidden="true" />
-        </Button>
       </div>
 
       <div className="flex flex-col gap-3 p-4">
@@ -85,6 +86,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
           })}
         </ul>
       )}
+      </div>
     </article>
   )
 }
