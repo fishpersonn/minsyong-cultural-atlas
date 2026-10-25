@@ -1,5 +1,6 @@
+import { StrictMode } from 'react'
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { PlaceGroup } from '@/types'
 
 type Handler = () => void
@@ -17,6 +18,8 @@ const h = vi.hoisted(() => ({
   throwOnConstruct: false,
   mapInstances: [] as FakeMap[],
   markers: [] as FakeMarker[],
+  // 呼叫順序紀錄：模組載入時的 setWorkerUrl 必須早於任何 Map 建構，故不在 beforeEach 清空
+  calls: [] as string[],
 }))
 
 vi.mock('maplibre-gl', () => {
@@ -29,6 +32,7 @@ vi.mock('maplibre-gl', () => {
     options: Record<string, unknown>
     constructor(options: Record<string, unknown>) {
       this.options = options
+      h.calls.push('Map')
       if (h.throwOnConstruct) throw new Error('no webgl')
       h.mapInstances.push(this)
     }
@@ -64,8 +68,12 @@ vi.mock('maplibre-gl', () => {
   }
   class NavigationControl {}
   class AttributionControl {}
+  const setWorkerUrl = (url: string) => {
+    h.calls.push(`setWorkerUrl:${url}`)
+  }
   return {
-    default: { Map, Marker, NavigationControl, AttributionControl },
+    default: { Map, Marker, NavigationControl, AttributionControl, setWorkerUrl },
+    setWorkerUrl,
     Map,
     Marker,
     NavigationControl,
@@ -100,8 +108,31 @@ beforeEach(() => {
   h.mapInstances.length = 0
   h.markers.length = 0
 })
+afterEach(() => {
+  vi.restoreAllMocks()
+  vi.unstubAllGlobals()
+})
+
+const UNSUPPORTED = '你的瀏覽器不支援互動地圖'
+const LOAD_FAILED = '互動地圖暫時無法載入'
+
+function stubViewport(desktop: boolean, height = 800) {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn((query: string) => ({ matches: desktop && query === '(min-width: 768px)', media: query })),
+  )
+  vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(height)
+}
 
 describe('MapView', () => {
+  it('在任何 Map 建構之前以打包後的 worker 網址呼叫 setWorkerUrl', () => {
+    render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+    const first = h.calls.findIndex((c) => c.startsWith('setWorkerUrl:'))
+    expect(first).toBe(0)
+    expect(h.calls[first]).toContain('maplibre-gl-worker')
+    expect(h.calls.indexOf('Map')).toBeGreaterThan(first)
+  })
+
   it('版權標示放在上方（不被底部抽屜遮住），且不與縮放控制重疊在同一位置之外', () => {
     render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
     const map = h.mapInstances[0]
@@ -115,16 +146,35 @@ describe('MapView', () => {
   it('地圖建構失敗時顯示 MapFallback', () => {
     h.throwOnConstruct = true
     render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
-    expect(screen.getByText('你的瀏覽器不支援互動地圖')).toBeTruthy()
+    expect(screen.getByText(UNSUPPORTED)).toBeTruthy()
+    expect(screen.queryByText(LOAD_FAILED)).toBeNull()
   })
 
   it('load 之前發生 error 視為初始化失敗，顯示 MapFallback 並移除地圖', () => {
     render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
-    expect(screen.queryByText('你的瀏覽器不支援互動地圖')).toBeNull()
+    expect(screen.queryByText(LOAD_FAILED)).toBeNull()
     const map = h.mapInstances[0]
     act(() => map.emit('error'))
-    expect(screen.getByText('你的瀏覽器不支援互動地圖')).toBeTruthy()
+    expect(screen.getByText(LOAD_FAILED)).toBeTruthy()
+    expect(screen.queryByText(UNSUPPORTED)).toBeNull()
     expect(map.remove).toHaveBeenCalledTimes(1)
+  })
+
+  it('已移除的地圖晚到的 error 不顯示 MapFallback', () => {
+    // StrictMode 會建立、移除再重建地圖；第一個地圖已被移除
+    render(
+      <StrictMode>
+        <MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />
+      </StrictMode>,
+    )
+    expect(h.mapInstances.length).toBe(2)
+    const stale = h.mapInstances[0]
+    expect(stale.remove).toHaveBeenCalledTimes(1)
+    act(() => stale.emit('error'))
+    expect(screen.queryByText(LOAD_FAILED)).toBeNull()
+    expect(screen.queryByText(UNSUPPORTED)).toBeNull()
+    expect(stale.remove).toHaveBeenCalledTimes(1)
+    expect(h.mapInstances[1].remove).not.toHaveBeenCalled()
   })
 
   it('load 之後的 error 不顯示 MapFallback', () => {
@@ -134,7 +184,7 @@ describe('MapView', () => {
       map.emit('load')
       map.emit('error')
     })
-    expect(screen.queryByText('你的瀏覽器不支援互動地圖')).toBeNull()
+    expect(screen.queryByText(LOAD_FAILED)).toBeNull()
     expect(map.remove).not.toHaveBeenCalled()
   })
 
@@ -158,6 +208,26 @@ describe('MapView', () => {
     const arg = h.mapInstances[0].flyTo.mock.calls.at(-1)![0]
     expect(arg.center).toEqual([120.44, 23.56])
     expect(arg.essential).toBeUndefined()
+  })
+
+  it('桌面寬度 flyTo 時左側留出卡片面板的 padding', () => {
+    stubViewport(true)
+    const { rerender } = render(
+      <MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />,
+    )
+    rerender(<MapView groups={groups} bounds={bounds} selectedId="1" onSelect={noop} />)
+    const arg = h.mapInstances[0].flyTo.mock.calls.at(-1)![0]
+    expect(arg.padding).toEqual({ left: 424, top: 0, right: 0, bottom: 0 })
+  })
+
+  it('手機寬度 flyTo 時底部留出抽屜高度（容器 60%）的 padding', () => {
+    stubViewport(false, 800)
+    const { rerender } = render(
+      <MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />,
+    )
+    rerender(<MapView groups={groups} bounds={bounds} selectedId="1" onSelect={noop} />)
+    const arg = h.mapInstances[0].flyTo.mock.calls.at(-1)![0]
+    expect(arg.padding).toEqual({ bottom: 480, top: 0, left: 0, right: 0 })
   })
 
   it('改變選取不重建標記，並以 aria-pressed 標示選取', () => {
