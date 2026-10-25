@@ -34,6 +34,13 @@ describe('App', () => {
     expect(screen.queryByRole('complementary')).toBeNull()
   })
 
+  it('正式資料沒有略過項目，載入時不會 console.warn', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const App = await load()
+    render(<App />)
+    expect(warn).not.toHaveBeenCalled()
+  })
+
   it('#p=96220 顯示該地點卡片', async () => {
     window.location.hash = '#p=96220'
     const App = await load()
@@ -87,6 +94,8 @@ describe('App', () => {
     const App = await load()
     render(<App />)
     expect(warn).toHaveBeenCalledTimes(1)
-    expect(String(warn.mock.calls[0][0])).toMatch(/#0/)
+    const msg = String(warn.mock.calls[0][0])
+    expect(msg).toMatch(/#0: missing properties/)
+    expect(msg).toMatch(/#1: not an object/)
   })
 })

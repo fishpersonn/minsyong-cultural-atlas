@@ -22,7 +22,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
   return (
-    <article className="relative flex max-h-full w-full flex-col overflow-hidden bg-white text-[#14313b]">
+    <article className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-[#14313b]">
       <Button
         type="button"
         size="icon"
@@ -33,59 +33,59 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
         <X aria-hidden="true" />
       </Button>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-      <div className="relative aspect-video shrink-0 bg-[#e3e9e6]">
-        <img
-          src={src}
-          alt={place.title}
-          onError={() => {
-            if (src !== PLACEHOLDER) setFailedSrc(src)
-          }}
-          className="size-full object-cover"
-        />
-      </div>
-
-      <div className="flex flex-col gap-3 p-4">
-        <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
-        <p className="text-sm leading-relaxed text-[#3d4b53]">{place.summary}</p>
-        <div className="flex flex-wrap gap-2">
-          {links.map((href, i) => (
-            <Button
-              key={href}
-              asChild
-              size="sm"
-              className="bg-[#1f6f8b] text-white hover:bg-[#14313b]"
-            >
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                {i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
-              </a>
-            </Button>
-          ))}
+        <div className="relative aspect-video shrink-0 bg-[#e3e9e6]">
+          <img
+            src={src}
+            alt={place.title}
+            onError={() => {
+              if (src !== PLACEHOLDER) setFailedSrc(src)
+            }}
+            className="size-full object-cover"
+          />
         </div>
-      </div>
 
-      {group.places.length > 1 && (
-        <ul className="border-t border-[#14313b]/10 py-1">
-          {group.places.map((p) => {
-            const current = p.id === place.id
-            return (
-              <li key={p.id}>
-                <button
-                  type="button"
-                  aria-current={current ? 'true' : undefined}
-                  onClick={() => onSelect(p.id)}
-                  className={`block min-h-11 w-full cursor-pointer border-l-4 px-4 py-2 text-left text-sm outline-none focus-visible:ring-2 focus-visible:ring-[#f2b134] focus-visible:ring-inset ${
-                    current
-                      ? 'border-[#d98e04] bg-[#f6efe0] font-semibold'
-                      : 'border-transparent text-[#3d4b53] hover:bg-[#eef1ee]'
-                  }`}
-                >
-                  {p.title}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
-      )}
+        <div className="flex flex-col gap-3 p-4">
+          <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
+          <p className="text-sm leading-relaxed text-[#3d4b53]">{place.summary}</p>
+          <div className="flex flex-wrap gap-2">
+            {links.map((href, i) => (
+              <Button
+                key={href}
+                asChild
+                size="sm"
+                className="bg-[#1f6f8b] text-white hover:bg-[#14313b]"
+              >
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  {i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
+                </a>
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {group.places.length > 1 && (
+          <ul className="border-t border-[#14313b]/10 py-1">
+            {group.places.map((p) => {
+              const current = p.id === place.id
+              return (
+                <li key={p.id}>
+                  <button
+                    type="button"
+                    aria-current={current ? 'true' : undefined}
+                    onClick={() => onSelect(p.id)}
+                    className={`block min-h-11 w-full cursor-pointer border-l-4 px-4 py-2 text-left text-sm outline-none focus-visible:ring-2 focus-visible:ring-[#f2b134] focus-visible:ring-inset ${
+                      current
+                        ? 'border-[#d98e04] bg-[#f6efe0] font-semibold'
+                        : 'border-transparent text-[#3d4b53] hover:bg-[#eef1ee]'
+                    }`}
+                  >
+                    {p.title}
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        )}
       </div>
     </article>
   )
