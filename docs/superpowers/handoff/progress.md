@@ -70,3 +70,10 @@ Task 8: dispatched (BASE 0c4a98b, implementer sonnet) in existing worktree; only
 Task 8: minor (deferred): README skip list omits non-object/no-properties; hash digits-only not stated
 Task 8: complete (commits 0c4a98b..58bc94b, review clean)
 Final review: dispatching (MERGE_BASE 410f1d7)
+Final fix (web session): HANDOFF items 0–6 implemented with TDD (commits 4667d1c..2016bd7); npm test 69/69, lint clean, build emits dist/assets/maplibre-gl-worker-*.mjs; vite preview serves it 200 text/javascript; dev server resolves the ?url import to node_modules worker (200).
+Ruling: the fix pass was done by the controller directly (not a separate fix subagent), followed by one scoped re-review subagent — the fixes were small and fully specified in HANDOFF — cost if wrong: none to code; process deviation only.
+Ruling: PlaceCard key is `selectedId` rather than `place.id` — App only renders the card when selectedGroup contains selectedId, so they are always equal — cost if wrong: scroll not reset in an unreachable case.
+Ruling: load-failed fallback copy is「互動地圖暫時無法載入／請檢查網路連線後重新整理頁面，或直接到大學路官網閱讀這些文章。」— HANDOFF gave only the title — cost if wrong: one-line copy edit.
+Final re-review: Clean (items 0–6 Addressed, no Critical/Important).
+Final: minor (deferred): flyTo padding persists on the camera after closing the card or crossing the 768px breakpoint until the next selection.
+Final: minor (deferred): setWorkerUrl order test relies on h.calls never being cleared (documented in test comment).
