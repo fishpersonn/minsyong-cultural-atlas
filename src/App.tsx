@@ -53,7 +53,9 @@ export default function App() {
                 aria-label="地點資訊"
                 className="absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl"
               >
+                {/* key 讓切換地點時換一張新卡片，捲動位置回到頂端 */}
                 <PlaceCard
+                  key={selectedId}
                   group={selectedGroup}
                   selectedId={selectedId}
                   onSelect={select}

@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const mapProps = vi.hoisted(() => ({ groups: [] as unknown[] }))
@@ -54,6 +54,22 @@ describe('App', () => {
     render(<App />)
     expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
     expect(window.location.hash).toBe(hash)
+  })
+
+  it('切換地點時卡片捲動位置回到頂端', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    const aside = screen.getByRole('complementary')
+    const scroller = aside.querySelector('.overflow-y-auto') as HTMLElement
+    scroller.scrollTop = 300
+    act(() => {
+      window.location.hash = '#p=93677'
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+    })
+    const next = screen.getByRole('complementary').querySelector('.overflow-y-auto') as HTMLElement
+    expect(next).not.toBe(scroller)
+    expect(next.scrollTop).toBe(0)
   })
 
   it('點關閉後 hash 為空', async () => {
