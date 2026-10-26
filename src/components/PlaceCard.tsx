@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
+import { themeName } from '@/data/themes'
+import { placeStyle } from '@/lib/placeStyle'
 import { placeholderFor } from '@/lib/placeholder'
 import type { PlaceGroup } from '@/types'
 
@@ -24,7 +26,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
   return (
-    <article className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-atlas-ink">
+    <article className="atlas-paper relative flex min-h-0 w-full flex-1 flex-col overflow-hidden text-atlas-ink">
       <Button
         type="button"
         size="icon"
@@ -35,7 +37,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
         <X aria-hidden="true" />
       </Button>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="relative aspect-video shrink-0 bg-atlas-mist">
+        <div className="relative aspect-[16/7] shrink-0 bg-atlas-mist md:aspect-video">
           <img
             key={src}
             src={src}
@@ -43,18 +45,40 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
             onError={() => {
               if (src !== PLACEHOLDER) setFailedSrc(src)
             }}
-            className="size-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
+            className="size-full object-cover [filter:sepia(0.3)_contrast(1.05)_saturate(0.9)] motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
           />
+          {/* 暈影：讓圖片邊緣略暗，像老照片 */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 shadow-[inset_0_0_48px_rgb(70_45_10/0.4)]" />
         </div>
 
         <div className="flex flex-col gap-3 p-4">
-          {(place.category || place.year) && (
-            <p className="text-xs font-medium tracking-wide text-atlas-amber">
-              {[place.category, place.year].filter(Boolean).join('・')}
-            </p>
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-medium tracking-wide text-atlas-body">
+            <span className="inline-flex items-center gap-1.5">
+              <span
+                aria-hidden="true"
+                className="size-2.5 rounded-full"
+                style={{ backgroundColor: placeStyle(place).color }}
+              />
+              {themeName(place.theme)}
+            </span>
+            {place.category && <span>{place.category}</span>}
+            {place.era && <span className="text-atlas-muted">{place.era}</span>}
+          </p>
+          <h2 className="font-title text-lg leading-snug font-semibold">{place.title}</h2>
+          {place.summary && <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>}
+          {place.extra && (
+            <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
+              {place.extra.map(([label, value]) => (
+                <div key={label} className="contents">
+                  <dt className="text-atlas-muted">{label}</dt>
+                  <dd className="text-atlas-body">{value}</dd>
+                </div>
+              ))}
+            </dl>
           )}
-          <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
-          <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
+          {place.published && (
+            <p className="text-xs text-atlas-muted">官網發布於 {place.published.replaceAll('-', '.')}</p>
+          )}
           <div className="flex flex-wrap gap-2">
             {links.map((href, i) => (
               <Button
@@ -64,7 +88,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
                 className="bg-atlas-teal text-white hover:bg-atlas-ink"
               >
                 <a href={href} target="_blank" rel="noopener noreferrer">
-                  {i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
+                  {place.links.length === 0 ? '前往大學路官網' : i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
                 </a>
               </Button>
             ))}

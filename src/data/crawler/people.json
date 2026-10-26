@@ -1,0 +1,1205 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420261,
+     23.557038
+    ]
+   },
+   "properties": {
+    "id": "people-12478",
+    "name": "洪貽慧",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-12478.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4367,
+     23.532184
+    ]
+   },
+   "properties": {
+    "id": "people-12483",
+    "name": "黃俊傑",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12483,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.434791,
+     23.557635
+    ]
+   },
+   "properties": {
+    "id": "people-14138",
+    "name": "黃崇寧",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14138,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.39840828564,
+     23.5593481798424
+    ]
+   },
+   "properties": {
+    "id": "people-14139",
+    "name": "劉清祥",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14139,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-14140",
+    "name": "魏文村",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14140,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-14141",
+    "name": "何逢時",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14141,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.412812104087,
+     23.5493406815817
+    ]
+   },
+   "properties": {
+    "id": "people-14142",
+    "name": "何尚友",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14142,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.502359783727,
+     23.5411022177847
+    ]
+   },
+   "properties": {
+    "id": "people-14143",
+    "name": "觀妙法師",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14143,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429036117766,
+     23.5557992546678
+    ]
+   },
+   "properties": {
+    "id": "people-14144",
+    "name": "蔡陳翠蓮",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14144,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450424111284,
+     23.5614855654585
+    ]
+   },
+   "properties": {
+    "id": "people-14145",
+    "name": "賴文雄",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14145,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-14146",
+    "name": "黃承義",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-14146,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.430346716927,
+     23.5571271443373
+    ]
+   },
+   "properties": {
+    "id": "people-15371",
+    "name": "何再慶",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15371,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.430346716927,
+     23.5571271443373
+    ]
+   },
+   "properties": {
+    "id": "people-15372",
+    "name": "李源泉",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15372,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.456521,
+     23.533862
+    ]
+   },
+   "properties": {
+    "id": "people-15373",
+    "name": "何武照",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15373,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.398771,
+     23.556297
+    ]
+   },
+   "properties": {
+    "id": "people-15374",
+    "name": "何木通",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15374,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15375",
+    "name": "許水閣",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15375,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15376",
+    "name": "何文思",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15376,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.442471227767,
+     23.5349704510898
+    ]
+   },
+   "properties": {
+    "id": "people-15377",
+    "name": "劉夏",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15377,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420136462209,
+     23.5377560595738
+    ]
+   },
+   "properties": {
+    "id": "people-15384",
+    "name": "許允棟",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15384,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.398771,
+     23.556297
+    ]
+   },
+   "properties": {
+    "id": "people-15387",
+    "name": "連萬誥",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15387,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15390",
+    "name": "何甘棠",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15390,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.476676,
+     23.557032
+    ]
+   },
+   "properties": {
+    "id": "people-15391",
+    "name": "謝萬水",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15391,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15392",
+    "name": "蔡金水",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15392,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-15393",
+    "name": "簡通賢",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15393,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15394",
+    "name": "江維楷",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15394,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15395",
+    "name": "魏能桂",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15395,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42624,
+     23.539162
+    ]
+   },
+   "properties": {
+    "id": "people-15396",
+    "name": "許忠君",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15396,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.476676,
+     23.557032
+    ]
+   },
+   "properties": {
+    "id": "people-15398",
+    "name": "李赤牛",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15398,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47675759691,
+     23.5583873818643
+    ]
+   },
+   "properties": {
+    "id": "people-15399",
+    "name": "蔡海漂",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15399,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.440681,
+     23.551339
+    ]
+   },
+   "properties": {
+    "id": "people-15400",
+    "name": "何燧松",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15400,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-15401",
+    "name": "簡員",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15401,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.412812104087,
+     23.5493406815817
+    ]
+   },
+   "properties": {
+    "id": "people-15402",
+    "name": "王定",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15402,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15404",
+    "name": "郭金義",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15404,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15406",
+    "name": "魏再興",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15406,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.476676,
+     23.557032
+    ]
+   },
+   "properties": {
+    "id": "people-15415",
+    "name": "謝萬添",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15415,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429996,
+     23.555456
+    ]
+   },
+   "properties": {
+    "id": "people-15416",
+    "name": "劉新祿",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15416,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.447727939186,
+     23.578313752715
+    ]
+   },
+   "properties": {
+    "id": "people-15417",
+    "name": "黃文德",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15417,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428713939142,
+     23.5517853685423
+    ]
+   },
+   "properties": {
+    "id": "people-15418",
+    "name": "陳安枝",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15418,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428713939142,
+     23.5517853685423
+    ]
+   },
+   "properties": {
+    "id": "people-15419",
+    "name": "王騫",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15419,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15420",
+    "name": "郭長泉",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15420,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.442471227767,
+     23.5349704510898
+    ]
+   },
+   "properties": {
+    "id": "people-15421",
+    "name": "李國棟",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15421,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428823177387,
+     23.5561121050876
+    ]
+   },
+   "properties": {
+    "id": "people-15422",
+    "name": "施溪川",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15422,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450424111284,
+     23.5614855654585
+    ]
+   },
+   "properties": {
+    "id": "people-15423",
+    "name": "賴仁居",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15423,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-15424",
+    "name": "簡秀通",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15424,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450424111284,
+     23.5614855654585
+    ]
+   },
+   "properties": {
+    "id": "people-15425",
+    "name": "陳聯滄",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15425,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.427628718932,
+     23.5552059961266
+    ]
+   },
+   "properties": {
+    "id": "people-15426",
+    "name": "洪復吉",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15426,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429420663025,
+     23.555406586118
+    ]
+   },
+   "properties": {
+    "id": "people-15427",
+    "name": "林長生",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15427,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.456505,
+     23.533416
+    ]
+   },
+   "properties": {
+    "id": "people-15428",
+    "name": "吳甚看",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15428,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42030365736,
+     23.5269886085545
+    ]
+   },
+   "properties": {
+    "id": "people-15429",
+    "name": "劉羅生",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15429,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42624,
+     23.539162
+    ]
+   },
+   "properties": {
+    "id": "people-15430",
+    "name": "曾柱",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15430,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.398771,
+     23.556297
+    ]
+   },
+   "properties": {
+    "id": "people-15431",
+    "name": "何炎周",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15431,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15432",
+    "name": "張岳",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15432,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429417,
+     23.555542
+    ]
+   },
+   "properties": {
+    "id": "people-15433",
+    "name": "王傳宗",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15433,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429036117766,
+     23.5557992546678
+    ]
+   },
+   "properties": {
+    "id": "people-15434",
+    "name": "劉新懷",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15434,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.440677829639,
+     23.5513151419988
+    ]
+   },
+   "properties": {
+    "id": "people-15435",
+    "name": "許義",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15435,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15436",
+    "name": "楊逞雄",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15436,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4292,
+     23.55455
+    ]
+   },
+   "properties": {
+    "id": "people-15437",
+    "name": "何平",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15437,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.448809,
+     23.52647
+    ]
+   },
+   "properties": {
+    "id": "people-15438",
+    "name": "陳運",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15438,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.381034,
+     23.540785
+    ]
+   },
+   "properties": {
+    "id": "people-15440",
+    "name": "何吉",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15440,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.430222,
+     23.555345
+    ]
+   },
+   "properties": {
+    "id": "people-15441",
+    "name": "陳知",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15441,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.427162,
+     23.568497
+    ]
+   },
+   "properties": {
+    "id": "people-15442",
+    "name": "何夏",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15442,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15443",
+    "name": "陳聯彬",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15443,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429036117766,
+     23.5557992546678
+    ]
+   },
+   "properties": {
+    "id": "people-15444",
+    "name": "許滄明",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15444,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42030365736,
+     23.5269886085545
+    ]
+   },
+   "properties": {
+    "id": "people-15446",
+    "name": "魏能仁",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15446,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420136462209,
+     23.5377560595738
+    ]
+   },
+   "properties": {
+    "id": "people-15447",
+    "name": "劉番王",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15447,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420136462209,
+     23.5377560595738
+    ]
+   },
+   "properties": {
+    "id": "people-15448",
+    "name": "劉廷獻",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15448,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420136462209,
+     23.5377560595738
+    ]
+   },
+   "properties": {
+    "id": "people-15449",
+    "name": "劉容如",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15449,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.402051599977,
+     23.5328614821648
+    ]
+   },
+   "properties": {
+    "id": "people-15450",
+    "name": "何紅毛",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15450,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.420136462209,
+     23.5377560595738
+    ]
+   },
+   "properties": {
+    "id": "people-15451",
+    "name": "盧欺頭",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15451,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.451206,
+     23.561944
+    ]
+   },
+   "properties": {
+    "id": "people-15452",
+    "name": "陳實華",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-15452.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.447727939186,
+     23.578313752715
+    ]
+   },
+   "properties": {
+    "id": "people-15453",
+    "name": "蔡麟",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15453,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.428428,
+     23.551777
+    ]
+   },
+   "properties": {
+    "id": "people-15454",
+    "name": "何立",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15454,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.427162,
+     23.568497
+    ]
+   },
+   "properties": {
+    "id": "people-15455",
+    "name": "何銅交",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15455,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.429036117766,
+     23.5557992546678
+    ]
+   },
+   "properties": {
+    "id": "people-15456",
+    "name": "劉廷輝",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15456,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.498845855018,
+     23.5618361190533
+    ]
+   },
+   "properties": {
+    "id": "people-15458",
+    "name": "翁貞惠",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-15458,c376.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  }
+ ]
+}

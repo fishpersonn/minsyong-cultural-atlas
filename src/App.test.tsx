@@ -154,6 +154,64 @@ describe('App', () => {
     expect(window.location.hash).toBe('')
   })
 
+  it('點分類只留下該分類的標記，再點「全部」恢復', async () => {
+    const App = await load()
+    render(<App />)
+    const countPlaces = () => {
+      const g = mapProps.groups.at(-1) as { places: unknown[] }[]
+      return g.reduce((n, x) => n + x.places.length, 0)
+    }
+    const total = countPlaces()
+    expect(total).toBeGreaterThan(600)
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    expect(countPlaces()).toBe(24)
+    fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
+    expect(countPlaces()).toBe(2)
+    fireEvent.click(screen.getByRole('button', { name: '全部分類' }))
+    expect(countPlaces()).toBe(24)
+    fireEvent.click(screen.getByRole('button', { name: '全部主題' }))
+    expect(countPlaces()).toBe(total)
+  })
+
+  it('篩選排除了目前選取的地點時取消選取並清掉網址', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
+    expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
+    expect(window.location.hash).toBe('')
+  })
+
+  it('篩選後上一個／下一個只在符合的地點之間切換', async () => {
+    window.location.hash = '#p=93677'
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
+    expect(screen.getByText('1 / 2')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))
+    expect(screen.getByText('2 / 2')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))
+    expect(screen.getByText('1 / 2')).toBeTruthy()
+  })
+
+  it('清單的搜尋會縮小清單與地圖，沒有結果時可清除', async () => {
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '農會倉庫' } })
+    const list = screen.getByRole('region', { name: '地點清單' })
+    expect(within(list).getAllByRole('button', { name: /農會倉庫/ }).length).toBeGreaterThan(1)
+    expect(within(list).queryByRole('button', { name: /從鐵路到電波/ })).toBeNull()
+    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '完全不存在的字串' } })
+    expect(screen.getByText('沒有符合的地點。')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
+    expect(within(screen.getByRole('region', { name: '地點清單' })).getAllByRole('button', { name: /從鐵路到電波/ })).toHaveLength(1)
+  })
+
   it('使用說明的「看地點清單」會開啟清單', async () => {
     const App = await load()
     render(<App />)

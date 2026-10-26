@@ -77,6 +77,26 @@ describe('PlaceCard', () => {
     expect(screen.queryByRole('button', { name: '上一個地點' })).toBeNull()
   })
 
+  it('顯示主題名；有額外資訊時列成「標籤 內容」，沒有摘要不留空段落', () => {
+    const p = mk('7', {
+      theme: 'food',
+      summary: '',
+      links: [],
+      category: '越南',
+      extra: [['地址', '嘉義縣民雄鄉福權4-3號'], ['電話', '05-2269177']],
+    })
+    const { container } = render(<PlaceCard group={group(p)} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.getByText('東南亞美食')).toBeTruthy()
+    expect(screen.getByText('越南')).toBeTruthy()
+    expect(screen.getByText('地址')).toBeTruthy()
+    expect(screen.getByText('嘉義縣民雄鄉福權4-3號')).toBeTruthy()
+    expect(screen.getByText('05-2269177')).toBeTruthy()
+    // 沒有摘要：標題後面直接是額外資訊，不會有空的 <p>
+    expect(Array.from(container.querySelectorAll('p')).some((el) => el.textContent === '')).toBe(false)
+    // 沒有連結時按鈕改成前往官網首頁，不假裝有文章
+    expect(screen.getByRole('link', { name: '前往大學路官網' }).getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
+  })
+
   it('沒有圖片時直接顯示預設圖', () => {
     render(<PlaceCard group={group(mk('4', { images: [] }))} selectedId="4" onSelect={noop} onClose={noop} />)
     expect(screen.getByRole('img', { name: '標題4' }).getAttribute('src')).toBe(placeholderFor('4'))
@@ -92,7 +112,7 @@ describe('PlaceCard', () => {
 
   it('links 為空時連到官網首頁', () => {
     render(<PlaceCard group={group(mk('7', { links: [] }))} selectedId="7" onSelect={noop} onClose={noop} />)
-    const link = screen.getByRole('link', { name: '到官網閱讀全文' })
+    const link = screen.getByRole('link', { name: '前往大學路官網' })
     expect(link.getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
     expect(link.getAttribute('target')).toBe('_blank')
   })

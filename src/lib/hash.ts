@@ -1,5 +1,5 @@
 export function parseHash(hash: string): string | null {
-  const m = /^#p=(\d+)$/.exec(hash)
+  const m = /^#p=([\w-]+)$/.exec(hash)
   return m ? m[1] : null
 }
 

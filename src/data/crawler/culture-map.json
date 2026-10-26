@@ -1,0 +1,1228 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4494949,
+     23.5620181
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i1",
+    "name": "豐收派出所"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450493,
+     23.5619951
+    ]
+   },
+   "properties": {
+    "id": "culture-map-30063",
+    "name": "五穀王廟",
+    "摘要": "村民為祈求五穀豐收，於1693年興建了五穀王廟。五穀王廟主祀的神明是五穀聖帝，相傳能掌管農作的生長和除疫祛病。日治時期，臺灣地主為減少地稅，而將土地登記在廟宇名下，五穀王廟也�",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-30063.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4511525,
+     23.5618159
+    ]
+   },
+   "properties": {
+    "id": "culture-map-17095",
+    "name": "陳實華洋樓 (五穀王廟景觀公園)",
+    "摘要": "陳家洋樓建於1920年代，外型為辰野式風格，與總督府建築頗為相似。陳實華長子陳聯彬過去在家中經營醫務所，後為了將診間與居間分離，因而起建這棟洋樓。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-17095.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4526907,
+     23.5572878
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050",
+    "name": "水流媽廟",
+    "摘要": "水流媽是指因水罹難的無主女性孤魂。日治時期，好收村民們為溪旁的無名女屍興建了一間小祠，燒香祭拜。好收村民認為水流媽是庇佑村民平安的守護靈。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.448569,
+     23.562787
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-2",
+    "name": "林姓宗祠",
+    "摘要": "好收林家於清領時期（乾隆年間）渡海來台，來台的第一代祖先林友仁住在苗栗通霄，其後林家第二代因風水考量而遷移至嘉義民雄。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4505741,
+     23.5614763
+    ]
+   },
+   "properties": {
+    "id": "culture-map-12579",
+    "name": "豐收社區發展協會",
+    "摘要": "社區發展協會於2008年成立，定期聚辦老人共餐、健康促進、歌唱班等活動。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-12579.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.447197566931,
+     23.560825589027
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i7",
+    "name": "土地公廟(舊)",
+    "摘要": "豐收村的福德廟是聚落成立當時，住民為祈求年年豐收，乃奉祀福德正神。民國53、54年好收段土地，水圳有變遷。土地公廟就處無水口，新址有一條排水可得錢水。蓋完新廟之後，因為財產都�"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.445880831114,
+     23.5619990995121
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16099",
+    "name": "土地公廟(新)",
+    "摘要": "1. 民國76年3月5日土地公新廟重建完成，民國87年又翻修成大廟，民國100年再翻修一次。\\n2. 土地公換的衣褲和帽子都錯了，因為處理的人不知道要跟店家指定。豐收土地公應該戴宰相帽，因為嘉�",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16099.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450443500296,
+     23.5619997961343
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-3",
+    "name": "陳氏宗祠",
+    "摘要": "清領時期（乾隆年間）渡海來台，第一代祖先林友仁住在苗栗通霄，其後第二代因風水考量而遷移至嘉義民雄。為了凝聚彼此的向心力，除了在村內興建廟宇，也設立同姓宗祠。位於五穀王廟��",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4518056,
+     23.5607007
+    ]
+   },
+   "properties": {
+    "id": "culture-map-21561",
+    "name": "震天府",
+    "摘要": "震天府主祀的神明為五府千歲，五府千歲是指五位王神爺。震天府創建於光緒三年（1877年），當年村民們為了感謝五府千歲庇佑全村平安度過戴潮春之亂，因而合力創建震天府。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-21561.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.452163461003,
+     23.5623676061682
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-4",
+    "name": "米絞(陳茂喜服務處)",
+    "摘要": "過去農家精米的場所。早期農民會向米絞借錢，以購買農用的器具和種苗。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.452183651323,
+     23.5622351052523
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-5",
+    "name": "米絞",
+    "摘要": "過去農家精米的場所。早期農民會向米絞借錢，以購買農用的器具和種苗。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.445685277673,
+     23.561867083458
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-6",
+    "name": "東勢線支點",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4467036,
+     23.5679176
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i14",
+    "name": "橫山橋"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4377752,
+     23.5573604
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i15",
+    "name": "太平橋(番仔橋頭)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.457589,
+     23.5621063
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i16",
+    "name": "蔦松公",
+    "摘要": "好收唯一沒有和水流相接的東邊村口有棵大榕樹。榕樹下方放著小香爐、繫著牌子，牌子上寫著「豐收庄蔦松公」。"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4454205,
+     23.5602991
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-7",
+    "name": "蔗埕",
+    "摘要": "從清領時期到戰後1960年代期間，甘蔗一直是嘉義地區重要的經濟作物。早期，好收庄內有大坵線和東勢線，兩條鐵路交匯處附近有一座蔗埕。蔗埕是甘蔗的集貨地。過去蔗農們會先用牛車將甘�",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4475784,
+     23.5616223
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-8",
+    "name": "米絞",
+    "摘要": "過去農家精米的場所。早期農民會向米絞借錢，以購買農用的器具和種苗。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4499536371503,
+     23.56266736
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-9",
+    "name": "土虱甕",
+    "摘要": "以前沒有水泥，土虱朝，鑽土進去，繁殖。以前沒有農藥，有土虱、泥鰍、蝦子、青蛙一大堆。土虱聚集在這邊，村民會用魚簍抓來吃。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.45147532492378,
+     23.56068768294092
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16050-10",
+    "name": "豬灶",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16050.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38175100799023,
+     23.545410924068733
+    ]
+   },
+   "properties": {
+    "id": "culture-map-30621",
+    "name": "呷飽麥",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-30621.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38458,
+     23.54726
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049",
+    "name": "草繩工坊",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38219,
+     23.54552
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-2",
+    "name": "石雕藝術工作室",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38235,
+     23.54507
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-3",
+    "name": "土地公廟（西昌）",
+    "摘要": "白河大地震後，村民在當時聚落的最西邊建起土地公廟，希望土地公能保村民平安順遂。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3829,
+     23.544314
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-4",
+    "name": "慈雲亭",
+    "摘要": "慈雲亭是西昌村的信仰中心，主祀觀音佛祖。傳說乾隆年間有一僧人，手抱石觀音從北港到嘉義，路經何竹仔腳，休息後臨走時卻請不動石觀音。\n圍觀的村民認為觀音想要駐守此地，因此當地保長即懇求觀音永久留在庄內，音佛祖便應許了。\n僧人見狀立刻擇地建廟，並將廟命名為慈雲亭。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38204,
+     23.54412
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-5",
+    "name": "黃麻池",
+    "摘要": "西昌村的地勢東高西低，因此水流同樣也是由東往西流經村落。1嘉南大圳完工後，擋住了往西邊排出的水流，位處低窪的西昌村，更容易於雨季積水。\n水流的沖積，雖然帶來淹水的困擾，但也造就在地多樣的農、漁產業。\n村民會運用水池養鴨、養魚、種蓮花、種菱角、洗黃麻等等",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.37721,
+     23.5353
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-6",
+    "name": "西昌抽水站",
+    "摘要": "2020年政府於嘉南大圳與竹仔腳排水的交匯處增設西昌抽水站，與竹仔腳抽水站共同運作，有效地改善當地的淹水情形。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.37552,
+     23.53459
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16049-7",
+    "name": "竹仔腳抽水站",
+    "摘要": "2020年政府於嘉南大圳與竹仔腳排水的交匯處增設西昌抽水站，與竹仔腳抽水站共同運作，有效地改善當地的淹水情形。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16049.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.38191,
+     23.53662
+    ]
+   },
+   "properties": {
+    "id": "culture-map-13303",
+    "name": "五彩崗",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-13303.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3822,
+     23.53539
+    ]
+   },
+   "properties": {
+    "id": "culture-map-14344",
+    "name": "憨己園",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-14344.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.384406,
+     23.54604
+    ]
+   },
+   "properties": {
+    "id": "culture-map-20990",
+    "name": "會長米",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-20990.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43719,
+     23.51423
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835",
+    "name": "金興村社區活動中心",
+    "摘要": "儘管金興社區沒有悠久的歷史，居民來自不同的地方，生活背景也大相逕庭，但面對社區問題時，村民總是拱童鞋立，對金興村有了認同感與歸屬感。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43921,
+     23.51336
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-2",
+    "name": "土地公廟（金興）",
+    "摘要": "與牛稠溪相鄰的金興村，在1970年以前，因為地勢緣故，時常淹水形成小湖泊，又被稱為「湖來」。當時在湖來耕種的農民為求平安，在此立了土地公的神牌，土地公成為最早入住金興村的住戶。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43676,
+     23.51755
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-3",
+    "name": "忠義元帥廟",
+    "摘要": "1980年代，金興村的洪家長子久病未癒，台南鹽水的三王公引介了金興村內的守護神：忠義元帥領旨，解決了洪家人的難題，同時負責守護村子的平安。當時村民出錢、出力共同建起了忠義元帥廟，而其也是金興村唯一一間公廟。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43848,
+     23.5125
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-4",
+    "name": "福興2號堤防",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43518,
+     23.51519
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16302",
+    "name": "滯洪池",
+    "摘要": "莫拉克颱風過後，村民積極向公所反應既有抽水站的問題（設立位置過高，難以將積水排至河水中），並提出了社區滯洪池的想法，於是滯洪池魚2020年建成。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16302.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43694,
+     23.51424
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16302-2",
+    "name": "金興抽水站（舊）",
+    "摘要": "村民正在計畫未來將其改造為淹水博物館，整理、留存社區的淹水歷史以及村民們在打水中累積出的智慧。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16302.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43349,
+     23.51446
+    ]
+   },
+   "properties": {
+    "id": "culture-map-16302-3",
+    "name": "金興抽水站（新）",
+    "摘要": "與滯洪池同樣於2020年啟用。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16302.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43989,
+     23.51626
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-5",
+    "name": "生鮮雜貨店（俊傑商號）",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43598,
+     23.51781
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-6",
+    "name": "中興圳步道",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.44042,
+     23.51659
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33835-7",
+    "name": "金興村舊市場",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33835.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47650394022466,
+     23.557110633439837
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669",
+    "name": "三興村活動中心",
+    "摘要": "一樓為村辦公室，二樓為社區發展協會的活動空間，供居民學習、活動之用，也是社區老人食堂的據點。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47287236774145,
+     23.563385918938643
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-2",
+    "name": "中正大學",
+    "摘要": "建校於1989年，佔地130公頃，廣大校地多由鄰近的豐收村穀豐宮提供，是雲嘉地區重要的綜合型研究大學，也是在地居民休閒的好地方。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.48188959084005,
+     23.557811473569444
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-3",
+    "name": "三興國小",
+    "摘要": "1948年設立「民雄國小三興分校」，多次改隸後，於1964年獨立設校，爾後因舊校區土地提供中正大學建校使用，於1996年遷移至現址。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47671410224814,
+     23.55686805648073
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-4",
+    "name": "三興村槌球場",
+    "摘要": "早期由紅十字會引進槌球，現在已成立三興槌球隊，到各地比賽並屢獲佳績，獎盃放在社區的活動中心內收藏。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47854959615793,
+     23.557391439314802
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-5",
+    "name": "三興村土地公廟",
+    "摘要": "土地公廟建廟時間有二說，一是建於1843年；另一說建於1921年。居民會在元宵、農曆二月二日及中秋，於社區活動中心前舉辦祭祀活動。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4797485220908,
+     23.55717867313882
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-6",
+    "name": "三興村三姓公廟",
+    "摘要": "主祀為三姓公。建於1927年，在開墾時挖到三具無名衣冠塚，陳家人建祠安奉，從此六畜平安，成為陳厝寮當地的信仰中心。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47960883731879,
+     23.556701275979076
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-7",
+    "name": "陳氏宗祠",
+    "摘要": "康熙年間，陳氏先祖自福建漳州來台，始住打貓番社，繼住竹圍仔，又移往好收庄，最終落腳陳厝寮，在此種植甘蔗，並設三所糖廍製糖。陳氏家族以此向外發展，後代亦不忘本，於今龍泉溪旁建其公廳，紀念先祖墾荒精神。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47667183640617,
+     23.556675784554187
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-8",
+    "name": "三興村五營",
+    "摘要": "（本點位為西營）民俗信仰中保護村莊重要守護神。陳厝寮的五營分布：北營位在三興國小外，西營位在活動中心對面，東營位在嘉民變電所路上，南營位在往松山村的路上。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47820361046547,
+     23.55643378448876
+    ]
+   },
+   "properties": {
+    "id": "culture-map-15398",
+    "name": "赤牛居",
+    "摘要": "李赤牛舊居。李赤牛在日治時代被推舉為陳厝藔莊的保正，光復後為三興村村長，任職三十餘年，對地方貢獻良多。此建築為三合院，約1966年興建。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-15398.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.48011472893305,
+     23.55678694172167
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-9",
+    "name": "龍泉溪",
+    "摘要": "早期社區取水不易，龍泉溪是重要民生用水來源。村民口述，據傳早期溪水豐沛，但曾有殯葬業者從此經過並取水洗手，而觸怒河神，從此乾涸。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47593528092793,
+     23.557182023280426
+    ]
+   },
+   "properties": {
+    "id": "culture-map-38067",
+    "name": "金桔農莊",
+    "摘要": "金桔觀光工廠是由原加工廠轉變而來，館內可見早期文物和加工品的製作過程；館外的遊戲場和步道，則是大家休閒的好地方。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-38067.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.47878291639694,
+     23.556220659781896
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-10",
+    "name": "琪琪優格",
+    "摘要": "琪琪優格迎合現代人飲食的健康取向，將鳳梨在內的多種水果製成果醬，淋在純天然發酵的優格上，搭配當季水果，健康又美味。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-35669.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.48031813139418,
+     23.553010927361456
+    ]
+   },
+   "properties": {
+    "id": "culture-map-36761",
+    "name": "旺萊山",
+    "摘要": "旺萊山致力於鳳梨相關產品的研發，從日常生活跨足到保健、美妝。此外，園區開放遊客一覽田園風光，並了解鳳梨的一生。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-36761.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.48014159979611,
+     23.552825254977485
+    ]
+   },
+   "properties": {
+    "id": "culture-map-36426",
+    "name": "阿美鳳梨",
+    "摘要": "阿美鳳梨擅長新品種的研發，除招牌的玉蘭花鳳梨，還有櫻桃、水蜜桃鳳梨等特別品種。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-36426.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42950724621096,
+     23.555991334700717
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34509",
+    "name": "大士爺廟（慈濟寺）",
+    "摘要": "1906年梅山大地震後，居民合併四座廟的殘餘建材在現址建立了大士爺廟。受限於日本殖民的宗教禁令，當時是以「慈濟寺」的名義重建，直到1987年大士爺廟才恢復原本廟名。\n大士爺被認為是觀音大士的化身，也被稱為普渡公。在台灣相當常見，但唯有打貓將大士爺作為主祀神祇，且每年只在祭典三天以紙糊形象被供俸於正殿，最後一天普渡後隨即火化。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-34509,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4296012407696,
+     23.556475247026423
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34509-2",
+    "name": "新慶誠宮（媽祖宮）",
+    "摘要": "建於1809年，在地人習慣稱「媽祖宮」。傳說嘉慶君遊台灣，夜宿媽祖宮後覺得神清氣爽，回朝便將其敕封「慶誠宮」。舊時慶誠宮的信仰範圍相當廣，最遠至雲林古坑，廟埕的集市相當熱鬧，是民雄市場的前身。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-34509,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42963583188873,
+     23.552995574704653
+    ]
+   },
+   "properties": {
+    "id": "culture-map-36047",
+    "name": "騎虎王廟（保安宮）",
+    "摘要": "乾隆年間，有位福州人擔了一座神龕到打貓街定居，神龕裡供奉著騎虎尊王——五尊騎著老虎的王爺。神龕落定後，信眾日益增多。\n在台灣，祀奉騎虎尊王的廟宇相當罕見。除此之外，騎虎王廟裡的虎爺也非常特別，是以側躺的方式坐鎮，有別於一般虎爺多採坐姿、站姿。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-36047.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42863017918168,
+     23.556030862831317
+    ]
+   },
+   "properties": {
+    "id": "culture-map-36126",
+    "name": "保生大帝廟（大道公廟）",
+    "摘要": "打貓街保生大帝廟的建立可上溯到1754年。1906年梅山大地震，保生大帝廟和打貓街其他廟宇一樣，嚴重毀損，直到1912年才重建完工。由於保生大帝被民間尊奉為醫神，醫學不發達的年代，病人及其家屬常會跟保生大帝求取藥方。向保生大帝取得藥籤後，便會到特定的中藥行，中藥行老闆能夠對照藥籤，幫客人抓藥。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-36126.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42878864733518,
+     23.56427245737816
+    ]
+   },
+   "properties": {
+    "id": "culture-map-12784",
+    "name": "國家廣播文物館（民雄放送所）",
+    "摘要": "1938年，日本政府為了南進的軍事，耗時三年在打貓街的北邊興建「民雄放送所」。為了讓廣播傳送到海外，達成心戰用途，民雄放送所設有日本電氣公司於二戰時期生產的發射機，以及兩座70層樓高的T型天線鐵塔。發射機至今尚能使用，且為世界僅存的一部。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-12784.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42967547955809,
+     23.56065989221609
+    ]
+   },
+   "properties": {
+    "id": "culture-map-12784-2",
+    "name": "日式招待所＆日式宿舍區",
+    "摘要": "1938年，日本政府施工建造民雄放送所時，也在南側蓋起日式官舍。其中，有一幢兩層樓的日式招待所。\n招待所周邊、較晚完工的宿舍區，分成甲、乙、丙、丁四種等級的判任官官舍，提供不同職等的人員使用。1940年，民雄放送所正式播音後，即有大批工程技術員與播音員住進宿舍區。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-12784.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4314398397183,
+     23.55807134943696
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i62",
+    "name": "大眾爺廟（福安祠）",
+    "摘要": "1895年，台灣割讓給日本之際，日軍攻佔打貓，戰場即發生於打貓街北門，死傷無數，地方人士將鄉勇軍的遺骸就地合葬，即大眾爺廟的前身。百姓祭拜抗日人士，受到日本政府的限制，原有的大眾爺廟因而遭到拆除。\n1966年，信眾重建了大眾爺廟。廟宇重建至今，每年陰曆六月半皆會舉辦祭典撫慰無主的亡魂。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43132594514532,
+     23.55807622803862
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i63",
+    "name": "樂仙樓",
+    "摘要": "現今大眾爺廟的西側，日治時期曾矗立著打貓街上立面裝飾最為華美的酒樓——樂仙樓。1945年因應美軍空襲，樂仙樓作為臨時救護所使用。同年3月20日，空襲炸藥正中樂仙樓，樓房瞬間被捲入煙霧中，待濃煙散去，曾經的朱閣青樓已是殘垣、斷壁、碎瓦。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42994312401748,
+     23.55226225137632
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i64",
+    "name": "民雄天主堂",
+    "摘要": "民雄天主堂全名為民雄聖德蘭堂。1922年，西班牙籍的良雅師神父到民雄傳教，在地的慕道者日益增多。1931年，教友捐地讓教會順利蓋起兩層樓的木造小聖堂。然而，卻在1945年，因美軍空襲投下的燃燒彈，焚毀了整間聖堂。\n直到1954年，嘉義教區牛會卿主教、莊懷淵神父籌資在現址建造清水紅磚立面的聖堂、宿舍和道理廳。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42878744737092,
+     23.555734464820418
+    ]
+   },
+   "properties": {
+    "id": "culture-map-33179",
+    "name": "民雄長老教會",
+    "摘要": "1912年，教會設立初期屬於嘉義東門長老教會的支會，也還沒有自己的禮拜堂，信徒們都在民宅裡做禮拜。教會的禮拜場所前後遷移了七次位置，直到1925年買下了現在的教會地點。不過，當時的建築與現在不同，是閩式風格的平房。1954年，才改建為現在所見的禮拜堂。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-33179.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43006828834349,
+     23.557548352631745
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i66",
+    "name": "紙片屋",
+    "摘要": "紙片屋從正面看與一般房屋無異，但從側面看卻薄得像看板。打貓街會有如此神祇的房屋出現，跟1970至1980年代的道路拓寬有關。\n因為拓寬工程，街區鄰靠道路的土地被徵收。原有地主在剩下的地上畸零地上蓋房子。由於不少房屋受到波及，街區僅存的老建築多隱藏在沒有拓寬的巷弄內。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43093500640286,
+     23.556346186975524
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i67",
+    "name": "舊慶誠宮",
+    "摘要": "1906年因梅山大地震毀損，將近百年的時間裡，媽祖神像先後祀奉在騎虎王廟、大士爺廟後殿。2000年，在信眾的努力下，廟宇於中樂路、生平路口重建完工。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42918764644004,
+     23.554535576119623
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i68",
+    "name": "民雄國小",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4302219876374,
+     23.555104053001504
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i69",
+    "name": "民雄警察分局",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43046174918597,
+     23.554563312296754
+    ]
+   },
+   "properties": {
+    "id": "culture-map-i70",
+    "name": "民雄分局宿舍",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/406-1159-33825,r3277.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43098755153292,
+     23.555049003729238
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34696",
+    "name": "民雄郵局",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-34696.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43164493539604,
+     23.55523146102319
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34696-2",
+    "name": "民雄車站",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-34696.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4483694,
+     23.5626923
+    ]
+   },
+   "properties": {
+    "id": "culture-map-39222",
+    "name": "匯聚成河的點滴記憶——豐收村過溝仔的半島生活記",
+    "摘要": "林偉烈是好收林家的後代。從清領時期開始，林家人便住在過溝仔。他們家族的歷史跟豐收村、民雄鄉，甚至到整個台灣都有相關。這次我們透過林偉烈提供的家族老照片，認識聚落裡的人、看過溝仔近40年的變遷。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-39222,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4124638,
+     23.5627866
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35809",
+    "name": "【講咱番仔庄】福權村的古往今來",
+    "摘要": "爬梳相關文獻及史料，可以發現歷史上的福權村有著不同的樣貌。經過幾次的改朝換代，讓福權村有了不一樣的名字，「番仔庄」這個舊地名卻一直存在著。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-35809,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4780075,
+     23.5565126
+    ]
+   },
+   "properties": {
+    "id": "culture-map-35669-11",
+    "name": "【三興村陳厝寮地圖】",
+    "摘要": "你知道嗎？市面上大家熟知的「金鑽鳳梨」的故鄉在三興村喔！",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-35669,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4289906,
+     23.5555736
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34933",
+    "name": "【打貓街】街市名人",
+    "摘要": "打貓街有活絡的商圈，也處處藏龍臥虎：隱身於市井的畫家、聲名遠揚的相命士、熱心辦學的藥師……，饒富人文藝術氣息。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-34933,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43184,
+     23.5552063
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34696-3",
+    "name": "【打貓街】車站周邊",
+    "摘要": "1903年，打貓驛（今民雄車站）建造完工，街上貨運行、碾米工廠林立，旅客絡繹不絕。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-34696,c3015.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4304375,
+     23.5563326
+    ]
+   },
+   "properties": {
+    "id": "culture-map-34697",
+    "name": "【打貓街】市場周邊",
+    "摘要": "鄰近車站的民雄市場，早年是貨物的集散地。1909年，日本政府為改善地方的公共衛生，將四散的攤販集中到新建的市場。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-34697,c3015.php?Lang=zh-tw"
+   }
+  }
+ ]
+}
