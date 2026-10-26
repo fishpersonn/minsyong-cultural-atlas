@@ -1,12 +1,13 @@
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const mapProps = vi.hoisted(() => ({ groups: [] as unknown[], bounds: [] as unknown[] }))
+const mapProps = vi.hoisted(() => ({ groups: [] as unknown[], bounds: [] as unknown[], resets: [] as unknown[] }))
 
 vi.mock('@/components/MapView', () => ({
-  default: (props: { groups: unknown[]; bounds: unknown; onSelect: (id: string) => void }) => {
+  default: (props: { groups: unknown[]; bounds: unknown; resetSignal?: number; onSelect: (id: string) => void }) => {
     mapProps.groups.push(props.groups)
     mapProps.bounds.push(props.bounds)
+    mapProps.resets.push(props.resetSignal)
     return <button onClick={() => props.onSelect('96220')}>mock-map</button>
   },
 }))
@@ -21,6 +22,7 @@ beforeEach(() => {
   localStorage.clear()
   mapProps.groups = []
   mapProps.bounds = []
+  mapProps.resets = []
 })
 afterEach(() => {
   cleanup()
@@ -269,15 +271,43 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: /^建築測繪/ }).getAttribute('aria-pressed')).toBe('true')
   })
 
-  it('「隨機一個」在目前篩選的地點中挑一個並選取', async () => {
+  it('點標題列的站名回到首頁：清掉篩選、搜尋、選取，收起清單與關於，並通知地圖拉回', async () => {
+    window.location.hash = '#p=96220&t=podcast&q=%E8%BE%B2%E6%9C%83'
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    expect(screen.getByRole('region', { name: '地點清單' })).toBeTruthy()
+    const before = mapProps.resets.at(-1) as number
+    fireEvent.click(screen.getByRole('button', { name: /回到首頁/ }))
+    expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
+    expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
+    expect((screen.getByRole('searchbox', { name: '搜尋地點' }) as HTMLInputElement).value).toBe('')
+    expect(window.location.hash).toBe('')
+    expect(mapProps.resets.at(-1)).toBe(before + 1)
+    // 主題篩選也清掉了：所有地點都回來
+    const g = mapProps.groups.at(-1) as { places: unknown[] }[]
+    expect(g.reduce((n, x) => n + x.places.length, 0)).toBeGreaterThan(600)
+  })
+
+  it('地圖上的小圓鈕有名字（aria-label 與 title），文字只是滑過時才顯示的裝飾', async () => {
+    const App = await load()
+    render(<App />)
+    for (const name of ['隨便逛逛', '身邊有什麼']) {
+      const button = screen.getByRole('button', { name })
+      expect(button.title).toBe(name)
+      expect(button.textContent).toBe(name) // 滑出來的文字在 DOM 裡（aria-hidden），不是額外的第二個名字
+    }
+  })
+
+  it('「隨便逛逛」在目前篩選的地點中挑一個並選取', async () => {
     window.location.hash = '#t=stele'
     const App = await load()
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: /隨機一個/ }))
+    fireEvent.click(screen.getByRole('button', { name: '隨便逛逛' }))
     expect(window.location.hash).toMatch(/^#p=stele-\d+&t=stele$/)
   })
 
-  it('「我附近」用定位選取最近的地點；太遠或被拒絕時只顯示提示', async () => {
+  it('「身邊有什麼」用定位選取最近的地點；太遠或被拒絕時只顯示提示', async () => {
     const getCurrentPosition = vi.fn()
     Object.defineProperty(navigator, 'geolocation', { value: { getCurrentPosition }, configurable: true })
     const App = await load()
@@ -286,18 +316,18 @@ describe('App', () => {
     window.location.hash = ''
     const first = (mapProps.groups.at(-1) as { lng: number; lat: number }[])[0]
     getCurrentPosition.mockImplementationOnce((ok) => ok({ coords: { longitude: first.lng, latitude: first.lat } }))
-    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    fireEvent.click(screen.getByRole('button', { name: '身邊有什麼' }))
     expect(window.location.hash).toMatch(/^#p=/)
     expect(screen.getByText(/最近的地點在約/)).toBeTruthy()
 
     fireEvent.click(screen.getByRole('button', { name: '關閉' }))
     getCurrentPosition.mockImplementationOnce((ok) => ok({ coords: { longitude: 121.5, latitude: 25.04 } }))
-    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    fireEvent.click(screen.getByRole('button', { name: '身邊有什麼' }))
     expect(screen.getByText(/你離民雄約/)).toBeTruthy()
     expect(window.location.hash).toBe('')
 
     getCurrentPosition.mockImplementationOnce((_ok, fail) => fail({ code: 1, PERMISSION_DENIED: 1 }))
-    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    fireEvent.click(screen.getByRole('button', { name: '身邊有什麼' }))
     expect(screen.getByText(/允許位置權限/)).toBeTruthy()
     // @ts-expect-error 還原成 jsdom 預設（沒有定位）
     delete navigator.geolocation
