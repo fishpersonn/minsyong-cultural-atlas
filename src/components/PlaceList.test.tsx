@@ -60,6 +60,38 @@ describe('PlaceList', () => {
     expect(screen.queryByRole('button', { name: /標題1000/ })).toBeNull()
   })
 
+  it('有搜尋字時，標題裡符合的字用 <mark> 標出來；沒有搜尋字就沒有標示', () => {
+    const p = { ...mk('1'), title: '民雄農會倉庫' }
+    const { container, rerender } = render(<PlaceList {...listProps} places={[p]} query="農會" />)
+    const marks = container.querySelectorAll('mark')
+    expect(marks).toHaveLength(1)
+    expect(marks[0].textContent).toBe('農會')
+    rerender(<PlaceList {...listProps} places={[p]} query="" />)
+    expect(container.querySelectorAll('mark')).toHaveLength(0)
+  })
+
+  it('標題沒有符合、是摘要符合時，補上符合處附近的一小段並標出來', () => {
+    const p = { ...mk('1'), title: '老車站的故事', summary: '1933 年完工的民雄農會倉庫，位於東榮路平交道西側。' }
+    const { container } = render(<PlaceList {...listProps} places={[p]} query="倉庫" />)
+    const marks = container.querySelectorAll('mark')
+    expect(marks).toHaveLength(1)
+    expect(marks[0].textContent).toBe('倉庫')
+    expect(container.textContent).toContain('民雄農會倉庫，位於東榮路')
+  })
+
+  it('標題已經符合時，不另外顯示內文片段', () => {
+    const p = { ...mk('1'), title: '農會倉庫', summary: '農會倉庫的歷史很長很長很長很長很長。' }
+    const { container } = render(<PlaceList {...listProps} places={[p]} query="倉庫" />)
+    expect(container.querySelectorAll('mark')).toHaveLength(1)
+    expect(container.textContent).not.toContain('歷史很長')
+  })
+
+  it('額外資訊（如美食的地址）符合時，也會顯示並標出符合處', () => {
+    const p = { ...mk('1'), title: '越南小館', summary: '', extra: [['地址', '嘉義縣民雄鄉三興村神農路']] as [string, string][] }
+    const { container } = render(<PlaceList {...listProps} places={[p]} query="神農路" />)
+    expect(container.querySelector('mark')?.textContent).toBe('神農路')
+  })
+
   it('沒有符合時顯示提示與清除按鈕', () => {
     const onClearFilters = vi.fn()
     render(<PlaceList {...listProps} places={[]} filtered onClearFilters={onClearFilters} />)

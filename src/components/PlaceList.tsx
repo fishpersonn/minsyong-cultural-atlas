@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { themeName } from '@/data/themes'
 import { placeStyle } from '@/lib/placeStyle'
 import StyleDot from '@/components/StyleDot'
+import Highlight from '@/components/Highlight'
+import { searchTerms, snippetAround, splitByTerms } from '@/lib/highlight'
 import type { Place } from '@/types'
 
 type Props = {
@@ -12,6 +14,8 @@ type Props = {
   total: number
   selectedId: string | null
   filtered: boolean
+  // 目前的搜尋字串；有的話，符合的字會被標出來
+  query?: string
   onClearFilters: () => void
   onSelect: (id: string) => void
   onClose: () => void
@@ -25,10 +29,12 @@ export default function PlaceList({
   total,
   selectedId,
   filtered,
+  query = '',
   onClearFilters,
   onSelect,
   onClose,
 }: Props) {
+  const terms = searchTerms(query)
   // 長清單只渲染看得到的那幾列（加上前後各 8 列的緩衝），地點再多也不會變慢
   const scroller = useRef<HTMLDivElement>(null)
   // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Virtual 的函式不能被記憶化，這個元件不需要編譯器最佳化
@@ -83,6 +89,14 @@ export default function PlaceList({
             {virtualizer.getVirtualItems().map((row) => {
               const p = places[row.index]
               const current = p.id === selectedId
+              // 標題沒有符合、是內文（摘要、分類、額外資訊）符合時，補一小段符合處附近的文字，才看得出為什麼它被找到
+              const titleHit = splitByTerms(p.title, terms).some((s) => s.match)
+              const snippet =
+                terms.length > 0 && !titleHit
+                  ? [p.summary, p.category ?? '', ...(p.extra ?? []).map(([, v]) => v)]
+                      .map((text) => snippetAround(text, terms))
+                      .find((x) => x !== null)
+                  : null
               return (
                 <li
                   key={row.key}
@@ -105,8 +119,13 @@ export default function PlaceList({
                   >
                     <StyleDot {...placeStyle(p)} className="mt-0.5 size-5" />
                     <span className="min-w-0">
-                      {p.title}
+                      <Highlight text={p.title} terms={terms} />
                       <span className="block text-xs font-normal text-atlas-muted">{themeName(p.theme)}</span>
+                      {snippet && (
+                        <span className="mt-0.5 block text-xs font-normal text-atlas-body">
+                          <Highlight text={snippet} terms={terms} />
+                        </span>
+                      )}
                     </span>
                   </button>
                 </li>

@@ -112,6 +112,25 @@ describe('PlaceCard', () => {
     expect(onSelect).toHaveBeenCalledWith('9')
   })
 
+  it('有 query 時，卡片的標題、摘要與額外資訊裡符合的字會被標出來', () => {
+    const p = mk('7', {
+      title: '農會倉庫測繪',
+      summary: '倉庫完工於 1933 年。',
+      extra: [['地址', '東榮路倉庫旁']],
+    })
+    const { container } = render(
+      <PlaceCard group={group(p)} selectedId="7" onSelect={noop} onClose={noop} query="倉庫 1933" />,
+    )
+    const marked = Array.from(container.querySelectorAll('mark')).map((m) => m.textContent)
+    expect(marked).toEqual(['倉庫', '倉庫', '1933', '倉庫'])
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('農會倉庫測繪')
+  })
+
+  it('沒有 query 時卡片沒有任何標示', () => {
+    const { container } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(container.querySelectorAll('mark')).toHaveLength(0)
+  })
+
   it('沒有 nearby 或是空的，就不顯示「附近的故事」', () => {
     const { rerender } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
     expect(screen.queryByRole('region', { name: '附近的故事' })).toBeNull()

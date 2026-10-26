@@ -220,6 +220,7 @@ export default function App() {
                   places={visiblePlaces}
                   total={places.length}
                   filtered={filtered}
+                  query={query}
                   onClearFilters={() => applyFilters([], null, '')}
                   selectedId={selectedId}
                   onSelect={choose}
@@ -249,6 +250,7 @@ export default function App() {
                   onSelect={choose}
                   onClose={() => select(null)}
                   nearby={nearby}
+                  query={query}
                   nav={
                     selectedIndex >= 0
                       ? {

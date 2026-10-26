@@ -7,6 +7,8 @@ import { placeStyle } from '@/lib/placeStyle'
 import { placeholderFor } from '@/lib/placeholder'
 import { formatDistance, type NearbyPlace } from '@/lib/nearest'
 import StyleDot from '@/components/StyleDot'
+import Highlight from '@/components/Highlight'
+import { searchTerms } from '@/lib/highlight'
 import type { PlaceGroup } from '@/types'
 
 type Props = {
@@ -18,9 +20,12 @@ type Props = {
   nav?: { index: number; total: number; onPrev: () => void; onNext: () => void }
   // 離這個地點最近的幾個地點；沒有或是空的就不顯示「附近的故事」
   nearby?: NearbyPlace[]
+  // 目前的搜尋字串；有的話，符合的字會被標出來
+  query?: string
 }
 
-export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, nearby }: Props) {
+export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, nearby, query = '' }: Props) {
+  const terms = searchTerms(query)
   const place = group.places.find((p) => p.id === selectedId) ?? group.places[0]
   // 記錄失敗的網址而非布林值：換到另一個地點時自然重置，且預設圖不會再觸發切換
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
@@ -68,14 +73,20 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, n
             {place.category && <span>{place.category}</span>}
             {place.era && <span className="text-atlas-muted">{place.era}</span>}
           </p>
-          <h2 className="font-title text-lg leading-snug font-semibold">{place.title}</h2>
-          {place.summary && <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>}
+          <h2 className="font-title text-lg leading-snug font-semibold"><Highlight text={place.title} terms={terms} /></h2>
+          {place.summary && (
+            <p className="text-sm leading-relaxed text-atlas-body">
+              <Highlight text={place.summary} terms={terms} />
+            </p>
+          )}
           {place.extra && (
             <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
               {place.extra.map(([label, value]) => (
                 <div key={label} className="contents">
                   <dt className="text-atlas-muted">{label}</dt>
-                  <dd className="text-atlas-body">{value}</dd>
+                  <dd className="text-atlas-body">
+                    <Highlight text={value} terms={terms} />
+                  </dd>
                 </div>
               ))}
             </dl>

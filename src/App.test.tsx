@@ -333,6 +333,22 @@ describe('App', () => {
     expect(window.location.hash).toContain('t=railway')
   })
 
+  it('搜尋時，清單與打開的卡片都會標出符合的字', async () => {
+    window.location.hash = '#p=88979'
+    const App = await load()
+    const { container } = render(<App />)
+    typeSearch('農會倉庫')
+    // 卡片（農會倉庫歷史與背景調查一）的標題有標示
+    const cardMarks = within(screen.getByRole('complementary', { name: '地點資訊' })).getAllByText('農會倉庫', { selector: 'mark' })
+    expect(cardMarks.length).toBeGreaterThan(0)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    const list = screen.getByRole('region', { name: '地點清單' })
+    expect(list.querySelectorAll('mark').length).toBeGreaterThan(0)
+    // 清掉搜尋字之後標示就消失
+    fireEvent.click(screen.getByRole('button', { name: '清除搜尋' }))
+    expect(container.querySelectorAll('mark')).toHaveLength(0)
+  })
+
   it('「隨便逛逛」在目前篩選的地點中挑一個並選取', async () => {
     window.location.hash = '#t=stele'
     const App = await load()
