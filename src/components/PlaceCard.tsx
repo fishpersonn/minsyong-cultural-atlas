@@ -22,18 +22,18 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
   return (
-    <article className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-[#14313b]">
+    <article className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-atlas-ink">
       <Button
         type="button"
         size="icon"
         aria-label="關閉"
         onClick={onClose}
-        className="absolute top-2 right-2 z-10 size-9 rounded-full bg-[#14313b]/80 text-[#f4f6f3] hover:bg-[#14313b]"
+        className="absolute top-2 right-2 z-10 size-9 rounded-full bg-atlas-ink/80 text-atlas-paper hover:bg-atlas-ink"
       >
         <X aria-hidden="true" />
       </Button>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="relative aspect-video shrink-0 bg-[#e3e9e6]">
+        <div className="relative aspect-video shrink-0 bg-atlas-mist">
           <img
             src={src}
             alt={place.title}
@@ -46,14 +46,14 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
 
         <div className="flex flex-col gap-3 p-4">
           <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
-          <p className="text-sm leading-relaxed text-[#3d4b53]">{place.summary}</p>
+          <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
           <div className="flex flex-wrap gap-2">
             {links.map((href, i) => (
               <Button
                 key={href}
                 asChild
                 size="sm"
-                className="bg-[#1f6f8b] text-white hover:bg-[#14313b]"
+                className="bg-atlas-teal text-white hover:bg-atlas-ink"
               >
                 <a href={href} target="_blank" rel="noopener noreferrer">
                   {i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
@@ -64,7 +64,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
         </div>
 
         {group.places.length > 1 && (
-          <ul className="border-t border-[#14313b]/10 py-1">
+          <ul className="border-t border-atlas-ink/10 py-1">
             {group.places.map((p) => {
               const current = p.id === place.id
               return (
@@ -73,10 +73,10 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
                     type="button"
                     aria-current={current ? 'true' : undefined}
                     onClick={() => onSelect(p.id)}
-                    className={`block min-h-11 w-full cursor-pointer border-l-4 px-4 py-2 text-left text-sm outline-none focus-visible:ring-2 focus-visible:ring-[#f2b134] focus-visible:ring-inset ${
+                    className={`block min-h-11 w-full cursor-pointer border-l-4 px-4 py-2 text-left text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus focus-visible:ring-inset ${
                       current
-                        ? 'border-[#d98e04] bg-[#f6efe0] font-semibold'
-                        : 'border-transparent text-[#3d4b53] hover:bg-[#eef1ee]'
+                        ? 'border-atlas-amber bg-atlas-sand font-semibold'
+                        : 'border-transparent text-atlas-body hover:bg-atlas-hover'
                     }`}
                   >
                     {p.title}
