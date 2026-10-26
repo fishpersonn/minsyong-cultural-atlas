@@ -78,7 +78,16 @@ export default function AboutDialog({ open, onOpenChange, placeCount, themeCount
                 </a>
                 採 MIT 授權。
               </p>
-              <p>致謝：OpenStreetMap、CARTO、MapLibre、lucide，以及 Noto Serif TC 與 Geist 字體。</p>
+              <p>
+                致謝：
+                <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" className={LINK}>
+                  © OpenStreetMap contributors
+                </a>{' '}
+                <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer" className={LINK}>
+                  © CARTO
+                </a>
+                、MapLibre、lucide，以及 Noto Serif TC 與 Geist 字體。
+              </p>
             </div>
           </div>
         </Dialog.Content>

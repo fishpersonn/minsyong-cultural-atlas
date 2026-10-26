@@ -18,10 +18,10 @@ describe('MapFallback', () => {
 })
 
 describe('SiteHeader', () => {
-  it('顯示標題與前往大學路官網連結', () => {
+  it('顯示標題與「重構大學路」官網連結', () => {
     render(<SiteHeader />)
     expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
-    const link = screen.getByRole('link', { name: '前往大學路官網' })
+    const link = screen.getByRole('link', { name: '重構大學路' })
     expect(link.getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
     expect(link.getAttribute('target')).toBe('_blank')
     expect(link.getAttribute('rel')).toBe('noopener noreferrer')

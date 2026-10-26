@@ -12,6 +12,12 @@ vi.mock('@/components/MapView', () => ({
   },
 }))
 
+// 搜尋框預設收起來：沒開的話先點標題列的「搜尋」鈕，再輸入
+function typeSearch(value: string) {
+  if (!screen.queryByRole('searchbox')) fireEvent.click(screen.getByRole('button', { name: '搜尋' }))
+  fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value } })
+}
+
 async function load() {
   vi.resetModules()
   return (await import('./App')).default
@@ -189,7 +195,7 @@ describe('App', () => {
     // 同一個篩選結果重繪時範圍是同一個參照，地圖才不會重複縮放
     fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
     expect(lastBounds()).toBe(railway)
-    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '完全不存在的字串' } })
+    typeSearch('完全不存在的字串')
     expect(lastBounds()).toBe(all)
     fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
     expect(lastBounds()).toBe(all)
@@ -228,7 +234,7 @@ describe('App', () => {
       return g.reduce((n, x) => n + x.places.length, 0)
     }
     const total = countPlaces()
-    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '農會倉庫' } })
+    typeSearch('農會倉庫')
     expect(countPlaces()).toBeLessThan(total)
     expect(window.location.hash).toBe('#q=%E8%BE%B2%E6%9C%83%E5%80%89%E5%BA%AB')
     expect(screen.getByRole('status', { name: '' }).textContent).toMatch(/^\d+ 個符合$/)
@@ -236,7 +242,7 @@ describe('App', () => {
     const list = screen.getByRole('region', { name: '地點清單' })
     expect(within(list).getAllByRole('button', { name: /農會倉庫/ }).length).toBeGreaterThan(1)
     expect(within(list).queryByRole('button', { name: /從鐵路到電波/ })).toBeNull()
-    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '完全不存在的字串' } })
+    typeSearch('完全不存在的字串')
     expect(screen.getByText('沒有符合的地點。')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
     expect(window.location.hash).toBe('')
@@ -281,7 +287,7 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: /回到首頁/ }))
     expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
     expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
-    expect((screen.getByRole('searchbox', { name: '搜尋地點' }) as HTMLInputElement).value).toBe('')
+    expect(screen.queryByRole('searchbox')).toBeNull()
     expect(window.location.hash).toBe('')
     expect(mapProps.resets.at(-1)).toBe(before + 1)
     // 主題篩選也清掉了：所有地點都回來

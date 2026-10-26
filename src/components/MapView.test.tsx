@@ -139,14 +139,13 @@ describe('MapView', () => {
     expect(h.calls.indexOf('Map')).toBeGreaterThan(first)
   })
 
-  it('版權標示放在上方（不被底部抽屜遮住），且不與縮放控制重疊在同一位置之外', () => {
+  it('地圖上不放版權標註（致謝在「關於」裡），但仍有縮放鈕', () => {
     render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
     const map = h.mapInstances[0]
     expect(map.options.attributionControl).toBe(false)
-    const calls = map.addControl.mock.calls as [object, string][]
-    const attr = calls.find(([c]) => c.constructor.name === 'AttributionControl')
-    expect(attr).toBeTruthy()
-    expect(attr![1]).toMatch(/^top-/)
+    const names = (map.addControl.mock.calls as [object, string][]).map(([c]) => c.constructor.name)
+    expect(names).not.toContain('AttributionControl')
+    expect(names).toContain('NavigationControl')
   })
 
   it('地圖建構失敗時顯示 MapFallback', () => {

@@ -38,7 +38,7 @@ describe('AboutDialog', () => {
     expect(text).toContain('備註')
     expect(text).toContain('關於錯漏：地圖上的地點與分類皆由夥伴們人工一一標註')
     expect(text).toContain('版權與開源：圖文與資料版權為重構大學路計畫團隊所有；網站程式碼採 MIT 授權。')
-    expect(text).toContain('致謝：OpenStreetMap、CARTO、MapLibre、lucide，以及 Noto Serif TC 與 Geist 字體。')
+    expect(text).toContain('致謝：© OpenStreetMap contributors © CARTO、MapLibre、lucide，以及 Noto Serif TC 與 Geist 字體。')
   })
 
   it('中文句子沒有被 JSX 換行插進多餘的空白', () => {
@@ -47,14 +47,22 @@ describe('AboutDialog', () => {
     expect(text).not.toMatch(/[一-鿿」] [一-鿿「]/)
   })
 
-  it('三個連結（重構大學路、告訴我們、網站程式碼）都以新分頁開啟', () => {
+  it('連結都以新分頁開啟；地圖資料的版權標註在致謝裡，連到各自的版權頁', () => {
     show()
     const links = Array.from(screen.getByRole('dialog').querySelectorAll('a'))
-    expect(links.map((a) => a.textContent)).toEqual(['重構大學路', '告訴我們', '網站程式碼'])
+    expect(links.map((a) => a.textContent)).toEqual([
+      '重構大學路',
+      '告訴我們',
+      '網站程式碼',
+      '© OpenStreetMap contributors',
+      '© CARTO',
+    ])
     expect(links.map((a) => a.getAttribute('href'))).toEqual([
       'https://dovoha.ccu.edu.tw/',
       'https://github.com/fishpersonn/minsyong-cultural-atlas/issues',
       'https://github.com/fishpersonn/minsyong-cultural-atlas',
+      'https://www.openstreetmap.org/copyright',
+      'https://carto.com/attributions',
     ])
     for (const a of links) {
       expect(a.getAttribute('target')).toBe('_blank')
