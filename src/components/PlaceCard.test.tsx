@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import PlaceCard from './PlaceCard'
+import { placeholderFor } from '@/lib/placeholder'
 import type { Place, PlaceGroup } from '@/types'
 
 const mk = (id: string, over: Partial<Place> = {}): Place => ({
@@ -15,7 +16,6 @@ const mk = (id: string, over: Partial<Place> = {}): Place => ({
   ...over,
 })
 const group = (...places: Place[]): PlaceGroup => ({ lng: 120.43, lat: 23.55, places })
-const PLACEHOLDER = `${import.meta.env.BASE_URL}placeholder.svg`
 const noop = () => {}
 
 describe('PlaceCard', () => {
@@ -51,14 +51,14 @@ describe('PlaceCard', () => {
     render(<PlaceCard group={group(mk('3'))} selectedId="3" onSelect={noop} onClose={noop} />)
     const img = screen.getByRole('img', { name: '標題3' })
     fireEvent.error(img)
-    expect(img.getAttribute('src')).toBe(PLACEHOLDER)
+    expect(img.getAttribute('src')).toBe(placeholderFor('3'))
     fireEvent.error(img)
-    expect(img.getAttribute('src')).toBe(PLACEHOLDER)
+    expect(img.getAttribute('src')).toBe(placeholderFor('3'))
   })
 
   it('沒有圖片時直接顯示預設圖', () => {
     render(<PlaceCard group={group(mk('4', { images: [] }))} selectedId="4" onSelect={noop} onClose={noop} />)
-    expect(screen.getByRole('img', { name: '標題4' }).getAttribute('src')).toBe(PLACEHOLDER)
+    expect(screen.getByRole('img', { name: '標題4' }).getAttribute('src')).toBe(placeholderFor('4'))
   })
 
   it('切換地點後圖片備援狀態重置', () => {
