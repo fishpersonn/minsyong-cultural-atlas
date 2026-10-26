@@ -12,7 +12,7 @@
 
 - Vite + React + TypeScript（`strict`）
 - Tailwind CSS 4 + shadcn/ui（Radix UI）
-- MapLibre GL JS，底圖為 OpenFreeMap Liberty（`https://tiles.openfreemap.org/styles/liberty`）
+- MapLibre GL JS，底圖為 CARTO Positron（`https://basemaps.cartocdn.com/gl/positron-gl-style/style.json`，資料 © OpenStreetMap contributors © CARTO，地圖角落的標註不可移除）
 - Vitest + Testing Library
 - GitHub Actions 建置並部署到 GitHub Pages（Vite `base` 為 `/minsyong-cultural-atlas/`）
 
