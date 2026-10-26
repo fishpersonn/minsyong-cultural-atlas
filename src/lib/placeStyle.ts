@@ -11,3 +11,8 @@ export function placeStyle(place: Pick<Place, 'category' | 'theme'>): CategorySt
 export function categoryColor(theme: string, category: string): string {
   return (CATEGORY_STYLES[category] ?? THEME_STYLES[theme] ?? FALLBACK_CATEGORY).color
 }
+
+// 篩選列分類的完整樣式（顏色＋圖示）：同上，分類沒有自己的樣式就沿用所屬主題的
+export function categoryStyleOf(theme: string, category: string): CategoryStyle {
+  return CATEGORY_STYLES[category] ?? THEME_STYLES[theme] ?? FALLBACK_CATEGORY
+}

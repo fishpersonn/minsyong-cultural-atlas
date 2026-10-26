@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react'
+import StyleDot from './StyleDot'
 
-type Chip = { key: string; label: string; count: number; color: string }
+export type Chip = { key: string; label: string; count: number; color: string; icon: string }
 
 type Props = {
   themes: Chip[]
-  activeTheme: string | null
-  onTheme: (theme: string | null) => void
-  // 選了某個主題、且該主題有多種分類時才會有
+  // 主題可複選；空陣列代表全部
+  activeThemes: string[]
+  onThemes: (themes: string[]) => void
+  // 只選了一個主題、且該主題有多種分類時才會有
   categories: Chip[]
   activeCategory: string | null
   onCategory: (category: string | null) => void
@@ -27,13 +29,15 @@ function Row({
   allLabel,
   chips,
   active,
-  onChange,
+  onAll,
+  onToggle,
 }: {
   label: string
   allLabel: string
   chips: Chip[]
-  active: string | null
-  onChange: (key: string | null) => void
+  active: string[]
+  onAll: () => void
+  onToggle: (key: string) => void
 }) {
   // 選了排在右邊的晶片後，把它捲進可見範圍，使用者才看得到自己選了什麼
   const row = useRef<HTMLDivElement>(null)
@@ -46,33 +50,44 @@ function Row({
   }, [active])
   return (
     <div ref={row} role="group" aria-label={label} className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
-      <button type="button" aria-pressed={active === null} onClick={() => onChange(null)} className={chipClass(active === null)}>
+      <button type="button" aria-pressed={active.length === 0} onClick={onAll} className={chipClass(active.length === 0)}>
         {allLabel}
       </button>
-      {chips.map((c) => (
-        <button
-          key={c.key}
-          type="button"
-          aria-pressed={active === c.key}
-          onClick={() => onChange(active === c.key ? null : c.key)}
-          className={chipClass(active === c.key)}
-        >
-          <span aria-hidden="true" className="size-2.5 rounded-full ring-1 ring-white/70" style={{ backgroundColor: c.color }} />
-          {c.label}
-          <span className={active === c.key ? 'text-atlas-paper/70' : 'text-atlas-muted'}>{c.count}</span>
-        </button>
-      ))}
+      {chips.map((c) => {
+        const on = active.includes(c.key)
+        return (
+          <button key={c.key} type="button" aria-pressed={on} onClick={() => onToggle(c.key)} className={chipClass(on)}>
+            <StyleDot color={c.color} icon={c.icon} className="size-5 ring-1 ring-white/70" />
+            {c.label}
+            <span className={on ? 'text-atlas-paper/70' : 'text-atlas-muted'}>{c.count}</span>
+          </button>
+        )
+      })}
     </div>
   )
 }
 
-export default function FilterBar({ themes, activeTheme, onTheme, categories, activeCategory, onCategory }: Props) {
+export default function FilterBar({ themes, activeThemes, onThemes, categories, activeCategory, onCategory }: Props) {
   if (themes.length === 0) return null
   return (
     <div className="flex flex-col gap-1">
-      <Row label="依主題篩選" allLabel="全部主題" chips={themes} active={activeTheme} onChange={onTheme} />
+      <Row
+        label="依主題篩選"
+        allLabel="全部主題"
+        chips={themes}
+        active={activeThemes}
+        onAll={() => onThemes([])}
+        onToggle={(key) => onThemes(activeThemes.includes(key) ? activeThemes.filter((t) => t !== key) : [...activeThemes, key])}
+      />
       {categories.length > 0 && (
-        <Row label="依分類篩選" allLabel="全部分類" chips={categories} active={activeCategory} onChange={onCategory} />
+        <Row
+          label="依分類篩選"
+          allLabel="全部分類"
+          chips={categories}
+          active={activeCategory === null ? [] : [activeCategory]}
+          onAll={() => onCategory(null)}
+          onToggle={(key) => onCategory(activeCategory === key ? null : key)}
+        />
       )}
     </div>
   )

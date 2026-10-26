@@ -8,14 +8,16 @@ import AboutDialog from '@/components/AboutDialog'
 import { Button } from '@/components/ui/button'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
-import { useSelectedId } from '@/hooks/useSelectedId'
+import SearchBox from '@/components/SearchBox'
+import MapTools from '@/components/MapTools'
+import { useAtlasHash } from '@/hooks/useAtlasHash'
 import { useIntroDismissed } from '@/hooks/useIntroDismissed'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { parsePlaces } from '@/lib/parsePlaces'
 import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
-import { CATEGORY_STYLES } from '@/lib/categories'
+import { CATEGORY_STYLES, FALLBACK_CATEGORY } from '@/lib/categories'
 import { THEME_STYLES } from '@/lib/themeStyles'
-import { categoryColor } from '@/lib/placeStyle'
+import { categoryStyleOf } from '@/lib/placeStyle'
 import { matchesFilters } from '@/lib/filterPlaces'
 
 // 資料是靜態的：在模組層級算一次。篩選後的 groups 只在篩選條件改變時才重算，
@@ -31,7 +33,7 @@ const themeChips = themes
     key: t.id,
     label: t.name,
     count: places.filter((p) => p.theme === t.id).length,
-    color: THEME_STYLES[t.id]?.color ?? '#5b6770',
+    ...(THEME_STYLES[t.id] ?? FALLBACK_CATEGORY),
   }))
   .filter((c) => c.count > 0)
 
@@ -46,7 +48,7 @@ function categoryChips(theme: string | null) {
   const rank = (name: string) => (order.includes(name) ? order.indexOf(name) : order.length)
   return [...counts]
     .sort(([a, na], [b, nb]) => rank(a) - rank(b) || nb - na)
-    .map(([name, count]) => ({ key: name, label: name, count, color: categoryColor(theme, name) }))
+    .map(([name, count]) => ({ key: name, label: name, count, ...categoryStyleOf(theme, name) }))
 }
 
 if (import.meta.env.DEV && skipped.length > 0) {
@@ -61,17 +63,21 @@ const PANEL_CLASS =
   'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 motion-safe:duration-300 md:motion-safe:slide-in-from-bottom-0 md:motion-safe:slide-in-from-left-8 absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
 
 export default function App() {
-  const [selectedId, select] = useSelectedId()
+  const [hash, setHash] = useAtlasHash()
+  const selectedId = hash.id
+  const select = useCallback((id: string | null) => setHash({ id }), [setHash])
   const [listOpen, setListOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [introDismissed, dismissIntro] = useIntroDismissed()
-  const [theme, setTheme] = useState<string | null>(null)
-  const [category, setCategory] = useState<string | null>(null)
-  const [query, setQuery] = useState('')
-  const filtered = theme !== null || category !== null || query.trim() !== ''
+  const { query } = hash
+  // 網址是亂填的主題代碼就忽略；分類只在只選一個主題時有意義
+  const themes = useMemo(() => hash.themes.filter((t) => themeChips.some((c) => c.key === t)), [hash.themes])
+  const categories = useMemo(() => categoryChips(themes.length === 1 ? themes[0] : null), [themes])
+  const category = categories.some((c) => c.key === hash.category) ? hash.category : null
+  const filtered = themes.length > 0 || category !== null || query.trim() !== ''
   const visiblePlaces = useMemo(
-    () => (filtered ? places.filter((p) => matchesFilters(p, theme, category, query)) : places),
-    [filtered, theme, category, query],
+    () => (filtered ? places.filter((p) => matchesFilters(p, themes, category, query)) : places),
+    [filtered, themes, category, query],
   )
   const groups = useMemo(
     () => (filtered ? groupByLocation(visiblePlaces) : allGroups),
@@ -83,15 +89,18 @@ export default function App() {
     [filtered, visiblePlaces],
   )
 
-  // 篩選或搜尋改變後，目前選取的地點若被排除就取消選取（卡片不會停在看不見的地點上）
-  const applyFilters = (nextTheme: string | null, nextCategory: string | null, nextQuery: string) => {
-    setTheme(nextTheme)
-    setCategory(nextCategory)
-    setQuery(nextQuery)
+  // 篩選或搜尋改變後，目前選取的地點若被排除就取消選取（卡片不會停在看不見的地點上）。
+  // 篩選與搜尋會寫進網址，所以可以直接分享。
+  const applyFilters = (nextThemes: string[], nextCategory: string | null, nextQuery: string) => {
     const current = selectedId ? places.find((p) => p.id === selectedId) : undefined
-    if (current && !matchesFilters(current, nextTheme, nextCategory, nextQuery)) select(null)
+    const excluded = current !== undefined && !matchesFilters(current, nextThemes, nextCategory, nextQuery)
+    setHash({
+      themes: nextThemes,
+      category: nextThemes.length === 1 ? nextCategory : null,
+      query: nextQuery,
+      ...(excluded ? { id: null } : {}),
+    })
   }
-  const categories = useMemo(() => categoryChips(theme), [theme])
   // 從清單或標記選取地點時，清單讓位給卡片
   const choose = (id: string | null) => {
     setListOpen(false)
@@ -134,16 +143,21 @@ export default function App() {
         placeCount={places.length}
         themeCount={themeChips.length}
       />
-      {allGroups.length > 0 && themeChips.length > 0 && (
-        <div className="shrink-0 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
+      {allGroups.length > 0 && (
+        <div className="flex shrink-0 flex-col gap-2 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
+          <SearchBox
+            query={query}
+            onQuery={(q) => applyFilters(themes, category, q)}
+            resultCount={filtered ? visiblePlaces.length : undefined}
+          />
           <FilterBar
             themes={themeChips}
-            activeTheme={theme}
+            activeThemes={themes}
             // 換主題時分類篩選歸零（分類屬於主題）
-            onTheme={(t) => applyFilters(t, null, query)}
+            onThemes={(t) => applyFilters(t, null, query)}
             categories={categories}
             activeCategory={category}
-            onCategory={(c) => applyFilters(theme, c, query)}
+            onCategory={(c) => applyFilters(themes, c, query)}
           />
         </div>
       )}
@@ -162,12 +176,13 @@ export default function App() {
             <div className="absolute inset-0">
               <MapView groups={groups} bounds={bounds} selectedId={selectedId} onSelect={choose} />
             </div>
+            <MapTools places={visiblePlaces} selectedId={selectedId} onPick={choose} />
             {filtered && visiblePlaces.length === 0 && !listOpen && (
               <p className="absolute top-3 left-3 z-10 inline-flex items-center gap-2 rounded-lg bg-white/95 px-3 py-2 text-sm shadow-md md:left-[424px]">
                 沒有符合的地點
                 <button
                   type="button"
-                  onClick={() => applyFilters(null, null, '')}
+                  onClick={() => applyFilters([], null, '')}
                   className="cursor-pointer font-medium text-atlas-teal underline"
                 >
                   清除篩選
@@ -180,9 +195,7 @@ export default function App() {
                   places={visiblePlaces}
                   total={places.length}
                   filtered={filtered}
-                  query={query}
-                  onQuery={(q) => applyFilters(theme, category, q)}
-                  onClearFilters={() => applyFilters(null, null, '')}
+                  onClearFilters={() => applyFilters([], null, '')}
                   selectedId={selectedId}
                   onSelect={choose}
                   onClose={() => setListOpen(false)}

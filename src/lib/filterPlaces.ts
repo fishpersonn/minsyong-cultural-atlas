@@ -1,13 +1,13 @@
 import type { Place } from '../types'
 
-// 主題、分類要完全相同；搜尋字串以空白分詞，每個詞都要出現在標題、摘要、分類或額外資訊裡（不分大小寫）
+// 主題（可複選，空陣列代表不限）、分類要完全相同；搜尋字串以空白分詞，每個詞都要出現在標題、摘要、分類或額外資訊裡（不分大小寫）
 export function matchesFilters(
   place: Place,
-  theme: string | null,
+  themes: readonly string[],
   category: string | null,
   query: string,
 ): boolean {
-  if (theme !== null && place.theme !== theme) return false
+  if (themes.length > 0 && !themes.includes(place.theme)) return false
   if (category !== null && place.category !== category) return false
   const terms = query.toLowerCase().split(/\s+/).filter(Boolean)
   if (terms.length === 0) return true
