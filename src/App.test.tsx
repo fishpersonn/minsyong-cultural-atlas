@@ -30,7 +30,7 @@ describe('App', () => {
   it('顯示標題與地圖', async () => {
     const App = await load()
     render(<App />)
-    expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+    expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
     expect(screen.getByText('mock-map')).toBeTruthy()
     expect(screen.queryByRole('complementary')).toBeNull()
   })
@@ -100,7 +100,7 @@ describe('App', () => {
     expect(link.getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
     expect(link.getAttribute('target')).toBe('_blank')
     expect(link.getAttribute('rel')).toBe('noopener noreferrer')
-    expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+    expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
   })
 
   it('首次顯示使用說明，按「知道了」後隱藏並記住', async () => {

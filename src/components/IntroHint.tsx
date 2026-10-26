@@ -13,7 +13,7 @@ export default function IntroHint({ count, onOpenList, onDismiss }: Props) {
       className="flex flex-col gap-3 rounded-2xl bg-white p-4 text-atlas-ink shadow-xl"
     >
       <p className="text-sm leading-relaxed">
-        這是民雄鐵路高架化沿線的文化地圖，共 {count} 個地點。
+        這是民雄的文化地圖，目前收錄 {count} 個地點。
         <br />
         點地圖上的標記，就能讀那個地方的故事。
       </p>
