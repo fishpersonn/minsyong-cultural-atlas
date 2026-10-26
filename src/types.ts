@@ -12,6 +12,8 @@ export type Place = {
   era?: string
   // 官網文章的發布日期，格式 YYYY-MM-DD
   published?: string
+  // 額外資訊（如美食的地址、電話），依序顯示成「標籤：內容」
+  extra?: [string, string][]
 }
 
 export type PlaceMeta = { category?: string; era?: string; published?: string }

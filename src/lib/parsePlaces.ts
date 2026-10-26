@@ -20,6 +20,15 @@ function pickMeta(props: Rec, extra: PlaceMeta | undefined): PlaceMeta {
   return out
 }
 
+// extra：[標籤, 內容] 的陣列，格式不對的項目略過
+function pickExtra(raw: unknown): Pick<Place, 'extra'> {
+  if (!Array.isArray(raw)) return {}
+  const rows = raw.flatMap((r): [string, string][] =>
+    Array.isArray(r) && nonEmpty(r[0]) && nonEmpty(r[1]) ? [[r[0].trim(), r[1].trim()]] : [],
+  )
+  return rows.length > 0 ? { extra: rows } : {}
+}
+
 function parseFeature(
   item: unknown,
   theme: string,
@@ -43,9 +52,15 @@ function parseFeature(
   if (!nonEmpty(props.name)) return { reason: 'missing title' }
 
   const links = [props['查看更多'], props['查看更多2']].filter(nonEmpty)
-  if (!nonEmpty(props['查看更多'])) return { reason: 'missing link' }
-  const id = extractArticleId(props['查看更多'])
-  if (id === null) return { reason: 'missing link: article id not found' }
+  // id：資料裡有明講（匯入腳本產生）就用它；否則取自第一個官網連結（鐵路高架化的作法）
+  let id: string | null
+  if (nonEmpty(props.id)) {
+    id = props.id.trim()
+  } else {
+    if (!nonEmpty(props['查看更多'])) return { reason: 'missing link' }
+    id = extractArticleId(props['查看更多'])
+    if (id === null) return { reason: 'missing link: article id not found' }
+  }
 
   return {
     place: {
@@ -58,6 +73,7 @@ function parseFeature(
       lat,
       theme,
       ...pickMeta(props, metaById[id]),
+      ...pickExtra(props.extra),
     },
   }
 }

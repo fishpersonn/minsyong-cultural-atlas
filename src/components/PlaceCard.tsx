@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
-import { categoryStyle } from '@/lib/categories'
+import { themeName } from '@/data/themes'
+import { placeStyle } from '@/lib/placeStyle'
 import { placeholderFor } from '@/lib/placeholder'
 import type { PlaceGroup } from '@/types'
 
@@ -51,23 +52,30 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
         </div>
 
         <div className="flex flex-col gap-3 p-4">
-          {(place.category || place.era) && (
-            <p className="flex items-center gap-2 text-xs font-medium tracking-wide text-atlas-body">
-              {place.category && (
-                <span className="inline-flex items-center gap-1.5">
-                  <span
-                    aria-hidden="true"
-                    className="size-2.5 rounded-full"
-                    style={{ backgroundColor: categoryStyle(place.category).color }}
-                  />
-                  {place.category}
-                </span>
-              )}
-              {place.era && <span className="text-atlas-muted">{place.era}</span>}
-            </p>
-          )}
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-medium tracking-wide text-atlas-body">
+            <span className="inline-flex items-center gap-1.5">
+              <span
+                aria-hidden="true"
+                className="size-2.5 rounded-full"
+                style={{ backgroundColor: placeStyle(place).color }}
+              />
+              {themeName(place.theme)}
+            </span>
+            {place.category && <span>{place.category}</span>}
+            {place.era && <span className="text-atlas-muted">{place.era}</span>}
+          </p>
           <h2 className="font-title text-lg leading-snug font-semibold">{place.title}</h2>
-          <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
+          {place.summary && <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>}
+          {place.extra && (
+            <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
+              {place.extra.map(([label, value]) => (
+                <div key={label} className="contents">
+                  <dt className="text-atlas-muted">{label}</dt>
+                  <dd className="text-atlas-body">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
           {place.published && (
             <p className="text-xs text-atlas-muted">官網發布於 {place.published.replaceAll('-', '.')}</p>
           )}
@@ -80,7 +88,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
                 className="bg-atlas-teal text-white hover:bg-atlas-ink"
               >
                 <a href={href} target="_blank" rel="noopener noreferrer">
-                  {i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
+                  {place.links.length === 0 ? '前往大學路官網' : i === 0 ? '到官網閱讀全文' : `到官網閱讀全文（${i + 1}）`}
                 </a>
               </Button>
             ))}

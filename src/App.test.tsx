@@ -161,17 +161,24 @@ describe('App', () => {
       const g = mapProps.groups.at(-1) as { places: unknown[] }[]
       return g.reduce((n, x) => n + x.places.length, 0)
     }
+    const total = countPlaces()
+    expect(total).toBeGreaterThan(600)
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
     expect(countPlaces()).toBe(24)
     fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
     expect(countPlaces()).toBe(2)
-    fireEvent.click(screen.getByRole('button', { name: '全部' }))
+    fireEvent.click(screen.getByRole('button', { name: '全部分類' }))
     expect(countPlaces()).toBe(24)
+    fireEvent.click(screen.getByRole('button', { name: '全部主題' }))
+    expect(countPlaces()).toBe(total)
   })
 
   it('篩選排除了目前選取的地點時取消選取並清掉網址', async () => {
     window.location.hash = '#p=96220'
     const App = await load()
     render(<App />)
+    expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
     expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
     expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
@@ -182,6 +189,7 @@ describe('App', () => {
     window.location.hash = '#p=93677'
     const App = await load()
     render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
     fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
     expect(screen.getByText('1 / 2')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))

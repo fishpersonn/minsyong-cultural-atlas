@@ -52,6 +52,43 @@ describe('parsePlaces validation', () => {
     expect(r.places.map((p) => p.id)).toEqual(['1', '6'])
     expect(r.skipped.map((s) => s.index)).toEqual([1, 2, 3, 4, 5])
   })
+  it('資料裡明講 id 就用它，這時連結不是必填（匯入腳本產生的資料）', () => {
+    const r = parsePlaces(
+      {
+        features: [
+          feat({ id: 'food-i1', 查看更多: undefined, 圖片: undefined }),
+          feat({ id: ' people-5 ', 查看更多: link(9) }),
+          feat({ id: '   ', 查看更多: undefined }),
+        ],
+      },
+      't',
+    )
+    expect(r.places.map((p) => p.id)).toEqual(['food-i1', 'people-5'])
+    expect(r.places[0].links).toEqual([])
+    expect(r.skipped).toEqual([{ index: 2, reason: 'missing link' }])
+  })
+  it('同一批資料裡 id 重複的只留第一筆', () => {
+    const r = parsePlaces({ features: [feat({ id: 'a' }), feat({ id: 'a' })] }, 't')
+    expect(r.places).toHaveLength(1)
+    expect(r.skipped[0].reason).toBe('duplicate id a')
+  })
+  it('extra 只收 [標籤, 內容] 都是非空字串的項目', () => {
+    const r = parsePlaces(
+      {
+        features: [
+          feat({
+            extra: [['地址', ' 民雄鄉 '], ['電話', ''], ['x'], 'bad', [1, 2], ['備註', '有']],
+          }),
+          feat({ extra: 'nope', 查看更多: link(2) }),
+          feat({ extra: [['電話', '']], 查看更多: link(3) }),
+        ],
+      },
+      't',
+    )
+    expect(r.places[0].extra).toEqual([['地址', '民雄鄉'], ['備註', '有']])
+    expect(r.places[1].extra).toBeUndefined()
+    expect(r.places[2].extra).toBeUndefined()
+  })
   it('passes through optional category and era, ignoring blank or non-string values', () => {
     const r2 = parsePlaces(
       {

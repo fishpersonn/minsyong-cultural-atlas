@@ -1,0 +1,939 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4137407,
+     23.561736
+    ]
+   },
+   "properties": {
+    "id": "food-i1",
+    "name": "越在嘉文化棧",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福權村福權4-3號"
+     ],
+     [
+      "電話",
+      "05-2269177"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4720355,
+     23.5569745
+    ]
+   },
+   "properties": {
+    "id": "food-i2",
+    "name": "香香正宗越南料理",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉三興村神農路"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4287081,
+     23.5577364
+    ]
+   },
+   "properties": {
+    "id": "food-i3",
+    "name": "阮氏料理",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉西安村復興路87號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4301893,
+     23.5558521
+    ]
+   },
+   "properties": {
+    "id": "food-i4",
+    "name": "越南美食",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉東榮村文化路81號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4318617,
+     23.5577997
+    ]
+   },
+   "properties": {
+    "id": "food-i5",
+    "name": "大富越南美食",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉東榮村東榮路40號"
+     ],
+     [
+      "電話",
+      "0958-330542"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.425327,
+     23.556823
+    ]
+   },
+   "properties": {
+    "id": "food-i6",
+    "name": "越南西貢小吃店",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉西安村保生街279號"
+     ],
+     [
+      "備註",
+      "老闆是客家籍"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4301984,
+     23.5532776
+    ]
+   },
+   "properties": {
+    "id": "food-i7",
+    "name": "正宗越南小吃",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉東榮村文化路32號"
+     ],
+     [
+      "營業時間",
+      "9:30-19:30"
+     ],
+     [
+      "餐點",
+      "新鮮醃蒜頭辣椒"
+     ],
+     [
+      "備註",
+      "開店17年，來自芹苴肯特Cần Thơ"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4338599,
+     23.5505835
+    ]
+   },
+   "properties": {
+    "id": "food-i8",
+    "name": "玉鳳牛肉河粉",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉東湖村建國路二段334號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4256805,
+     23.5377068
+    ]
+   },
+   "properties": {
+    "id": "food-i9",
+    "name": "玉鳳牛肉河粉二店",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉文隆村鴨母坔2之62號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.433783,
+     23.5590713
+    ]
+   },
+   "properties": {
+    "id": "food-i10",
+    "name": "越南雜貨店法國麵包",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉建國路一段229號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4253298,
+     23.5709668
+    ]
+   },
+   "properties": {
+    "id": "food-i11",
+    "name": "阿澎的越南雜貨店",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉寮頂村頂寮65-5號"
+     ],
+     [
+      "電話",
+      "05-2263269"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4388267,
+     23.5255212
+    ]
+   },
+   "properties": {
+    "id": "food-i12",
+    "name": "雯雯越南料理",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段243-2號"
+     ],
+     [
+      "餐點",
+      "越南米線拼盤"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4394452,
+     23.524132
+    ]
+   },
+   "properties": {
+    "id": "food-i13",
+    "name": "金鑽越南小吃",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段176-3號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4398398,
+     23.5227785
+    ]
+   },
+   "properties": {
+    "id": "food-i14",
+    "name": "南湘越南小吃",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段158號"
+     ],
+     [
+      "電話",
+      "0978-790453"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4400991,
+     23.5213733
+    ]
+   },
+   "properties": {
+    "id": "food-i15",
+    "name": "阿芬越南河粉",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段72號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4453125,
+     23.5272173
+    ]
+   },
+   "properties": {
+    "id": "food-i16",
+    "name": "越南料理",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村頭橋埤角565號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4427424,
+     23.5764274
+    ]
+   },
+   "properties": {
+    "id": "food-i17",
+    "name": "秋娥越南河粉",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉鎮北村虎尾寮2鄰30-2號（嘉88-1鄉道）"
+     ],
+     [
+      "營業時間",
+      "07:00-14:00"
+     ],
+     [
+      "公休",
+      "周二"
+     ],
+     [
+      "備註",
+      "老闆娘是來到台灣幾十年的越南新住民，假日有許多越南姊妹到店裡唱歌。"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4242965,
+     23.5221223
+    ]
+   },
+   "properties": {
+    "id": "food-i18",
+    "name": "越南料理",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉江厝店"
+     ],
+     [
+      "備註",
+      "2019.11標註"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4391246,
+     23.5236079
+    ]
+   },
+   "properties": {
+    "id": "food-i19",
+    "name": "999Cafe",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉頭橋"
+     ],
+     [
+      "餐點",
+      "雷公根汁"
+     ],
+     [
+      "備註",
+      "2019.11標註"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4714639,
+     23.557029
+    ]
+   },
+   "properties": {
+    "id": "food-i20",
+    "name": "越南金小吃",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉三興村神農路137號"
+     ],
+     [
+      "狀態",
+      "改賣關東煮"
+     ],
+     [
+      "餐點",
+      "關東煮"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4379235,
+     23.5169857
+    ]
+   },
+   "properties": {
+    "id": "food-i21",
+    "name": "譚琴越南小吃",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉金興村76號"
+     ],
+     [
+      "電話",
+      "05-2206005"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4396833,
+     23.5240939
+    ]
+   },
+   "properties": {
+    "id": "food-i22",
+    "name": "越南雜貨店",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村埤角218號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.440072,
+     23.5219722
+    ]
+   },
+   "properties": {
+    "id": "food-i23",
+    "name": "VNEX",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉建國路三段102號"
+     ],
+     [
+      "營業時間",
+      "09:00-21:00"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4268268,
+     23.5225441
+    ]
+   },
+   "properties": {
+    "id": "food-i24",
+    "name": "三紅蔬果行",
+    "extra": [
+     [
+      "營業時間",
+      "13:00-19:00"
+     ],
+     [
+      "公休",
+      "隔周四"
+     ],
+     [
+      "餐點",
+      "越南蔬果攤，東南亞香草植物"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4528795,
+     23.5307599
+    ]
+   },
+   "properties": {
+    "id": "food-i25",
+    "name": "888晶華越南小吃Pho bo! Uong Bia",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉光明五街"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4250359,
+     23.5226647
+    ]
+   },
+   "properties": {
+    "id": "food-i26",
+    "name": "越南法國麵包攤",
+    "分類": "越南",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4363916,
+     23.536794
+    ]
+   },
+   "properties": {
+    "id": "food-i27",
+    "name": "Lily的店",
+    "分類": "印尼",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉雙福村建國路二段148-5號"
+     ],
+     [
+      "電話",
+      "0922-560787"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.438817,
+     23.517711
+    ]
+   },
+   "properties": {
+    "id": "food-i28",
+    "name": "Toko Indo Fina/菲娜的店",
+    "分類": "印尼",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉金興村忠義街57號"
+     ],
+     [
+      "營業時間",
+      "周一至五晚上、周六整天"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.431895,
+     23.5540987
+    ]
+   },
+   "properties": {
+    "id": "food-i29",
+    "name": "TOKO INDO BERKAH",
+    "分類": "印尼",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉東榮村大學路3段95號 （民雄後站旁）"
+     ],
+     [
+      "電話",
+      "0988-250695"
+     ],
+     [
+      "營業時間",
+      "六日整天"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4427509,
+     23.526187
+    ]
+   },
+   "properties": {
+    "id": "food-i30",
+    "name": "Toko Jenny印尼雜貨店",
+    "分類": "印尼",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村埤角516號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.440026,
+     23.520501
+    ]
+   },
+   "properties": {
+    "id": "food-i31",
+    "name": "INDEX 南洋百貨",
+    "分類": "印尼",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉建國路三段59之28,29號"
+     ],
+     [
+      "營業時間",
+      "09:00-21:00"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.44339,
+     23.526655
+    ]
+   },
+   "properties": {
+    "id": "food-i32",
+    "name": "費貞玉泰國料理",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村埤角558號"
+     ],
+     [
+      "電話",
+      "05-2130625 / 0911-017085"
+     ],
+     [
+      "備註",
+      "老闆台語較好，價錢與菜單不符"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4381711,
+     23.5229279
+    ]
+   },
+   "properties": {
+    "id": "food-i33",
+    "name": "泰華商行泰式小吃",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉興南村頭橋79號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4400602,
+     23.5220647
+    ]
+   },
+   "properties": {
+    "id": "food-i34",
+    "name": "泰國商店",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段106號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4391833,
+     23.5257469
+    ]
+   },
+   "properties": {
+    "id": "food-i35",
+    "name": "泰國雜貨店",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉福樂村建國路三段224號"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4622913,
+     23.5218697
+    ]
+   },
+   "properties": {
+    "id": "food-i36",
+    "name": "泰國店",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉北斗村"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4721465,
+     23.5571878
+    ]
+   },
+   "properties": {
+    "id": "food-i37",
+    "name": "洪媽媽泰式料理",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣三興村神農路路"
+     ],
+     [
+      "電話",
+      "0900267307"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4383406,
+     23.5230386
+    ]
+   },
+   "properties": {
+    "id": "food-i38",
+    "name": "瑪琳雜貨店",
+    "分類": "泰國",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉興南村頭橋"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4473203,
+     23.5281947
+    ]
+   },
+   "properties": {
+    "id": "food-i39",
+    "name": "菲律賓雜貨店",
+    "分類": "菲律賓",
+    "extra": [
+     [
+      "地址",
+      "嘉義縣民雄鄉埤角2-90號(早餐店)"
+     ]
+    ]
+   }
+  }
+ ]
+}

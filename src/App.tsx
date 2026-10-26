@@ -13,6 +13,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { parsePlaces } from '@/lib/parsePlaces'
 import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
 import { CATEGORY_STYLES } from '@/lib/categories'
+import { THEME_STYLES } from '@/lib/themeStyles'
+import { categoryColor } from '@/lib/placeStyle'
 import { matchesFilters } from '@/lib/filterPlaces'
 
 // 資料是靜態的：在模組層級算一次。篩選後的 groups 只在篩選條件改變時才重算，
@@ -22,10 +24,29 @@ const places = parsed.flatMap((r) => r.places)
 const skipped = parsed.flatMap((r) => r.skipped.map((s) => ({ ...s, theme: r.theme })))
 const allGroups = groupByLocation(places)
 const bounds = initialBounds(places)
-// 篩選列依 CATEGORY_STYLES 的順序，只列出資料裡真的有的分類
-const categories = Object.keys(CATEGORY_STYLES)
-  .map((name) => ({ name, count: places.filter((p) => p.category === name).length }))
+// 主題列：依 themes 的順序，只列出資料裡真的有地點的主題
+const themeChips = themes
+  .map((t) => ({
+    key: t.id,
+    label: t.name,
+    count: places.filter((p) => p.theme === t.id).length,
+    color: THEME_STYLES[t.id]?.color ?? '#5b6770',
+  }))
   .filter((c) => c.count > 0)
+
+// 某個主題底下的分類：有設定樣式的分類排前面（依 CATEGORY_STYLES 的順序），其餘依地點數多到少；
+// 只有一種分類時沒有篩選的意義，回傳空陣列
+function categoryChips(theme: string | null) {
+  if (theme === null) return []
+  const counts = new Map<string, number>()
+  for (const p of places) if (p.theme === theme && p.category) counts.set(p.category, (counts.get(p.category) ?? 0) + 1)
+  if (counts.size < 2) return []
+  const order = Object.keys(CATEGORY_STYLES)
+  const rank = (name: string) => (order.includes(name) ? order.indexOf(name) : order.length)
+  return [...counts]
+    .sort(([a, na], [b, nb]) => rank(a) - rank(b) || nb - na)
+    .map(([name, count]) => ({ key: name, label: name, count, color: categoryColor(theme, name) }))
+}
 
 if (import.meta.env.DEV && skipped.length > 0) {
   console.warn(
@@ -42,12 +63,13 @@ export default function App() {
   const [selectedId, select] = useSelectedId()
   const [listOpen, setListOpen] = useState(false)
   const [introDismissed, dismissIntro] = useIntroDismissed()
+  const [theme, setTheme] = useState<string | null>(null)
   const [category, setCategory] = useState<string | null>(null)
   const [query, setQuery] = useState('')
-  const filtered = category !== null || query.trim() !== ''
+  const filtered = theme !== null || category !== null || query.trim() !== ''
   const visiblePlaces = useMemo(
-    () => (filtered ? places.filter((p) => matchesFilters(p, category, query)) : places),
-    [filtered, category, query],
+    () => (filtered ? places.filter((p) => matchesFilters(p, theme, category, query)) : places),
+    [filtered, theme, category, query],
   )
   const groups = useMemo(
     () => (filtered ? groupByLocation(visiblePlaces) : allGroups),
@@ -55,12 +77,14 @@ export default function App() {
   )
 
   // 篩選或搜尋改變後，目前選取的地點若被排除就取消選取（卡片不會停在看不見的地點上）
-  const applyFilters = (nextCategory: string | null, nextQuery: string) => {
+  const applyFilters = (nextTheme: string | null, nextCategory: string | null, nextQuery: string) => {
+    setTheme(nextTheme)
     setCategory(nextCategory)
     setQuery(nextQuery)
     const current = selectedId ? places.find((p) => p.id === selectedId) : undefined
-    if (current && !matchesFilters(current, nextCategory, nextQuery)) select(null)
+    if (current && !matchesFilters(current, nextTheme, nextCategory, nextQuery)) select(null)
   }
+  const categories = useMemo(() => categoryChips(theme), [theme])
   // 從清單或標記選取地點時，清單讓位給卡片
   const choose = (id: string | null) => {
     setListOpen(false)
@@ -91,9 +115,17 @@ export default function App() {
   return (
     <div className="flex h-dvh flex-col">
       <SiteHeader listOpen={listOpen} onToggleList={() => setListOpen((o) => !o)} />
-      {allGroups.length > 0 && categories.length > 0 && (
+      {allGroups.length > 0 && themeChips.length > 0 && (
         <div className="shrink-0 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
-          <FilterBar categories={categories} active={category} onChange={(c) => applyFilters(c, query)} />
+          <FilterBar
+            themes={themeChips}
+            activeTheme={theme}
+            // 換主題時分類篩選歸零（分類屬於主題）
+            onTheme={(t) => applyFilters(t, null, query)}
+            categories={categories}
+            activeCategory={category}
+            onCategory={(c) => applyFilters(theme, c, query)}
+          />
         </div>
       )}
       <main className="relative min-h-0 flex-1">
@@ -116,7 +148,7 @@ export default function App() {
                 沒有符合的地點
                 <button
                   type="button"
-                  onClick={() => applyFilters(null, '')}
+                  onClick={() => applyFilters(null, null, '')}
                   className="cursor-pointer font-medium text-atlas-teal underline"
                 >
                   清除篩選
@@ -130,8 +162,8 @@ export default function App() {
                   total={places.length}
                   filtered={filtered}
                   query={query}
-                  onQuery={(q) => applyFilters(category, q)}
-                  onClearFilters={() => applyFilters(null, '')}
+                  onQuery={(q) => applyFilters(theme, category, q)}
+                  onClearFilters={() => applyFilters(null, null, '')}
                   selectedId={selectedId}
                   onSelect={choose}
                   onClose={() => setListOpen(false)}

@@ -1,6 +1,7 @@
 import { Search, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { categoryStyle } from '@/lib/categories'
+import { themeName } from '@/data/themes'
+import { placeStyle } from '@/lib/placeStyle'
 import type { Place } from '@/types'
 
 type Props = {
@@ -84,9 +85,12 @@ export default function PlaceList({
                   <span
                     aria-hidden="true"
                     className="mt-1 size-2.5 shrink-0 rounded-full"
-                    style={{ backgroundColor: categoryStyle(p.category).color }}
+                    style={{ backgroundColor: placeStyle(p).color }}
                   />
-                  {p.title}
+                  <span className="min-w-0">
+                    {p.title}
+                    <span className="block text-xs font-normal text-atlas-muted">{themeName(p.theme)}</span>
+                  </span>
                 </button>
               </li>
             )
