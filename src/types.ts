@@ -8,8 +8,13 @@ export type Place = {
   lat: number
   theme: string
   category?: string
-  year?: string
+  // 年代：標題或摘要明講的時間（如 1963、日治時期），沒有明講就留空
+  era?: string
+  // 官網文章的發布日期，格式 YYYY-MM-DD
+  published?: string
 }
+
+export type PlaceMeta = { category?: string; era?: string; published?: string }
 
 export type SkippedItem = { index: number; reason: string }
 
