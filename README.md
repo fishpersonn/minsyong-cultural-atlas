@@ -1,132 +1,109 @@
-# Minsyong Cultural Atlas（民雄文化地圖）
+# Minsyong Cultural Atlas　民雄文化地圖
 
-一個靜態的互動地圖網站，把「民雄鐵路高架化」相關的大學路（https://dovoha.ccu.edu.tw/）文章標在地圖上。
-對象是想認識民雄文化的外地人，以手機優先設計，介面為繁體中文。
+**一張可以在手機和電腦上探索的民雄文化互動地圖。**
+把中正大學「重構大學路計畫」整理的民雄文史、人物、Podcast、老建築、在地報導，標在地圖上，點開就能讀每個地方的故事。
 
-網站本身不收錄全文：每個地點的卡片只顯示標題、圖片、摘要與前往大學路官網的連結（一律以新分頁開啟）。
-圖片直接引用官網網址，不複製進專案，圖片失效時顯示預設圖。本站不做統計、搜尋篩選與英文版。
+**[→ 打開地圖](https://fishpersonn.github.io/minsyong-cultural-atlas/)**
 
-正式網址：https://fishpersonn.github.io/minsyong-cultural-atlas/
+<table>
+  <tr>
+    <td><img src="docs/images/screenshot.png" alt="桌面版：地圖上有依主題上色的標記，上方是主題篩選列" width="640"></td>
+    <td><img src="docs/images/screenshot-mobile.png" alt="手機版：點選地點後從底部滑出卡片" width="200"></td>
+  </tr>
+</table>
+
+> *English:* an interactive map of Minxiong (民雄, Chiayi, Taiwan) cultural sites, built on public articles from National Chung Cheng University's "Reconstructing University Road" project. 638 places across 15 themes; the interface is in Traditional Chinese. Each place links back to the original article.
+
+## 這個網站是什麼
+
+民雄是嘉義縣的一個鄉鎮。中正大學「重構大學路計畫」多年來記錄了這裡的歷史、產業、人物與日常，文章都放在[大學路官網](https://dovoha.ccu.edu.tw/)。
+文章很多、散在各處，這個網站把它們放到同一張地圖上，讓不熟悉民雄的人也能邊逛邊認識。
+
+本站**不是**大學路官網，也不收錄文章全文：每個地點的卡片只有標題、圖片、摘要，想讀全文請點「到官網閱讀全文」前往原文。
+
+## 可以做什麼
+
+- **逛地圖**：標記依主題上色、換圖示；靠得近的標記會合併成數字，點下去放大。
+- **篩選**：依主題（鐵路高架化、Podcast、人物、美食…）和分類縮小範圍。
+- **搜尋**：在「地點清單」裡搜尋標題、內容、分類，美食還能搜地址。
+- **讀卡片**：標題、圖片、摘要、年代、官網發布日期，並可用「上一個／下一個」依序逛。
+- **分享**：選到地點時網址會變成 `#p=…`，貼給朋友就會直接打開那個地點。
+- **手機優先**：手機是底部抽屜，電腦是左側面板；支援鍵盤操作（`Esc` 關閉卡片）。
+
+## 資料
+
+共 **638 個地點、15 個主題**：
+
+| 主題 | 地點數 | 主題 | 地點數 |
+| --- | ---: | --- | ---: |
+| 我的民雄朋友們 Podcast | 161 | 東南亞美食 | 39 |
+| 民雄阿榮文化小站 | 111 | 街區走踏路線 | 36 |
+| 民雄文化地圖 | 78 | 民雄鐵路高架化 | 24 |
+| 民雄人物 | 75 | 工作坊紀錄 | 20 |
+| 課程成果 | 49 | 鳳梨急行軍田野筆記 | 13 |
+| 民雄古碑文 | 10 | 廟宇裝飾藝術 | 7 |
+| 打貓街坊文化協會 | 5 | 我的農民朋友們 | 5 |
+| 課程筆記 | 5 | | |
+
+- 資料來自整理大學路官網文章的爬蟲專案，座標與分類由人工標記與整理，**可能有錯誤或遺漏**。發現問題歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues)。
+- 文章內容與圖片的版權屬原作者與大學路計畫。本站的圖片是**直接連到官網**顯示，沒有複製；官網改版或圖片失效時，會顯示預設圖。
+- 資料怎麼更新、格式與規則，見 [docs/DATA.md](docs/DATA.md)。
 
 ## 技術
 
-- Vite + React + TypeScript（`strict`）
-- Tailwind CSS 4 + shadcn/ui（Radix UI）
-- MapLibre GL JS，底圖為 CARTO Positron（`https://basemaps.cartocdn.com/gl/positron-gl-style/style.json`，資料 © OpenStreetMap contributors © CARTO，地圖角落的標註不可移除）
-- Vitest + Testing Library
-- GitHub Actions 建置並部署到 GitHub Pages（Vite `base` 為 `/minsyong-cultural-atlas/`）
+- [Vite](https://vite.dev/) + [React](https://react.dev/) + TypeScript（`strict`）
+- [Tailwind CSS](https://tailwindcss.com/) 4 + [shadcn/ui](https://ui.shadcn.com/)（Radix UI）
+- [MapLibre GL JS](https://maplibre.org/)，底圖為 [CARTO](https://carto.com/) Positron
+- 純靜態網站，沒有後端與資料庫；資料是隨程式一起打包的 JSON
+- [Vitest](https://vitest.dev/) + Testing Library；GitHub Actions 自動檢查與部署到 GitHub Pages
 
-沒有 WebGL 或地圖初始化失敗時，會顯示「你的瀏覽器不支援互動地圖」並提供前往大學路官網的連結。
+沒有 WebGL 或地圖載入失敗時，會顯示提示與前往大學路官網的連結，不會是空白頁。
 
-## npm 指令
+## 在自己的電腦上執行
+
+需要 Node.js 22。
 
 ```bash
-npm install        # 安裝相依套件
-npm run dev        # 啟動開發伺服器（開發時，被略過的資料會在 console 以 warn 列出）
-npm run build      # 型別檢查（tsc --noEmit）後以 Vite 打包到 dist/
+git clone https://github.com/fishpersonn/minsyong-cultural-atlas.git
+cd minsyong-cultural-atlas
+npm install
+npm run dev        # 開發伺服器，網址會印在終端機（含 /minsyong-cultural-atlas/ 路徑）
+```
+
+其他指令：
+
+```bash
+npm test           # 執行測試
+npm run lint       # ESLint
+npm run build      # 型別檢查後打包到 dist/
 npm run preview    # 預覽打包結果
-npm test           # 執行測試（vitest run）
-npm run lint       # ESLint 檢查
 ```
 
-## 如何更新資料
-
-資料來自爬蟲 repo `dovoha-Web-Crawle`。更新時，把爬蟲輸出的 JSON 複製過來覆蓋 `src/data/railway.json`：
-
-```bash
-cp <dovoha-Web-Crawle>/2026-團隊研究調查-民雄鐵路高架化/MinxiongRailwayElevation_Output/民雄鐵路高架化.json \
-   src/data/railway.json
-```
-
-其中 `<dovoha-Web-Crawle>` 是爬蟲 repo 在你電腦上的路徑。覆蓋後執行 `npm test`、`npm run build` 確認沒問題，再 commit 並 push 到 `main`。
-
-### 其他主題（Podcast、人物、美食…）
-
-鐵路高架化以外的 14 個主題（約 600 個地點）來自爬蟲 repo 的 `2025-民雄文化地圖整理/`，欄位名稱各主題不同，
-所以用腳本統一轉成本站格式，輸出到 `src/data/crawler/<主題>.json`：
-
-```bash
-node scripts/import-crawler.mjs <dovoha-Web-Crawle 路徑>
-```
-
-- 各主題用哪個檔案、哪些欄位對應標題／摘要／連結／分類／年代，都集中寫在腳本最上面的 `THEMES`。
-- 地點 id 格式為 `<主題>-<官網文章編號>`（同一篇文章對應多個地點時加 `-2`、`-3`；沒有連結的用 `<主題>-i<第幾筆>`）。
-  網址 `#p=` 用的就是這個 id；**資料順序變動會讓沒有連結的地點 id 改變**，已分享的網址可能失效。
-- 沒有官網文章連結的地點（如東南亞美食），卡片的按鈕會顯示「前往大學路官網」並連到首頁。
-- 新增主題：在腳本的 `THEMES` 加一筆、在 `src/data/themes.ts` 登錄、在 `src/lib/themeStyles.ts` 加標記顏色與圖示。
-  測試會檢查：每個主題都能解析、沒有被略過的資料、全站 id 不重複、每個主題都有標記樣式。
-- 鐵路高架化的 id 維持純數字（已經分享出去的網址不能失效），不經過這個腳本。
-
-### 分類、年代與發布日期（補充資料）
-
-爬蟲輸出沒有分類與年代，這些放在獨立的 `src/data/<主題>.meta.json`（例如 `railway.meta.json`），以文章 ID 為鍵。
-重新複製爬蟲 JSON 不會蓋掉它：
-
-```json
-"96220": { "category": "歷史故事", "era": "1963", "published": "2026-10-15" }
-```
-
-- `category`：分類。顯示用的顏色與圖示定義在 `src/lib/categories.ts`；新增分類時要同步加進去，否則會用灰色圓點。測試會檢查每個地點的分類都有設定樣式。
-- `era`：年代，**只收標題或摘要裡明講的時間**（如 `1963`、`日治時期`），沒有就不要填。
-- `published`：官網文章的發布日期（`YYYY-MM-DD`），取自各文章頁面的「發布日期」。
-- 資料檔本身若也有 `分類`、`年代` 欄位，以資料檔為準。
-- 新增文章時，請同時補上這個檔案的對應項目；測試會檢查兩邊的 ID 一一對應。
-
-### 資料格式與驗證規則
-
-資料是 GeoJSON `FeatureCollection`（`features` 陣列）。每個 feature 的欄位對應如下（`src/lib/parsePlaces.ts`）：
-
-| 原始欄位 | 對應到 `Place` | 說明 |
-| --- | --- | --- |
-| `geometry.coordinates` `[經度, 緯度]` | `lng`、`lat` | 必填 |
-| `properties.name` | `title` | 必填，不可為空白 |
-| `properties.摘要` | `summary` | 選填，缺少時為空字串 |
-| `properties.查看更多` | `links[0]`，並由此擷取 `id` | 必填；網址需含 `-<數字>,c<數字>` 才能取得文章 ID |
-| `properties.圖片` | `images[0]` | 選填 |
-| `properties.查看更多2` | `links[1]` | 選填，合併文章用 |
-| `properties.圖片2` | `images[1]` | 選填 |
-
-文章 ID 取自官網連結（例如 `.../p/405-1159-96220,c4204.php?Lang=zh-tw` 的 `96220`）。有 `查看更多2` 的合併文章以第一個連結的 ID 為準，卡片會顯示兩個連結。
-
-下列資料會被跳過（不顯示在地圖上，不會讓網站壞掉）：
-
-- 缺少座標，或座標不是有效數字
-- 座標超出範圍：經度需在 118–123、緯度需在 21–26（見 `src/constants.ts`）
-- 缺少標題（`name`）
-- 缺少 `查看更多` 連結，或連結中找不到文章 ID
-- 文章 ID 與前面的地點重複
-
-座標完全相同的多篇文章會合併成同一個標記，卡片可切換。初始視野會排除離中位數超過 10 公里的離群點；沒有任何有效地點時，會顯示「目前沒有可顯示的地點」與官網連結。
-
-## 如何新增主題
-
-1. 把新主題的 JSON（同上述 GeoJSON 格式）放到 `src/data/`，例如 `src/data/xxx.json`。
-2. 在 `src/data/themes.ts` 匯入並登錄：
-
-   ```ts
-   import railwayJson from './railway.json'
-   import xxxJson from './xxx.json'
-
-   export const themes: Theme[] = [
-     { id: 'railway', name: '民雄鐵路高架化', data: railwayJson },
-     { id: 'xxx', name: '主題名稱', data: xxxJson },
-   ]
-   ```
-
-目前的限制：App 沒有主題切換介面。`src/App.tsx` 會把 `themes` 裡所有主題的地點合併，全部標在同一張地圖上，各主題之間沒有區分、篩選或不同標記樣式；新增主題後若需要切換或分色，還要另外修改 App 與相關元件。
-
-## 專屬網址
-
-選取地點時，網址會變成 `#p=<文章ID>`，例如：
+## 專案結構
 
 ```
-https://fishpersonn.github.io/minsyong-cultural-atlas/#p=96220
+src/
+  components/   地圖（MapView）、地點卡片、清單、篩選列、說明框…
+  lib/          資料解析與驗證、篩選、標記合併、標記顏色與圖示
+  data/         各主題的 GeoJSON、分類與年代補充資料、主題登錄（themes.ts）
+  hooks/        網址 #p= 與選取狀態同步、說明框記憶
+scripts/        import-crawler.mjs：把爬蟲專案的資料轉成本站格式
+docs/           DATA.md（資料維護）、設計文件與實作計畫（開發過程紀錄）
 ```
-
-直接開啟這個網址會定位到該地點並開啟卡片，可以用來分享。ID 找不到對應地點時，視為沒有選取。
 
 ## 部署
 
-push 到 `main` 就會由 GitHub Actions（`.github/workflows/deploy.yml`）自動執行 lint、測試、建置，並部署 `dist/` 到 GitHub Pages。其他分支與 pull request 只跑 lint、測試、建置，不部署。
+push 到 `main` 會由 GitHub Actions 執行 lint、測試、建置，再部署到 GitHub Pages；其他分支與 pull request 只跑檢查，不部署。
+自己 fork 部署時，要在 repo 的 Settings → Pages 把 Source 設為「GitHub Actions」，並依你的 repo 名稱調整 `vite.config.ts` 的 `base`。
 
-首次部署前，需要在 GitHub repo 的 Settings → Pages，把 Source 設為「GitHub Actions」。
+## 參與
+
+發現地點座標不對、分類有誤、連結失效，或有功能建議，歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues)。
+想改程式的話，請先開 Issue 討論，送 pull request 前請確認 `npm run lint`、`npm test`、`npm run build` 都通過。
+
+## 致謝與授權
+
+- 內容與圖片：中正大學「重構大學路計畫」與各文章作者，原文見[大學路官網](https://dovoha.ccu.edu.tw/)。
+- 地圖資料：© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors、© [CARTO](https://carto.com/attributions)（地圖角落的標註請勿移除）。
+- 開源元件：MapLibre GL JS（BSD-3-Clause）、React、Vite、Tailwind CSS、shadcn/ui 與 Radix UI（MIT）、[lucide](https://lucide.dev/) 圖示（ISC）、[Noto Serif TC](https://fonts.google.com/noto/specimen/Noto+Serif+TC) 與 Geist 字體（SIL OFL）。
+- **程式碼授權尚未指定**：在指定之前，預設保留所有權利。想引用或重用請先[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues) 詢問。
