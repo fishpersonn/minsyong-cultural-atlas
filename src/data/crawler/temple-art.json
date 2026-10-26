@@ -1,0 +1,117 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4295538,
+     23.556653
+    ]
+   },
+   "properties": {
+    "id": "temple-art-30065",
+    "name": "慶誠宮",
+    "摘要": "老鼠多子，葡萄一串果實多，都是多產豐饒的象徵。然而藝師們在表現時會捨棄家鼠的形象，而替之以更討人喜歡的松鼠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-30065,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4283451,
+     23.5560163
+    ]
+   },
+   "properties": {
+    "id": "temple-art-30064",
+    "name": "保生大帝廟",
+    "摘要": "《三國演義》第77回，關公去世之後，英魂不散，一日飄盪到玉泉山，偶遇普淨大師為他說法，指點迷津，因而徹悟皈依。圖右是普淨大師及童子，圖左關公隨侍周倉及關平。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-30064,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4294837,
+     23.5559897
+    ]
+   },
+   "properties": {
+    "id": "temple-art-29983",
+    "name": "大士爺廟",
+    "摘要": "龍生九子中的鰲魚，經常出現在樑柱交接處的雀替/插角，因為傳說中鰲魚喜吞火，傳統廟宇建築均為木構，所以用鰲魚作為火災厭勝之物。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-29983,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4297609,
+     23.5531237
+    ]
+   },
+   "properties": {
+    "id": "temple-art-30066",
+    "name": "騎虎王廟",
+    "摘要": "道教的護法神組合眾多，這一組門神是手持大槌的三眼王靈官，以及手持鞭的趙公明。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-30066,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4505339,
+     23.5619028
+    ]
+   },
+   "properties": {
+    "id": "temple-art-30063",
+    "name": "豐收村五穀王廟",
+    "摘要": "許多廟宇三川殿龍虎門側的石堵都能看到「獅子滾繡球」的立體浮雕。傳說雌雄二獅滾繡球，就會從繡球中生出小獅子。又因獅子烕猛，也有避邪的寓義。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-30063,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4356369,
+     23.5375648
+    ]
+   },
+   "properties": {
+    "id": "temple-art-45491",
+    "name": "工藝中的地方史──嘉林木匾訪談記",
+    "摘要": "林先生拿起一塊30cm*30cm的檜木板說，這檜木板現在就要價3000元，他戲稱「比牛排還貴」。目前作匾常用的木材則是進口的南洋檜木，學名是貝殼杉（Agathis dammara (Lamb.) L. G. Rich）。因為大部分來自所羅門，所以也稱為所羅門檜。這木材密度高，比較好刻。至於眾人趨之若鶩的檜木，在林先生的長子林宗治先生眼裡反而一無是處。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-45491,c3016.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4124638,
+     23.5627866
+    ]
+   },
+   "properties": {
+    "id": "temple-art-30002",
+    "name": "生活的交誼廳 庶民的博物館",
+    "摘要": "在傳統聚落裡，廟宇除了提供信仰的心理依靠外，也經常是居民社交聯誼、訊息交換的中心。本文整理了民雄幾座廟宇的裝飾藝術，期望民眾能夠進一步認識裝飾藝術背後所蘊含的意義。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-30002,c3016.php?Lang=zh-tw"
+   }
+  }
+ ]
+}

@@ -1,0 +1,325 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4319382,
+     23.5577966
+    ]
+   },
+   "properties": {
+    "id": "workshops-81813",
+    "name": "地方創生的實踐現場：民雄農會倉庫跨域共創的可能與挑戰",
+    "摘要": "工作坊的參與者來自各行各業，除了民雄鄉農會、邑山社區大學和中正大學，以及協助空間測繪的夥伴外，尚有鄰近之高工、高中、國小、幼兒園師生、洗衣店老闆、在地小農與在乎空間活化的民眾等。第一天最後的分組討論，也廣納意見，初步發想民雄農會倉庫未來的各種可能性。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-81813,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4317612,
+     23.5578492
+    ]
+   },
+   "properties": {
+    "id": "workshops-79472",
+    "name": "穀倉接力：鐵道高架化下的民雄記憶與對話",
+    "摘要": "因應嘉義鐵路高架化的政策，辦理「想像與共創農會工作坊」，為期兩天，邀集了鐵道相關的研究和空間活化的各方專家與工作者，和地方居民，以接力的方式在饒富歷史意義的農會穀倉展開。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-79472,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3836636,
+     23.5458325
+    ]
+   },
+   "properties": {
+    "id": "workshops-13304",
+    "name": "2022夏季農地工作坊-農田裡的肥科學",
+    "摘要": "位於民雄鄉最西邊的村落—西昌村，像在稻海裡若隱若現的小島。以種稻為主的西昌村，也種很多番茄、哈密瓜。經濟生活與農業緊密接連的西昌村，自然也有形形色色有趣的農人。​",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13304,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4811009,
+     23.5577093
+    ]
+   },
+   "properties": {
+    "id": "workshops-12770",
+    "name": "【三興小記者】第一話－哈囉，你好嗎？",
+    "摘要": "今天(3/3)是三興小記者的第一堂課，在踏進三興國小的校園之前，許多夥伴的內心其實是相當緊張的，儘管對他們來說這並不是第一次帶活動，卻是第一次進到學校附近的小學和小朋友們互動，當彼此都還不熟悉對方的狀況下，得花更多的心思建立彼此的信任。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12770,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4808462,
+     23.5577516
+    ]
+   },
+   "properties": {
+    "id": "workshops-12767",
+    "name": "【三興小記者】第零話－備課日",
+    "摘要": "這禮拜是開學的第一周，原本寧靜的校園也因為同學們的回歸而熱鬧了起來，新的學期，除了籌備中的烈風講堂，我們和三興國小合作的課後社團－【三興小記者】也即將開始。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12767,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4813236,
+     23.5577309
+    ]
+   },
+   "properties": {
+    "id": "workshops-12771",
+    "name": "【三興小記者】第二話－精彩，不攝限",
+    "摘要": "三興小記者的第二堂課，我們換了一間教室，也多了幾位新同學的加入。經過一個禮拜的調整和準備，團隊的夥伴找到了和小朋友們互動的節奏，而孩子們也開始在課程中和我們分享他的生活。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12771,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4816186,
+     23.5576719
+    ]
+   },
+   "properties": {
+    "id": "workshops-12769",
+    "name": "【三興小記者】第三話－你好，請問…",
+    "摘要": "三興小記者的培訓中，我們正步步朝著專業的新聞記者前進，而訪問可說是記者取得第一手資料的重要環節，了解事件的衝突與真相。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12769,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4824554,
+     23.5575834
+    ]
+   },
+   "properties": {
+    "id": "workshops-12772",
+    "name": "【三興小記者】第四話－三興小記者，正式上線",
+    "摘要": "「你好，我是三興小記者，想要問你跟跳蚤市場有關的事，不知道你願意接受我的採訪嗎？」",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12772,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3828842,
+     23.5442118
+    ]
+   },
+   "properties": {
+    "id": "workshops-13303",
+    "name": "從農事體驗中 看見西昌「濃」情",
+    "摘要": "位於民雄最西邊的西昌村，是以農業為主的聚落。所以這次農情厚意-農地工作坊在西昌村做了很多在農家才有的體驗。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13303,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4827509,
+     23.5576267
+    ]
+   },
+   "properties": {
+    "id": "workshops-12510",
+    "name": "【三興小記者】第七話－我們一起",
+    "摘要": "大小朋友們圍成一個圈，你一言我一句地討論，整個教室瞬間熱鬧了起來，好奇他們到底在做什麼？",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-12510,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4802829,
+     23.5527545
+    ]
+   },
+   "properties": {
+    "id": "workshops-13298",
+    "name": "民雄鳳梨田踏查",
+    "摘要": "其中解說員提到田鼠會出現在田間偷吃鳳梨，而有趣的是老鼠挑選鳳梨甜度的方式是以尾部去拍打鳳梨，並聽拍打聲判斷鳳梨的甜度高低。而旺萊山挑選鳳梨的方式，除了看鳳梨的外觀完整與否，也會用短棒敲擊鳳梨，敲擊發出的聲音分為「肉聲」以及「鼓聲」",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13298,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4801327,
+     23.5533688
+    ]
+   },
+   "properties": {
+    "id": "workshops-13296",
+    "name": "鳳梨為用－來自鳳梨莖的生技妙用",
+    "摘要": "鳳梨可說是無一處無用，果肉可以提供鮮食或是作為加工食品原料；葉內的纖維可作為宣紙或是紡織品的材料、甚至加工作為汽車零組件；而莖部經過加工萃取，可以得到我們市面上常看到的鳳梨酵素。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13296,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4799181,
+     23.5533934
+    ]
+   },
+   "properties": {
+    "id": "workshops-13292",
+    "name": "鳳梨裡的科學秘密",
+    "摘要": "平常說到鳳梨，就會想到它的果肉，但對於他的營養價值，未能充分了解，如果能從科學角度看鳳梨，可以發現鳳梨的奧秘！",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13292,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4768162,
+     23.5570515
+    ]
+   },
+   "properties": {
+    "id": "workshops-13291",
+    "name": "鳳梨纖維新絲維─鳳梨葉取纖體驗",
+    "摘要": "鳳梨除了果肉能夠提供食用，難道就不能做什麼了嗎？這裡告訴你，鳳梨的葉子也可以發揮很大的作用。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13291,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4770308,
+     23.5569605
+    ]
+   },
+   "properties": {
+    "id": "workshops-13289",
+    "name": "熱帶的滋味－鳳梨罐頭的黃金年代",
+    "摘要": "罐頭的發明與軍事有關，是出現在拿破崙打仗時期，由於食物需要長時間保存而出現的。而「罐頭」之所以會傳入台灣，是因為1895年時日本統治台灣，從西方取得了許多現代化的技術，且受到明治維新的影響，改變了以往的飲食習慣，從而開啟了鳳梨罐頭的時代，將美味的熱帶水果送往日本。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13289,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.476599,
+     23.5570736
+    ]
+   },
+   "properties": {
+    "id": "workshops-13287",
+    "name": "野草與野菜的認識與採集",
+    "摘要": "談及野草功用，學員們回應：吃、泡茶、避邪、搓麻繩。講者分享早期人與野草間的生活相當緊密，因野草隨手可得，無論是用來藥物治療、驅邪避凶、服飾上的裝飾、食用等。不像現代人，普遍認為野草與自己的生活並未有關聯。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13287,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4852128,
+     23.468934
+    ]
+   },
+   "properties": {
+    "id": "workshops-13281",
+    "name": "農地生態多樣性──綠色革命後的農業反思",
+    "摘要": "其實在人類出現之後，我們就不斷破壞、或者說是改變生態系，改變成我們想要的那樣。為什麼農地裡面會出現大量害蟲？其實就是我們大量種植單一作物所造成的，而害蟲的出現也不過是將之平衡回來。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13281,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.45052,
+     23.5614186
+    ]
+   },
+   "properties": {
+    "id": "workshops-13277",
+    "name": "認識雜草的害處與益處",
+    "摘要": "近年來對於生物多樣性的考量，反而美國的學者這樣定義的雜草更為合適：「雜草總是被不公平的對待（\"Weeds have always been condemned without a fair trial.\" (King, 1951)）」，另一學者則說：「雜草就是某種植物的優點尚未被挖掘（\"A plant whose virtues have not yet been discovered.\" (Emerson, 1912)）」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13277,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4521745,
+     23.5603975
+    ]
+   },
+   "properties": {
+    "id": "workshops-13259",
+    "name": "走進田地 中正師生向農夫學習",
+    "摘要": "一早工作坊學員一齊步行到金品有機農場，聽陳老闆分享有機農業的相關知識。陳老闆表示，有機農業需要花費更多時間管理田地，也一再強調資金的重要性。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13259,c202.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4506353,
+     23.5620298
+    ]
+   },
+   "properties": {
+    "id": "workshops-13242",
+    "name": "首度辦理農地工作坊—走入農地先拜神",
+    "摘要": "活動開始前，參與者先共同敬拜五穀王；五穀王廟主祀神農大帝，又是豐收村重要信仰中心，在祈求活動平安順利之餘，亦象徵與在地文化的連結。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-13242,c202.php?Lang=zh-tw"
+   }
+  }
+ ]
+}

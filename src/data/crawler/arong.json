@@ -1,0 +1,1781 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4299619,
+     23.5532049
+    ]
+   },
+   "properties": {
+    "id": "arong-80068",
+    "name": "咱的老樹咱的情-騎虎王廟的老樹",
+    "摘要": "中樂村騎虎王廟前有四棵老榕樹，相傳這四棵老榕樹，早年是尤騎虎王廟的乩童起駕指定而種於此，猶如四大天王般的守護著廟宇。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80068,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4419808,
+     23.5342907
+    ]
+   },
+   "properties": {
+    "id": "arong-80067",
+    "name": "雙福社區稻草人文化節",
+    "摘要": "藉由此活動讓每戶家庭動員與小孩有親子互動，讓小孩子有做稻草人的體驗，增添小孩子的少年樂趣，帶動社區的和諧，讓老人家們從心體會他們以前常做稻草人的那種經驗，以前是一種工作，現在是一種玩樂，以不同的心情大家玩在一起。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80067,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.44219,
+     23.5342071
+    ]
+   },
+   "properties": {
+    "id": "arong-80062",
+    "name": "雙福社區花海環保公園",
+    "摘要": "社區花海環保公園從去年到今年，我們的規劃總是用了不少的心力，盡量的有所變化，希望做到盡善盡美，它不僅是外在的美好，也是所有人心靈享受的抒發，讓它帶領社區居民重視環境的美化，也凝聚所有人的向心力，愛護社區，進而投入社區的參予，才是社區營造的真正意義。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80062,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4421592,
+     23.5343177
+    ]
+   },
+   "properties": {
+    "id": "arong-80060",
+    "name": "雙福社區花海景觀之美",
+    "摘要": "花海景觀區的設置，雖然為了環境美觀而整治，另一方面希望提高大家對社區的認同，期望大家對社區更付出多一點愛，能夠把雙福社區的美化更加的持續，更讓大家對社區產生向心力而更加努力。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80060,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4418992,
+     23.5343262
+    ]
+   },
+   "properties": {
+    "id": "arong-80058",
+    "name": "雙福社區「再現牛車」活動",
+    "摘要": "牛車在農業時代以前，扮演著非常重要的使命，牛車的用途非常廣，即是「牛車」故名思意便是用「牛」拉的交通工具，牛車依時代的演進有著不一樣的造型，但是變化也不是很大，有二輪、四輪，輪子有木材、鐵輪、到最後是橡膠輪。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80058,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4417772,
+     23.5343606
+    ]
+   },
+   "properties": {
+    "id": "arong-80070",
+    "name": "我辦中秋文化祭-關姨仔姑",
+    "摘要": "社區營造是一項沉重的責任，一步一腳印，無論有形的空間營造、無形的人文營造，皆有賴社區成員共同的合作，這次的活動能喚醒大家對社造的認知與更深層的瞭解及重要性，也期盼社造的成果能永續，或把社造的火花發揮得更燦爛。總之這次的活動是成功的，我的努力沒白費，要怎樣穫先怎麼栽，一切都是勞力加勞心所換來的。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80070,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4422375,
+     23.5343486
+    ]
+   },
+   "properties": {
+    "id": "arong-80056",
+    "name": "雙福社區之美化成果",
+    "摘要": "社區營造是延續性的工作，營造固然重要，也比較容易實行，但平時的保養就要看當家的耐心，如牆壁的保存，幾年就要重刷保持鮮豔，環境的清潔清掃，雜草清除這些都很重要。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-80056,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4421087,
+     23.5341008
+    ]
+   },
+   "properties": {
+    "id": "arong-75864",
+    "name": "雙福村由來與老祖公、老祖媽",
+    "摘要": "黃廷秀來台之初，蓽路襤褸，刻苦耐勞，見雙福山勢，由東向西延伸，猶如一座椅背，而選擇在山勢平緩的山腳下，蓋了一間簡略的房子定居下來，所以叫做「小定厝」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-75864,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4423615,
+     23.534391
+    ]
+   },
+   "properties": {
+    "id": "arong-75863",
+    "name": "雙福村土地公傳奇",
+    "摘要": "土地公名福德，又所謂福德正神，生性仁慈，和藹可親是他的代名詞，上帝才派他為地方的守護神。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-75863,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.390593,
+     23.5485054
+    ]
+   },
+   "properties": {
+    "id": "arong-75862",
+    "name": "雙援何氏宗祠氣象萬千",
+    "摘要": "先民從唐山過台灣，心繫祖國山河、遠方親情，這血農於水的宗族親情，都以建築宗祠作為寄託，更讓後代子孫知所慎終追遠，飲水思遠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-75862,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4502854,
+     23.5766751
+    ]
+   },
+   "properties": {
+    "id": "arong-74383",
+    "name": "鎮北村土庫子開山廟沿革",
+    "摘要": "鎮北村是由土庫子、虎尾寮、圳溝墘三庄合併而成。而開山廟是土庫子信仰中心，主神開山尊王、從祈元帥爺。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74383,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4499957,
+     23.5768275
+    ]
+   },
+   "properties": {
+    "id": "arong-74390",
+    "name": "虎尾寮劉家古厝",
+    "摘要": "家古厝，建於清朝年間，已有一百多年歷史，飛簷燕尾的建築，唯有王公將相才能使用，氣勢十足。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74390,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4499018,
+     23.5766849
+    ]
+   },
+   "properties": {
+    "id": "arong-74382",
+    "name": "咱們的老樹咱的情-鎮北村的七星祖師",
+    "摘要": "鎮北村土庫子，有「七星祖師」，祖師爺是二百多年的大榕樹，相傳這棵老樹是先民為破解風水之害。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74382,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4511781,
+     23.5617397
+    ]
+   },
+   "properties": {
+    "id": "arong-74381",
+    "name": "豐收村陳家古樓",
+    "摘要": "陳家古樓建於約一九○○年，由陳實華所創建。陳家在豐收村是望族，陳實華更是日據時代打貓庄士紳，他熱心公益、廣結善緣。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74381,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4507175,
+     23.5614698
+    ]
+   },
+   "properties": {
+    "id": "arong-74379",
+    "name": "豐收村 捏麵人-黃水永",
+    "摘要": "黃水永居住在民雄鄉豐收村，是一個無師自通的「捏麵人」師傅。經過十幾次的試驗，用心有成，便無師自通，一尊尊的捏麵藝術成行。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74379,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4376408,
+     23.5225953
+    ]
+   },
+   "properties": {
+    "id": "arong-74375",
+    "name": "頭橋耀明宮沿革誌",
+    "摘要": "日據時代:耀明宮差點沒神明可拜的窘境，可愛的百姓不怕威嚴的欺壓，偷把神像藏起來，因信仰宗教的力量，耀明宮才可以延續。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74375,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4379144,
+     23.5224674
+    ]
+   },
+   "properties": {
+    "id": "arong-74373",
+    "name": "頭橋耀明宮入火安座實錄",
+    "摘要": "頭橋耀明宮，創造於清同治八年，光緒三十二年遷建於現今之舊廟。迎神繞境揭開廟門安座入火落成的序幕，沉寂幾年的頭橋「迎熱鬧」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74373,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4282055,
+     23.5649679
+    ]
+   },
+   "properties": {
+    "id": "arong-74372",
+    "name": "磚窯廠文化園區規畫構想之我見",
+    "摘要": "本鄉擁有最值得開發的廢棄磚窯廠，八卦窯、目仔窯（柑仔窯）相鄰，可看性極高。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74372,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4285645,
+     23.5515611
+    ]
+   },
+   "properties": {
+    "id": "arong-74371",
+    "name": "99歲樂當義工的盧林金",
+    "摘要": "盧林金今年99歲，文隆村人，60歲是她人生另一轉捩點，這些日子以來生活雖然在風雨中度過，算能平安，就是上天給他最大的恩惠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74371,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4296637,
+     23.5567268
+    ]
+   },
+   "properties": {
+    "id": "arong-74370",
+    "name": "慶誠宮前世今生",
+    "摘要": "民雄慶誠宮舊名「媽祖宮」，是先民渡海來台祈求旅途平安的守護神。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74370,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4264348,
+     23.5305645
+    ]
+   },
+   "properties": {
+    "id": "arong-74368",
+    "name": "劉家古樓全紀錄之傳說",
+    "摘要": "劉家古樓的傳說，隨著時間歲月的流失，鬼魅傳說也漸漸的讓附近的居民隨之淡忘，或許有些人不願提起，抑或耆老已逝，想要在「義橋仔」附近打聽鬼故事，就必須費一番功夫。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74368,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4263061,
+     23.5305277
+    ]
+   },
+   "properties": {
+    "id": "arong-74367",
+    "name": "劉家古樓全紀錄之現在與未來",
+    "摘要": "我們要探討的是要如何讓劉家古樓得以繼續的延續它的生命，如何讓這棟大樓建築得以保存，進而發揚。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74367,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4265689,
+     23.5306703
+    ]
+   },
+   "properties": {
+    "id": "arong-74363",
+    "name": "劉家古樓全記錄之起源",
+    "摘要": "樓層內部為檜木精製，六零年代東榮國小修理教室需木材，便利用樓層內部木材作為修理之用，現在所見樓底見空，可仰望藍天，窗戶亦用鐵條間格。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74363,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.450605,
+     23.5622826
+    ]
+   },
+   "properties": {
+    "id": "arong-74362",
+    "name": "2008嘉義縣舞獅嘉年華活動紀實",
+    "摘要": "希望這次的活動只是拋磚引玉，舞獅文化確有傳承的重要性，別讓「弄獅」這項傳統民俗技藝消失了！",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74362,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4125871,
+     23.5627768
+    ]
+   },
+   "properties": {
+    "id": "arong-74359",
+    "name": "福權村榕仔王公",
+    "摘要": "有一次榕仔王公附身於「乩手」，說他是二百多年的榕仔王公，感謝信徒用心保護，大家才知道這棵榕仔王公有二百多年。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74359,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4124476,
+     23.5629784
+    ]
+   },
+   "properties": {
+    "id": "arong-74358",
+    "name": "福權村保安宮傳奇",
+    "摘要": "保安宮傳奇故事繁多，保生大帝醫術濟世，在村民心中是不可磨滅的記憶。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74358,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4124154,
+     23.5627424
+    ]
+   },
+   "properties": {
+    "id": "arong-74357",
+    "name": "福權村保安宮祈龜",
+    "摘要": "「龜」在宗教信仰中是福壽的象徵，寺廟中每年幾乎都有祈「龜」活動。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74357,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4264264,
+     23.5104841
+    ]
+   },
+   "properties": {
+    "id": "arong-74353",
+    "name": "福興社區之美(牛稠溪)",
+    "摘要": "廣興宮是牛稠溪的信仰中心，主祈玄天上帝。前方的榕樹下「報馬仔站」，老人家在樹下乘涼，一起道出陳年往事。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74353,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4264854,
+     23.5104536
+    ]
+   },
+   "properties": {
+    "id": "arong-74025",
+    "name": "福興村-廣興宮沿革誌",
+    "摘要": "光緒三十二年，逢丙午大地震，廟宇倒塌，至宣統元年，張傳秀發起募銀重建廟宇，經年餘，廟宇完成，擇日舉行入火安座，名為「廣興宮」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74025,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4590299,
+     23.5215973
+    ]
+   },
+   "properties": {
+    "id": "arong-74024",
+    "name": "福樂村歷史沿革",
+    "摘要": "民雄工業區前身為塗樓農場，最早以前是一片相思樹林，土匪佔據。日據以後，日本兵來此經過一番廝殺才趕走土匪，後來日本政府才開發為塗樓農場，為製糖會社、專種甘蔗，又開鑿鐵路，以載運甘蔗為主，經雙福、東泗湖到大林糖廠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74024,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4267926,
+     23.5304082
+    ]
+   },
+   "properties": {
+    "id": "arong-74023",
+    "name": "漫談紅磚建築",
+    "摘要": "紅磚建築從都市到農村，處處展現紅磚生活型態，無論是宮殿、城牆、市集、豪宅、市井小民〞只要經濟許可，紅磚建築是最好的選擇。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74023,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4902423,
+     23.5247093
+    ]
+   },
+   "properties": {
+    "id": "arong-74022",
+    "name": "歌唱達人-洪少凱",
+    "摘要": "洪少凱-從小就喜歡唱歌，喜歡唱歌的人是快樂的，唱歌能使人心靈愉悅，唱歌給人聽或自我陶然，都能享受生活環境的快活。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74022,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4985814,
+     23.562363
+    ]
+   },
+   "properties": {
+    "id": "arong-74021",
+    "name": "葉子寮-泰山石敢當",
+    "摘要": "石敢當是用來避邪之物，用在漢番界碑，可能首例，是當時人對「番」所產生的恐懼?抑或歷史記載有誤?都是值得探討的問題。又不管用途為河，它是值得我們去保護的「一塊」歷史。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74021,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3366821,
+     23.5107379
+    ]
+   },
+   "properties": {
+    "id": "arong-74020",
+    "name": "溪北六興宮遶境民雄實錄",
+    "摘要": "三媽的慈祥、神恩是受到大眾所肯定，神轎經過之處莫不受到大家的虔誠膜拜。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74020,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4580257,
+     23.5414666
+    ]
+   },
+   "properties": {
+    "id": "arong-74019",
+    "name": "新庄仔新興宮",
+    "摘要": "新庄仔新興宮，座落於北斗村新山部落東邊田野間，坐北朝南，面向新庄子大排水溝，居高臨下，地理位置堪稱福地。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74019,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4279381,
+     23.5500185
+    ]
+   },
+   "properties": {
+    "id": "arong-74016",
+    "name": "傳統香藝文化",
+    "摘要": "香的製作過程大致可分九個階段，每個階段都是經驗的累積；製香本著傳統、誠實、誠信的做法，把香藝文化傳承下去。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74016,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4420092,
+     23.5341931
+    ]
+   },
+   "properties": {
+    "id": "arong-74015",
+    "name": "雙福村的土角厝",
+    "摘要": "土角厝是台灣人的象徵、是台灣人辛苦耐勞的代名詞。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74015,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4419274,
+     23.5342724
+    ]
+   },
+   "properties": {
+    "id": "arong-74012",
+    "name": "黃春榮—才華洋溢的社區總幹事",
+    "摘要": "黃春榮董事（基金會前董事）為社區，為文史的傳承無怨無悔的付出，默默行善。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74012,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3463996,
+     23.5551503
+    ]
+   },
+   "properties": {
+    "id": "arong-74011",
+    "name": "郵票達人_蔡勝註",
+    "摘要": "蔡勝註先生是個郵票痴，民國48年起，一套彩色蝴蝶郵票開啟了他對郵票的瘋狂。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74011,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3987503,
+     23.5566487
+    ]
+   },
+   "properties": {
+    "id": "arong-74010",
+    "name": "菁埔社區之美",
+    "摘要": "菁埔社區派出所旁－『貓世界』，在這裡~ 有著栩栩如生的貓咪彩繪村，由常務監事何文豐、與彩繪大師 田榮鈐老師共同創作。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74010,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4260196,
+     23.5375206
+    ]
+   },
+   "properties": {
+    "id": "arong-74009",
+    "name": "蛻變中的文隆社區",
+    "摘要": "文隆社區在現任理事長何同居及總幹事何添富的用心經營，再加上村長的全力配合，由社區民眾自動自發參與，把髒亂環境變美麗的公園。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74009,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4240739,
+     23.5549802
+    ]
+   },
+   "properties": {
+    "id": "arong-74008",
+    "name": "發揚「北管」文化的振揚堂",
+    "摘要": "北管早期與我們生活息息相關，婚、喪、喜、慶，也扮演著非常重要的角色。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74008,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4415666,
+     23.5342812
+    ]
+   },
+   "properties": {
+    "id": "arong-74007",
+    "name": "棺材達人-劉新忠",
+    "摘要": "棺材，有人因它而忌諱，有人因它而發財。棺材跟我們有密不可分的關係，幾乎每個人都會用到它，用時雖然短暫，卻是一輩子的永遠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74007,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4657059,
+     23.507878
+    ]
+   },
+   "properties": {
+    "id": "arong-74006",
+    "name": "秀林村鳥巢製作",
+    "摘要": "鳥巢這種工作，在大家的印象中，好像很少聽過，或許開鳥店或從事大自然工作的人並不陌生。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74006,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4350032,
+     23.5640719
+    ]
+   },
+   "properties": {
+    "id": "arong-74005",
+    "name": "頂崙村福德宮與榕樹",
+    "摘要": "根據村內耆老張欉所述，福德宮位居吉穴，每當大雨淹水，福德宮就是不會進水。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-74005,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4306299,
+     23.5498671
+    ]
+   },
+   "properties": {
+    "id": "arong-73988",
+    "name": "民雄陸橋下鎮南宮土地公廟",
+    "摘要": "榕樹的根與氣根便從廟的方向發展，不知不覺便包住了廟，成了樹抱廟的奇觀。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-73988,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4566076,
+     23.5340443
+    ]
+   },
+   "properties": {
+    "id": "arong-73986",
+    "name": "淺談傳統建築文化",
+    "摘要": "歷史悠久的中國，文化傳承五千年，明鄭時期，開啟了中國傳統建築在台生根的始頁，更有「青出於藍，更勝於藍」之感。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-73986,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4750776,
+     23.5401832
+    ]
+   },
+   "properties": {
+    "id": "arong-73984",
+    "name": "教師節有感",
+    "摘要": "教師節，多麼溫馨的節日，它是一個很值得憶念的日子，想起以往求學的過程，是辛酸、是甜美，雖然已過往雲煙，但是老師的影子偶爾仍會出現在我的記憶裡。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-73984,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.431637,
+     23.5449492
+    ]
+   },
+   "properties": {
+    "id": "arong-73874",
+    "name": "基金會的資深志工",
+    "摘要": "春榮推展社區營造雖然有心，但遇到的阻礙與困難重重，一次次考驗他的耐心與智慧。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-73874,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.431271,
+     23.521411
+    ]
+   },
+   "properties": {
+    "id": "arong-72834",
+    "name": "神明雕刻藝術家-何明法",
+    "摘要": "神像的雕刻木材，最好是香木，其次樟木、杉木。神像雕刻的第一步驟是「開釜」，必先以符咒「安身」，一方面是退去木材本身之靈氣，另一目的是避免「壞東西」附身。二是雛形，再一次的雕鑿，使其成形、開面、補土、磨光、牽線（如金身龍鳳花草之類）。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72834,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4778123,
+     23.5215241
+    ]
+   },
+   "properties": {
+    "id": "arong-72833",
+    "name": "大崎村烘爐製作",
+    "摘要": "早期烘爐家家戶戶都在用，現在年青人不再重視所謂的習俗，只有墨守成規的鄉下人，老一輩子的人才會重視它，這種行業依目前來說只是混口飯吃，比現在沒「頭路」的人還來的好。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72833,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4285067,
+     23.5560447
+    ]
+   },
+   "properties": {
+    "id": "arong-72832",
+    "name": "香火",
+    "摘要": "香火這種小東西對於個人是件小事，對於家庭斷了延續，宗廟、寺廟斷了香火，人煙漸漸稀少，香火鼎盛，現在是動詞，以後變成空幻的名詞，國家又以人民為依歸，沒有人哪成國。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72832,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4300134,
+     23.5500348
+    ]
+   },
+   "properties": {
+    "id": "arong-72830",
+    "name": "鄉野傳奇 – 洛陽神宮",
+    "摘要": "它是李王金身，卻是吳府三王來附靈，眾弟子原擇定「落難神宮」，信女潘佩儒認為不雅，提議為「洛陽神宮」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72830,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4771769,
+     23.5583884
+    ]
+   },
+   "properties": {
+    "id": "arong-72828",
+    "name": "拜訪春天金桔農莊",
+    "摘要": "金桔農莊為了服務廣大人群，除了原有的設備，更加的投資興建產業文化館，是傳統與現代建築理念相結合而成，一棟建築從外面觀賞現代感十足的美麗民宿，",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72828,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4926141,
+     23.5318631
+    ]
+   },
+   "properties": {
+    "id": "arong-72227",
+    "name": "踏上民雄的脊梁上—虎頭埤遊記",
+    "摘要": "虎頭埤位於松山村，又名內埔子水庫，日據時代農民為了方便灌溉農田而開闢的一座小型水庫，水庫四週環山懷抱，翠綠青山映湖面，如詩如畫般之美景，四季景色皆然不同。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72227,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4296848,
+     23.5560664
+    ]
+   },
+   "properties": {
+    "id": "arong-72225",
+    "name": "民間傳說之虎爺傳奇",
+    "摘要": "天虎將軍:是ㄧ般人對他的稱謂，也是最常見的稱號，是神力最強的虎爺，可以坐在神桌上受人膜拜。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72225,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4130318,
+     23.5493388
+    ]
+   },
+   "properties": {
+    "id": "arong-72219",
+    "name": "中和村保安宮沿革誌",
+    "摘要": "保生大帝神威顯赫，時時顯靈於人間、救人濟世、普度眾生、就是神蹟不勝枚舉。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72219,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4417588,
+     23.5344386
+    ]
+   },
+   "properties": {
+    "id": "arong-72216",
+    "name": "社區圍牆彩繪隨想",
+    "摘要": "圍牆彩繪，不單只是彩繪而已，凡是利用色彩加以任何方式，如:寫字、手畫、噴畫，這些都是彩繪的範圍、彩繪的表現，也因時代的不同，用途的不同，所表現的自然就不同。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72216,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4422498,
+     23.5345168
+    ]
+   },
+   "properties": {
+    "id": "arong-72214",
+    "name": "社區家政舞蹈班",
+    "摘要": "心病唯有心藥醫，有一種藥它能治百病，無病強身、有病養身，它能跳脫任何束縛，又能達到快樂的心境。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72214,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4765912,
+     23.544779
+    ]
+   },
+   "properties": {
+    "id": "arong-72207",
+    "name": "松山土窯羊肉",
+    "摘要": "松枝當柴菜增香、山頭鵲鳴滿城香、土花躍上風雅堂、窯開千里名沸揚、羊富金銀百世昌、肉貴珍饈薰窯鄉",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72207,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4320609,
+     23.5578167
+    ]
+   },
+   "properties": {
+    "id": "arong-72203",
+    "name": "鄉親憶往-農會種子倉庫",
+    "摘要": "這種與眾截然不同的建築物以已荒廢多年，經過查證之下，方知是早期民雄鄉農會種子倉庫，建於一九五零年代。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72203,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4562301,
+     23.5339057
+    ]
+   },
+   "properties": {
+    "id": "arong-72200",
+    "name": "秀林國小首部曲",
+    "摘要": "上課雖然很苦，但回想起來倒回味無窮，每當上學途中，田埂上總長茂盛的「甘仔草或牛信長仔」，調皮的同學總會把草由兩邊往中肩綁做陷阱，讓人無意的跌倒。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72200,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4775106,
+     23.5140111
+    ]
+   },
+   "properties": {
+    "id": "arong-72194",
+    "name": "秀林村的老榕樹",
+    "摘要": "樹下「萬年大善寺」因它而起，兔子與蛇是它的守護神，這些傳說中的「產物」，村民們穿鑿附會，都能朗朗上口，似真亦假，姑且不論，重點是它拉近信眾彼此間的情誼，提供大夥兒休閒的空間。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72194,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4754485,
+     23.5405198
+    ]
+   },
+   "properties": {
+    "id": "arong-72210",
+    "name": "松山村東湖仔百年楓樹",
+    "摘要": "松仔腳東湖仔部落，有十幾棵百年老楓樹，巍峨成林，樹木筆直高大，樹幹粗，兩個大男人合抱仍不夠。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-72210,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4788203,
+     23.5092226
+    ]
+   },
+   "properties": {
+    "id": "arong-71917",
+    "name": "秀林村的古亭笨",
+    "摘要": "政要人士最近常說的口號「愛台灣」，愛護鄉土，加強本土性的文化，若能結合劉家古厝，再收集早期農村農具成立休閒園區，結合周邊配套措施，這應該也是拚觀光的一種選擇吧?",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71917,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4385901,
+     23.5409029
+    ]
+   },
+   "properties": {
+    "id": "arong-71916",
+    "name": "改造民雄森林公園之我見",
+    "摘要": "我經常的漫步在森林公園，走在林間惝徉自然，春、夏、秋、冬都能見到我的身影，看那林間四季變化，看那人來人往，熱情招呼，對森林公園有著莫名的情感，真是「情有獨鍾」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71916,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4415741,
+     23.5344183
+    ]
+   },
+   "properties": {
+    "id": "arong-71915",
+    "name": "我的社區‧我的牆壁彩繪",
+    "摘要": "希望藉由這些的彩繪，讓人對社造文化有一更深層的瞭解，能夠把社區整理的美侖美奐。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71915,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4285389,
+     23.5558627
+    ]
+   },
+   "properties": {
+    "id": "arong-71914",
+    "name": "西安村保生大帝廟事略沿革誌",
+    "摘要": "古傳三強調帝爺實在真仁慈，有關帝爺靈驗的故事還很多，一時要說也說不完。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71914,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4256435,
+     23.5375915
+    ]
+   },
+   "properties": {
+    "id": "arong-71913",
+    "name": "台灣百年芳草人物-何添富",
+    "摘要": "何添富，文隆社區發展協會總幹事，憑藉著個人在工廠的歷練，善用頭腦與人交心，慢慢使一個社區步入軌道，幾年來文隆社區更是猶如脫胎換骨一般，成為人人稱羨的社區。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71913,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.430486,
+     23.5569358
+    ]
+   },
+   "properties": {
+    "id": "arong-71911",
+    "name": "百年老店-勝珍馨餅店",
+    "摘要": "勝珍馨餅店，成立於清光緒以前，第一代製餅師傅林清流所創立。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71911,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4488858,
+     23.5263499
+    ]
+   },
+   "properties": {
+    "id": "arong-71359",
+    "name": "多才多藝—陳明卿",
+    "摘要": "陳明卿的作品琳瑯滿目，「字中有畫、畫中有字」的字畫、圖像，從每一個字、每一丿都有它的意像。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71359,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4931597,
+     23.5436778
+    ]
+   },
+   "properties": {
+    "id": "arong-71358",
+    "name": "鄉野傳奇~松山村后山仔「慈德宮」",
+    "摘要": "后山慈德宮建於崇山峻嶺中，坐西向東，從松山村轉往寶林寺方向，道路彎延，半路上便可看慈德宮，面向高速公路，居高臨下、景觀秀麗，有興趣者，歡迎前往參香廣結善緣。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71358,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4290488,
+     23.5645808
+    ]
+   },
+   "properties": {
+    "id": "arong-71354",
+    "name": "民雄廣播文物館—日式招待所",
+    "摘要": "民雄中央廣播電台，創建於民國二十七年，前身為日據時代「民雄放送所」，現改為廣播文物館。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71354,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4383058,
+     23.5407406
+    ]
+   },
+   "properties": {
+    "id": "arong-71352",
+    "name": "民雄森林公園之前世今生",
+    "摘要": "民雄森林公園它是雙福社區的心肺，很多人對這座森林公園有著不可磨滅的感情。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71352,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4282104,
+     23.5517578
+    ]
+   },
+   "properties": {
+    "id": "arong-71353",
+    "name": "民雄鄉各村落舊地名簡述",
+    "摘要": "為了讓更多人知道民雄鄉各村的舊名，亦然燃起我心中的興趣，把我所知道的知識發表出來，如果有出入還請包涵。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71353,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4806351,
+     23.5532419
+    ]
+   },
+   "properties": {
+    "id": "arong-71349",
+    "name": "民雄產業-鳳梨",
+    "摘要": "初夏時分，正是鳳梨的季節，香甜、可口、多汁、味美的鳳梨，個中的滋味是多少農人心血的結晶，多少汗流浹背的成果。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71349,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4068669,
+     23.5188135
+    ]
+   },
+   "properties": {
+    "id": "arong-71350",
+    "name": "民雄產業-蓮藕",
+    "摘要": "炎熱的夏季，陽光高照的日子裏，田園間一畦一畦的汙泥被農人們拿著鐵爪耙一鏟一鏟的翻開來，他們正在尋找汙泥中的「黃金」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71350,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3811684,
+     23.5481129
+    ]
+   },
+   "properties": {
+    "id": "arong-69957",
+    "name": "民雄產業-番茄",
+    "摘要": "番茄是水果也是蔬菜，它含有豐富的維他命，番茄紅素更是人人耳熟能詳，因它是養顏美容聖品。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69957,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4319536,
+     23.5578413
+    ]
+   },
+   "properties": {
+    "id": "arong-69900",
+    "name": "民雄產業-番石榴",
+    "摘要": "番石榴的營養價值高，含有豐富的維他命C，是柳橙、柑橘的數倍，是所有果實中最高者，果肉除鮮食外，也可做桌上佳餚，加工做飲料，葉片或果肉曬乾切片做粉末，沖泡當茶喝，也有醫療上的效果。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69900,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4202079,
+     23.5568987
+    ]
+   },
+   "properties": {
+    "id": "arong-69898",
+    "name": "民雄國中樂旗隊",
+    "摘要": "民雄國中，大家並不陌生，民雄國中樂旗隊更是讓人所讚賞，從地方到中央，名聞遐邇，今年元旦總統府亦來電，相邀慶祝元旦，此種榮譽更是讓人振奮。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69898,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4200416,
+     23.5570364
+    ]
+   },
+   "properties": {
+    "id": "arong-69897",
+    "name": "民雄國中-家將舞",
+    "摘要": "八家將在嘉義發光大，家將舞更以此為名，民雄國中有著發揚嘉義文化的傳承使命，民雄人應以此為榮耀，百尺竿頭，希望樂旗隊或家將舞，能更進一步踏上國際舞台。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69897,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4343651,
+     23.5630581
+    ]
+   },
+   "properties": {
+    "id": "arong-69896",
+    "name": "民雄特產一黑龍醬油",
+    "摘要": "黑龍醬油的釀造，其原料為黑豆中豐富的植物蛋白質，在古法釀造製程中，黑豆經過蒸煮、冷卻、接種、製麴後，加入鹽水進行發酵，發酵成熟後，以壓榨法提取原油。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69896,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4613614,
+     23.5393375
+    ]
+   },
+   "properties": {
+    "id": "arong-69792",
+    "name": "北斗村沿革",
+    "摘要": "北斗村是由北勢子、覆鼎金、莿仔巷、新莊仔等庄頭合併而成。民國九年北勢子及新莊子本屬不同村落，後因新莊子村人口不足二百戶，故於民國六十七年與北勢子村合併為北斗村。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69792,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4294274,
+     23.5559779
+    ]
+   },
+   "properties": {
+    "id": "arong-68265",
+    "name": "大士爺廟修繕--入火安座大典實錄",
+    "摘要": "數百年來大士爺廟保境佑民，因民雄位於地震帶，大小地震不斷，屋頂防水層破裂漏水，造成木質結構遭白蟻入侵、彩繪受損。於109年開始整修，讓整座廟重新綻放光彩。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68265,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4294756,
+     23.5559926
+    ]
+   },
+   "properties": {
+    "id": "arong-68258",
+    "name": "大士爺文化後記一大清掃",
+    "摘要": "這種景象如沒親眼看到，很難讓人體會噁心的歷境，尤可謂:「滿城盡是廢棄物，遍地皆留垃圾堆」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68258,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4296366,
+     23.5560074
+    ]
+   },
+   "properties": {
+    "id": "arong-68250",
+    "name": "大士爺文化之旅",
+    "摘要": "大士爺是民雄文化信仰中心，自古就有「打貓大士槍台灣」的傳說，大士爺的靈感說的好像會吃「糕仔」，傳到今日大家仍津津樂道，希望大士爺的文化傳承能更佳的發揚光大。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68250,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4275252,
+     23.5365763
+    ]
+   },
+   "properties": {
+    "id": "arong-67952",
+    "name": "2009『花』現民雄‧最愛媽咪",
+    "摘要": "母親節來臨的日子，遠方的你是否想念著母親？在康乃馨的季節裡，你是否曾捎個訊息，帶給她快樂？一句貼心的問候、一句關心的叮嚀，是母親節最好的禮物，「樹欲靜而風不止，子欲養而親不待」-這句千古名言，我們感受瞭解多少呢?",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-67952,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.3970131,
+     23.4908944
+    ]
+   },
+   "properties": {
+    "id": "arong-68094",
+    "name": "信不信由你—三連墓傳奇",
+    "摘要": "光復初期，豐收村人士，載甘蔗，由於兩車交會，沒請示三連墓，牛車駛過墓背，牛車翻覆損壞，牛隻跛腳。種種的傳說甚多，只列舉一二，在現今文明的社會，大可不必裡會是真是假，當然:信不信由你？",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68094,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4768295,
+     23.556909
+    ]
+   },
+   "properties": {
+    "id": "arong-68209",
+    "name": "三興村竹管厝與菸窯",
+    "摘要": "隨著產業的轉移，菸草也不再受青睞，過去菸草蔓蔓的景象也不在，只剩少許的菸農在撐著。老舊的菸草窯也退役而逐漸頹廢老已，骨架畢露在荒煙蔓草中，顯的非常淒涼，溪底部仔村民鑑於菸草窯能喚起離鄉遊子的思鄉情意，又那麼的有鄉土文化根源...",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68209,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4282962,
+     23.55157
+    ]
+   },
+   "properties": {
+    "id": "arong-68210",
+    "name": "土角厝",
+    "摘要": "土角厝是台灣人的精神象徵，是艱苦人的避風港，多少人在他的懷抱下生長，但不受人的青睞，他慢慢的頹廢，任期的荒涼。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68210,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4283801,
+     23.5519448
+    ]
+   },
+   "properties": {
+    "id": "arong-68211",
+    "name": "土角厝的哀歌",
+    "摘要": "這裏住著一位老人，日出而「出」，日暮而歸，見他房外閒坐，發呆，或洗面滌身，孤獨老人盡受人生的蒼涼 ?",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68211,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4904007,
+     23.5208253
+    ]
+   },
+   "properties": {
+    "id": "arong-68924",
+    "name": "大崎村迷霧松境之美",
+    "摘要": "每年到了秋冬時節，歲末年終的時候，落羽松便開始轉紅，將樹林染成浪漫的漸層色彩。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68924,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4226477,
+     23.520869
+    ]
+   },
+   "properties": {
+    "id": "arong-68925",
+    "name": "牛稠山-空中碉堡",
+    "摘要": "國軍來台之始，牛稠山進駐很多官兵，以牛稠山寺廟為中心，外圍山崙仔頂堆砌好幾座碉堡。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68925,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4011793,
+     23.5339945
+    ]
+   },
+   "properties": {
+    "id": "arong-68926",
+    "name": "中央村劉智古厝",
+    "摘要": "劉智因而發跡，聘請唐山師父蓋了這幢房子，保存到現在...",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-68926,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4141333,
+     23.5453266
+    ]
+   },
+   "properties": {
+    "id": "arong-69174",
+    "name": "中和村-王家老厝",
+    "摘要": "中和村王家老厝，建於民國二十幾年，閩南式建築，前庭花團錦簇，一盆盆花，一盆盆的觀音竹，整理的井然有序，令人流連。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69174,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4259878,
+     23.536969
+    ]
+   },
+   "properties": {
+    "id": "arong-69400",
+    "name": "文隆花鼓陣",
+    "摘要": "花鼓陣有別於跳鼓陣，兩者相較又似曾相似，跳鼓陣的歷史淵源歷史久遠，成員約六至八人，服裝較單調，除了舞動還要一些特技雜耍，以戲人群。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69400,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4208194,
+     23.5568741
+    ]
+   },
+   "properties": {
+    "id": "arong-69399",
+    "name": "化腐朽為神奇---郭振輝",
+    "摘要": "由於木材本身的紋路千奇百怪，所表現出來的紋路美也不同，每次做出一件藝術品，那種感覺的喜悅，可以用「驚訝」來形容。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69399,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4203191,
+     23.5375077
+    ]
+   },
+   "properties": {
+    "id": "arong-69401",
+    "name": "牛犁陣",
+    "摘要": "藉由農村文化表演活動，呈現各社區文化的背景不同，反映農村生活的富麗，也展現地方特色與傳統生活魅力。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69401,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.410836,
+     23.5184137
+    ]
+   },
+   "properties": {
+    "id": "arong-69740",
+    "name": "牛稠山古厝探訪",
+    "摘要": "在聖北宮旁的巷內，閩南式的建築，建於已已年，屋主何全細說辛酸史",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69740,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4295722,
+     23.5563171
+    ]
+   },
+   "properties": {
+    "id": "arong-69797",
+    "name": "傳統戲曲文化的傳承-正明龍歌仔戲團",
+    "摘要": "仔戲是台灣最道地本土文化，發源於蘭陽平原，起初以七字仔或五字仔組成一段歌曲，後慢慢的演變成歌劇的形式進行。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69797,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4565915,
+     23.5337197
+    ]
+   },
+   "properties": {
+    "id": "arong-69796",
+    "name": "打草繩的老阿伯-林壽傳",
+    "摘要": "打草繩」是早期農村收稻農作物外的另一種行業，五0年代盛行於農村各角落。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69796,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4562194,
+     23.5321385
+    ]
+   },
+   "properties": {
+    "id": "arong-69795",
+    "name": "北勢子古厝巡禮-賴太仁古厝",
+    "摘要": "它的不同處，在於日據時期最為流行的洗石子施工法，四根方形柱子為洗石子幾何形，牆壁身堵為竹子拚壁，外塗混合土，粉刷石灰，下裙堵部分為洗石子幾何圖形，浮嵌各種圖形，很值得品味。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69795,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4271615,
+     23.5366255
+    ]
+   },
+   "properties": {
+    "id": "arong-69878",
+    "name": "民雄花海 - 田園之旅",
+    "摘要": "「花海」是現代農田最大的賣點，於是前往台南農業改良場請益。得知波斯菊是現在最流行的花種。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69878,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4284089,
+     23.5515119
+    ]
+   },
+   "properties": {
+    "id": "arong-69892",
+    "name": "民雄建築的沿進",
+    "摘要": "開發甚早的民雄，地處多地震地帶，一些老建築無法長期承受多震的壓力，，一九零六年丙午大地震把「打貓街」震得支離破碎，慶誠宮、大士爺廟、開漳聖王、開台聖王...等都無一倖免。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69892,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.431519,
+     23.5448557
+    ]
+   },
+   "properties": {
+    "id": "arong-69885",
+    "name": "民雄采風行-自由車文化之旅",
+    "摘要": "民雄文教基金會所舉辦的「采風行-自由車」文化之旅，有別於一般的大型自由車活動，即是文化之旅，便是有它的歷史意義存在。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69885,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.430481,
+     23.5564109
+    ]
+   },
+   "properties": {
+    "id": "arong-69872",
+    "name": "民雄鄉的人力三輪車",
+    "摘要": "三輪車的出現，勾起很多人的回憶，盼望這種有趣的情況能加以保存，這樣的民俗活動能永遠的傳承，讓遶境文化更活潑更有意義。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69872,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4294273,
+     23.5561851
+    ]
+   },
+   "properties": {
+    "id": "arong-69867",
+    "name": "民雄的文化走廊",
+    "摘要": "每次來參觀的人都有不一樣的驚喜，帶動文化走廊的功用，增加人潮的走動，「文化走廊」才是文化走廊。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69867,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4297063,
+     23.5561999
+    ]
+   },
+   "properties": {
+    "id": "arong-69836",
+    "name": "民雄--最後的長條街屋",
+    "摘要": "「街屋」的型式店面窄、進深細長，「街屋」的店面稱坎，一進稱「落」，中間的「天井」稱「過水」。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-69836,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4020514,
+     23.5326948
+    ]
+   },
+   "properties": {
+    "id": "arong-71355",
+    "name": "田中央順天宮沿革誌",
+    "摘要": "從順天宮的訪談中，讓我深深的體會到，沒有記錄的歷史，尤如失了根的民族，所有的歷史是空白。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71355,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4258581,
+     23.5375964
+    ]
+   },
+   "properties": {
+    "id": "arong-71357",
+    "name": "石雕大師一盧文照",
+    "摘要": "一塊鈍石，變成有生命的藝術品，其中的智慧、心思、靈感皆來自情感的附出，才能創造有神韻的藝術品。每塊石頭當榔頭敲下鑿子、力道的大小都必須恰到，稍不留神，石頭走了樣，整個心血就因而作廢。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71357,c3749.php?Lang=zh-tw"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4290458,
+     23.5486562
+    ]
+   },
+   "properties": {
+    "id": "arong-71360",
+    "name": "百年古圳新橋落成",
+    "摘要": "清乾隆以前「河水」氾濫，東湖大排便開始整治，至今有二百多年的歷史，「俊雄」橋的落成，使得原來低漥的農地，排水更方便。",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/405-1159-71360,c3749.php?Lang=zh-tw"
+   }
+  }
+ ]
+}

@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { BASEMAP_STYLE_URL } from '@/constants'
-import { categoryStyle } from '@/lib/categories'
+import { placeStyle } from '@/lib/placeStyle'
+import { FALLBACK_CATEGORY } from '@/lib/categories'
 import { clusterGroups, type Cluster } from '@/lib/clusterGroups'
 import type { PlaceGroup } from '@/types'
 import MapFallback, { type FallbackReason } from './MapFallback'
@@ -43,10 +44,10 @@ const DOT_BASE =
 const dotClass = (count: number, active: boolean) =>
   `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-8'} ${active ? 'atlas-pulse scale-125 ring-4 ring-white/80' : ''}`
 
-// 一個標記裡有多個地點時，分類相同才用該分類的顏色，否則用中性色
-const clusterCategory = (c: Cluster) => {
-  const first = c.places[0].category
-  return c.places.every((p) => p.category === first) ? first : undefined
+// 一個標記裡有多個地點時，樣式相同才用該樣式，否則用中性色
+const clusterStyle = (c: Cluster) => {
+  const first = placeStyle(c.places[0])
+  return c.places.every((p) => placeStyle(p).color === first.color) ? first : FALLBACK_CATEGORY
 }
 
 const contains = (c: Cluster, id: string | null) => id !== null && c.places.some((p) => p.id === id)
@@ -137,7 +138,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       el.setAttribute('aria-label', label)
       el.title = label
       const dot = document.createElement('span')
-      const style = categoryStyle(clusterCategory(c))
+      const style = clusterStyle(c)
       dot.style.backgroundColor = style.color
       if (count > 1) dot.textContent = String(count)
       else dot.innerHTML = style.icon

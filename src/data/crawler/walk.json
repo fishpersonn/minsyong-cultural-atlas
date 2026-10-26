@@ -1,0 +1,762 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42875,
+     23.56461
+    ]
+   },
+   "properties": {
+    "id": "walk-18028",
+    "name": "國家廣播文物館(央廣民雄分台)",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-18028.php?Lang=zh-tw",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "廣播電台"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43043,
+     23.56036
+    ]
+   },
+   "properties": {
+    "id": "walk-18028-2",
+    "name": "日式招待所及日式宿舍群",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-18028.php?Lang=zh-tw",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "宿舍群"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42997,
+     23.55903
+    ]
+   },
+   "properties": {
+    "id": "walk-i3",
+    "name": "[又又] 喜酒家",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43013,
+     23.5583
+    ]
+   },
+   "properties": {
+    "id": "walk-23910",
+    "name": "十間仔（路頭）",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-23910.php?Lang=zh-tw",
+    "分類": "地景",
+    "extra": [
+     [
+      "次分類",
+      "建築"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43027,
+     23.55835
+    ]
+   },
+   "properties": {
+    "id": "walk-i5",
+    "name": "明久印刷家具（非現址）",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "工"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43049,
+     23.55836
+    ]
+   },
+   "properties": {
+    "id": "walk-14937",
+    "name": "傳統椪皮麵",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-14937.php?Lang=zh-tw",
+    "分類": "飲食",
+    "extra": [
+     [
+      "次分類",
+      "傳統"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42982,
+     23.55721
+    ]
+   },
+   "properties": {
+    "id": "walk-22759",
+    "name": "民雄戲院側牆",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-22759.php?Lang=zh-tw",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42925,
+     23.55759
+    ]
+   },
+   "properties": {
+    "id": "walk-16335",
+    "name": "民雄屠宰場（豬灶、獸魂碑）",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16335.php?Lang=zh-tw",
+    "分類": "地景",
+    "extra": [
+     [
+      "次分類",
+      "碑刻"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42788,
+     23.55711
+    ]
+   },
+   "properties": {
+    "id": "walk-i9",
+    "name": "防空洞",
+    "分類": "地景",
+    "extra": [
+     [
+      "次分類",
+      "道路"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42794,
+     23.55666
+    ]
+   },
+   "properties": {
+    "id": "walk-i10",
+    "name": "舊道路",
+    "分類": "地景",
+    "extra": [
+     [
+      "次分類",
+      "道路"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42819,
+     23.55605
+    ]
+   },
+   "properties": {
+    "id": "walk-30064",
+    "name": "保生大帝廟前",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-30064.php?Lang=zh-tw",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "佛、道教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42848,
+     23.55578
+    ]
+   },
+   "properties": {
+    "id": "walk-19259",
+    "name": "劉應嶽舊宅",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-19259.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42841,
+     23.55563
+    ]
+   },
+   "properties": {
+    "id": "walk-17800",
+    "name": "劉存養舊宅",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-17800.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.4288,
+     23.55579
+    ]
+   },
+   "properties": {
+    "id": "walk-i14",
+    "name": "民雄長老教會",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "基督教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42885,
+     23.55553
+    ]
+   },
+   "properties": {
+    "id": "walk-13009",
+    "name": "民雄（登元）圖書館",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-13009.php?Lang=zh-tw",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "教育設施"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42931,
+     23.55542
+    ]
+   },
+   "properties": {
+    "id": "walk-5871",
+    "name": "民雄國小",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-5871.php?Lang=zh-tw",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "教育設施"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42917,
+     23.55556
+    ]
+   },
+   "properties": {
+    "id": "walk-i17",
+    "name": "廟街",
+    "分類": "地景",
+    "extra": [
+     [
+      "次分類",
+      "道路"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42947,
+     23.55619
+    ]
+   },
+   "properties": {
+    "id": "walk-29983",
+    "name": "大士爺廟",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-29983.php?Lang=zh-tw",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "佛、道教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.42948,
+     23.55631
+    ]
+   },
+   "properties": {
+    "id": "walk-30065",
+    "name": "民雄慶誠宮",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-30065.php?Lang=zh-tw",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "佛、道教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43038,
+     23.55584
+    ]
+   },
+   "properties": {
+    "id": "walk-17088",
+    "name": "柳相命館",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-17088.php?Lang=zh-tw",
+    "分類": "人物"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43059,
+     23.55475
+    ]
+   },
+   "properties": {
+    "id": "walk-i21",
+    "name": "民雄分局消防隊宿舍",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "宿舍群"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43164,
+     23.55524
+    ]
+   },
+   "properties": {
+    "id": "walk-i22",
+    "name": "民雄車站",
+    "分類": "公務機關",
+    "extra": [
+     [
+      "次分類",
+      "交通驛站"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43132,
+     23.5556
+    ]
+   },
+   "properties": {
+    "id": "walk-i23",
+    "name": "國勝旅社",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43148,
+     23.55604
+    ]
+   },
+   "properties": {
+    "id": "walk-i24",
+    "name": "建新旅社",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43138,
+     23.55646
+    ]
+   },
+   "properties": {
+    "id": "walk-20467",
+    "name": "一樂酒家",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-20467.php?Lang=zh-tw",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43088,
+     23.55626
+    ]
+   },
+   "properties": {
+    "id": "walk-34509",
+    "name": "媽祖宮(慶誠宮舊址)",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-34509.php?Lang=zh-tw",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "佛、道教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43046,
+     23.55624
+    ]
+   },
+   "properties": {
+    "id": "walk-16052",
+    "name": "民雄市場",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-16052.php?Lang=zh-tw",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43046,
+     23.55692
+    ]
+   },
+   "properties": {
+    "id": "walk-21559",
+    "name": "勝珍馨餅舖",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-21559.php?Lang=zh-tw",
+    "分類": "飲食",
+    "extra": [
+     [
+      "次分類",
+      "傳統"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43061,
+     23.55699
+    ]
+   },
+   "properties": {
+    "id": "walk-i29",
+    "name": "中藥舖聚集",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43096,
+     23.55673
+    ]
+   },
+   "properties": {
+    "id": "walk-22796",
+    "name": "協記製油廠",
+    "查看更多": "https://dovoha.ccu.edu.tw/p/404-1159-22796.php?Lang=zh-tw",
+    "分類": "飲食",
+    "extra": [
+     [
+      "次分類",
+      "傳統"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43143,
+     23.55769
+    ]
+   },
+   "properties": {
+    "id": "walk-i31",
+    "name": "碾米廠聚集",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43203,
+     23.55773
+    ]
+   },
+   "properties": {
+    "id": "walk-i32",
+    "name": "農會倉庫",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43141,
+     23.55799
+    ]
+   },
+   "properties": {
+    "id": "walk-i33",
+    "name": "福安祠大眾爺廟",
+    "分類": "民俗宗教",
+    "extra": [
+     [
+      "次分類",
+      "佛、道教"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43153,
+     23.55811
+    ]
+   },
+   "properties": {
+    "id": "walk-i34",
+    "name": "樂仙樓1.0 & 第一戲院",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43202,
+     23.55938
+    ]
+   },
+   "properties": {
+    "id": "walk-i35",
+    "name": "樂仙樓2.0",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "商"
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     120.43182,
+     23.55891
+    ]
+   },
+   "properties": {
+    "id": "walk-i36",
+    "name": "竹器工藝（林能坤師傅）",
+    "分類": "產業",
+    "extra": [
+     [
+      "次分類",
+      "工"
+     ]
+    ]
+   }
+  }
+ ]
+}
