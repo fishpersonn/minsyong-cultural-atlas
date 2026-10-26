@@ -126,6 +126,19 @@ describe('parsePlaces validation', () => {
     expect(r2.places[0].images).toEqual(['http://meta/1.jpg'])
     expect(r2.places[1].images).toEqual(['http://own/2.jpg'])
   })
+  it('Spotify 單集編號：格式正確才收（它會放進播放器網址），不對就當作沒有', () => {
+    const features = ['1', '2', '3', '4'].map((n) => feat({ 查看更多: link(Number(n)) }))
+    const r2 = parsePlaces({ features }, 't', {
+      '1': { audio: { spotify: '3CKWKSDbWygmnNjhkwvrdz' } },
+      '2': { audio: { spotify: '"><script>alert(1)</script>' } },
+      '3': { audio: { spotify: 'short' } },
+      '4': { audio: { spotify: 12345678901234 as unknown as string } },
+    })
+    expect(r2.places[0].audio).toEqual({ spotify: '3CKWKSDbWygmnNjhkwvrdz' })
+    expect(r2.places[1].audio).toBeUndefined()
+    expect(r2.places[2].audio).toBeUndefined()
+    expect(r2.places[3].audio).toBeUndefined()
+  })
   it('ignores meta for ids not in the data', () => {
     const r2 = parsePlaces({ features: [feat({})] }, 't', { '999': { category: 'x' } })
     expect(r2.places[0].category).toBeUndefined()

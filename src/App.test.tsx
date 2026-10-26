@@ -305,6 +305,50 @@ describe('App', () => {
     }
   })
 
+  it('卡片上有「附近的故事」：最近的 3 個，不含自己，點了跳過去', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    const section = screen.getByRole('region', { name: '附近的故事' })
+    const items = within(section).getAllByRole('button')
+    expect(items).toHaveLength(3)
+    expect(section.textContent).not.toContain('從鐵路到電波') // 自己不算
+    const target = items[0].textContent!.replace(/約.*$/, '')
+    fireEvent.click(items[0])
+    expect(window.location.hash).not.toBe('#p=96220')
+    expect(window.location.hash).toMatch(/^#p=/)
+    // 跳過去之後，卡片標題變成被點的那個
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toContain(target.trim().slice(0, 6))
+  })
+
+  it('有篩選時，「附近的故事」只在符合篩選的地點裡找', async () => {
+    window.location.hash = '#p=96220&t=railway'
+    const App = await load()
+    render(<App />)
+    const section = screen.getByRole('region', { name: '附近的故事' })
+    const names = within(section).getAllByRole('button').map((b) => b.textContent!)
+    // 鐵路高架化的地點裡找；每一個的主題名都不會是別的主題
+    expect(names).toHaveLength(3)
+    fireEvent.click(within(section).getAllByRole('button')[0])
+    expect(window.location.hash).toContain('t=railway')
+  })
+
+  it('搜尋時，清單與打開的卡片都會標出符合的字', async () => {
+    window.location.hash = '#p=88979'
+    const App = await load()
+    const { container } = render(<App />)
+    typeSearch('農會倉庫')
+    // 卡片（農會倉庫歷史與背景調查一）的標題有標示
+    const cardMarks = within(screen.getByRole('complementary', { name: '地點資訊' })).getAllByText('農會倉庫', { selector: 'mark' })
+    expect(cardMarks.length).toBeGreaterThan(0)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    const list = screen.getByRole('region', { name: '地點清單' })
+    expect(list.querySelectorAll('mark').length).toBeGreaterThan(0)
+    // 清掉搜尋字之後標示就消失
+    fireEvent.click(screen.getByRole('button', { name: '清除搜尋' }))
+    expect(container.querySelectorAll('mark')).toHaveLength(0)
+  })
+
   it('「隨便逛逛」在目前篩選的地點中挑一個並選取', async () => {
     window.location.hash = '#t=stele'
     const App = await load()

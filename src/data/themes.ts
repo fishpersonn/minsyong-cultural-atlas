@@ -24,8 +24,16 @@ export type Theme = { id: string; name: string; data: unknown; meta?: Record<str
 const crawlerMeta = siteMeta as Record<string, PlaceMeta>
 
 // 順序就是篩選列的顯示順序；標記樣式（顏色、圖示）在 lib/themeStyles.ts，以 id 對應
+// 鐵路高架化的補充資料（分類、年代、發布日期）再加上官網補抓的 Spotify 單集編號
+const railwayWithAudio: Record<string, PlaceMeta> = Object.fromEntries(
+  Object.entries(railwayMeta as Record<string, PlaceMeta>).map(([id, meta]) => [
+    id,
+    crawlerMeta[id]?.audio ? { ...meta, audio: crawlerMeta[id].audio } : meta,
+  ]),
+)
+
 export const themes: Theme[] = [
-  { id: 'railway', name: '民雄鐵路高架化', data: railwayJson, meta: railwayMeta },
+  { id: 'railway', name: '民雄鐵路高架化', data: railwayJson, meta: railwayWithAudio },
   { id: 'culture-map', name: '民雄文化地圖', data: cultureMap, meta: crawlerMeta },
   { id: 'podcast', name: '我的民雄朋友們 Podcast', data: podcast, meta: crawlerMeta },
   { id: 'arong', name: '民雄阿榮文化小站', data: arong, meta: crawlerMeta },

@@ -97,6 +97,61 @@ describe('PlaceCard', () => {
     expect(screen.getByRole('link', { name: '前往大學路官網' }).getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
   })
 
+  it('有 nearby 時列出「附近的故事」：標題與距離，點了回報 id', () => {
+    const onSelect = vi.fn()
+    const near = [
+      { place: mk('8', { title: '鄰居甲' }), meters: 120 },
+      { place: mk('9', { title: '鄰居乙' }), meters: 1500 },
+    ]
+    render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={onSelect} onClose={noop} nearby={near} />)
+    const section = screen.getByRole('region', { name: '附近的故事' })
+    expect(section.textContent).toContain('鄰居甲')
+    expect(section.textContent).toContain('約 120 公尺')
+    expect(section.textContent).toContain('約 1.5 公里')
+    fireEvent.click(screen.getByRole('button', { name: /鄰居乙/ }))
+    expect(onSelect).toHaveBeenCalledWith('9')
+  })
+
+  it('有 query 時，卡片的標題、摘要與額外資訊裡符合的字會被標出來', () => {
+    const p = mk('7', {
+      title: '農會倉庫測繪',
+      summary: '倉庫完工於 1933 年。',
+      extra: [['地址', '東榮路倉庫旁']],
+    })
+    const { container } = render(
+      <PlaceCard group={group(p)} selectedId="7" onSelect={noop} onClose={noop} query="倉庫 1933" />,
+    )
+    const marked = Array.from(container.querySelectorAll('mark')).map((m) => m.textContent)
+    expect(marked).toEqual(['倉庫', '倉庫', '1933', '倉庫'])
+    expect(screen.getByRole('heading', { level: 2 }).textContent).toBe('農會倉庫測繪')
+  })
+
+  it('沒有 query 時卡片沒有任何標示', () => {
+    const { container } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(container.querySelectorAll('mark')).toHaveLength(0)
+  })
+
+  it('有 Spotify 單集的地點顯示「在這裡聽這一集」；沒有的就不顯示', () => {
+    const withAudio = mk('7', { audio: { spotify: '3CKWKSDbWygmnNjhkwvrdz' } })
+    const { rerender, container } = render(<PlaceCard group={group(withAudio)} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.getByRole('button', { name: '在這裡聽這一集' })).toBeTruthy()
+    expect(container.querySelector('iframe')).toBeNull() // 點了才載入
+    rerender(<PlaceCard group={group(mk('8'))} selectedId="8" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('button', { name: '在這裡聽這一集' })).toBeNull()
+  })
+
+  it('有「分享這個地點」鈕', () => {
+    render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.getByRole('button', { name: '分享這個地點' })).toBeTruthy()
+  })
+
+  it('沒有 nearby 或是空的，就不顯示「附近的故事」', () => {
+    const { rerender } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('region', { name: '附近的故事' })).toBeNull()
+    rerender(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} nearby={[]} />)
+    expect(screen.queryByRole('region', { name: '附近的故事' })).toBeNull()
+  })
+
   it('沒有圖片時直接顯示預設圖', () => {
     render(<PlaceCard group={group(mk('4', { images: [] }))} selectedId="4" onSelect={noop} onClose={noop} />)
     expect(screen.getByRole('img', { name: '標題4' }).getAttribute('src')).toBe(placeholderFor('4'))

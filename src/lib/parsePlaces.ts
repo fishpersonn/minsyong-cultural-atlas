@@ -20,6 +20,13 @@ function pickMeta(props: Rec, extra: PlaceMeta | undefined): PlaceMeta {
   return out
 }
 
+// Spotify 單集編號只收英數字（它會被放進播放器的網址）：格式不對就當作沒有
+const SPOTIFY_ID = /^[A-Za-z0-9]{10,32}$/
+function pickAudio(extra: PlaceMeta | undefined): Pick<Place, 'audio'> {
+  const id = extra?.audio?.spotify
+  return typeof id === 'string' && SPOTIFY_ID.test(id) ? { audio: { spotify: id } } : {}
+}
+
 // extra：[標籤, 內容] 的陣列，格式不對的項目略過
 function pickExtra(raw: unknown): Pick<Place, 'extra'> {
   if (!Array.isArray(raw)) return {}
@@ -76,6 +83,7 @@ function parseFeature(
       theme,
       ...pickMeta(props, metaById[id]),
       ...pickExtra(props.extra),
+      ...pickAudio(metaById[id]),
     },
   }
 }
