@@ -1,4 +1,24 @@
 {
+ "84924": {
+  "audio": {
+   "spotify": "6g2BVmm023PVVCvZaxTzNf"
+  }
+ },
+ "84926": {
+  "audio": {
+   "spotify": "7CQoNe9jRrdmS8EkvuCyrB"
+  }
+ },
+ "84927": {
+  "audio": {
+   "spotify": "5uoWF67O5B1YyC1xxRYDlc"
+  }
+ },
+ "87111": {
+  "audio": {
+   "spotify": "0kcUv47mAOvRTD2r6PiCjL"
+  }
+ },
  "arong-67952": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/555/m/mczh-tw1200x680_small67952_583063544048.jpg"
@@ -999,13 +1019,19 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/494/m/mczh-tw1200x680_small12784_347299898956.jpeg"
   ],
-  "published": "2022-07-05"
+  "published": "2022-07-05",
+  "audio": {
+   "spotify": "7tYZnRVT1YdkZdto7igUcq"
+  }
  },
  "culture-map-12784-2": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/494/m/mczh-tw1200x680_small12784_347299898956.jpeg"
   ],
-  "published": "2022-07-05"
+  "published": "2022-07-05",
+  "audio": {
+   "spotify": "7tYZnRVT1YdkZdto7igUcq"
+  }
  },
  "culture-map-13303": {
   "images": [
@@ -1017,7 +1043,10 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/61/m/mczh-tw1200x680_small14344_169379598069.jpg"
   ],
-  "published": "2022-04-20"
+  "published": "2022-04-20",
+  "audio": {
+   "spotify": "3zYEiTBCYcbzSo3CstE3KC"
+  }
  },
  "culture-map-15398": {
   "images": [
@@ -1161,7 +1190,10 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/276/m/mczh-tw1200x680_small20990_711223624080.jpeg"
   ],
-  "published": "2022-08-30"
+  "published": "2022-08-30",
+  "audio": {
+   "spotify": "6XyjZKXF1yW0zn09ax0uK1"
+  }
  },
  "culture-map-21561": {
   "images": [
@@ -1179,13 +1211,19 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/540/m/mczh-tw1200x680_small30621_188929625792.png"
   ],
-  "published": "2022-11-28"
+  "published": "2022-11-28",
+  "audio": {
+   "spotify": "3fcvfVipjgRoW66cb54gqS"
+  }
  },
  "culture-map-33179": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/846/m/mczh-tw1200x680_small33179_444208023349.png"
   ],
-  "published": "2022-12-27"
+  "published": "2022-12-27",
+  "audio": {
+   "spotify": "1KlWLpPkmNyP0CIEO4LwNm"
+  }
  },
  "culture-map-33835": {
   "images": [
@@ -1359,7 +1397,10 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/816/m/mczh-tw1200x680_small36426_967992539487.png"
   ],
-  "published": "2023-03-01"
+  "published": "2023-03-01",
+  "audio": {
+   "spotify": "6ced9mjd8YVye1BH6l5PCG"
+  }
  },
  "culture-map-36761": {
   "images": [
@@ -1995,577 +2036,865 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/282/m/mczh-tw1200x680_small12783_530207298716.jpeg"
   ],
-  "published": "2022-07-14"
+  "published": "2022-07-14",
+  "audio": {
+   "spotify": "7vdV1spbm2NMfsQN481mIc"
+  }
  },
  "podcast-12784": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/494/m/mczh-tw1200x680_small12784_347299898956.jpeg"
   ],
-  "published": "2022-07-05"
+  "published": "2022-07-05",
+  "audio": {
+   "spotify": "7tYZnRVT1YdkZdto7igUcq"
+  }
  },
  "podcast-12785": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/76/m/mczh-tw1200x680_small12785_224463099217.jpg"
   ],
-  "published": "2022-06-27"
+  "published": "2022-06-27",
+  "audio": {
+   "spotify": "5IVWLWlFgiokKFuUsckcEi"
+  }
  },
  "podcast-12786": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/892/m/mczh-tw1200x680_small12786_521217899500.jpg"
   ],
-  "published": "2022-06-24"
+  "published": "2022-06-24",
+  "audio": {
+   "spotify": "0HwJoVR4s0oEHEQBPzxNrT"
+  }
  },
  "podcast-12787": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/778/m/mczh-tw1200x680_small12787_159543299715.jpg"
   ],
-  "published": "2022-06-18"
+  "published": "2022-06-18",
+  "audio": {
+   "spotify": "3y4B824QvHiUUgYpwXWN46"
+  }
  },
  "podcast-12788": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/623/m/mczh-tw1200x680_small12788_421458100014.png"
   ],
-  "published": "2022-06-10"
+  "published": "2022-06-10",
+  "audio": {
+   "spotify": "3WRxNWYPgH8y96UdWj3RfN"
+  }
  },
  "podcast-12789": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/874/m/mczh-tw1200x680_small12789_530223200175.jpg"
   ],
-  "published": "2022-06-01"
+  "published": "2022-06-01",
+  "audio": {
+   "spotify": "6Apyz52ONsvSbFytKx7DO4"
+  }
  },
  "podcast-14165": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/335/m/mczh-tw1200x680_small14165_789369985369.jpg"
   ],
-  "published": "2022-05-27"
+  "published": "2022-05-27",
+  "audio": {
+   "spotify": "2V7b2e7hsUUKUBpGVmdigk"
+  }
  },
  "podcast-14187": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/167/m/mczh-tw1200x680_small14187_396797286270.jpg"
   ],
-  "published": "2022-05-25"
+  "published": "2022-05-25",
+  "audio": {
+   "spotify": "7Jky3qnquOzpHjHTWTLB50"
+  }
  },
  "podcast-14190": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/984/m/mczh-tw1200x680_small14190_874191786379.jpg"
   ],
-  "published": "2022-05-19"
+  "published": "2022-05-19",
+  "audio": {
+   "spotify": "3URXkDP9IkgCeLm1hGC2hw"
+  }
  },
  "podcast-14202": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/874/m/mczh-tw1200x680_small14202_23174186831.jpg"
   ],
-  "published": "2022-05-04"
+  "published": "2022-05-04",
+  "audio": {
+   "spotify": "4h5EX9xF3sy2Yx9wBlwp7D"
+  }
  },
  "podcast-14204": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/34/m/mczh-tw1200x680_small14204_390747187007.jpg"
   ],
-  "published": "2022-04-29"
+  "published": "2022-04-29",
+  "audio": {
+   "spotify": "5jpfTEbSgspl3mIpWsQ4bX"
+  }
  },
  "podcast-14344": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/61/m/mczh-tw1200x680_small14344_169379598069.jpg"
   ],
-  "published": "2022-04-20"
+  "published": "2022-04-20",
+  "audio": {
+   "spotify": "3zYEiTBCYcbzSo3CstE3KC"
+  }
  },
  "podcast-14350": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/751/m/mczh-tw1200x680_small14350_956907798233.jpeg"
   ],
-  "published": "2022-04-13"
+  "published": "2022-04-13",
+  "audio": {
+   "spotify": "42bBfzOU4ikwNAuFXRFNmA"
+  }
  },
  "podcast-14358": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/694/m/mczh-tw1200x680_small14358_667538898714.png"
   ],
-  "published": "2022-04-13"
+  "published": "2022-04-13",
+  "audio": {
+   "spotify": "0dGNcgyOo7muOM3pwsilc9"
+  }
  },
  "podcast-20954": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/968/m/mczh-tw1200x680_small20954_73025090403.jpeg"
   ],
-  "published": "2022-08-29"
+  "published": "2022-08-29",
+  "audio": {
+   "spotify": "6EK5dam8hYjWeHeIhc763x"
+  }
  },
  "podcast-20990": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/276/m/mczh-tw1200x680_small20990_711223624080.jpeg"
   ],
-  "published": "2022-08-30"
+  "published": "2022-08-30",
+  "audio": {
+   "spotify": "6XyjZKXF1yW0zn09ax0uK1"
+  }
  },
  "podcast-20991": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/74/m/mczh-tw1200x680_small20991_577022724221.jpeg"
   ],
-  "published": "2022-09-07"
+  "published": "2022-09-07",
+  "audio": {
+   "spotify": "2ZftzhuBwqqJaoNiFLuyuK"
+  }
  },
  "podcast-20992": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/191/m/mczh-tw1200x680_small20992_180142924434.jpeg"
   ],
-  "published": "2022-09-14"
+  "published": "2022-09-14",
+  "audio": {
+   "spotify": "7fDZUyD0G6wufJillc6s6v"
+  }
  },
  "podcast-25824": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/460/m/mczh-tw1200x680_small25824_505311443553.jpeg"
   ],
-  "published": "2022-09-23"
+  "published": "2022-09-23",
+  "audio": {
+   "spotify": "3gPQ1yg5J8wIam5VSDC17h"
+  }
  },
  "podcast-25825": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/286/m/mczh-tw1200x680_small25825_693444743831.jpeg"
   ],
-  "published": "2022-10-05"
+  "published": "2022-10-05",
+  "audio": {
+   "spotify": "6ISHCMkNOm0oXeBj1xd1zb"
+  }
  },
  "podcast-25827": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/179/m/mczh-tw1200x680_small25827_682018944021.jpeg"
   ],
-  "published": "2022-10-06"
+  "published": "2022-10-06",
+  "audio": {
+   "spotify": "5fAbhIa2DDCuugyZBN6mh2"
+  }
  },
  "podcast-27022": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/794/m/mczh-tw1200x680_small27022_602460976745.jpeg"
   ],
-  "published": "2022-10-18"
+  "published": "2022-10-18",
+  "audio": {
+   "spotify": "7xUc8ZiVHD5zHOJ35cOSjw"
+  }
  },
  "podcast-27034": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/100/m/mczh-tw1200x680_small27034_220059479743.png"
   ],
-  "published": "2022-10-18"
+  "published": "2022-10-18",
+  "audio": {
+   "spotify": "6Vn9erokhxHcvaRjfLIqNA"
+  }
  },
  "podcast-27693": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/114/m/mczh-tw1200x680_small27693_330651367978.png"
   ],
-  "published": "2022-10-25"
+  "published": "2022-10-25",
+  "audio": {
+   "spotify": "0HTjKBOJBK9NjopPMlcZ1N"
+  }
  },
  "podcast-28612": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/671/m/mczh-tw1200x680_small28612_231459270116.png"
   ],
-  "published": "2022-11-01"
+  "published": "2022-11-01",
+  "audio": {
+   "spotify": "1skSA7iP1kKiQU9itVlCfy"
+  }
  },
  "podcast-29193": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/931/m/mczh-tw1200x680_small29193_580106778309.png"
   ],
-  "published": "2022-11-08"
+  "published": "2022-11-08",
+  "audio": {
+   "spotify": "44YwhXb7eDOfSAczxoFVOd"
+  }
  },
  "podcast-29773": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/55/m/mczh-tw1200x680_small29773_139313486899.png"
   ],
-  "published": "2022-11-15"
+  "published": "2022-11-15",
+  "audio": {
+   "spotify": "2DtzOkVQrmDYek47naUH2k"
+  }
  },
  "podcast-30621": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/540/m/mczh-tw1200x680_small30621_188929625792.png"
   ],
-  "published": "2022-11-28"
+  "published": "2022-11-28",
+  "audio": {
+   "spotify": "3fcvfVipjgRoW66cb54gqS"
+  }
  },
  "podcast-30698": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/547/m/mczh-tw1200x680_small30698_740091209454.png"
   ],
-  "published": "2022-11-29"
+  "published": "2022-11-29",
+  "audio": {
+   "spotify": "0EljtpKrmIQJXsgjuNtBqK"
+  }
  },
  "podcast-31313": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/158/m/mczh-tw1200x680_small31313_173654170503.png"
   ],
-  "published": "2022-12-08"
+  "published": "2022-12-08",
+  "audio": {
+   "spotify": "22BaHNo0NboOr4N2r9CUB8"
+  }
  },
  "podcast-31617": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/914/m/mczh-tw1200x680_small31617_832046206038.png"
   ],
-  "published": "2022-12-13"
+  "published": "2022-12-13",
+  "audio": {
+   "spotify": "4Sr0CXJAnVr3Fm4gCr3amC"
+  }
  },
  "podcast-33179": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/846/m/mczh-tw1200x680_small33179_444208023349.png"
   ],
-  "published": "2022-12-27"
+  "published": "2022-12-27",
+  "audio": {
+   "spotify": "1KlWLpPkmNyP0CIEO4LwNm"
+  }
  },
  "podcast-33208": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/108/m/mczh-tw1200x680_small33208_162424824619.png"
   ],
-  "published": "2022-12-27"
+  "published": "2022-12-27",
+  "audio": {
+   "spotify": "70EyNRUqjF1Gmew0vEU4ov"
+  }
  },
  "podcast-33483": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/711/m/mczh-tw1200x680_small33483_934531128447.png"
   ],
-  "published": "2023-01-03"
+  "published": "2023-01-03",
+  "audio": {
+   "spotify": "0pxAGdP8zlKa2mxwBcubca"
+  }
  },
  "podcast-33872": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/277/m/mczh-tw1200x680_small33872_42182422897.png"
   ],
-  "published": "2023-01-10"
+  "published": "2023-01-10",
+  "audio": {
+   "spotify": "65kDvOm02fVLKqYhUrWujm"
+  }
  },
  "podcast-34544": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/831/m/mczh-tw1200x680_small34544_797313311776.png"
   ],
-  "published": "2023-01-18"
+  "published": "2023-01-18",
+  "audio": {
+   "spotify": "1tjeJj02xxYDtCUkpmn0NL"
+  }
  },
  "podcast-34685": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/52/m/mczh-tw1200x680_small34685_771609746176.png"
   ],
-  "published": "2023-01-30"
+  "published": "2023-01-30",
+  "audio": {
+   "spotify": "1ymWczrHhRCRzec8yqwCcO"
+  }
  },
  "podcast-34879": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/446/m/mczh-tw1200x680_small34879_820378649898.png"
   ],
-  "published": "2023-01-31"
+  "published": "2023-01-31",
+  "audio": {
+   "spotify": "4OQDUvC2fRKujE6J6IzsYO"
+  }
  },
  "podcast-35415": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/645/m/mczh-tw1200x680_small35415_473900830388.png"
   ],
-  "published": "2023-02-08"
+  "published": "2023-02-08",
+  "audio": {
+   "spotify": "2ddsKYx3a3OLtF3fHhguTD"
+  }
  },
  "podcast-35745": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/665/m/mczh-tw1200x680_small35745_253455565289.png"
   ],
-  "published": "2023-02-14"
+  "published": "2023-02-14",
+  "audio": {
+   "spotify": "3tgYs3hRpvBTUmrx2f8hRO"
+  }
  },
  "podcast-36060": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/773/m/mczh-tw1200x680_small36060_315207073349.png"
   ],
-  "published": "2023-02-20"
+  "published": "2023-02-20",
+  "audio": {
+   "spotify": "1PDwGE7DAEOElR7larDVp8"
+  }
  },
  "podcast-36426": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/816/m/mczh-tw1200x680_small36426_967992539487.png"
   ],
-  "published": "2023-03-01"
+  "published": "2023-03-01",
+  "audio": {
+   "spotify": "6ced9mjd8YVye1BH6l5PCG"
+  }
  },
  "podcast-36862": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/498/m/mczh-tw1200x680_small36862_859276444072.png"
   ],
-  "published": "2023-03-08"
+  "published": "2023-03-08",
+  "audio": {
+   "spotify": "7ICvRQxgivY0b2Hc53bw48"
+  }
  },
  "podcast-37041": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/179/m/mczh-tw1200x680_small37041_469021133879.png"
   ],
-  "published": "2023-03-10"
+  "published": "2023-03-10",
+  "audio": {
+   "spotify": "2BWfXigBBCmtBaubGm1IAa"
+  }
  },
  "podcast-37956": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/75/m/mczh-tw1200x680_small37956_645125230304.png"
   ],
-  "published": "2023-03-24"
+  "published": "2023-03-24",
+  "audio": {
+   "spotify": "5B5iL1KmLFQ1eKPHrmjmXA"
+  }
  },
  "podcast-38121": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/559/m/mczh-tw1200x680_small38121_520340908394.png"
   ],
-  "published": "2023-03-27"
+  "published": "2023-03-27",
+  "audio": {
+   "spotify": "2EN7Sn3CkDlneGZVXvoivr"
+  }
  },
  "podcast-38791": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/928/m/mczh-tw1200x680_small38791_938465098982.png"
   ],
-  "published": "2023-04-10"
+  "published": "2023-04-10",
+  "audio": {
+   "spotify": "30xLq0n0CsuIPw9Yg5zZ7l"
+  }
  },
  "podcast-38886": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/305/m/mczh-tw1200x680_small38886_954961591565.png"
   ],
-  "published": "2023-04-11"
+  "published": "2023-04-11",
+  "audio": {
+   "spotify": "1mJsPSLbCnK9yylDXiKFt4"
+  }
  },
  "podcast-39415": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/400/m/mczh-tw1200x680_small39415_14052973202.png"
   ],
-  "published": "2023-04-19"
+  "published": "2023-04-19",
+  "audio": {
+   "spotify": "45Yr4AShJqrowtO4ErFUFT"
+  }
  },
  "podcast-39725": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/798/m/mczh-tw1200x680_small39725_243778393381.png"
   ],
-  "published": "2023-04-25"
+  "published": "2023-04-25",
+  "audio": {
+   "spotify": "1gRtrDyfsUwBCTqssDk0Dp"
+  }
  },
  "podcast-40203": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/337/m/mczh-tw1200x680_small40203_397080467325.png"
   ],
-  "published": "2023-05-04"
+  "published": "2023-05-04",
+  "audio": {
+   "spotify": "1hcZIAdXdx9SCc86621IKG"
+  }
  },
  "podcast-40503": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/664/m/mczh-tw1200x680_small40503_116903019016.png"
   ],
-  "published": "2023-05-09"
+  "published": "2023-05-09",
+  "audio": {
+   "spotify": "5YJTmFpLzTQLeL38IhTZTE"
+  }
  },
  "podcast-40890": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/726/m/mczh-tw1200x680_small40890_511690808028.png"
   ],
-  "published": "2023-05-16"
+  "published": "2023-05-16",
+  "audio": {
+   "spotify": "5nvCu7mpP1Yi7Mrcf4a0qB"
+  }
  },
  "podcast-41462": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/613/m/mczh-tw1200x680_small41462_832647327163.png"
   ],
-  "published": "2023-05-29"
+  "published": "2023-05-29",
+  "audio": {
+   "spotify": "5xZbYlk9ObMr3ss5gSnssM"
+  }
  },
  "podcast-41531": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/481/m/mczh-tw1200x680_small41531_121893716932.png"
   ],
-  "published": "2023-05-30"
+  "published": "2023-05-30",
+  "audio": {
+   "spotify": "5d7NS0Il5C2E3xHhyLR6vH"
+  }
  },
  "podcast-41900": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/174/m/mczh-tw1200x680_small41900_330702022158.png"
   ],
-  "published": "2023-06-06"
+  "published": "2023-06-06",
+  "audio": {
+   "spotify": "5XKe59BTYGUkRK44c0c872"
+  }
  },
  "podcast-42536": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/680/m/mczh-tw1200x680_small42536_817367943843.png"
   ],
-  "published": "2023-06-19"
+  "published": "2023-06-19",
+  "audio": {
+   "spotify": "27I3Cjm0OOMzFQxCCol3h3"
+  }
  },
  "podcast-42537": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/202/m/mczh-tw1200x680_small42537_675139544185.png"
   ],
-  "published": "2023-06-19"
+  "published": "2023-06-19",
+  "audio": {
+   "spotify": "49VyxcPhoj9DCbETW3h6Qu"
+  }
  },
  "podcast-42776": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/614/m/mczh-tw1200x680_small42776_96718937591.png"
   ],
-  "published": "2023-06-27"
+  "published": "2023-06-27",
+  "audio": {
+   "spotify": "0OhDTqWtSwEvJ5vxcQ3Mjk"
+  }
  },
  "podcast-43177": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/617/m/mczh-tw1200x680_small43177_260929829306.png"
   ],
-  "published": "2023-07-06"
+  "published": "2023-07-06",
+  "audio": {
+   "spotify": "1vwhf3IXXQCKWcSDhr2Qzd"
+  }
  },
  "podcast-43437": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/731/m/mczh-tw1200x680_small43437_571618644777.png"
   ],
-  "published": "2023-07-12"
+  "published": "2023-07-12",
+  "audio": {
+   "spotify": "4fZcMDanioiSPiSkeZjHEi"
+  }
  },
  "podcast-43998": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/318/m/mczh-tw1200x680_small43998_284724855233.png"
   ],
-  "published": "2023-07-25"
+  "published": "2023-07-25",
+  "audio": {
+   "spotify": "7cFjarnUdUEnbBSDMRmdOW"
+  }
  },
  "podcast-44748": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/585/m/mczh-tw1200x680_small44748_389372045624.png"
   ],
-  "published": "2023-08-09"
+  "published": "2023-08-09",
+  "audio": {
+   "spotify": "5OIVz0qT7n5iKl3X83GdHl"
+  }
  },
  "podcast-44753": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/872/m/mczh-tw1200x680_small44753_318840547107.png"
   ],
-  "published": "2023-08-09"
+  "published": "2023-08-09",
+  "audio": {
+   "spotify": "0565lqjRI9yd1JykGX2Ih9"
+  }
  },
  "podcast-44965": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/678/m/mczh-tw1200x680_small44965_619962566355.png"
   ],
-  "published": "2023-08-15"
+  "published": "2023-08-15",
+  "audio": {
+   "spotify": "6GdpJtdyGKGCY6D8gLZQKI"
+  }
  },
  "podcast-44966": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/201/m/mczh-tw1200x680_small44966_912758966780.png"
   ],
-  "published": "2023-08-15"
+  "published": "2023-08-15",
+  "audio": {
+   "spotify": "6wbE5DteMAj52KhklW2DCi"
+  }
  },
  "podcast-45349": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/671/m/mczh-tw1200x680_small45349_389137948075.png"
   ],
-  "published": "2023-08-24"
+  "published": "2023-08-24",
+  "audio": {
+   "spotify": "4JB31vdwUnUZWtdhvyeWiq"
+  }
  },
  "podcast-45349-2": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/671/m/mczh-tw1200x680_small45349_389137948075.png"
   ],
-  "published": "2023-08-24"
+  "published": "2023-08-24",
+  "audio": {
+   "spotify": "4JB31vdwUnUZWtdhvyeWiq"
+  }
  },
  "podcast-4568": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/577/m/mczh-tw1200x680_small4568_322230320988.jpeg"
   ],
-  "published": "2022-08-10"
+  "published": "2022-08-10",
+  "audio": {
+   "spotify": "1Cq8qBmCJ0lLmoD9uaWYoD"
+  }
  },
  "podcast-46582": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/31/m/mczh-tw1200x680_small46582_259153892490.png"
   ],
-  "published": "2023-09-19"
+  "published": "2023-09-19",
+  "audio": {
+   "spotify": "6PQo6A36oH1M6DnKrtMxko"
+  }
  },
  "podcast-46584": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/661/m/mczh-tw1200x680_small46584_462290097702.png"
   ],
-  "published": "2023-09-19"
+  "published": "2023-09-19",
+  "audio": {
+   "spotify": "2v4j61Y6UOc9F1ynJcUPWR"
+  }
  },
  "podcast-47345": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/264/m/mczh-tw1200x680_small47345_390510197221.png"
   ],
-  "published": "2023-10-03"
+  "published": "2023-10-03",
+  "audio": {
+   "spotify": "0JXjVLHrgPxBVtsa7gOJWf"
+  }
  },
  "podcast-47346": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/128/m/mczh-tw1200x680_small47346_671898297749.png"
   ],
-  "published": "2023-10-03"
+  "published": "2023-10-03",
+  "audio": {
+   "spotify": "5dVg70An6WNfbVhWMxvVcM"
+  }
  },
  "podcast-48806": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/153/m/mczh-tw1200x680_small48806_140577813835.png"
   ],
-  "published": "2023-10-25"
+  "published": "2023-10-25",
+  "audio": {
+   "spotify": "2godAtzvSSc1tI8vIvg2i4"
+  }
  },
  "podcast-48809": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/537/m/mczh-tw1200x680_small48809_557957214755.png"
   ],
-  "published": "2023-10-25"
+  "published": "2023-10-25",
+  "audio": {
+   "spotify": "4NkLcNl669gFTyPHr0aQoR"
+  }
  },
  "podcast-48810": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/961/m/mczh-tw1200x680_small48810_333923415038.png"
   ],
-  "published": "2023-10-25"
+  "published": "2023-10-25",
+  "audio": {
+   "spotify": "23gbg52IHWLHszCeqlLO3i"
+  }
  },
  "podcast-49720": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/972/m/mczh-tw1200x680_small49720_689077601187.png"
   ],
-  "published": "2023-10-26"
+  "published": "2023-10-26",
+  "audio": {
+   "spotify": "7ojqwlOPA8p0wZLhbGuNgj"
+  }
  },
  "podcast-49721": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/259/m/mczh-tw1200x680_small49721_998171901541.png"
   ],
-  "published": "2023-10-27"
+  "published": "2023-10-27",
+  "audio": {
+   "spotify": "2jIZvzYUOCAnCc9sKQ2IM1"
+  }
  },
  "podcast-51242": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/917/m/mczh-tw1200x680_small51242_931524725482.png"
   ],
-  "published": "2023-10-28"
+  "published": "2023-10-28",
+  "audio": {
+   "spotify": "611xJnLKze0jMEnsV6u2Vx"
+  }
  },
  "podcast-51244": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/406/m/mczh-tw1200x680_small51244_265551725825.png"
   ],
-  "published": "2023-10-29"
+  "published": "2023-10-29",
+  "audio": {
+   "spotify": "2qwITCKLfMNnebupjRVjBM"
+  }
  },
  "podcast-51247": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/597/m/mczh-tw1200x680_small51247_681370726093.png"
   ],
-  "published": "2023-12-08"
+  "published": "2023-12-08",
+  "audio": {
+   "spotify": "5Kzz9BwGaxS8bcZfN4PWTE"
+  }
  },
  "podcast-51346": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/565/m/mczh-tw1200x680_small51346_68826153065.png"
   ],
-  "published": "2023-11-08"
+  "published": "2023-11-08",
+  "audio": {
+   "spotify": "1yOhD7f7KCAPEsglxivBWe"
+  }
  },
  "podcast-51347": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/86/m/mczh-tw1200x680_small51347_108188753165.png"
   ],
-  "published": "2023-12-01"
+  "published": "2023-12-01",
+  "audio": {
+   "spotify": "1yOhD7f7KCAPEsglxivBWe"
+  }
  },
  "podcast-5918": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/78/m/mczh-tw1200x680_small5918_269508223164.jpeg"
   ],
-  "published": "2022-08-04"
+  "published": "2022-08-04",
+  "audio": {
+   "spotify": "1Fv8cIbLjP32vXmv5rmMhw"
+  }
  },
  "podcast-5925": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/871/m/mczh-tw1200x680_small5925_966744524035.jpeg"
   ],
-  "published": "2022-07-26"
+  "published": "2022-07-26",
+  "audio": {
+   "spotify": "67lT9nPwezlC6QZxcI6UF1"
+  }
  },
  "podcast-61042": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/267/m/mczh-tw1200x680_small61042_476512395272.png"
   ],
-  "published": "2024-08-21"
+  "published": "2024-08-21",
+  "audio": {
+   "spotify": "5CBYed85MJTFORg3O22RnA"
+  }
  },
  "podcast-61110": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/410/m/mczh-tw1200x680_small61110_779092141819.png"
   ],
-  "published": "2024-08-19"
+  "published": "2024-08-19",
+  "audio": {
+   "spotify": "7gjn3XsBavTNtJCJehuC6C"
+  }
  },
  "podcast-61177": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/326/m/mczh-tw1200x680_small61177_295424410750.png"
   ],
-  "published": "2024-08-21"
+  "published": "2024-08-21",
+  "audio": {
+   "spotify": "3CKWKSDbWygmnNjhkwvrdz"
+  }
  },
  "podcast-61178": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/796/m/mczh-tw1200x680_small61178_480094611025.png"
   ],
-  "published": "2024-08-21"
+  "published": "2024-08-21",
+  "audio": {
+   "spotify": "7CX4r5y9DEHoVeyBhyJ1k0"
+  }
  },
  "podcast-61460": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/129/m/mczh-tw1200x680_small61460_511656212936.png"
   ],
-  "published": "2024-08-28"
+  "published": "2024-08-28",
+  "audio": {
+   "spotify": "1i3ZZ0FBzdEAWAbi7zb4au"
+  }
  },
  "podcast-61464": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/543/m/mczh-tw1200x680_small61464_725043516893.png"
   ],
-  "published": "2024-08-28"
+  "published": "2024-08-28",
+  "audio": {
+   "spotify": "2KXBHxhVZ3xMJcSIYu8GJx"
+  }
  },
  "podcast-61749": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/441/m/mczh-tw1200x680_small61749_741938105129.png"
   ],
-  "published": "2024-09-05"
+  "published": "2024-09-05",
+  "audio": {
+   "spotify": "5zYl5SHxJw30QxqPDDx2v9"
+  }
  },
  "podcast-61751": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/429/m/mczh-tw1200x680_small61751_140165005707.png"
   ],
-  "published": "2024-09-05"
+  "published": "2024-09-05",
+  "audio": {
+   "spotify": "5QBZmrgwyq4Cu9AbZNSPs2"
+  }
  },
  "podcast-61753": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/684/m/mczh-tw1200x680_small61753_90227406313.png"
   ],
-  "published": "2024-09-05"
+  "published": "2024-09-05",
+  "audio": {
+   "spotify": "0dYCmwIloqj99rydfExRT8"
+  }
  },
  "podcast-61754": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/581/m/mczh-tw1200x680_small61754_456190106650.png"
   ],
-  "published": "2024-09-05"
+  "published": "2024-09-05",
+  "audio": {
+   "spotify": "6ZY1Klc4sFSCxWiuVW5q9m"
+  }
  },
  "podcast-61997": {
   "images": [
@@ -2577,55 +2906,82 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/365/m/mczh-tw1200x680_small62152_319571255549.png"
   ],
-  "published": "2024-09-16"
+  "published": "2024-09-16",
+  "audio": {
+   "spotify": "4Q6D2ky5C6E8jnjwGNfW2y"
+  }
  },
  "podcast-62269": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/252/m/mczh-tw1200x680_small62269_847055815637.png"
   ],
-  "published": "2024-09-19"
+  "published": "2024-09-19",
+  "audio": {
+   "spotify": "51SjOia6wYq1h6rJiZL8ZW"
+  }
  },
  "podcast-64116": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/661/m/mczh-tw1200x680_small64116_718485872017.png"
   ],
-  "published": "2024-10-29"
+  "published": "2024-10-29",
+  "audio": {
+   "spotify": "6FopEjYqE05tfAMe9P3gcl"
+  }
  },
  "podcast-64322": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/30/m/mczh-tw1200x680_small64322_756258908917.png"
   ],
-  "published": "2024-11-04"
+  "published": "2024-11-04",
+  "audio": {
+   "spotify": "3iaxCE2OGqOYqIOhYUhcb8"
+  }
  },
  "podcast-6523": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/754/m/mczh-tw1200x680_small6523_406010439812.jpeg"
   ],
-  "published": "2022-08-18"
+  "published": "2022-08-18",
+  "audio": {
+   "spotify": "5tDSGQJy5a8jWdN5vnRSRl"
+  }
  },
  "podcast-65368": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/646/m/mczh-tw1200x680_small65368_128282590411.png"
   ],
-  "published": "2024-11-26"
+  "published": "2024-11-26",
+  "audio": {
+   "spotify": "7mTaUnvolRbzFImlPFNZ7z"
+  }
  },
  "podcast-65791": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/895/m/mczh-tw1200x680_small65791_70069526026.png"
   ],
-  "published": "2024-12-02"
+  "published": "2024-12-02",
+  "audio": {
+   "spotify": "5KKKgHXTCgmcQ107Hjx7X3"
+  }
  },
  "podcast-65798": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/691/m/mczh-tw1200x680_small65798_338433028886.png"
   ],
-  "published": "2024-12-02"
+  "published": "2024-12-02",
+  "audio": {
+   "spotify": "0Ve4t7YJXB2o8F9aTFMc2j"
+  }
  },
  "podcast-65829": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/452/m/mczh-tw1200x680_small65829_664526796366.png"
   ],
-  "published": "2024-12-03"
+  "published": "2024-12-03",
+  "audio": {
+   "spotify": "0Phwny61C9WFjPMBUOkRDM"
+  }
  },
  "podcast-65830": {
   "images": [
@@ -2637,37 +2993,55 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/910/m/mczh-tw1200x680_small66478_690754791894.png"
   ],
-  "published": "2024-12-11"
+  "published": "2024-12-11",
+  "audio": {
+   "spotify": "1IheX2T8t8mVbBgVlA13Lj"
+  }
  },
  "podcast-66479": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/847/m/mczh-tw1200x680_small66479_159588992608.png"
   ],
-  "published": "2024-12-11"
+  "published": "2024-12-11",
+  "audio": {
+   "spotify": "6toLjjQnuiVxn2CNYwSmxu"
+  }
  },
  "podcast-67941": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/164/m/mczh-tw1200x680_small67941_835841242382.png"
   ],
-  "published": "2025-01-14"
+  "published": "2025-01-14",
+  "audio": {
+   "spotify": "2YPZAxfzQ5MfvOgPJ8Hasu"
+  }
  },
  "podcast-67948": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/979/m/mczh-tw1200x680_small67948_514629443133.png"
   ],
-  "published": "2025-01-14"
+  "published": "2025-01-14",
+  "audio": {
+   "spotify": "46QD2D4S7tWXjfByAuSJJA"
+  }
  },
  "podcast-68383": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/210/m/mczh-tw1200x680_small68383_538883765783.png"
   ],
-  "published": "2025-02-03"
+  "published": "2025-02-03",
+  "audio": {
+   "spotify": "31v8NtXxuuHBtF0ZM5CsFv"
+  }
  },
  "podcast-68384": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/308/m/mczh-tw1200x680_small68384_268044566255.png"
   ],
-  "published": "2025-02-03"
+  "published": "2025-02-03",
+  "audio": {
+   "spotify": "5STrhSXnTORywoTTVwatz5"
+  }
  },
  "podcast-68399": {
   "images": [
@@ -2679,43 +3053,64 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/135/m/mczh-tw1200x680_small68400_937036867983.png"
   ],
-  "published": "2025-02-03"
+  "published": "2025-02-03",
+  "audio": {
+   "spotify": "3g84utMOn7LOCZtOG3iJO2"
+  }
  },
  "podcast-70475": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/871/m/mczh-tw1200x680_small70475_695973494109.png"
   ],
-  "published": "2025-03-11"
+  "published": "2025-03-11",
+  "audio": {
+   "spotify": "00maj4wQl1MW2y9tLkn4FJ"
+  }
  },
  "podcast-70478": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/616/m/mczh-tw1200x680_small70478_33578094461.png"
   ],
-  "published": "2025-03-11"
+  "published": "2025-03-11",
+  "audio": {
+   "spotify": "6jdvm7ka1m8vZwnt7E8yH9"
+  }
  },
  "podcast-70480": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/166/m/mczh-tw1200x680_small70480_555858195358.png"
   ],
-  "published": "2025-03-11"
+  "published": "2025-03-11",
+  "audio": {
+   "spotify": "03Vp65VIgevdlNM4Q3dFpH"
+  }
  },
  "podcast-70576": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/171/m/mczh-tw1200x680_small70576_3247376050.png"
   ],
-  "published": "2025-03-11"
+  "published": "2025-03-11",
+  "audio": {
+   "spotify": "6Yfkl0X4LY2V4D01ISqgCP"
+  }
  },
  "podcast-70599": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/657/m/mczh-tw1200x680_small70599_818904980997.png"
   ],
-  "published": "2025-03-11"
+  "published": "2025-03-11",
+  "audio": {
+   "spotify": "4hAPb9kNakssmOs05EW8xM"
+  }
  },
  "podcast-72278": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/711/m/mczh-tw1200x680_small72278_483493740633.png"
   ],
-  "published": "2025-04-11"
+  "published": "2025-04-11",
+  "audio": {
+   "spotify": "4m6AHihGsvnBGQD2ETno9u"
+  }
  },
  "podcast-72280": {
   "images": [
@@ -2727,232 +3122,349 @@
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/841/m/mczh-tw1200x680_small72356_847298001623.png"
   ],
-  "published": "2025-04-14"
+  "published": "2025-04-14",
+  "audio": {
+   "spotify": "3PMgismPP6UlMmZ4zYmOxl"
+  }
  },
  "podcast-72359": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/746/m/mczh-tw1200x680_small72359_657371902010.png"
   ],
-  "published": "2025-04-14"
+  "published": "2025-04-14",
+  "audio": {
+   "spotify": "2fdqgjtRL5Od9aU7SJUfl1"
+  }
  },
  "podcast-7283": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/537/m/mczh-tw1200x680_small7283_939128014004.jpeg"
   ],
-  "published": "2022-07-20"
+  "published": "2022-07-20",
+  "audio": {
+   "spotify": "5WBtNwhWayZvawrVNmzZGM"
+  }
  },
  "podcast-73796": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/89/m/mczh-tw1200x680_small73796_929066990226.png"
   ],
-  "published": "2025-05-08"
+  "published": "2025-05-08",
+  "audio": {
+   "spotify": "1Xml2kH35uIK3YXgxcoAut"
+  }
  },
  "podcast-73797": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/982/m/mczh-tw1200x680_small73797_63362290600.png"
   ],
-  "published": "2025-05-08"
+  "published": "2025-05-08",
+  "audio": {
+   "spotify": "1X8m3tXYDQMhA4FtPUwKBn"
+  }
  },
  "podcast-73798": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/415/m/mczh-tw1200x680_small73798_835803690727.png"
   ],
-  "published": "2025-05-08"
+  "published": "2025-05-08",
+  "audio": {
+   "spotify": "0cv4KY2ZkLXRUmniHazsDF"
+  }
  },
  "podcast-73802": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/598/m/mczh-tw1200x680_small73802_474870291355.png"
   ],
-  "published": "2025-05-08"
+  "published": "2025-05-08",
+  "audio": {
+   "spotify": "4Jkah30KqUP0IyhLsUJBo4"
+  }
  },
  "podcast-77994": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/697/m/mczh-tw1200x680_small77994_714386123743.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "5FpuH9298MIVnQ4nqAyz2R"
+  }
  },
  "podcast-78017": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/859/m/mczh-tw1200x680_small78017_967453623851.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "10heKp9GveauHX9tOWdhpb"
+  }
  },
  "podcast-78018": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/727/m/mczh-tw1200x680_small78018_481237722158.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "5qh2jz4jh1nqAazkfsVmCS"
+  }
  },
  "podcast-78021": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/116/m/mczh-tw1200x680_small78021_733365724123.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "3WxYQ2Qn5pa8fwgkcrXVTz"
+  }
  },
  "podcast-78022": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/588/m/mczh-tw1200x680_small78022_350664524960.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "038tcLdYUQufoG02OBVQ69"
+  }
  },
  "podcast-78023": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/586/m/mczh-tw1200x680_small78023_293042825470.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "706TGNP5ts7isIcNbuorwJ"
+  }
  },
  "podcast-78024": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/837/m/mczh-tw1200x680_small78024_689202725823.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "0pXYNx17LOxvtYwkLEaOuK"
+  }
  },
  "podcast-78025": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/132/m/mczh-tw1200x680_small78025_485007226635.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "3yn8wMnLsLIOJGkfXj2a7b"
+  }
  },
  "podcast-78026": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/523/m/mczh-tw1200x680_small78026_19597026825.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "38PqEY6uYUIHJ93lUHtVDc"
+  }
  },
  "podcast-78027": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/277/m/mczh-tw1200x680_small78027_629592127136.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "2R60nfpzRgw6lqFlTs37LI"
+  }
  },
  "podcast-78028": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/258/m/mczh-tw1200x680_small78028_960097827553.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "22V6WNMaVr5AEouKAnZUVz"
+  }
  },
  "podcast-78029": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/772/m/mczh-tw1200x680_small78029_580552328386.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "46dlBmlitJws88kCt0PCgm"
+  }
  },
  "podcast-78030": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/565/m/mczh-tw1200x680_small78030_557469728587.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "4WwLtCQju4i5ViYMT87m68"
+  }
  },
  "podcast-78031": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/712/m/mczh-tw1200x680_small78031_386977729160.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "60kj3Jbda8zfNJ2PhWx7uD"
+  }
  },
  "podcast-78032": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/144/m/mczh-tw1200x680_small78032_996016329625.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "1bjFcYeUQQNCdYbCJLc7Ps"
+  }
  },
  "podcast-78033": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/528/m/mczh-tw1200x680_small78033_617894229866.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "74Q8NA4zfYkdZzEIeYVBRZ"
+  }
  },
  "podcast-78034": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/568/m/mczh-tw1200x680_small78034_877905730169.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "1cypHnMQXEFcn25ZiY7oen"
+  }
  },
  "podcast-78035": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/123/m/mczh-tw1200x680_small78035_156205230333.png"
   ],
-  "published": "2025-08-24"
+  "published": "2025-08-24",
+  "audio": {
+   "spotify": "6F3d9WPuQPUybr8NMFvaxI"
+  }
  },
  "podcast-78532": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/395/m/mczh-tw1200x680_small78532_824845973239.png"
   ],
-  "published": "2025-09-05"
+  "published": "2025-09-05",
+  "audio": {
+   "spotify": "0M7b1H96H0bi74PXYhnwiQ"
+  }
  },
  "podcast-78533": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/955/m/mczh-tw1200x680_small78533_75537573733.png"
   ],
-  "published": "2025-09-05"
+  "published": "2025-09-05",
+  "audio": {
+   "spotify": "227KOSSg4DXlRVq8XeOSGk"
+  }
  },
  "podcast-78534": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/224/m/mczh-tw1200x680_small78534_124858373903.png"
   ],
-  "published": "2025-09-05"
+  "published": "2025-09-05",
+  "audio": {
+   "spotify": "6Upp6PhhtNWt55CQWaZjHV"
+  }
  },
  "podcast-79551": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/31/m/mczh-tw1200x680_small79551_49877694700.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "2R1ogXD8rrWw3iVrWj8bm0"
+  }
  },
  "podcast-79552": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/345/m/mczh-tw1200x680_small79552_521816495019.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "2jYrzVPSyNuHFsleYFA9zI"
+  }
  },
  "podcast-79553": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/194/m/mczh-tw1200x680_small79553_149642595437.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "0yUYXOBsLUVOLUujdE9Pfg"
+  }
  },
  "podcast-79554": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/324/m/mczh-tw1200x680_small79554_441542296137.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "6MhS3XYSkjxpLn5lVWG8oR"
+  }
  },
  "podcast-79555": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/635/m/mczh-tw1200x680_small79555_117363597899.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "13fBpaMJaRjsMSYgHYX4nd"
+  }
  },
  "podcast-79556": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/43/m/mczh-tw1200x680_small79556_21863298392.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "60mFB5PATRp268fc55M7AE"
+  }
  },
  "podcast-79557": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/162/m/mczh-tw1200x680_small79557_829181398629.png"
   ],
-  "published": "2025-09-26"
+  "published": "2025-09-26",
+  "audio": {
+   "spotify": "5Dd2ms6uCktGCkTJd3MYsm"
+  }
  },
  "podcast-80329": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/405/m/mczh-tw1200x680_small80329_166821777260.png"
   ],
-  "published": "2025-10-18"
+  "published": "2025-10-18",
+  "audio": {
+   "spotify": "0R9UNhWImFmAH7oqcXX7YA"
+  }
  },
  "podcast-81344": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/428/m/mczh-tw1200x680_small81344_657967237140.png"
   ],
-  "published": "2025-11-06"
+  "published": "2025-11-06",
+  "audio": {
+   "spotify": "0zjyTZltAyDS8GK4iBgXnc"
+  }
  },
  "podcast-81345": {
   "images": [
    "https://dovoha.ccu.edu.tw/var/file/159/1159/pictures/615/m/mczh-tw1200x680_small81345_21003137348.png"
   ],
-  "published": "2025-11-06"
+  "published": "2025-11-06",
+  "audio": {
+   "spotify": "6KveGZ4owzDu8QCNOyHA6I"
+  }
  },
  "podcast-i159": {
-  "published": "2025-10-18"
+  "published": "2025-10-18",
+  "audio": {
+   "spotify": "1IJfKeFf0o4yFDNqRQ5nZl"
+  }
  },
  "stele-35900": {
   "images": [

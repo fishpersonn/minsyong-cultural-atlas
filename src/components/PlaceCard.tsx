@@ -8,6 +8,7 @@ import { placeholderFor } from '@/lib/placeholder'
 import { formatDistance, type NearbyPlace } from '@/lib/nearest'
 import StyleDot from '@/components/StyleDot'
 import Highlight from '@/components/Highlight'
+import ShareButton from '@/components/ShareButton'
 import { searchTerms } from '@/lib/highlight'
 import type { PlaceGroup } from '@/types'
 
@@ -107,6 +108,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, n
                 </a>
               </Button>
             ))}
+            <ShareButton id={place.id} title={place.title} />
           </div>
         </div>
 
