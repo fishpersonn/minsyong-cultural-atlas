@@ -13,8 +13,35 @@ type Props = {
 // 離民雄超過這個距離，「最近的地點」沒有參考價值
 const NEARBY_LIMIT_M = 20_000
 
+// 預設只有圓形圖示（安靜、不搶地圖）；滑鼠移上去或鍵盤聚焦時，文字從圖示左邊滑出來。
+// 手機沒有滑鼠，圖示本身有 aria-label 與 title，點了就會動作。
 const BUTTON =
-  'inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full bg-white px-3.5 text-sm font-medium text-atlas-ink shadow-md outline-none hover:bg-atlas-hover focus-visible:ring-2 focus-visible:ring-atlas-focus disabled:cursor-wait disabled:opacity-70'
+  'group/tool inline-flex h-11 cursor-pointer items-center overflow-hidden rounded-full bg-white text-sm font-medium text-atlas-ink shadow-md outline-none hover:bg-atlas-hover focus-visible:ring-2 focus-visible:ring-atlas-focus disabled:cursor-wait disabled:opacity-70'
+const REVEAL =
+  'max-w-0 overflow-hidden whitespace-nowrap pr-0 opacity-0 transition-all duration-200 motion-reduce:transition-none group-hover/tool:max-w-32 group-hover/tool:pr-4 group-hover/tool:opacity-100 group-focus-visible/tool:max-w-32 group-focus-visible/tool:pr-4 group-focus-visible/tool:opacity-100'
+
+function Tool({
+  label,
+  icon,
+  onClick,
+  disabled,
+}: {
+  label: string
+  icon: React.ReactNode
+  onClick: () => void
+  disabled?: boolean
+}) {
+  return (
+    <button type="button" aria-label={label} title={label} onClick={onClick} disabled={disabled} className={BUTTON}>
+      <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center">
+        {icon}
+      </span>
+      <span aria-hidden="true" className={REVEAL}>
+        {label}
+      </span>
+    </button>
+  )
+}
 
 const formatDistance = (m: number) => (m < 1000 ? `${Math.round(m / 10) * 10} 公尺` : `${(m / 1000).toFixed(1)} 公里`)
 
@@ -46,7 +73,7 @@ export default function MapTools({ places, selectedId, onPick }: Props) {
         const found = nearestPlace(places, { lng: coords.longitude, lat: coords.latitude })
         if (!found) return setNotice('沒有符合的地點')
         if (found.meters > NEARBY_LIMIT_M) {
-          setNotice(`你離民雄約 ${Math.round(found.meters / 1000)} 公里，來民雄再試試「我附近」吧`)
+          setNotice(`你離民雄約 ${Math.round(found.meters / 1000)} 公里，來民雄再試試「身邊有什麼」吧`)
           return
         }
         setNotice(`最近的地點在約 ${formatDistance(found.meters)} 外`)
@@ -62,14 +89,13 @@ export default function MapTools({ places, selectedId, onPick }: Props) {
 
   return (
     <div className="absolute top-44 right-2.5 z-10 flex max-w-[calc(100%-1.25rem)] flex-col items-end gap-2">
-      <button type="button" onClick={random} className={BUTTON}>
-        <Shuffle aria-hidden="true" className="size-4" />
-        隨機一個
-      </button>
-      <button type="button" onClick={nearby} disabled={locating} className={BUTTON}>
-        <LocateFixed aria-hidden="true" className="size-4" />
-        {locating ? '定位中…' : '我附近'}
-      </button>
+      <Tool label="隨便逛逛" icon={<Shuffle className="size-4" />} onClick={random} />
+      <Tool
+        label={locating ? '定位中…' : '身邊有什麼'}
+        icon={<LocateFixed className={`size-4 ${locating ? 'animate-pulse' : ''}`} />}
+        onClick={nearby}
+        disabled={locating}
+      />
       {notice !== null && (
         <p role="status" className="rounded-lg bg-atlas-ink px-3 py-2 text-sm text-atlas-paper shadow-md">
           {notice}

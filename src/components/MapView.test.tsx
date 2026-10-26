@@ -285,6 +285,21 @@ describe('MapView', () => {
     })
   })
 
+  describe('回到首頁（resetSignal）', () => {
+    it('數字變了才把地圖拉回目前的範圍；第一次的值與重複的值都不動', () => {
+      const { rerender } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} resetSignal={0} />)
+      const fit = h.mapInstances[0].fitBounds
+      const before = fit.mock.calls.length
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} resetSignal={0} />)
+      expect(fit.mock.calls.length).toBe(before)
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} resetSignal={1} />)
+      expect(fit.mock.calls.length).toBe(before + 1)
+      expect(fit.mock.calls.at(-1)![0]).toBe(bounds)
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} resetSignal={1} />)
+      expect(fit.mock.calls.length).toBe(before + 1)
+    })
+  })
+
   describe('範圍改變（篩選、搜尋）', () => {
     const next: [[number, number], [number, number]] = [
       [120.4, 23.5],

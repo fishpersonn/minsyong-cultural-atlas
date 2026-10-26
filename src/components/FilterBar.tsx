@@ -15,7 +15,7 @@ type Props = {
 }
 
 const CHIP =
-  'inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
+  'inline-flex min-h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
 
 const chipClass = (selected: boolean) =>
   `${CHIP} ${
@@ -70,7 +70,7 @@ function Row({
 export default function FilterBar({ themes, activeThemes, onThemes, categories, activeCategory, onCategory }: Props) {
   if (themes.length === 0) return null
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1.5">
       <Row
         label="依主題篩選"
         allLabel="全部主題"

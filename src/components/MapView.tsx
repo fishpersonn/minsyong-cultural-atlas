@@ -30,6 +30,8 @@ type Props = {
   bounds: [[number, number], [number, number]]
   selectedId: string | null
   onSelect: (id: string | null) => void
+  // 數字變了就把地圖拉回目前的範圍（「回到首頁」用；第一次的值不算）
+  resetSignal?: number
 }
 
 type Entry = { cluster: Cluster; el: HTMLButtonElement; dot: HTMLSpanElement; marker: maplibregl.Marker }
@@ -109,7 +111,7 @@ class ResetViewControl implements maplibregl.IControl {
 const CLUSTER_PX = 40
 const DETAIL_ZOOM = 17
 
-export default function MapView({ groups, bounds, selectedId, onSelect }: Props) {
+export default function MapView({ groups, bounds, selectedId, onSelect, resetSignal = 0 }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const entries = useRef<Entry[]>([])
@@ -238,6 +240,15 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
     fittedBounds.current = bounds
     fitToBounds(map, bounds, container.current, selectedRef.current !== null)
   }, [bounds, ready])
+
+  // 「回到首頁」：不管有沒有篩選、使用者縮放到哪，都拉回目前的範圍
+  const lastReset = useRef(resetSignal)
+  useEffect(() => {
+    const map = mapRef.current
+    if (!ready || !map || resetSignal === lastReset.current) return
+    lastReset.current = resetSignal
+    fitToBounds(map, boundsRef.current, container.current, selectedRef.current !== null)
+  }, [resetSignal, ready])
 
   // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
   useEffect(() => {

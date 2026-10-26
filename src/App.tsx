@@ -8,7 +8,6 @@ import AboutDialog from '@/components/AboutDialog'
 import { Button } from '@/components/ui/button'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
-import SearchBox from '@/components/SearchBox'
 import MapTools from '@/components/MapTools'
 import { useAtlasHash } from '@/hooks/useAtlasHash'
 import { useIntroDismissed } from '@/hooks/useIntroDismissed'
@@ -68,6 +67,7 @@ export default function App() {
   const select = useCallback((id: string | null) => setHash({ id }), [setHash])
   const [listOpen, setListOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
+  const [homeSignal, setHomeSignal] = useState(0)
   const [introDismissed, dismissIntro] = useIntroDismissed()
   const { query } = hash
   // 網址是亂填的主題代碼就忽略；分類只在只選一個主題時有意義
@@ -100,6 +100,13 @@ export default function App() {
       query: nextQuery,
       ...(excluded ? { id: null } : {}),
     })
+  }
+  // 點標題列的站標與站名：回到打開網站時的畫面
+  const goHome = () => {
+    setListOpen(false)
+    setAboutOpen(false)
+    setHash({ id: null, themes: [], category: null, query: '' })
+    setHomeSignal((n) => n + 1)
   }
   // 從清單或標記選取地點時，清單讓位給卡片
   const choose = (id: string | null) => {
@@ -136,6 +143,16 @@ export default function App() {
         listOpen={listOpen}
         onToggleList={() => setListOpen((o) => !o)}
         onOpenAbout={() => setAboutOpen(true)}
+        onHome={goHome}
+        search={
+          allGroups.length > 0
+            ? {
+                query,
+                onQuery: (q) => applyFilters(themes, category, q),
+                resultCount: filtered ? visiblePlaces.length : undefined,
+              }
+            : undefined
+        }
       />
       <AboutDialog
         open={aboutOpen}
@@ -144,12 +161,7 @@ export default function App() {
         themeCount={themeChips.length}
       />
       {allGroups.length > 0 && (
-        <div className="flex shrink-0 flex-col gap-2 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
-          <SearchBox
-            query={query}
-            onQuery={(q) => applyFilters(themes, category, q)}
-            resultCount={filtered ? visiblePlaces.length : undefined}
-          />
+        <div className="shrink-0 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-1.5">
           <FilterBar
             themes={themeChips}
             activeThemes={themes}
@@ -174,7 +186,13 @@ export default function App() {
         ) : (
           <>
             <div className="absolute inset-0">
-              <MapView groups={groups} bounds={bounds} selectedId={selectedId} onSelect={choose} />
+              <MapView
+                groups={groups}
+                bounds={bounds}
+                selectedId={selectedId}
+                onSelect={choose}
+                resetSignal={homeSignal}
+              />
             </div>
             <MapTools places={visiblePlaces} selectedId={selectedId} onPick={choose} />
             {filtered && visiblePlaces.length === 0 && !listOpen && (
