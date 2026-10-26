@@ -1,16 +1,15 @@
-import { Search, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { themeName } from '@/data/themes'
 import { placeStyle } from '@/lib/placeStyle'
+import StyleDot from '@/components/StyleDot'
 import type { Place } from '@/types'
 
 type Props = {
   places: Place[]
   total: number
   selectedId: string | null
-  query: string
   filtered: boolean
-  onQuery: (query: string) => void
   onClearFilters: () => void
   onSelect: (id: string) => void
   onClose: () => void
@@ -20,9 +19,7 @@ export default function PlaceList({
   places,
   total,
   selectedId,
-  query,
   filtered,
-  onQuery,
   onClearFilters,
   onSelect,
   onClose,
@@ -45,19 +42,6 @@ export default function PlaceList({
         >
           <X aria-hidden="true" />
         </Button>
-      </div>
-      <div className="border-b border-atlas-ink/10 px-4 py-2">
-        <label className="flex items-center gap-2 rounded-lg bg-atlas-hover px-3 text-sm focus-within:ring-2 focus-within:ring-atlas-focus">
-          <Search aria-hidden="true" className="size-4 shrink-0 text-atlas-muted" />
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => onQuery(e.target.value)}
-            placeholder="搜尋標題、內容或分類"
-            aria-label="搜尋地點"
-            className="min-h-10 w-full bg-transparent outline-none placeholder:text-atlas-muted"
-          />
-        </label>
       </div>
       {places.length === 0 ? (
         <div className="flex flex-col items-start gap-3 p-4 text-sm text-atlas-body">
@@ -82,11 +66,7 @@ export default function PlaceList({
                       : 'border-transparent text-atlas-body hover:bg-atlas-hover'
                   }`}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 size-2.5 shrink-0 rounded-full"
-                    style={{ backgroundColor: placeStyle(p).color }}
-                  />
+                  <StyleDot {...placeStyle(p)} className="mt-0.5 size-5" />
                   <span className="min-w-0">
                     {p.title}
                     <span className="block text-xs font-normal text-atlas-muted">{themeName(p.theme)}</span>

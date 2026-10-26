@@ -18,9 +18,7 @@ const mk = (id: string): Place => ({
 
 const listProps = {
   total: 2,
-  query: '',
   filtered: false,
-  onQuery: () => {},
   onClearFilters: () => {},
   selectedId: null,
   onSelect: () => {},
@@ -45,17 +43,14 @@ describe('PlaceList', () => {
     expect(onClose).toHaveBeenCalled()
   })
 
-  it('搜尋框回報輸入；篩選中標題顯示「符合數 / 總數」', () => {
-    const onQuery = vi.fn()
-    render(<PlaceList {...listProps} places={[mk('1')]} filtered query="鐵" onQuery={onQuery} />)
+  it('篩選中標題顯示「符合數 / 總數」', () => {
+    render(<PlaceList {...listProps} places={[mk('1')]} filtered />)
     expect(screen.getByText('地點清單（1 / 2）')).toBeTruthy()
-    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '鐵路' } })
-    expect(onQuery).toHaveBeenCalledWith('鐵路')
   })
 
   it('沒有符合時顯示提示與清除按鈕', () => {
     const onClearFilters = vi.fn()
-    render(<PlaceList {...listProps} places={[]} filtered query="zzz" onClearFilters={onClearFilters} />)
+    render(<PlaceList {...listProps} places={[]} filtered onClearFilters={onClearFilters} />)
     expect(screen.getByText('沒有符合的地點。')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
     expect(onClearFilters).toHaveBeenCalled()
@@ -64,41 +59,44 @@ describe('PlaceList', () => {
 
 describe('FilterBar', () => {
   const themes = [
-    { key: 'railway', label: '民雄鐵路高架化', count: 24, color: '#1f6f8b' },
-    { key: 'podcast', label: 'Podcast', count: 161, color: '#c2410c' },
+    { key: 'railway', label: '民雄鐵路高架化', count: 24, color: '#1f6f8b', icon: '<svg></svg>' },
+    { key: 'podcast', label: 'Podcast', count: 161, color: '#c2410c', icon: '<svg></svg>' },
   ]
   const cats = [
-    { key: '歷史故事', label: '歷史故事', count: 7, color: '#a8501f' },
-    { key: '建築測繪', label: '建築測繪', count: 2, color: '#7b5ea7' },
+    { key: '歷史故事', label: '歷史故事', count: 7, color: '#a8501f', icon: '<svg></svg>' },
+    { key: '建築測繪', label: '建築測繪', count: 2, color: '#7b5ea7', icon: '<svg></svg>' },
   ]
   const base = {
     themes,
-    activeTheme: null,
-    onTheme: () => {},
+    activeThemes: [] as string[],
+    onThemes: () => {},
     categories: [],
     activeCategory: null,
     onCategory: () => {},
   }
 
-  it('主題列：列出全部主題與各主題（含數量），點選回報，再點同一個取消', () => {
-    const onTheme = vi.fn()
-    const { rerender } = render(<FilterBar {...base} onTheme={onTheme} />)
+  it('主題可複選：點選加入，再點同一個移除，「全部主題」清空', () => {
+    const onThemes = vi.fn()
+    const { rerender } = render(<FilterBar {...base} onThemes={onThemes} />)
     expect(screen.getByRole('button', { name: '全部主題' }).getAttribute('aria-pressed')).toBe('true')
     fireEvent.click(screen.getByRole('button', { name: /Podcast/ }))
-    expect(onTheme).toHaveBeenLastCalledWith('podcast')
-    rerender(<FilterBar {...base} activeTheme="podcast" onTheme={onTheme} />)
+    expect(onThemes).toHaveBeenLastCalledWith(['podcast'])
+    rerender(<FilterBar {...base} activeThemes={['podcast']} onThemes={onThemes} />)
     expect(screen.getByRole('button', { name: /Podcast/ }).getAttribute('aria-pressed')).toBe('true')
+    expect(screen.getByRole('button', { name: '全部主題' }).getAttribute('aria-pressed')).toBe('false')
+    fireEvent.click(screen.getByRole('button', { name: /民雄鐵路高架化/ }))
+    expect(onThemes).toHaveBeenLastCalledWith(['podcast', 'railway'])
     fireEvent.click(screen.getByRole('button', { name: /Podcast/ }))
-    expect(onTheme).toHaveBeenLastCalledWith(null)
+    expect(onThemes).toHaveBeenLastCalledWith([])
     fireEvent.click(screen.getByRole('button', { name: '全部主題' }))
-    expect(onTheme).toHaveBeenLastCalledWith(null)
+    expect(onThemes).toHaveBeenLastCalledWith([])
   })
 
   it('沒有分類時只有主題列；有分類時多一列分類', () => {
     const onCategory = vi.fn()
     const { rerender } = render(<FilterBar {...base} />)
     expect(screen.queryByRole('group', { name: '依分類篩選' })).toBeNull()
-    rerender(<FilterBar {...base} activeTheme="railway" categories={cats} onCategory={onCategory} />)
+    rerender(<FilterBar {...base} activeThemes={['railway']} categories={cats} onCategory={onCategory} />)
     expect(screen.getByRole('group', { name: '依分類篩選' })).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: /建築測繪/ }))
     expect(onCategory).toHaveBeenLastCalledWith('建築測繪')

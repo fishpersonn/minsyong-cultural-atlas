@@ -173,7 +173,7 @@ describe('App', () => {
     expect(countPlaces()).toBe(total)
   })
 
-  it('篩選排除了目前選取的地點時取消選取並清掉網址', async () => {
+  it('篩選排除了目前選取的地點時取消選取，網址只剩篩選', async () => {
     window.location.hash = '#p=96220'
     const App = await load()
     render(<App />)
@@ -182,7 +182,7 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: /^建築測繪/ }))
     expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
-    expect(window.location.hash).toBe('')
+    expect(window.location.hash).toBe('#t=railway&c=%E5%BB%BA%E7%AF%89%E6%B8%AC%E7%B9%AA')
   })
 
   it('篩選後上一個／下一個只在符合的地點之間切換', async () => {
@@ -198,18 +198,89 @@ describe('App', () => {
     expect(screen.getByText('1 / 2')).toBeTruthy()
   })
 
-  it('清單的搜尋會縮小清單與地圖，沒有結果時可清除', async () => {
+  it('搜尋框縮小清單與地圖，沒有結果時可清除，並寫進網址', async () => {
     const App = await load()
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    const countPlaces = () => {
+      const g = mapProps.groups.at(-1) as { places: unknown[] }[]
+      return g.reduce((n, x) => n + x.places.length, 0)
+    }
+    const total = countPlaces()
     fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '農會倉庫' } })
+    expect(countPlaces()).toBeLessThan(total)
+    expect(window.location.hash).toBe('#q=%E8%BE%B2%E6%9C%83%E5%80%89%E5%BA%AB')
+    expect(screen.getByRole('status', { name: '' }).textContent).toMatch(/^\d+ 個符合$/)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
     const list = screen.getByRole('region', { name: '地點清單' })
     expect(within(list).getAllByRole('button', { name: /農會倉庫/ }).length).toBeGreaterThan(1)
     expect(within(list).queryByRole('button', { name: /從鐵路到電波/ })).toBeNull()
     fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '完全不存在的字串' } })
     expect(screen.getByText('沒有符合的地點。')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
+    expect(window.location.hash).toBe('')
     expect(within(screen.getByRole('region', { name: '地點清單' })).getAllByRole('button', { name: /從鐵路到電波/ })).toHaveLength(1)
+  })
+
+  it('主題可複選，地圖顯示聯集，網址記錄主題', async () => {
+    const App = await load()
+    render(<App />)
+    const countPlaces = () => {
+      const g = mapProps.groups.at(-1) as { places: unknown[] }[]
+      return g.reduce((n, x) => n + x.places.length, 0)
+    }
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    fireEvent.click(screen.getByRole('button', { name: /^民雄古碑文/ }))
+    expect(countPlaces()).toBe(24 + 10)
+    expect(window.location.hash).toBe('#t=railway,stele')
+    // 選了兩個主題就沒有分類列
+    expect(screen.queryByRole('group', { name: '依分類篩選' })).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    expect(countPlaces()).toBe(10)
+    expect(window.location.hash).toBe('#t=stele')
+  })
+
+  it('從網址還原主題、分類與搜尋；亂填的主題被忽略', async () => {
+    window.location.hash = '#t=railway,nope&c=%E5%BB%BA%E7%AF%89%E6%B8%AC%E7%B9%AA'
+    const App = await load()
+    render(<App />)
+    const g = mapProps.groups.at(-1) as { places: unknown[] }[]
+    expect(g.reduce((n, x) => n + x.places.length, 0)).toBe(2)
+    expect(screen.getByRole('button', { name: /^民雄鐵路高架化/ }).getAttribute('aria-pressed')).toBe('true')
+    expect(screen.getByRole('button', { name: /^建築測繪/ }).getAttribute('aria-pressed')).toBe('true')
+  })
+
+  it('「隨機一個」在目前篩選的地點中挑一個並選取', async () => {
+    window.location.hash = '#t=stele'
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: /隨機一個/ }))
+    expect(window.location.hash).toMatch(/^#p=stele-\d+&t=stele$/)
+  })
+
+  it('「我附近」用定位選取最近的地點；太遠或被拒絕時只顯示提示', async () => {
+    const getCurrentPosition = vi.fn()
+    Object.defineProperty(navigator, 'geolocation', { value: { getCurrentPosition }, configurable: true })
+    const App = await load()
+    render(<App />)
+    // 站在鐵路高架化第一個地點上
+    window.location.hash = ''
+    const first = (mapProps.groups.at(-1) as { lng: number; lat: number }[])[0]
+    getCurrentPosition.mockImplementationOnce((ok) => ok({ coords: { longitude: first.lng, latitude: first.lat } }))
+    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    expect(window.location.hash).toMatch(/^#p=/)
+    expect(screen.getByText(/最近的地點在約/)).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('button', { name: '關閉' }))
+    getCurrentPosition.mockImplementationOnce((ok) => ok({ coords: { longitude: 121.5, latitude: 25.04 } }))
+    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    expect(screen.getByText(/你離民雄約/)).toBeTruthy()
+    expect(window.location.hash).toBe('')
+
+    getCurrentPosition.mockImplementationOnce((_ok, fail) => fail({ code: 1, PERMISSION_DENIED: 1 }))
+    fireEvent.click(screen.getByRole('button', { name: '我附近' }))
+    expect(screen.getByText(/允許位置權限/)).toBeTruthy()
+    // @ts-expect-error 還原成 jsdom 預設（沒有定位）
+    delete navigator.geolocation
   })
 
   it('使用說明的「看地點清單」會開啟清單', async () => {
