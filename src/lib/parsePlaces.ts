@@ -62,13 +62,15 @@ function parseFeature(
     if (id === null) return { reason: 'missing link: article id not found' }
   }
 
+  const images = [props['圖片'], props['圖片2']].filter(nonEmpty)
+
   return {
     place: {
       id,
       title: props.name,
       summary: typeof props['摘要'] === 'string' ? props['摘要'] : '',
       links,
-      images: [props['圖片'], props['圖片2']].filter(nonEmpty),
+      images: images.length > 0 ? images : (metaById[id]?.images ?? []).filter(nonEmpty),
       lng,
       lat,
       theme,

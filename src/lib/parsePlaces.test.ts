@@ -117,6 +117,15 @@ describe('parsePlaces validation', () => {
     expect(r2.places[1].category).toBe('資料檔分類')
     expect(r2.places[1].published).toBeUndefined()
   })
+  it('資料檔沒有圖片時用補充資料的圖片；資料檔有圖片就以資料檔為準', () => {
+    const r2 = parsePlaces(
+      { features: [feat({ 圖片: undefined }), feat({ 圖片: 'http://own/2.jpg', 查看更多: link(2) })] },
+      't',
+      { '1': { images: ['http://meta/1.jpg', ''] }, '2': { images: ['http://meta/2.jpg'] } },
+    )
+    expect(r2.places[0].images).toEqual(['http://meta/1.jpg'])
+    expect(r2.places[1].images).toEqual(['http://own/2.jpg'])
+  })
   it('ignores meta for ids not in the data', () => {
     const r2 = parsePlaces({ features: [feat({})] }, 't', { '999': { category: 'x' } })
     expect(r2.places[0].category).toBeUndefined()
