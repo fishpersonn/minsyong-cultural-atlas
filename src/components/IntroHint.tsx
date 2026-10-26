@@ -10,7 +10,7 @@ export default function IntroHint({ count, onOpenList, onDismiss }: Props) {
   return (
     <section
       aria-label="使用說明"
-      className="flex flex-col gap-3 rounded-2xl bg-white p-4 text-atlas-ink shadow-xl"
+      className="flex flex-col gap-3 atlas-paper rounded-2xl p-4 text-atlas-ink shadow-xl"
     >
       <p className="text-sm leading-relaxed">
         這是民雄的文化地圖，目前收錄 {count} 個地點。

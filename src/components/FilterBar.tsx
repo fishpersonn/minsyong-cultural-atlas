@@ -7,12 +7,14 @@ type Props = {
 }
 
 const CHIP =
-  'inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-full px-3 text-sm shadow-md outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
+  'inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
 
 export default function FilterBar({ categories, active, onChange }: Props) {
   if (categories.length === 0) return null
   const chip = (selected: boolean) =>
-    `${CHIP} ${selected ? 'bg-atlas-ink text-atlas-paper' : 'bg-white/95 text-atlas-ink hover:bg-white'}`
+    `${CHIP} ${selected
+      ? 'border-atlas-ink bg-atlas-ink text-atlas-paper'
+      : 'border-atlas-ink/15 bg-white text-atlas-ink hover:bg-atlas-hover'}`
   return (
     <div
       role="group"

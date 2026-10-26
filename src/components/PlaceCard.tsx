@@ -25,7 +25,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
   return (
-    <article className="relative flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-atlas-ink">
+    <article className="atlas-paper relative flex min-h-0 w-full flex-1 flex-col overflow-hidden text-atlas-ink">
       <Button
         type="button"
         size="icon"
@@ -36,7 +36,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
         <X aria-hidden="true" />
       </Button>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="relative aspect-video shrink-0 bg-atlas-mist">
+        <div className="relative aspect-[16/7] shrink-0 bg-atlas-mist md:aspect-video">
           <img
             key={src}
             src={src}
@@ -44,8 +44,10 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
             onError={() => {
               if (src !== PLACEHOLDER) setFailedSrc(src)
             }}
-            className="size-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
+            className="size-full object-cover [filter:sepia(0.3)_contrast(1.05)_saturate(0.9)] motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
           />
+          {/* 暈影：讓圖片邊緣略暗，像老照片 */}
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 shadow-[inset_0_0_48px_rgb(70_45_10/0.4)]" />
         </div>
 
         <div className="flex flex-col gap-3 p-4">
@@ -64,7 +66,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
               {place.era && <span className="text-atlas-muted">{place.era}</span>}
             </p>
           )}
-          <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
+          <h2 className="font-title text-lg leading-snug font-semibold">{place.title}</h2>
           <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
           {place.published && (
             <p className="text-xs text-atlas-muted">官網發布於 {place.published.replaceAll('-', '.')}</p>

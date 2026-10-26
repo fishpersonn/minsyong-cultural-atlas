@@ -28,6 +28,10 @@ vi.mock('maplibre-gl', () => {
     flyTo = vi.fn()
     remove = vi.fn()
     addControl = vi.fn()
+    zoom = 14
+    getZoom = () => this.zoom
+    // 1 度 = 100000 px：測試資料的座標相距遠，預設不會被合併
+    project = vi.fn(([lng, lat]: [number, number]) => ({ x: lng * 100000, y: -lat * 100000 }))
     handlers: Record<string, Handler[]> = {}
     options: Record<string, unknown>
     constructor(options: Record<string, unknown>) {
@@ -245,6 +249,54 @@ describe('MapView', () => {
     expect(after).toEqual(before)
     expect(screen.getByRole('button', { name: '2 個地點' }).getAttribute('aria-pressed')).toBe('true')
     expect(screen.getByRole('button', { name: '民雄車站' }).getAttribute('aria-pressed')).toBe('false')
+  })
+
+  describe('靠得很近的標記', () => {
+    const near: PlaceGroup[] = [
+      { lng: 120.43, lat: 23.55, places: [mk('1', '甲', 120.43, 23.55)] },
+      { lng: 120.4302, lat: 23.55, places: [mk('2', '乙', 120.4302, 23.55)] },
+      { lng: 120.44, lat: 23.56, places: [mk('3', '丙', 120.44, 23.56)] },
+    ]
+
+    it('螢幕上相距太近的併成一個數字標記，遠的維持獨立', () => {
+      render(<MapView groups={near} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(screen.getByRole('button', { name: '2 個地點' }).textContent).toBe('2')
+      expect(screen.getByRole('button', { name: '丙' })).toBeTruthy()
+      expect(screen.queryByRole('button', { name: '甲' })).toBeNull()
+    })
+
+    it('點合併的標記是放大到涵蓋成員，不選取任何地點', () => {
+      const onSelect = vi.fn()
+      render(<MapView groups={near} bounds={bounds} selectedId={null} onSelect={onSelect} />)
+      const before = h.mapInstances[0].fitBounds.mock.calls.length
+      fireEvent.click(screen.getByRole('button', { name: '2 個地點' }))
+      expect(onSelect).not.toHaveBeenCalled()
+      const [box, opts] = h.mapInstances[0].fitBounds.mock.calls.at(-1)!
+      expect(h.mapInstances[0].fitBounds.mock.calls.length).toBe(before + 1)
+      expect(box).toEqual([
+        [120.43, 23.55],
+        [120.4302, 23.55],
+      ])
+      expect(opts.maxZoom).toBeGreaterThan(17)
+    })
+
+    it('放大到細節等級後不再合併', () => {
+      render(<MapView groups={near} bounds={bounds} selectedId={null} onSelect={noop} />)
+      const map = h.mapInstances[0] as FakeMap & { zoom: number }
+      act(() => {
+        map.zoom = 17
+        map.emit('zoomend')
+      })
+      expect(screen.getByRole('button', { name: '甲' })).toBeTruthy()
+      expect(screen.getByRole('button', { name: '乙' })).toBeTruthy()
+      expect(screen.queryByRole('button', { name: '2 個地點' })).toBeNull()
+    })
+
+    it('選取地點時至少放大到細節等級', () => {
+      const { rerender } = render(<MapView groups={near} bounds={bounds} selectedId={null} onSelect={noop} />)
+      rerender(<MapView groups={near} bounds={bounds} selectedId="2" onSelect={noop} />)
+      expect(h.mapInstances[0].flyTo.mock.calls.at(-1)![0].zoom).toBe(17)
+    })
   })
 
   it('卸載時移除標記與地圖', () => {

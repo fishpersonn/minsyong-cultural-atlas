@@ -29,10 +29,10 @@ export default function PlaceList({
   return (
     <section
       aria-label="地點清單"
-      className="flex min-h-0 w-full flex-1 flex-col overflow-hidden bg-white text-atlas-ink"
+      className="atlas-paper flex min-h-0 w-full flex-1 flex-col overflow-hidden text-atlas-ink"
     >
       <div className="flex items-center justify-between gap-2 border-b border-atlas-ink/10 px-4 py-3">
-        <h2 className="text-base font-semibold">
+        <h2 className="font-title text-base font-semibold">
           地點清單（{filtered ? `${places.length} / ${total}` : total}）
         </h2>
         <Button
