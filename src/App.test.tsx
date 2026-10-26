@@ -30,7 +30,7 @@ describe('App', () => {
   it('顯示標題與地圖', async () => {
     const App = await load()
     render(<App />)
-    expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+    expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
     expect(screen.getByText('mock-map')).toBeTruthy()
     expect(screen.queryByRole('complementary')).toBeNull()
   })
@@ -100,7 +100,7 @@ describe('App', () => {
     expect(link.getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
     expect(link.getAttribute('target')).toBe('_blank')
     expect(link.getAttribute('rel')).toBe('noopener noreferrer')
-    expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+    expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
   })
 
   it('首次顯示使用說明，按「知道了」後隱藏並記住', async () => {
@@ -125,6 +125,33 @@ describe('App', () => {
     expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
     expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
     expect(window.location.hash).toBe('#p=96220')
+  })
+
+  it('卡片的上一個／下一個依序切換並循環，網址同步', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    const position = () => screen.getByText(/^\d+ \/ \d+$/).textContent!
+    const [i, total] = position().split(' / ').map(Number)
+    fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))
+    expect(position()).toBe(`${(i % total) + 1} / ${total}`)
+    expect(window.location.hash).not.toBe('#p=96220')
+    fireEvent.click(screen.getByRole('button', { name: '上一個地點' }))
+    expect(window.location.hash).toBe('#p=96220')
+  })
+
+  it('Esc 先關清單，再關卡片', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    expect(screen.getByRole('region', { name: '地點清單' })).toBeTruthy()
+    fireEvent.keyDown(window, { key: 'Escape' })
+    expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
+    expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
+    fireEvent.keyDown(window, { key: 'Escape' })
+    expect(screen.queryByRole('heading', { level: 2 })).toBeNull()
+    expect(window.location.hash).toBe('')
   })
 
   it('使用說明的「看地點清單」會開啟清單', async () => {

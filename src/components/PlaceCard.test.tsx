@@ -49,11 +49,32 @@ describe('PlaceCard', () => {
 
   it('圖片載入失敗改用預設圖，且不會重複觸發', () => {
     render(<PlaceCard group={group(mk('3'))} selectedId="3" onSelect={noop} onClose={noop} />)
-    const img = screen.getByRole('img', { name: '標題3' })
-    fireEvent.error(img)
-    expect(img.getAttribute('src')).toBe(placeholderFor('3'))
-    fireEvent.error(img)
-    expect(img.getAttribute('src')).toBe(placeholderFor('3'))
+    fireEvent.error(screen.getByRole('img', { name: '標題3' }))
+    // 換圖時 img 會重新掛載（淡入動畫），所以每次都重新取得元素
+    expect(screen.getByRole('img', { name: '標題3' }).getAttribute('src')).toBe(placeholderFor('3'))
+    fireEvent.error(screen.getByRole('img', { name: '標題3' }))
+    expect(screen.getByRole('img', { name: '標題3' }).getAttribute('src')).toBe(placeholderFor('3'))
+  })
+
+  it('有 nav 時顯示位置與前後按鈕，沒有時不顯示', () => {
+    const onPrev = vi.fn()
+    const onNext = vi.fn()
+    const { rerender } = render(
+      <PlaceCard
+        group={group(mk('1'))}
+        selectedId="1"
+        onSelect={noop}
+        onClose={noop}
+        nav={{ index: 3, total: 24, onPrev, onNext }}
+      />,
+    )
+    expect(screen.getByText('3 / 24')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '上一個地點' }))
+    fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))
+    expect(onPrev).toHaveBeenCalledTimes(1)
+    expect(onNext).toHaveBeenCalledTimes(1)
+    rerender(<PlaceCard group={group(mk('1'))} selectedId="1" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('button', { name: '上一個地點' })).toBeNull()
   })
 
   it('沒有圖片時直接顯示預設圖', () => {

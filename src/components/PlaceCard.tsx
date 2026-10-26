@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
 import { placeholderFor } from '@/lib/placeholder'
@@ -10,9 +10,11 @@ type Props = {
   selectedId: string
   onSelect: (id: string) => void
   onClose: () => void
+  // 依地點順序前後切換；沒傳就不顯示（單獨使用卡片時）
+  nav?: { index: number; total: number; onPrev: () => void; onNext: () => void }
 }
 
-export default function PlaceCard({ group, selectedId, onSelect, onClose }: Props) {
+export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }: Props) {
   const place = group.places.find((p) => p.id === selectedId) ?? group.places[0]
   // 記錄失敗的網址而非布林值：換到另一個地點時自然重置，且預設圖不會再觸發切換
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
@@ -35,12 +37,13 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <div className="relative aspect-video shrink-0 bg-atlas-mist">
           <img
+            key={src}
             src={src}
             alt={place.title}
             onError={() => {
               if (src !== PLACEHOLDER) setFailedSrc(src)
             }}
-            className="size-full object-cover"
+            className="size-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
           />
         </div>
 
@@ -92,6 +95,36 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
           </ul>
         )}
       </div>
+
+      {nav && (
+        <div className="flex shrink-0 items-center justify-between gap-2 border-t border-atlas-ink/10 px-2 py-1.5">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            aria-label="上一個地點"
+            onClick={nav.onPrev}
+            className="text-atlas-ink"
+          >
+            <ChevronLeft aria-hidden="true" />
+            上一個
+          </Button>
+          <span className="text-xs text-atlas-muted" aria-live="polite">
+            {nav.index} / {nav.total}
+          </span>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            aria-label="下一個地點"
+            onClick={nav.onNext}
+            className="text-atlas-ink"
+          >
+            下一個
+            <ChevronRight aria-hidden="true" />
+          </Button>
+        </div>
+      )}
     </article>
   )
 }

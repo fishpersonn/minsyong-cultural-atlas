@@ -142,3 +142,12 @@
     @apply font-sans;
     }
 }
+/* 選取中的標記向外擴散的光圈；使用者偏好減少動態時關閉 */
+@keyframes atlas-pulse {
+    0% { box-shadow: 0 0 0 0 rgb(217 142 4 / 0.55); }
+    100% { box-shadow: 0 0 0 14px rgb(217 142 4 / 0); }
+}
+.atlas-pulse { animation: atlas-pulse 1.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+    .atlas-pulse { animation: none; }
+}

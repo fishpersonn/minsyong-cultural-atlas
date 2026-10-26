@@ -20,7 +20,7 @@ describe('MapFallback', () => {
 describe('SiteHeader', () => {
   it('顯示標題與前往大學路官網連結', () => {
     render(<SiteHeader />)
-    expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+    expect(screen.getByText('Minsyong Cultural Atlas')).toBeTruthy()
     const link = screen.getByRole('link', { name: '前往大學路官網' })
     expect(link.getAttribute('href')).toBe('https://dovoha.ccu.edu.tw/')
     expect(link.getAttribute('target')).toBe('_blank')

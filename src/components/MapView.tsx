@@ -38,7 +38,7 @@ const DOT_BASE =
   'flex items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md transition-transform group-focus-visible:ring-4 group-focus-visible:ring-atlas-focus/70'
 
 const dotClass = (count: number, active: boolean) =>
-  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'scale-125 bg-atlas-amber' : 'bg-atlas-teal'}`
+  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'atlas-pulse scale-125 bg-atlas-amber' : 'bg-atlas-teal'}`
 
 const contains = (g: PlaceGroup, id: string | null) => id !== null && g.places.some((p) => p.id === id)
 
@@ -110,7 +110,9 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       const el = document.createElement('button')
       el.type = 'button'
       el.className = BUTTON_CLASS
-      el.setAttribute('aria-label', count > 1 ? `${count} 個地點` : g.places[0].title)
+      const label = count > 1 ? `${count} 個地點` : g.places[0].title
+      el.setAttribute('aria-label', label)
+      el.title = label
       const dot = document.createElement('span')
       dot.textContent = count > 1 ? String(count) : ''
       el.appendChild(dot)
