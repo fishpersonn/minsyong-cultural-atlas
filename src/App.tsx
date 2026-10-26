@@ -35,9 +35,9 @@ export default function App() {
       <SiteHeader />
       <main className="relative min-h-0 flex-1">
         {groups.length === 0 ? (
-          <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-[#14313b]">
+          <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-atlas-ink">
             <p className="text-base">目前沒有可顯示的地點</p>
-            <Button asChild className="bg-[#1f6f8b] text-white hover:bg-[#14313b]">
+            <Button asChild className="bg-atlas-teal text-white hover:bg-atlas-ink">
               <a href={OFFICIAL_SITE_URL} target="_blank" rel="noopener noreferrer">
                 前往大學路官網
               </a>
