@@ -45,8 +45,8 @@
 | 打貓街坊文化協會 | 5 | 我的農民朋友們 | 5 |
 | 課程筆記 | 5 | | |
 
-- 資料來自整理大學路官網文章的爬蟲專案，座標與分類由人工標記與整理，**可能有錯誤或遺漏**。發現問題歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues)。
-- 文章內容與圖片的版權屬原作者與大學路計畫。本站的圖片是**直接連到官網**顯示，沒有複製；官網改版或圖片失效時，會顯示預設圖。
+- **資料來源**：[重構大學路網站](https://dovoha.ccu.edu.tw/)（中正大學「重構大學路計畫」）。文章經爬蟲整理後，由人工標記座標與分類，**可能有錯誤或遺漏**，發現問題歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues)。
+- **版權**：文章內容與圖片的版權屬大學路計畫所有。本站的圖片是**直接連到官網**顯示，沒有複製；官網改版或圖片失效時，會顯示預設圖。
 - 資料怎麼更新、格式與規則，見 [docs/DATA.md](docs/DATA.md)。
 
 ## 技術
@@ -88,7 +88,7 @@ src/
   data/         各主題的 GeoJSON、分類與年代補充資料、主題登錄（themes.ts）
   hooks/        網址 #p= 與選取狀態同步、說明框記憶
 scripts/        import-crawler.mjs：把爬蟲專案的資料轉成本站格式
-docs/           DATA.md（資料維護）、設計文件與實作計畫（開發過程紀錄）
+docs/           DATA.md（資料維護）、截圖
 ```
 
 ## 部署
@@ -103,7 +103,7 @@ push 到 `main` 會由 GitHub Actions 執行 lint、測試、建置，再部署�
 
 ## 致謝與授權
 
-- 內容與圖片：中正大學「重構大學路計畫」與各文章作者，原文見[大學路官網](https://dovoha.ccu.edu.tw/)。
+- 內容與圖片：來自[重構大學路網站](https://dovoha.ccu.edu.tw/)，版權屬大學路計畫所有。
 - 地圖資料：© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors、© [CARTO](https://carto.com/attributions)（地圖角落的標註請勿移除）。
 - 開源元件：MapLibre GL JS（BSD-3-Clause）、React、Vite、Tailwind CSS、shadcn/ui 與 Radix UI（MIT）、[lucide](https://lucide.dev/) 圖示（ISC）、[Noto Serif TC](https://fonts.google.com/noto/specimen/Noto+Serif+TC) 與 Geist 字體（SIL OFL）。
-- **程式碼授權尚未指定**：在指定之前，預設保留所有權利。想引用或重用請先[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues) 詢問。
+- **授權**：程式碼以 [MIT License](LICENSE) 授權。資料、文章內容與圖片（含 `src/data/` 底下的檔案）**不在 MIT 授權範圍內**，版權屬大學路計畫所有。
