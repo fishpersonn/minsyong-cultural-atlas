@@ -60,7 +60,12 @@ if (import.meta.env.DEV && skipped.length > 0) {
 
 // 卡片與清單共用的面板：手機為底部抽屜，桌面為左側浮動面板（MapView 的 padding 依此計算）
 const PANEL_CLASS =
-  'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 motion-safe:duration-300 md:motion-safe:slide-in-from-bottom-0 md:motion-safe:slide-in-from-left-8 absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
+  'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 motion-safe:duration-300 md:motion-safe:slide-in-from-bottom-0 md:motion-safe:slide-in-from-left-8 absolute inset-x-0 bottom-0 z-10 flex flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
+
+// 手機上卡片預設只蓋住地圖區域的下面 44%（還看得到地圖）；展開才拉高到 88% 方便閱讀。
+// 高度用百分比（相對地圖區域），才會和 MapView 用來置中的留白（地圖容器高度 × 比例）一致，也不會蓋到上面的篩選列
+const DRAWER_PEEK = 0.44
+const DRAWER_EXPANDED = 0.88
 
 export default function App() {
   const [hash, setHash] = useAtlasHash()
@@ -69,6 +74,10 @@ export default function App() {
   const [listOpen, setListOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   const [homeSignal, setHomeSignal] = useState(0)
+  // 手機卡片的展開狀態記在「哪個地點」上：換一個地點就回到收合
+  const [expandedFor, setExpandedFor] = useState<string | null>(null)
+  // 目前這張卡片是從地點清單點進來的：卡片上才有「回到清單」
+  const [fromList, setFromList] = useState(false)
   const [introDismissed, dismissIntro] = useIntroDismissed()
   const { query } = hash
   // 網址是亂填的主題代碼就忽略；分類只在只選一個主題時有意義
@@ -106,6 +115,7 @@ export default function App() {
   const goHome = () => {
     setListOpen(false)
     setAboutOpen(false)
+    setFromList(false)
     setHash({ id: null, themes: [], category: null, query: '' })
     setHomeSignal((n) => n + 1)
   }
@@ -113,6 +123,16 @@ export default function App() {
   const choose = (id: string | null) => {
     setListOpen(false)
     select(id)
+  }
+  // 點地圖上的標記或工具鈕：不是從清單來的
+  const chooseOnMap = (id: string | null) => {
+    setFromList(false)
+    choose(id)
+  }
+  // 從清單點進來：卡片上會有「回到清單」
+  const chooseFromList = (id: string | null) => {
+    setFromList(true)
+    choose(id)
   }
 
   // Esc：先關清單，再關卡片
@@ -143,6 +163,19 @@ export default function App() {
   const selectedGroup = selectedId
     ? groups.find((g) => g.places.some((p) => p.id === selectedId))
     : undefined
+
+  // 手機：卡片、清單、歡迎提示蓋住地圖底部時，右下角的版權標註往上推，才不會被蓋住
+  // （比例是相對地圖區域，和上面卡片的高度一致；歡迎提示的高度是固定的）
+  const introVisible = !listOpen && !selectedGroup && !introDismissed && allGroups.length > 0
+  const attributionBottom = listOpen
+    ? '60%'
+    : selectedGroup && selectedId
+      ? expandedFor === selectedId
+        ? `${DRAWER_EXPANDED * 100}%`
+        : `${DRAWER_PEEK * 100}%`
+      : introVisible
+        ? '8.5rem'
+        : undefined
 
   return (
     <div className="flex h-dvh flex-col">
@@ -197,11 +230,31 @@ export default function App() {
                 groups={groups}
                 bounds={bounds}
                 selectedId={selectedId}
-                onSelect={choose}
+                onSelect={chooseOnMap}
                 resetSignal={homeSignal}
+                drawerRatio={selectedId !== null && expandedFor === selectedId ? DRAWER_EXPANDED : DRAWER_PEEK}
+                attributionBottom={attributionBottom}
               />
             </div>
-            <MapTools places={visiblePlaces} selectedId={selectedId} onPick={choose} />
+            {/* 手機上卡片開著時，這兩顆鈕會被卡片蓋掉一半，乾脆先藏起來（只用樣式藏，鈕裡的提示狀態不會丟） */}
+            <div className={selectedGroup ? 'max-md:hidden' : undefined}>
+              <MapTools places={visiblePlaces} selectedId={selectedId} onPick={chooseOnMap} />
+            </div>
+            {filtered && visiblePlaces.length > 0 && !listOpen && !selectedGroup && (
+              <p
+                role="status"
+                className="absolute top-3 left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-atlas-ink py-1 pr-1 pl-4 text-sm whitespace-nowrap text-atlas-paper shadow-md"
+              >
+                篩選中・{visiblePlaces.length} 個地點
+                <button
+                  type="button"
+                  onClick={() => applyFilters([], null, '')}
+                  className="min-h-9 cursor-pointer rounded-full px-3 font-medium text-atlas-focus outline-none hover:bg-atlas-paper/10 focus-visible:ring-2 focus-visible:ring-atlas-focus max-sm:min-h-11"
+                >
+                  清除
+                </button>
+              </p>
+            )}
             {filtered && visiblePlaces.length === 0 && !listOpen && (
               <p className="absolute top-3 left-3 z-10 inline-flex items-center gap-2 rounded-lg bg-white/95 px-3 py-2 text-sm shadow-md md:left-[424px]">
                 沒有符合的地點
@@ -215,7 +268,7 @@ export default function App() {
               </p>
             )}
             {listOpen && (
-              <div className={PANEL_CLASS}>
+              <div className={`${PANEL_CLASS} max-h-[60%]`}>
                 <PlaceList
                   places={visiblePlaces}
                   total={places.length}
@@ -223,13 +276,13 @@ export default function App() {
                   query={query}
                   onClearFilters={() => applyFilters([], null, '')}
                   selectedId={selectedId}
-                  onSelect={choose}
+                  onSelect={chooseFromList}
                   onClose={() => setListOpen(false)}
                 />
               </div>
             )}
             {!listOpen && !selectedGroup && !introDismissed && (
-              <div className="absolute inset-x-3 bottom-3 z-10 md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:w-[400px]">
+              <div className="absolute inset-x-3 bottom-3 z-10 md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:w-80">
                 <IntroHint
                   count={places.length}
                   onOpenList={() => setListOpen(true)}
@@ -240,7 +293,9 @@ export default function App() {
             {!listOpen && selectedGroup && selectedId && (
               <aside
                 aria-label="地點資訊"
-                className={PANEL_CLASS}
+                className={`${PANEL_CLASS} transition-[max-height] duration-200 motion-reduce:transition-none ${
+                  expandedFor === selectedId ? 'max-h-[88%]' : 'max-h-[44%]'
+                }`}
               >
                 {/* key 讓切換地點時換一張新卡片，捲動位置回到頂端 */}
                 <PlaceCard
@@ -249,6 +304,9 @@ export default function App() {
                   selectedId={selectedId}
                   onSelect={choose}
                   onClose={() => select(null)}
+                  expanded={expandedFor === selectedId}
+                  onToggleExpanded={() => setExpandedFor(expandedFor === selectedId ? null : selectedId)}
+                  onBackToList={fromList ? () => setListOpen(true) : undefined}
                   nearby={nearby}
                   query={query}
                   nav={

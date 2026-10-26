@@ -1,5 +1,4 @@
-/// <reference types="vitest/config" />
-import { defineConfig } from 'vite'
+import { configDefaults, defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
@@ -13,5 +12,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    // .claude/worktrees/ 底下是其他分支的完整副本（含自己的測試）：在主資料夾跑 npm test 時不能掃進去
+    exclude: [...configDefaults.exclude, '**/.claude/**'],
   },
 })

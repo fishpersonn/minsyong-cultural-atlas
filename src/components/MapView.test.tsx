@@ -73,7 +73,12 @@ vi.mock('maplibre-gl', () => {
     }
   }
   class NavigationControl {}
-  class AttributionControl {}
+  class AttributionControl {
+    options: { compact?: boolean }
+    constructor(options: { compact?: boolean } = {}) {
+      this.options = options
+    }
+  }
   const setWorkerUrl = (url: string) => {
     h.calls.push(`setWorkerUrl:${url}`)
   }
@@ -139,13 +144,44 @@ describe('MapView', () => {
     expect(h.calls.indexOf('Map')).toBeGreaterThan(first)
   })
 
-  it('地圖上不放版權標註（致謝在「關於」裡），但仍有縮放鈕', () => {
-    render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
-    const map = h.mapInstances[0]
-    expect(map.options.attributionControl).toBe(false)
-    const names = (map.addControl.mock.calls as [object, string][]).map(([c]) => c.constructor.name)
-    expect(names).not.toContain('AttributionControl')
-    expect(names).toContain('NavigationControl')
+  describe('版權標註（OpenStreetMap、CARTO 要求在地圖上標註出處，不能拿掉）', () => {
+    const attribution = () => {
+      const calls = h.mapInstances[0].addControl.mock.calls as [{ constructor: { name: string }; options?: { compact?: boolean } }, string][]
+      return calls.find(([c]) => c.constructor.name === 'AttributionControl')
+    }
+
+    it('常駐在地圖右下角（預設的那個關掉，自己加才能控制位置與收合）', () => {
+      render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(h.mapInstances[0].options.attributionControl).toBe(false)
+      expect(attribution()![1]).toBe('bottom-right')
+    })
+
+    it('電腦寬度：展開顯示文字；手機寬度：縮成小小的 ⓘ 按鈕（仍然在地圖上）', () => {
+      stubViewport(true)
+      const { unmount } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(attribution()![0].options?.compact).toBe(false)
+      unmount()
+      h.mapInstances.length = 0
+      stubViewport(false)
+      render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(attribution()![0].options?.compact).toBe(true)
+    })
+
+    it('卡片或清單蓋住地圖底部時，傳進來的 attributionBottom 會變成容器上的 CSS 變數；沒傳就沒有', () => {
+      const { container, rerender } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      const box = container.firstElementChild as HTMLElement
+      expect(box.style.getPropertyValue('--atlas-attr-bottom')).toBe('')
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} attributionBottom="44%" />)
+      expect(box.style.getPropertyValue('--atlas-attr-bottom')).toBe('44%')
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(box.style.getPropertyValue('--atlas-attr-bottom')).toBe('')
+    })
+
+    it('仍有縮放鈕', () => {
+      render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      const names = (h.mapInstances[0].addControl.mock.calls as [object, string][]).map(([c]) => c.constructor.name)
+      expect(names).toContain('NavigationControl')
+    })
   })
 
   it('地圖建構失敗時顯示 MapFallback', () => {
@@ -223,6 +259,15 @@ describe('MapView', () => {
     rerender(<MapView groups={groups} bounds={bounds} selectedId="1" onSelect={noop} />)
     const arg = h.mapInstances[0].flyTo.mock.calls.at(-1)![0]
     expect(arg.padding).toEqual({ left: 424, top: 0, right: 0, bottom: 0 })
+  })
+
+  it('手機：drawerRatio 決定底部留白（收合 44%、展開 88%），換比例後下一次定位用新的', () => {
+    stubViewport(false, 800)
+    const { rerender } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} drawerRatio={0.44} />)
+    rerender(<MapView groups={groups} bounds={bounds} selectedId="1" onSelect={noop} drawerRatio={0.44} />)
+    expect(h.mapInstances[0].flyTo.mock.calls.at(-1)![0].padding).toEqual({ bottom: 352, top: 0, left: 0, right: 0 })
+    rerender(<MapView groups={groups} bounds={bounds} selectedId="2" onSelect={noop} drawerRatio={0.88} />)
+    expect(h.mapInstances[0].flyTo.mock.calls.at(-1)![0].padding).toEqual({ bottom: 704, top: 0, left: 0, right: 0 })
   })
 
   it('手機寬度 flyTo 時底部留出抽屜高度（容器 60%）的 padding', () => {
@@ -347,6 +392,20 @@ describe('MapView', () => {
       expect(screen.getByRole('button', { name: '2 個地點' }).textContent).toBe('2')
       expect(screen.getByRole('button', { name: '丙' })).toBeTruthy()
       expect(screen.queryByRole('button', { name: '甲' })).toBeNull()
+    })
+
+    it('數字標記滑過時說明它的意思：多個位置併成的「這個區域」點了放大；同一個位置的多個地點點了看卡片；單一地點是標題', () => {
+      const same: PlaceGroup = { lng: 120.44, lat: 23.56, places: [mk('5', '丙', 120.44, 23.56), mk('6', '丁', 120.44, 23.56)] }
+      render(<MapView groups={[...near.slice(0, 2), same]} bounds={bounds} selectedId={null} onSelect={noop} />)
+      // 甲乙靠得很近併成一個「區域」標記（2 個位置、2 個地點）
+      expect(screen.getByRole('button', { name: '2 個地點', description: /這個區域有 2 個地點，點一下放大查看/ })).toBeTruthy()
+      // 丙丁在同一個座標：同一個位置的兩個地點
+      expect(screen.getAllByRole('button', { name: '2 個地點' }).map((b) => b.title)).toContain('這個位置有 2 個地點，點一下查看')
+    })
+
+    it('單一地點標記的說明就是地點名稱', () => {
+      render(<MapView groups={near.slice(2)} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(screen.getByRole('button', { name: '丙' }).title).toBe('丙')
     })
 
     it('點合併的標記是放大到涵蓋成員，不選取任何地點', () => {
