@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
+import { placeholderFor } from '@/lib/placeholder'
 import type { PlaceGroup } from '@/types'
 
 type Props = {
@@ -11,13 +12,12 @@ type Props = {
   onClose: () => void
 }
 
-const PLACEHOLDER = `${import.meta.env.BASE_URL}placeholder.svg`
-
 export default function PlaceCard({ group, selectedId, onSelect, onClose }: Props) {
   const place = group.places.find((p) => p.id === selectedId) ?? group.places[0]
   // 記錄失敗的網址而非布林值：換到另一個地點時自然重置，且預設圖不會再觸發切換
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
   const first = place.images[0]
+  const PLACEHOLDER = placeholderFor(place.id)
   const src = first && first !== failedSrc ? first : PLACEHOLDER
   const links = place.links.length > 0 ? place.links : [OFFICIAL_SITE_URL]
 
