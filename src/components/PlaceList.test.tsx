@@ -143,7 +143,7 @@ describe('IntroHint', () => {
     const onOpenList = vi.fn()
     const onDismiss = vi.fn()
     render(<IntroHint count={24} onOpenList={onOpenList} onDismiss={onDismiss} />)
-    expect(screen.getByText(/放了 24 個地點的故事/)).toBeTruthy()
+    expect(screen.getByText(/標著 24 個地點/)).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '看地點清單' }))
     fireEvent.click(screen.getByRole('button', { name: '知道了' }))
     expect(onOpenList).toHaveBeenCalled()

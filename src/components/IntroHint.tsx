@@ -13,9 +13,9 @@ export default function IntroHint({ count, onOpenList, onDismiss }: Props) {
       className="flex flex-col gap-3 atlas-paper rounded-2xl p-4 text-atlas-ink shadow-xl"
     >
       <p className="text-sm leading-relaxed">
-        歡迎來民雄走走。這裡放了 {count} 個地點的故事，
+        這裡標著 {count} 個地點，也標著歲月與情感。
         <br />
-        隨便點一個標記，就可以開始逛。
+        隨便點一個標記，聽聽這片土地的聲音。
       </p>
       <div className="flex flex-wrap gap-2">
         <Button
