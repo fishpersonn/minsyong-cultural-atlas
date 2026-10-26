@@ -18,7 +18,7 @@ describe('AboutDialog', () => {
   it('內文：座標圖的說明、團隊的故事、橋與禮物、謝謝', () => {
     show()
     const text = screen.getByRole('dialog').textContent!
-    expect(text).toContain('這不是一張告訴你該如何快速抵達的座標圖，而是一幅由無數在地生命交織成的記憶地圖。')
+    expect(text).toContain('一幅由無數在地生命交織成的地圖。')
     expect(text).toContain('「重構大學路」團隊歷時無數個在田野間蹲下的午後')
     expect(text).toContain('我們常想，一座大學與它腳下的土地該如何彼此相認？')
     expect(text).toContain('它是一座橋')
@@ -37,8 +37,8 @@ describe('AboutDialog', () => {
     const text = screen.getByRole('dialog').textContent!
     expect(text).toContain('備註')
     expect(text).toContain('關於錯漏：地圖上的地點與分類皆由夥伴們人工一一標註')
-    expect(text).toContain('版權與開源：圖文與資料版權為重構大學路計畫團隊所有；網站程式碼採 MIT 授權。')
-    expect(text).toContain('致謝：© OpenStreetMap contributors © CARTO、MapLibre、lucide，以及 Noto Serif TC 與 Geist 字體。')
+    expect(text).toContain('版權與開源：圖文與資料版權為重構大學路計畫團隊所有')
+    expect(text).toContain('致謝：© OpenStreetMap contributors © CARTO、MapLibre、lucide，以及 Noto Serif TC 與 Geist。')
   })
 
   it('中文句子沒有被 JSX 換行插進多餘的空白', () => {
@@ -53,14 +53,12 @@ describe('AboutDialog', () => {
     expect(links.map((a) => a.textContent)).toEqual([
       '重構大學路',
       '告訴我們',
-      '網站程式碼',
       '© OpenStreetMap contributors',
       '© CARTO',
     ])
     expect(links.map((a) => a.getAttribute('href'))).toEqual([
       'https://dovoha.ccu.edu.tw/',
       'https://github.com/fishpersonn/minsyong-cultural-atlas/issues',
-      'https://github.com/fishpersonn/minsyong-cultural-atlas',
       'https://www.openstreetmap.org/copyright',
       'https://carto.com/attributions',
     ])
