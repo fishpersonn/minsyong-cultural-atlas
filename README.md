@@ -1,6 +1,6 @@
 # Minsyong Cultural Atlas　民雄文化地圖
 
-**這不是一張告訴你該如何快速抵達的座標圖，而是一幅由無數在地生命交織成的記憶地圖。**
+**一幅由無數在地生命交織成的記憶地圖。**
 
 「重構大學路」團隊歷時無數個在田野間蹲下的午後，傾聽耆老的故事，把散落在民雄村落裡的記憶片段，編織成了這張民雄文化地圖。我們常想，一座大學與它腳下的土地該如何彼此相認？答案，或許就藏在這些微光裡。它是一座橋，連接了象牙塔內的眼界與田野間的深情；也是一份禮物，輕柔地交到每一位關心這片土地的人手中。
 
@@ -15,11 +15,7 @@
   </tr>
 </table>
 
-> *English:* an interactive map of Minxiong (民雄, Chiayi, Taiwan) cultural sites, built on public articles from National Chung Cheng University's "Reconstructing University Road" project. 638 places across 15 themes; the interface is in Traditional Chinese. Each place links back to the original article.
-
-## 關於這個網站
-
-這裡是故事的入口，不是[大學路官網](https://dovoha.ccu.edu.tw/)，也不放文章全文：每張卡片只有標題、圖片和一小段摘要。想把故事讀完，請從卡片上的「到官網閱讀全文」走過去；標題列右邊的「重構大學路」也會帶你到官網。
+> _English:_ an interactive map of Minxiong (民雄, Chiayi, Taiwan) cultural sites, built on public articles from National Chung Cheng University's "Reconstructing University Road" project. 638 places across 15 themes; the interface is in Traditional Chinese. Each place links back to the original article.
 
 ## 怎麼走進這張地圖
 
@@ -36,19 +32,19 @@
 
 共 **638 個地點、15 個主題**：
 
-| 主題 | 地點數 | 主題 | 地點數 |
-| --- | ---: | --- | ---: |
-| 我的民雄朋友們 Podcast | 161 | 東南亞美食 | 39 |
-| 民雄阿榮文化小站 | 111 | 街區走踏路線 | 36 |
-| 民雄文化地圖 | 78 | 民雄鐵路高架化 | 24 |
-| 民雄人物 | 75 | 工作坊紀錄 | 20 |
-| 課程成果 | 49 | 鳳梨急行軍田野筆記 | 13 |
-| 民雄古碑文 | 10 | 廟宇裝飾藝術 | 7 |
-| 打貓街坊文化協會 | 5 | 我的農民朋友們 | 5 |
-| 課程筆記 | 5 | | |
+| 主題                   | 地點數 | 主題               | 地點數 |
+| ---------------------- | -----: | ------------------ | -----: |
+| 我的民雄朋友們 Podcast |    161 | 東南亞美食         |     39 |
+| 民雄阿榮文化小站       |    111 | 街區走踏路線       |     36 |
+| 民雄文化地圖           |     78 | 民雄鐵路高架化     |     24 |
+| 民雄人物               |     75 | 工作坊紀錄         |     20 |
+| 課程成果               |     49 | 鳳梨急行軍田野筆記 |     13 |
+| 民雄古碑文             |     10 | 廟宇裝飾藝術       |      7 |
+| 打貓街坊文化協會       |      5 | 我的農民朋友們     |      5 |
+| 課程筆記               |      5 |                    |        |
 
-- **故事從哪裡來**：[重構大學路網站](https://dovoha.ccu.edu.tw/)。文章先用爬蟲整理，座標與分類由人工一一標記，難免有錯漏；如果你熟悉那個地方、發現哪裡不對，歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues) 告訴我們。
-- **版權**：文章與圖片的版權屬大學路計畫所有。這裡的圖片是直接連到官網顯示，沒有另外存一份；官網改版或圖片失效時，會換成預設圖。卡片上的封面圖和發布日期，是用腳本從各篇文章的頁面補抓來的（見 [docs/DATA.md](docs/DATA.md)）。
+- **資料來源**：[重構大學路網站](https://dovoha.ccu.edu.tw/)。文章先用爬蟲整理，座標與分類由人工一一標記，難免有錯漏；如果你熟悉那個地方、發現哪裡不對，歡迎[開 Issue](https://github.com/fishpersonn/minsyong-cultural-atlas/issues) 告訴我們。
+- **版權**：文章與圖片的版權屬重構大學路計畫所有。
 - 資料怎麼更新、格式與規則，見 [docs/DATA.md](docs/DATA.md)。
 
 ## 技術
@@ -107,7 +103,7 @@ push 到 `main` 會由 GitHub Actions 執行 lint、測試、建置，再部署�
 
 謝謝每一位為民雄寫下、說出這些故事的人，也謝謝願意聽的你。
 
-- 內容與圖片：來自[重構大學路網站](https://dovoha.ccu.edu.tw/)，版權屬大學路計畫所有。
+- 內容與圖片：來自[重構大學路網站](https://dovoha.ccu.edu.tw/)，版權屬重構大學路計畫所有。
 - 地圖資料：© [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors © [CARTO](https://carto.com/attributions)。為了讓地圖乾淨，版權標註不放在地圖上，而是寫在網站的「關於」視窗的致謝裡；如果你 fork 這個專案，請保留這個標註（放在地圖上或「關於」裡都可以）。
 - 開源元件：MapLibre GL JS（BSD-3-Clause）、React、Vite、Tailwind CSS、shadcn/ui 與 Radix UI（MIT）、[lucide](https://lucide.dev/) 圖示（ISC）、[Noto Serif TC](https://fonts.google.com/noto/specimen/Noto+Serif+TC) 與 Geist 字體（SIL OFL）。
-- **授權**：程式碼以 [MIT License](LICENSE) 授權。資料、文章內容與圖片（含 `src/data/` 底下的檔案）**不在 MIT 授權範圍內**，版權屬大學路計畫所有。
+- **授權**：程式碼以 [MIT License](LICENSE) 授權。資料、文章內容與圖片（含 `src/data/` 底下的檔案）**不在 MIT 授權範圍內**，版權屬重構大學路計畫所有。
