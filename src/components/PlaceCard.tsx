@@ -9,6 +9,7 @@ import { formatDistance, type NearbyPlace } from '@/lib/nearest'
 import StyleDot from '@/components/StyleDot'
 import Highlight from '@/components/Highlight'
 import ShareButton from '@/components/ShareButton'
+import SpotifyPlayer from '@/components/SpotifyPlayer'
 import { searchTerms } from '@/lib/highlight'
 import type { PlaceGroup } from '@/types'
 
@@ -95,6 +96,7 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, n
           {place.published && (
             <p className="text-xs text-atlas-muted">官網發布於 {place.published.replaceAll('-', '.')}</p>
           )}
+          {place.audio && <SpotifyPlayer id={place.audio.spotify} title={place.title} />}
           <div className="flex flex-wrap gap-2">
             {links.map((href, i) => (
               <Button

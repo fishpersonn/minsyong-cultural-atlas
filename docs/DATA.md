@@ -41,9 +41,9 @@ node scripts/import-crawler.mjs <dovoha-Web-Crawle 路徑>
 
 測試會檢查：每個主題都能解析、沒有被略過的資料、全站地點 id 不重複、每個主題都有標記樣式。
 
-## 補抓封面圖與發布日期
+## 補抓封面圖、發布日期與 Spotify
 
-其他 14 個主題的資料裡沒有圖片與發布日期，用腳本到官網各文章頁面補抓，輸出到 `src/data/crawler/site-meta.json`（以地點 id 為鍵）：
+其他 14 個主題的資料裡沒有圖片與發布日期，Podcast 的音檔也不在資料裡，用腳本到官網各文章頁面補抓，輸出到 `src/data/crawler/site-meta.json`（以地點 id 為鍵）：
 
 ```bash
 node scripts/fetch-site-meta.mjs
@@ -54,6 +54,8 @@ node scripts/fetch-site-meta.mjs
 - 圖片只記網址、直接連到官網顯示，沒有複製進專案。抓不到的地點不會出現在輸出裡，網站照舊顯示預設圖。
 - 資料檔本身有圖片時以資料檔為準；補抓的圖片只在資料檔沒有時才用。
 - 重新執行 `import-crawler.mjs` 之後（地點 id 可能增減），請再跑一次這個腳本；測試會檢查 `site-meta.json` 的每個 id 都對應到實際存在的地點。
+
+- **Spotify**：官網的 Podcast 文章頁嵌了 `open.spotify.com/embed/episode/<編號>` 的播放器，腳本只記這個編號（`audio.spotify`）；目前 168 個地點有（157 個 Podcast、7 個民雄文化地圖、4 個鐵路高架化）。鐵路高架化只補這一項（它的圖片與日期已在資料裡）。編號只收英數字（會被放進播放器網址），格式不對就當作沒有。網站在卡片上點了「在這裡聽這一集」才會載入播放器，避免只是瀏覽就連到 Spotify。
 
 ## 地點 id 與專屬網址
 
@@ -106,6 +108,17 @@ ID 找不到對應地點時，視為沒有選取，不會顯示錯誤頁。
 - 地點 id 與同一主題前面的地點重複
 
 沒有任何連結的地點，卡片按鈕會顯示「前往大學路官網」並連到首頁，不假裝有文章。
+
+## 分享頁與預覽
+
+LINE、Facebook 等的預覽爬蟲不會執行 JavaScript，也讀不到網址 `#` 之後的部分，所以只用 `#p=…` 的話，預覽永遠是首頁。做法是建置時（`vite build`，由 `vite.sharePages.ts` 的外掛）為**每個地點**多產生一頁很小的靜態頁 `dist/p/<地點 id>/index.html`：
+
+- 頁面的 `<meta>`（Open Graph、Twitter）是該地點的標題、說明（摘要，沒有摘要就用地址等額外資訊，最後才是主題名，最長 110 字）與封面圖（沒有圖或不是 https 就用站台的預設分享圖 `og.png`）。
+- 真人點開時，頁面的腳本會立刻 `location.replace` 到地圖畫面的 `#p=<id>`（沒有 JavaScript 時用 `<meta refresh>`）。
+- 卡片上的「分享這個地點」複製的就是這個連結 `…/p/<id>/`；網址列上的網址不變。
+- 所有放進頁面的文字都有跳脫（`escapeHtml`）；id 只允許英數、底線與連字號，否則略過，不會寫到輸出資料夾以外。
+- 測試：`src/lib/sharePage.test.ts`（內容、跳脫）與 `src/lib/sharePages.build.test.ts`（用正式資料寫出全部分享頁）。本機用 `npm run build && npm run preview` 才看得到 `/p/<id>/`，`npm run dev` 沒有。
+- 預覽有快取：LINE、Facebook 看過一次的連結會記住一陣子，更新文案後要到各自的除錯工具（例如 Facebook 的 Sharing Debugger）重新抓取。
 
 ## 地圖上的呈現規則
 

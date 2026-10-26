@@ -45,6 +45,16 @@ describe('themes', () => {
     for (const p of withImage) expect(p.images[0], p.id).toMatch(/^https:\/\/dovoha\.ccu\.edu\.tw\//)
   })
 
+  it('官網補抓的 Spotify 單集：Podcast 絕大多數有，編號格式正確，鐵路高架化的 Podcast 篇也有', () => {
+    const all = parsed.flatMap((r) => r.places)
+    const podcast = all.filter((p) => p.theme === 'podcast')
+    const withAudio = podcast.filter((p) => p.audio)
+    expect(withAudio.length / podcast.length).toBeGreaterThan(0.9)
+    for (const p of all.filter((x) => x.audio)) expect(p.audio!.spotify, p.id).toMatch(/^[A-Za-z0-9]{10,32}$/)
+    // 鐵路高架化：「我的民雄朋友們 EP186」這類 Podcast 文章
+    expect(all.find((p) => p.id === '84926')?.audio).toBeTruthy()
+  })
+
   it('themeName 找不到時回傳 id 本身', () => {
     expect(themeName('railway')).toBe('民雄鐵路高架化')
     expect(themeName('nope')).toBe('nope')

@@ -131,6 +131,20 @@ describe('PlaceCard', () => {
     expect(container.querySelectorAll('mark')).toHaveLength(0)
   })
 
+  it('有 Spotify 單集的地點顯示「在這裡聽這一集」；沒有的就不顯示', () => {
+    const withAudio = mk('7', { audio: { spotify: '3CKWKSDbWygmnNjhkwvrdz' } })
+    const { rerender, container } = render(<PlaceCard group={group(withAudio)} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.getByRole('button', { name: '在這裡聽這一集' })).toBeTruthy()
+    expect(container.querySelector('iframe')).toBeNull() // 點了才載入
+    rerender(<PlaceCard group={group(mk('8'))} selectedId="8" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('button', { name: '在這裡聽這一集' })).toBeNull()
+  })
+
+  it('有「分享這個地點」鈕', () => {
+    render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.getByRole('button', { name: '分享這個地點' })).toBeTruthy()
+  })
+
   it('沒有 nearby 或是空的，就不顯示「附近的故事」', () => {
     const { rerender } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
     expect(screen.queryByRole('region', { name: '附近的故事' })).toBeNull()
