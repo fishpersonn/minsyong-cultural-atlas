@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { BASEMAP_STYLE_URL } from '@/constants'
+import { categoryStyle } from '@/lib/categories'
 import type { PlaceGroup } from '@/types'
 import MapFallback, { type FallbackReason } from './MapFallback'
 
@@ -37,8 +38,15 @@ const BUTTON_CLASS =
 const DOT_BASE =
   'flex items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md transition-transform group-focus-visible:ring-4 group-focus-visible:ring-atlas-focus/70'
 
+// 顏色用行內樣式（依分類而定）；選取時放大、加光圈
 const dotClass = (count: number, active: boolean) =>
-  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'atlas-pulse scale-125 bg-atlas-amber' : 'bg-atlas-teal'}`
+  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-8'} ${active ? 'atlas-pulse scale-125 ring-4 ring-white/80' : ''}`
+
+// 同一點有多個地點時，分類相同才用該分類的顏色，否則用中性色
+const groupCategory = (g: PlaceGroup) => {
+  const first = g.places[0].category
+  return g.places.every((p) => p.category === first) ? first : undefined
+}
 
 const contains = (g: PlaceGroup, id: string | null) => id !== null && g.places.some((p) => p.id === id)
 
@@ -114,7 +122,10 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       el.setAttribute('aria-label', label)
       el.title = label
       const dot = document.createElement('span')
-      dot.textContent = count > 1 ? String(count) : ''
+      const style = categoryStyle(groupCategory(g))
+      dot.style.backgroundColor = style.color
+      if (count > 1) dot.textContent = String(count)
+      else dot.innerHTML = style.icon
       el.appendChild(dot)
       el.addEventListener('click', () => onSelectRef.current(g.places[0].id))
       const marker = new maplibregl.Marker({ element: el }).setLngLat([g.lng, g.lat]).addTo(map)
