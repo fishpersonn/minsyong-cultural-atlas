@@ -2,6 +2,8 @@ import { StrictMode } from 'react'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { PlaceGroup } from '@/types'
+import { FALLBACK_CATEGORY } from '@/lib/categories'
+import { THEME_STYLES } from '@/lib/themeStyles'
 
 type Handler = () => void
 type FakeMap = {
@@ -251,6 +253,42 @@ describe('MapView', () => {
     expect(screen.getByRole('button', { name: '民雄車站' }).getAttribute('aria-pressed')).toBe('false')
   })
 
+  describe('範圍改變（篩選、搜尋）', () => {
+    const next: [[number, number], [number, number]] = [
+      [120.4, 23.5],
+      [120.41, 23.51],
+    ]
+
+    it('bounds 換成新的範圍時動畫縮放過去；同一個範圍不會重複縮放', () => {
+      const { rerender } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      const fit = h.mapInstances[0].fitBounds
+      const before = fit.mock.calls.length
+      rerender(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(fit.mock.calls.length).toBe(before)
+      rerender(<MapView groups={groups} bounds={next} selectedId={null} onSelect={noop} />)
+      expect(fit.mock.calls.length).toBe(before + 1)
+      const [box, opts] = fit.mock.calls.at(-1)!
+      expect(box).toBe(next)
+      expect(opts.duration).toBeGreaterThan(0)
+      expect(opts.maxZoom).toBeLessThan(17)
+      expect(opts.padding).toEqual({ top: 40, right: 40, bottom: 40, left: 40 })
+      rerender(<MapView groups={groups} bounds={next} selectedId={null} onSelect={noop} />)
+      expect(fit.mock.calls.length).toBe(before + 1)
+    })
+
+    it('卡片開著時（桌面）把被面板蓋住的左側讓出來', () => {
+      stubViewport(true)
+      const { rerender } = render(<MapView groups={groups} bounds={bounds} selectedId="1" onSelect={noop} />)
+      rerender(<MapView groups={groups} bounds={next} selectedId="1" onSelect={noop} />)
+      expect(h.mapInstances[0].fitBounds.mock.calls.at(-1)![1].padding).toEqual({
+        top: 40,
+        right: 40,
+        bottom: 40,
+        left: 40 + 424,
+      })
+    })
+  })
+
   describe('靠得很近的標記', () => {
     const near: PlaceGroup[] = [
       { lng: 120.43, lat: 23.55, places: [mk('1', '甲', 120.43, 23.55)] },
@@ -278,6 +316,28 @@ describe('MapView', () => {
         [120.4302, 23.55],
       ])
       expect(opts.maxZoom).toBeGreaterThan(17)
+    })
+
+    it('合併標記的顏色：同主題用主題色，混了不同主題才用灰色', () => {
+      const withTheme = (id: string, theme: string, category: string | undefined, lng: number): PlaceGroup => ({
+        lng,
+        lat: 23.55,
+        places: [{ ...mk(id, id, lng, 23.55), theme, category }],
+      })
+      const dotColor = (label: string) => (screen.getByRole('button', { name: label }).firstChild as HTMLElement).style.backgroundColor
+      const css = (hex: string) => {
+        const el = document.createElement('span')
+        el.style.backgroundColor = hex
+        return el.style.backgroundColor
+      }
+      // 鐵路高架化裡兩個不同分類 → 各有自己的分類色，合併後改用主題色
+      const sameTheme = [withTheme('a', 'railway', '歷史故事', 120.43), withTheme('b', 'railway', '建築測繪', 120.4302)]
+      const { unmount } = render(<MapView groups={sameTheme} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(dotColor('2 個地點')).toBe(css(THEME_STYLES.railway.color))
+      unmount()
+      const mixed = [withTheme('a', 'railway', '歷史故事', 120.43), withTheme('b', 'podcast', undefined, 120.4302)]
+      render(<MapView groups={mixed} bounds={bounds} selectedId={null} onSelect={noop} />)
+      expect(dotColor('2 個地點')).toBe(css(FALLBACK_CATEGORY.color))
     })
 
     it('放大到細節等級後不再合併', () => {

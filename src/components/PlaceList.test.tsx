@@ -106,6 +106,22 @@ describe('FilterBar', () => {
     expect(onCategory).toHaveBeenLastCalledWith(null)
   })
 
+  it('選中的晶片會捲進可見範圍；jsdom 沒有 scrollIntoView 時不會壞', () => {
+    const scroll = vi.fn()
+    Element.prototype.scrollIntoView = scroll
+    try {
+      const { rerender } = render(<FilterBar {...base} />)
+      scroll.mockClear()
+      rerender(<FilterBar {...base} activeTheme="podcast" />)
+      expect(scroll).toHaveBeenCalledTimes(1)
+      expect(scroll.mock.instances[0]).toBe(screen.getByRole('button', { name: /Podcast/ }))
+    } finally {
+      // @ts-expect-error 還原成 jsdom 預設（沒有這個方法）
+      delete Element.prototype.scrollIntoView
+    }
+    expect(() => render(<FilterBar {...base} activeTheme="railway" />)).not.toThrow()
+  })
+
   it('沒有任何主題時不顯示', () => {
     const { container } = render(<FilterBar {...base} themes={[]} />)
     expect(container.firstChild).toBeNull()

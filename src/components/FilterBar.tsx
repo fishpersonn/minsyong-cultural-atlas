@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+
 type Chip = { key: string; label: string; count: number; color: string }
 
 type Props = {
@@ -33,8 +35,17 @@ function Row({
   active: string | null
   onChange: (key: string | null) => void
 }) {
+  // 選了排在右邊的晶片後，把它捲進可見範圍，使用者才看得到自己選了什麼
+  const row = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    row.current?.querySelector<HTMLElement>('[aria-pressed="true"]')?.scrollIntoView?.({
+      inline: 'nearest',
+      block: 'nearest',
+      behavior: 'smooth',
+    })
+  }, [active])
   return (
-    <div role="group" aria-label={label} className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
+    <div ref={row} role="group" aria-label={label} className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
       <button type="button" aria-pressed={active === null} onClick={() => onChange(null)} className={chipClass(active === null)}>
         {allLabel}
       </button>

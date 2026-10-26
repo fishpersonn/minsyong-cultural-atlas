@@ -4,6 +4,7 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { BASEMAP_STYLE_URL } from '@/constants'
 import { placeStyle } from '@/lib/placeStyle'
 import { FALLBACK_CATEGORY } from '@/lib/categories'
+import { THEME_STYLES } from '@/lib/themeStyles'
 import { clusterGroups, type Cluster } from '@/lib/clusterGroups'
 import type { PlaceGroup } from '@/types'
 import MapFallback, { type FallbackReason } from './MapFallback'
@@ -44,10 +45,14 @@ const DOT_BASE =
 const dotClass = (count: number, active: boolean) =>
   `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-8'} ${active ? 'atlas-pulse scale-125 ring-4 ring-white/80' : ''}`
 
-// 一個標記裡有多個地點時，樣式相同才用該樣式，否則用中性色
+// 一個標記裡有多個地點時：樣式都相同就用該樣式；否則若同屬一個主題，用主題的顏色；
+// 混了不同主題才用中性灰
 const clusterStyle = (c: Cluster) => {
   const first = placeStyle(c.places[0])
-  return c.places.every((p) => placeStyle(p).color === first.color) ? first : FALLBACK_CATEGORY
+  if (c.places.every((p) => placeStyle(p).color === first.color)) return first
+  const theme = c.places[0].theme
+  if (c.places.every((p) => p.theme === theme) && THEME_STYLES[theme]) return THEME_STYLES[theme]
+  return FALLBACK_CATEGORY
 }
 
 const contains = (c: Cluster, id: string | null) => id !== null && c.places.some((p) => p.id === id)
@@ -169,6 +174,21 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       entries.current = []
     }
   }, [groups, ready, zoomKey])
+
+  // 篩選或搜尋讓範圍改變時，把地圖移到新的範圍（第一次的範圍在建立地圖時已經套用）
+  const fittedBounds = useRef(bounds)
+  useEffect(() => {
+    const map = mapRef.current
+    if (!ready || !map || bounds === fittedBounds.current) return
+    fittedBounds.current = bounds
+    // 卡片開著時，把被卡片蓋住的部分讓出來，免得結果藏在卡片底下
+    const pad = selectedRef.current ? cardPadding(container.current) : { top: 0, right: 0, bottom: 0, left: 0 }
+    map.fitBounds(bounds, {
+      padding: { top: 40 + pad.top, right: 40 + pad.right, bottom: 40 + pad.bottom, left: 40 + pad.left },
+      maxZoom: DETAIL_ZOOM - 1,
+      duration: 700,
+    })
+  }, [bounds, ready])
 
   // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
   useEffect(() => {

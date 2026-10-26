@@ -23,7 +23,7 @@ const parsed = themes.map((t) => ({ theme: t.id, ...parsePlaces(t.data, t.id, t.
 const places = parsed.flatMap((r) => r.places)
 const skipped = parsed.flatMap((r) => r.skipped.map((s) => ({ ...s, theme: r.theme })))
 const allGroups = groupByLocation(places)
-const bounds = initialBounds(places)
+const allBounds = initialBounds(places)
 // 主題列：依 themes 的順序，只列出資料裡真的有地點的主題
 const themeChips = themes
   .map((t) => ({
@@ -73,6 +73,11 @@ export default function App() {
   )
   const groups = useMemo(
     () => (filtered ? groupByLocation(visiblePlaces) : allGroups),
+    [filtered, visiblePlaces],
+  )
+  // 地圖跟著篩選結果縮放；沒有結果時維持全部地點的範圍
+  const bounds = useMemo(
+    () => (filtered && visiblePlaces.length > 0 ? initialBounds(visiblePlaces) : allBounds),
     [filtered, visiblePlaces],
   )
 
