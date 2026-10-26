@@ -14,6 +14,7 @@ import { useIntroDismissed } from '@/hooks/useIntroDismissed'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { parsePlaces } from '@/lib/parsePlaces'
 import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
+import { nearestPlaces } from '@/lib/nearest'
 import { CATEGORY_STYLES, FALLBACK_CATEGORY } from '@/lib/categories'
 import { THEME_STYLES } from '@/lib/themeStyles'
 import { categoryStyleOf } from '@/lib/placeStyle'
@@ -132,6 +133,12 @@ export default function App() {
     const n = visiblePlaces.length
     choose(visiblePlaces[(selectedIndex + delta + n) % n].id)
   }
+  // 卡片上的「附近的故事」：離目前地點最近的 3 個（只在符合篩選的地點裡找；同一個座標的地點已經在卡片的清單裡，不重複）
+  const nearby = useMemo(() => {
+    const current = selectedId ? places.find((p) => p.id === selectedId) : undefined
+    if (!current) return []
+    return nearestPlaces(visiblePlaces, current, 3, (p) => p.lng === current.lng && p.lat === current.lat)
+  }, [selectedId, visiblePlaces])
   // 找不到對應地點（網址亂填）等同無選取，不改寫網址
   const selectedGroup = selectedId
     ? groups.find((g) => g.places.some((p) => p.id === selectedId))
@@ -241,6 +248,7 @@ export default function App() {
                   selectedId={selectedId}
                   onSelect={choose}
                   onClose={() => select(null)}
+                  nearby={nearby}
                   nav={
                     selectedIndex >= 0
                       ? {

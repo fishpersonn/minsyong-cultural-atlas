@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { LocateFixed, Shuffle } from 'lucide-react'
-import { nearestPlace, randomPlace } from '@/lib/nearest'
+import { formatDistance, nearestPlace, randomPlace } from '@/lib/nearest'
 import type { Place } from '@/types'
 
 type Props = {
@@ -43,7 +43,6 @@ function Tool({
   )
 }
 
-const formatDistance = (m: number) => (m < 1000 ? `${Math.round(m / 10) * 10} 公尺` : `${(m / 1000).toFixed(1)} 公里`)
 
 export default function MapTools({ places, selectedId, onPick }: Props) {
   const [notice, setNotice] = useState<string | null>(null)
@@ -76,7 +75,7 @@ export default function MapTools({ places, selectedId, onPick }: Props) {
           setNotice(`你離民雄約 ${Math.round(found.meters / 1000)} 公里，來民雄再試試「身邊有什麼」吧`)
           return
         }
-        setNotice(`最近的地點在約 ${formatDistance(found.meters)} 外`)
+        setNotice(`最近的地點在${formatDistance(found.meters)}外`)
         onPick(found.place.id)
       },
       (error) => {

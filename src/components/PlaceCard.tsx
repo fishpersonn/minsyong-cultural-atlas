@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { themeName } from '@/data/themes'
 import { placeStyle } from '@/lib/placeStyle'
 import { placeholderFor } from '@/lib/placeholder'
+import { formatDistance, type NearbyPlace } from '@/lib/nearest'
+import StyleDot from '@/components/StyleDot'
 import type { PlaceGroup } from '@/types'
 
 type Props = {
@@ -14,9 +16,11 @@ type Props = {
   onClose: () => void
   // 依地點順序前後切換；沒傳就不顯示（單獨使用卡片時）
   nav?: { index: number; total: number; onPrev: () => void; onNext: () => void }
+  // 離這個地點最近的幾個地點；沒有或是空的就不顯示「附近的故事」
+  nearby?: NearbyPlace[]
 }
 
-export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }: Props) {
+export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, nearby }: Props) {
   const place = group.places.find((p) => p.id === selectedId) ?? group.places[0]
   // 記錄失敗的網址而非布林值：換到另一個地點時自然重置，且預設圖不會再觸發切換
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
@@ -117,6 +121,26 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
               )
             })}
           </ul>
+        )}
+        {nearby && nearby.length > 0 && (
+          <section aria-label="附近的故事" className="border-t border-atlas-ink/10 px-4 py-3">
+            <h3 className="font-title text-sm font-semibold">附近的故事</h3>
+            <ul className="mt-1.5 flex flex-col">
+              {nearby.map(({ place: p, meters }) => (
+                <li key={p.id}>
+                  <button
+                    type="button"
+                    onClick={() => onSelect(p.id)}
+                    className="flex min-h-11 w-full cursor-pointer items-center gap-2.5 rounded-lg px-1 py-1.5 text-left text-sm outline-none hover:bg-atlas-hover focus-visible:ring-2 focus-visible:ring-atlas-focus"
+                  >
+                    <StyleDot {...placeStyle(p)} className="size-5" />
+                    <span className="min-w-0 flex-1 leading-snug">{p.title}</span>
+                    <span className="shrink-0 text-xs text-atlas-muted">{formatDistance(meters)}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
       </div>
 
