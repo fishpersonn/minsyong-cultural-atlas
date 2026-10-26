@@ -253,6 +253,38 @@ describe('MapView', () => {
     expect(screen.getByRole('button', { name: '民雄車站' }).getAttribute('aria-pressed')).toBe('false')
   })
 
+  describe('回到全圖按鈕', () => {
+    const control = () => {
+      const calls = h.mapInstances[0].addControl.mock.calls as [{ constructor: { name: string }; onAdd: () => HTMLElement }, string][]
+      return calls.find(([c]) => c.constructor.name === 'ResetViewControl')!
+    }
+
+    it('加在右上角、排在縮放鈕之後；按鈕有無障礙名稱', () => {
+      render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      const order = (h.mapInstances[0].addControl.mock.calls as [object, string][]).map(([c]) => c.constructor.name)
+      expect(order.indexOf('ResetViewControl')).toBeGreaterThan(order.indexOf('NavigationControl'))
+      expect(control()[1]).toBe('top-right')
+      const button = control()[0].onAdd().querySelector('button')!
+      expect(button.getAttribute('aria-label')).toBe('回到全圖')
+      expect(button.title).toBe('回到全圖')
+    })
+
+    it('點下去縮放到「目前」的範圍（篩選後的範圍），不是最初的範圍', () => {
+      const next: [[number, number], [number, number]] = [
+        [120.4, 23.5],
+        [120.41, 23.51],
+      ]
+      const { rerender } = render(<MapView groups={groups} bounds={bounds} selectedId={null} onSelect={noop} />)
+      rerender(<MapView groups={groups} bounds={next} selectedId={null} onSelect={noop} />)
+      const button = control()[0].onAdd().querySelector('button')!
+      const fit = h.mapInstances[0].fitBounds
+      const before = fit.mock.calls.length
+      fireEvent.click(button)
+      expect(fit.mock.calls.length).toBe(before + 1)
+      expect(fit.mock.calls.at(-1)![0]).toBe(next)
+    })
+  })
+
   describe('範圍改變（篩選、搜尋）', () => {
     const next: [[number, number], [number, number]] = [
       [120.4, 23.5],

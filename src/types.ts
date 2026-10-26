@@ -16,7 +16,8 @@ export type Place = {
   extra?: [string, string][]
 }
 
-export type PlaceMeta = { category?: string; era?: string; published?: string }
+// 補充資料：資料檔沒有的欄位。images 只在資料檔沒有圖片時才採用
+export type PlaceMeta = { category?: string; era?: string; published?: string; images?: string[] }
 
 export type SkippedItem = { index: number; reason: string }
 

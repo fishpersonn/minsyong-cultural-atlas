@@ -53,6 +53,18 @@ describe('PlaceList', () => {
     expect(onQuery).toHaveBeenCalledWith('鐵路')
   })
 
+  it('長清單只渲染看得到的列：1000 筆也只有一小部分在 DOM 裡，且帶有位置資訊', () => {
+    const many = Array.from({ length: 1000 }, (_, i) => mk(String(i + 1)))
+    render(<PlaceList {...listProps} total={1000} places={many} />)
+    const rows = screen.getAllByRole('listitem')
+    expect(rows.length).toBeGreaterThan(5)
+    expect(rows.length).toBeLessThan(60)
+    expect(rows[0].getAttribute('aria-setsize')).toBe('1000')
+    expect(rows[0].getAttribute('aria-posinset')).toBe('1')
+    expect(screen.getByRole('button', { name: /^標題1t/ })).toBeTruthy()
+    expect(screen.queryByRole('button', { name: /標題1000/ })).toBeNull()
+  })
+
   it('沒有符合時顯示提示與清除按鈕', () => {
     const onClearFilters = vi.fn()
     render(<PlaceList {...listProps} places={[]} filtered query="zzz" onClearFilters={onClearFilters} />)

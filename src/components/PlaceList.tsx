@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import { Search, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { themeName } from '@/data/themes'
@@ -16,6 +18,9 @@ type Props = {
   onClose: () => void
 }
 
+// 每一列的預估高度（標題可能折行，實際高度由 measureElement 量測後修正）
+const ROW_ESTIMATE = 64
+
 export default function PlaceList({
   places,
   total,
@@ -27,6 +32,28 @@ export default function PlaceList({
   onSelect,
   onClose,
 }: Props) {
+  // 長清單只渲染看得到的那幾列（加上前後各 8 列的緩衝），地點再多也不會變慢
+  const scroller = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Virtual 的函式不能被記憶化，這個元件不需要編譯器最佳化
+  const virtualizer = useVirtualizer({
+    count: places.length,
+    getScrollElement: () => scroller.current,
+    estimateSize: () => ROW_ESTIMATE,
+    overscan: 8,
+    getItemKey: (index) => places[index].id,
+    // 第一次渲染時還量不到容器大小，先假設一個合理的高度
+    initialRect: { width: 400, height: 600 },
+  })
+
+  // 打開清單時，把目前選取的地點捲到中間
+  const initialSelected = useRef(selectedId)
+  useEffect(() => {
+    const index = places.findIndex((p) => p.id === initialSelected.current)
+    if (index >= 0) virtualizer.scrollToIndex(index, { align: 'center' })
+    // 只在打開時做一次；之後使用者自己捲動
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <section
       aria-label="地點清單"
@@ -67,35 +94,46 @@ export default function PlaceList({
           </Button>
         </div>
       ) : (
-        <ul className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1">
-          {places.map((p) => {
-            const current = p.id === selectedId
-            return (
-              <li key={p.id}>
-                <button
-                  type="button"
-                  aria-current={current ? 'true' : undefined}
-                  onClick={() => onSelect(p.id)}
-                  className={`flex min-h-11 w-full cursor-pointer items-start gap-2 border-l-4 px-4 py-2.5 text-left text-sm leading-snug outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus focus-visible:ring-inset ${
-                    current
-                      ? 'border-atlas-amber bg-atlas-sand font-semibold'
-                      : 'border-transparent text-atlas-body hover:bg-atlas-hover'
-                  }`}
+        <div ref={scroller} className="min-h-0 flex-1 overflow-y-auto overscroll-contain py-1">
+          <ul className="relative w-full" style={{ height: virtualizer.getTotalSize() }}>
+            {virtualizer.getVirtualItems().map((row) => {
+              const p = places[row.index]
+              const current = p.id === selectedId
+              return (
+                <li
+                  key={row.key}
+                  data-index={row.index}
+                  ref={virtualizer.measureElement}
+                  aria-setsize={places.length}
+                  aria-posinset={row.index + 1}
+                  className="absolute top-0 left-0 w-full"
+                  style={{ transform: `translateY(${row.start}px)` }}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 size-2.5 shrink-0 rounded-full"
-                    style={{ backgroundColor: placeStyle(p).color }}
-                  />
-                  <span className="min-w-0">
-                    {p.title}
-                    <span className="block text-xs font-normal text-atlas-muted">{themeName(p.theme)}</span>
-                  </span>
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+                  <button
+                    type="button"
+                    aria-current={current ? 'true' : undefined}
+                    onClick={() => onSelect(p.id)}
+                    className={`flex min-h-11 w-full cursor-pointer items-start gap-2 border-l-4 px-4 py-2.5 text-left text-sm leading-snug outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus focus-visible:ring-inset ${
+                      current
+                        ? 'border-atlas-amber bg-atlas-sand font-semibold'
+                        : 'border-transparent text-atlas-body hover:bg-atlas-hover'
+                    }`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 size-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: placeStyle(p).color }}
+                    />
+                    <span className="min-w-0">
+                      {p.title}
+                      <span className="block text-xs font-normal text-atlas-muted">{themeName(p.theme)}</span>
+                    </span>
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       )}
     </section>
   )

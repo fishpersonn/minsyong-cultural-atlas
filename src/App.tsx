@@ -4,6 +4,7 @@ import PlaceCard from '@/components/PlaceCard'
 import PlaceList from '@/components/PlaceList'
 import IntroHint from '@/components/IntroHint'
 import FilterBar from '@/components/FilterBar'
+import AboutDialog from '@/components/AboutDialog'
 import { Button } from '@/components/ui/button'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
@@ -62,6 +63,7 @@ const PANEL_CLASS =
 export default function App() {
   const [selectedId, select] = useSelectedId()
   const [listOpen, setListOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
   const [introDismissed, dismissIntro] = useIntroDismissed()
   const [theme, setTheme] = useState<string | null>(null)
   const [category, setCategory] = useState<string | null>(null)
@@ -100,12 +102,14 @@ export default function App() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return
+      // 「關於」開著時，Esc 只用來關它（對話框自己處理），不要連背後的卡片與清單一起關掉
+      if (aboutOpen) return
       if (listOpen) setListOpen(false)
       else if (selectedId) select(null)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [listOpen, selectedId, select])
+  }, [aboutOpen, listOpen, selectedId, select])
 
   const selectedIndex = selectedId ? visiblePlaces.findIndex((p) => p.id === selectedId) : -1
   const step = (delta: number) => {
@@ -119,7 +123,17 @@ export default function App() {
 
   return (
     <div className="flex h-dvh flex-col">
-      <SiteHeader listOpen={listOpen} onToggleList={() => setListOpen((o) => !o)} />
+      <SiteHeader
+        listOpen={listOpen}
+        onToggleList={() => setListOpen((o) => !o)}
+        onOpenAbout={() => setAboutOpen(true)}
+      />
+      <AboutDialog
+        open={aboutOpen}
+        onOpenChange={setAboutOpen}
+        placeCount={places.length}
+        themeCount={themeChips.length}
+      />
       {allGroups.length > 0 && themeChips.length > 0 && (
         <div className="shrink-0 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
           <FilterBar
