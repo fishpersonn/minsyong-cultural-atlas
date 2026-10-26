@@ -93,7 +93,18 @@ export default function AboutDialog({
             </p>
 
             <div className="space-y-1 border-t border-atlas-ink/10 pt-4 text-xs text-atlas-muted">
-              <p>版權與開源：圖文與資料版權為重構大學路計畫團隊所有；</p>
+              <p>
+                版權與開源：圖文與資料版權為重構大學路計畫團隊所有；
+                <a
+                  href={REPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={LINK}
+                >
+                  網站程式碼
+                </a>
+                採 MIT 授權。
+              </p>
               <p>
                 致謝：
                 <a
