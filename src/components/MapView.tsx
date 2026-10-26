@@ -35,10 +35,10 @@ type Entry = { group: PlaceGroup; el: HTMLButtonElement; dot: HTMLSpanElement; m
 const BUTTON_CLASS =
   'group flex size-11 cursor-pointer items-center justify-center rounded-full bg-transparent p-0 outline-none'
 const DOT_BASE =
-  'flex items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md transition-transform group-focus-visible:ring-4 group-focus-visible:ring-[#f2b134]/70'
+  'flex items-center justify-center rounded-full border-2 border-white text-xs font-semibold text-white shadow-md transition-transform group-focus-visible:ring-4 group-focus-visible:ring-atlas-focus/70'
 
 const dotClass = (count: number, active: boolean) =>
-  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'scale-125 bg-[#d98e04]' : 'bg-[#1f6f8b]'}`
+  `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-6'} ${active ? 'scale-125 bg-atlas-amber' : 'bg-atlas-teal'}`
 
 const contains = (g: PlaceGroup, id: string | null) => id !== null && g.places.some((p) => p.id === id)
 

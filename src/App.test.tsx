@@ -17,6 +17,7 @@ async function load() {
 
 beforeEach(() => {
   window.location.hash = ''
+  localStorage.clear()
   mapProps.groups = []
 })
 afterEach(() => {
@@ -100,6 +101,50 @@ describe('App', () => {
     expect(link.getAttribute('target')).toBe('_blank')
     expect(link.getAttribute('rel')).toBe('noopener noreferrer')
     expect(screen.getByText('民雄鐵路高架化')).toBeTruthy()
+  })
+
+  it('首次顯示使用說明，按「知道了」後隱藏並記住', async () => {
+    const App = await load()
+    const { unmount } = render(<App />)
+    expect(screen.getByRole('region', { name: '使用說明' })).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '知道了' }))
+    expect(screen.queryByRole('region', { name: '使用說明' })).toBeNull()
+    unmount()
+    const App2 = await load()
+    render(<App2 />)
+    expect(screen.queryByRole('region', { name: '使用說明' })).toBeNull()
+  })
+
+  it('標頭按鈕開關地點清單，點清單項目會選取並關閉清單', async () => {
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    const list = screen.getByRole('region', { name: '地點清單' })
+    expect(screen.queryByRole('region', { name: '使用說明' })).toBeNull()
+    fireEvent.click(within(list).getByRole('button', { name: /從鐵路到電波/ }))
+    expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
+    expect(screen.getByRole('heading', { name: /從鐵路到電波/ })).toBeTruthy()
+    expect(window.location.hash).toBe('#p=96220')
+  })
+
+  it('使用說明的「看地點清單」會開啟清單', async () => {
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '看地點清單' }))
+    expect(screen.getByRole('region', { name: '地點清單' })).toBeTruthy()
+  })
+
+  it('localStorage 不可用時仍可使用', async () => {
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('blocked')
+    })
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('blocked')
+    })
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '知道了' }))
+    expect(screen.queryByRole('region', { name: '使用說明' })).toBeNull()
   })
 
   it('有略過的資料時只 warn 一次並列出 index 與原因', async () => {

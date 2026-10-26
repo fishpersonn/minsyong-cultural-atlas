@@ -7,6 +7,8 @@ export type Place = {
   lng: number
   lat: number
   theme: string
+  category?: string
+  year?: string
 }
 
 export type SkippedItem = { index: number; reason: string }

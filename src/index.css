@@ -3,6 +3,20 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+/* 站台配色：所有元件改用 atlas-* 色彩，要換風格只改這裡 */
+@theme {
+    --color-atlas-ink: #14313b;
+    --color-atlas-teal: #1f6f8b;
+    --color-atlas-body: #3d4b53;
+    --color-atlas-muted: #5b6770;
+    --color-atlas-amber: #d98e04;
+    --color-atlas-mist: #e3e9e6;
+    --color-atlas-hover: #eef1ee;
+    --color-atlas-focus: #f2b134;
+    --color-atlas-paper: #f4f6f3;
+    --color-atlas-sand: #f6efe0;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

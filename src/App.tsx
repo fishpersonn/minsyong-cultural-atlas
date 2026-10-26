@@ -1,10 +1,14 @@
 import SiteHeader from '@/components/SiteHeader'
 import MapView from '@/components/MapView'
 import PlaceCard from '@/components/PlaceCard'
+import PlaceList from '@/components/PlaceList'
+import IntroHint from '@/components/IntroHint'
 import { Button } from '@/components/ui/button'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
 import { useSelectedId } from '@/hooks/useSelectedId'
+import { useIntroDismissed } from '@/hooks/useIntroDismissed'
+import { useState } from 'react'
 import { parsePlaces } from '@/lib/parsePlaces'
 import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
 
@@ -23,8 +27,19 @@ if (import.meta.env.DEV && skipped.length > 0) {
   )
 }
 
+// 卡片與清單共用的面板：手機為底部抽屜，桌面為左側浮動面板（MapView 的 padding 依此計算）
+const PANEL_CLASS =
+  'absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
+
 export default function App() {
   const [selectedId, select] = useSelectedId()
+  const [listOpen, setListOpen] = useState(false)
+  const [introDismissed, dismissIntro] = useIntroDismissed()
+  // 從清單或標記選取地點時，清單讓位給卡片
+  const choose = (id: string | null) => {
+    setListOpen(false)
+    select(id)
+  }
   // 找不到對應地點（網址亂填）等同無選取，不改寫網址
   const selectedGroup = selectedId
     ? groups.find((g) => g.places.some((p) => p.id === selectedId))
@@ -32,12 +47,12 @@ export default function App() {
 
   return (
     <div className="flex h-dvh flex-col">
-      <SiteHeader />
+      <SiteHeader listOpen={listOpen} onToggleList={() => setListOpen((o) => !o)} />
       <main className="relative min-h-0 flex-1">
         {groups.length === 0 ? (
-          <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-[#14313b]">
+          <div className="flex h-full flex-col items-center justify-center gap-4 p-6 text-center text-atlas-ink">
             <p className="text-base">目前沒有可顯示的地點</p>
-            <Button asChild className="bg-[#1f6f8b] text-white hover:bg-[#14313b]">
+            <Button asChild className="bg-atlas-teal text-white hover:bg-atlas-ink">
               <a href={OFFICIAL_SITE_URL} target="_blank" rel="noopener noreferrer">
                 前往大學路官網
               </a>
@@ -46,19 +61,38 @@ export default function App() {
         ) : (
           <>
             <div className="absolute inset-0">
-              <MapView groups={groups} bounds={bounds} selectedId={selectedId} onSelect={select} />
+              <MapView groups={groups} bounds={bounds} selectedId={selectedId} onSelect={choose} />
             </div>
-            {selectedGroup && selectedId && (
+            {listOpen && (
+              <div className={PANEL_CLASS}>
+                <PlaceList
+                  places={places}
+                  selectedId={selectedId}
+                  onSelect={choose}
+                  onClose={() => setListOpen(false)}
+                />
+              </div>
+            )}
+            {!listOpen && !selectedGroup && !introDismissed && (
+              <div className="absolute inset-x-3 bottom-3 z-10 md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:w-[400px]">
+                <IntroHint
+                  count={places.length}
+                  onOpenList={() => setListOpen(true)}
+                  onDismiss={dismissIntro}
+                />
+              </div>
+            )}
+            {!listOpen && selectedGroup && selectedId && (
               <aside
                 aria-label="地點資訊"
-                className="absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl"
+                className={PANEL_CLASS}
               >
                 {/* key 讓切換地點時換一張新卡片，捲動位置回到頂端 */}
                 <PlaceCard
                   key={selectedId}
                   group={selectedGroup}
                   selectedId={selectedId}
-                  onSelect={select}
+                  onSelect={choose}
                   onClose={() => select(null)}
                 />
               </aside>

@@ -44,6 +44,9 @@ function parseFeature(
       lng,
       lat,
       theme,
+      // 資料目前沒有這兩個欄位；之後爬蟲補上就會自動帶進來
+      ...(nonEmpty(props['分類']) && { category: props['分類'].trim() }),
+      ...(nonEmpty(props['年代']) && { year: props['年代'].trim() }),
     },
   }
 }
