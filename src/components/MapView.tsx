@@ -4,6 +4,7 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { BASEMAP_STYLE_URL } from '@/constants'
 import { placeStyle } from '@/lib/placeStyle'
 import { FALLBACK_CATEGORY } from '@/lib/categories'
+import { THEME_STYLES } from '@/lib/themeStyles'
 import { clusterGroups, type Cluster } from '@/lib/clusterGroups'
 import type { PlaceGroup } from '@/types'
 import MapFallback, { type FallbackReason } from './MapFallback'
@@ -44,13 +45,64 @@ const DOT_BASE =
 const dotClass = (count: number, active: boolean) =>
   `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-8'} ${active ? 'atlas-pulse scale-125 ring-4 ring-white/80' : ''}`
 
-// 一個標記裡有多個地點時，樣式相同才用該樣式，否則用中性色
+// 一個標記裡有多個地點時：樣式都相同就用該樣式；否則若同屬一個主題，用主題的顏色；
+// 混了不同主題才用中性灰
 const clusterStyle = (c: Cluster) => {
   const first = placeStyle(c.places[0])
-  return c.places.every((p) => placeStyle(p).color === first.color) ? first : FALLBACK_CATEGORY
+  if (c.places.every((p) => placeStyle(p).color === first.color)) return first
+  const theme = c.places[0].theme
+  if (c.places.every((p) => p.theme === theme) && THEME_STYLES[theme]) return THEME_STYLES[theme]
+  return FALLBACK_CATEGORY
 }
 
 const contains = (c: Cluster, id: string | null) => id !== null && c.places.some((p) => p.id === id)
+
+const FIT_PADDING = 40
+
+// 把地圖移到某個範圍。卡片開著時，把被卡片蓋住的部分讓出來，免得結果藏在卡片底下
+function fitToBounds(
+  map: maplibregl.Map,
+  bounds: [[number, number], [number, number]],
+  el: HTMLElement | null,
+  cardOpen: boolean,
+) {
+  const pad = cardOpen ? cardPadding(el) : { top: 0, right: 0, bottom: 0, left: 0 }
+  map.fitBounds(bounds, {
+    padding: {
+      top: FIT_PADDING + pad.top,
+      right: FIT_PADDING + pad.right,
+      bottom: FIT_PADDING + pad.bottom,
+      left: FIT_PADDING + pad.left,
+    },
+    maxZoom: DETAIL_ZOOM - 1,
+    duration: 700,
+  })
+}
+
+// 「回到全圖」按鈕：做成 MapLibre 的控制鈕，樣式與縮放鈕一致、排在它下面
+const RESET_ICON =
+  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;margin:auto"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>'
+
+class ResetViewControl implements maplibregl.IControl {
+  private el?: HTMLElement
+  constructor(private onClick: () => void) {}
+  onAdd() {
+    const group = document.createElement('div')
+    group.className = 'maplibregl-ctrl maplibregl-ctrl-group'
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.title = '回到全圖'
+    button.setAttribute('aria-label', '回到全圖')
+    button.innerHTML = RESET_ICON
+    button.addEventListener('click', this.onClick)
+    group.appendChild(button)
+    this.el = group
+    return group
+  }
+  onRemove() {
+    this.el?.remove()
+  }
+}
 
 // 螢幕上相距不到這個距離的標記會併成一個數字標記；縮到這個等級以上不再合併，
 // 選取地點時也會至少放大到這個等級，讓被選的標記一定看得到。
@@ -72,6 +124,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
   useEffect(() => {
     onSelectRef.current = onSelect
     selectedRef.current = selectedId
+    boundsRef.current = bounds
   })
 
   useEffect(() => {
@@ -94,7 +147,14 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       })
       map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right')
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
-      map.fitBounds(boundsRef.current, { padding: 40, animate: false })
+      const created = map
+      map.addControl(
+        new ResetViewControl(() =>
+          fitToBounds(created, boundsRef.current, container.current, selectedRef.current !== null),
+        ),
+        'top-right',
+      )
+      map.fitBounds(boundsRef.current, { padding: FIT_PADDING, animate: false })
     } catch {
       map?.remove()
       // 建構是否成功只有在建立外部地圖物件時才知道（例如沒有 WebGL）
@@ -169,6 +229,15 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       entries.current = []
     }
   }, [groups, ready, zoomKey])
+
+  // 篩選或搜尋讓範圍改變時，把地圖移到新的範圍（第一次的範圍在建立地圖時已經套用）
+  const fittedBounds = useRef(bounds)
+  useEffect(() => {
+    const map = mapRef.current
+    if (!ready || !map || bounds === fittedBounds.current) return
+    fittedBounds.current = bounds
+    fitToBounds(map, bounds, container.current, selectedRef.current !== null)
+  }, [bounds, ready])
 
   // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
   useEffect(() => {

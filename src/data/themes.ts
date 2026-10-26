@@ -15,27 +15,31 @@ import walk from './crawler/walk.json'
 import workshops from './crawler/workshops.json'
 import courses from './crawler/courses.json'
 import courseNotes from './crawler/course-notes.json'
+import siteMeta from './crawler/site-meta.json'
 import type { PlaceMeta } from '@/types'
 
 export type Theme = { id: string; name: string; data: unknown; meta?: Record<string, PlaceMeta> }
 
+// 其他主題的封面圖與發布日期（scripts/fetch-site-meta.mjs 從官網抓的）。地點 id 全站不重複，所有主題共用同一份
+const crawlerMeta = siteMeta as Record<string, PlaceMeta>
+
 // 順序就是篩選列的顯示順序；標記樣式（顏色、圖示）在 lib/themeStyles.ts，以 id 對應
 export const themes: Theme[] = [
   { id: 'railway', name: '民雄鐵路高架化', data: railwayJson, meta: railwayMeta },
-  { id: 'culture-map', name: '民雄文化地圖', data: cultureMap },
-  { id: 'podcast', name: '我的民雄朋友們 Podcast', data: podcast },
-  { id: 'arong', name: '民雄阿榮文化小站', data: arong },
-  { id: 'damao', name: '打貓街坊文化協會', data: damao },
-  { id: 'farmers', name: '我的農民朋友們', data: farmers },
-  { id: 'pineapple', name: '鳳梨急行軍田野筆記', data: pineapple },
-  { id: 'food', name: '東南亞美食', data: food },
-  { id: 'people', name: '民雄人物', data: people },
-  { id: 'stele', name: '民雄古碑文', data: stele },
-  { id: 'temple-art', name: '廟宇裝飾藝術', data: templeArt },
-  { id: 'walk', name: '街區走踏路線', data: walk },
-  { id: 'workshops', name: '工作坊紀錄', data: workshops },
-  { id: 'courses', name: '課程成果', data: courses },
-  { id: 'course-notes', name: '課程筆記', data: courseNotes },
+  { id: 'culture-map', name: '民雄文化地圖', data: cultureMap, meta: crawlerMeta },
+  { id: 'podcast', name: '我的民雄朋友們 Podcast', data: podcast, meta: crawlerMeta },
+  { id: 'arong', name: '民雄阿榮文化小站', data: arong, meta: crawlerMeta },
+  { id: 'damao', name: '打貓街坊文化協會', data: damao, meta: crawlerMeta },
+  { id: 'farmers', name: '我的農民朋友們', data: farmers, meta: crawlerMeta },
+  { id: 'pineapple', name: '鳳梨急行軍田野筆記', data: pineapple, meta: crawlerMeta },
+  { id: 'food', name: '東南亞美食', data: food, meta: crawlerMeta },
+  { id: 'people', name: '民雄人物', data: people, meta: crawlerMeta },
+  { id: 'stele', name: '民雄古碑文', data: stele, meta: crawlerMeta },
+  { id: 'temple-art', name: '廟宇裝飾藝術', data: templeArt, meta: crawlerMeta },
+  { id: 'walk', name: '街區走踏路線', data: walk, meta: crawlerMeta },
+  { id: 'workshops', name: '工作坊紀錄', data: workshops, meta: crawlerMeta },
+  { id: 'courses', name: '課程成果', data: courses, meta: crawlerMeta },
+  { id: 'course-notes', name: '課程筆記', data: courseNotes, meta: crawlerMeta },
 ]
 
 export const themeName = (id: string): string => themes.find((t) => t.id === id)?.name ?? id

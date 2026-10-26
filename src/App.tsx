@@ -4,6 +4,7 @@ import PlaceCard from '@/components/PlaceCard'
 import PlaceList from '@/components/PlaceList'
 import IntroHint from '@/components/IntroHint'
 import FilterBar from '@/components/FilterBar'
+import AboutDialog from '@/components/AboutDialog'
 import { Button } from '@/components/ui/button'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
@@ -25,7 +26,7 @@ const parsed = themes.map((t) => ({ theme: t.id, ...parsePlaces(t.data, t.id, t.
 const places = parsed.flatMap((r) => r.places)
 const skipped = parsed.flatMap((r) => r.skipped.map((s) => ({ ...s, theme: r.theme })))
 const allGroups = groupByLocation(places)
-const bounds = initialBounds(places)
+const allBounds = initialBounds(places)
 // 主題列：依 themes 的順序，只列出資料裡真的有地點的主題
 const themeChips = themes
   .map((t) => ({
@@ -66,6 +67,7 @@ export default function App() {
   const selectedId = hash.id
   const select = useCallback((id: string | null) => setHash({ id }), [setHash])
   const [listOpen, setListOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
   const [introDismissed, dismissIntro] = useIntroDismissed()
   const { query } = hash
   // 網址是亂填的主題代碼就忽略；分類只在只選一個主題時有意義
@@ -79,6 +81,11 @@ export default function App() {
   )
   const groups = useMemo(
     () => (filtered ? groupByLocation(visiblePlaces) : allGroups),
+    [filtered, visiblePlaces],
+  )
+  // 地圖跟著篩選結果縮放；沒有結果時維持全部地點的範圍
+  const bounds = useMemo(
+    () => (filtered && visiblePlaces.length > 0 ? initialBounds(visiblePlaces) : allBounds),
     [filtered, visiblePlaces],
   )
 
@@ -104,12 +111,14 @@ export default function App() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return
+      // 「關於」開著時，Esc 只用來關它（對話框自己處理），不要連背後的卡片與清單一起關掉
+      if (aboutOpen) return
       if (listOpen) setListOpen(false)
       else if (selectedId) select(null)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [listOpen, selectedId, select])
+  }, [aboutOpen, listOpen, selectedId, select])
 
   const selectedIndex = selectedId ? visiblePlaces.findIndex((p) => p.id === selectedId) : -1
   const step = (delta: number) => {
@@ -123,7 +132,17 @@ export default function App() {
 
   return (
     <div className="flex h-dvh flex-col">
-      <SiteHeader listOpen={listOpen} onToggleList={() => setListOpen((o) => !o)} />
+      <SiteHeader
+        listOpen={listOpen}
+        onToggleList={() => setListOpen((o) => !o)}
+        onOpenAbout={() => setAboutOpen(true)}
+      />
+      <AboutDialog
+        open={aboutOpen}
+        onOpenChange={setAboutOpen}
+        placeCount={places.length}
+        themeCount={themeChips.length}
+      />
       {allGroups.length > 0 && (
         <div className="flex shrink-0 flex-col gap-2 border-b border-atlas-ink/10 bg-atlas-paper px-3 py-2">
           <SearchBox

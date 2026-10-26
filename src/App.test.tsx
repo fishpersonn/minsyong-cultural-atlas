@@ -1,11 +1,12 @@
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const mapProps = vi.hoisted(() => ({ groups: [] as unknown[] }))
+const mapProps = vi.hoisted(() => ({ groups: [] as unknown[], bounds: [] as unknown[] }))
 
 vi.mock('@/components/MapView', () => ({
-  default: (props: { groups: unknown[]; onSelect: (id: string) => void }) => {
+  default: (props: { groups: unknown[]; bounds: unknown; onSelect: (id: string) => void }) => {
     mapProps.groups.push(props.groups)
+    mapProps.bounds.push(props.bounds)
     return <button onClick={() => props.onSelect('96220')}>mock-map</button>
   },
 }))
@@ -19,6 +20,7 @@ beforeEach(() => {
   window.location.hash = ''
   localStorage.clear()
   mapProps.groups = []
+  mapProps.bounds = []
 })
 afterEach(() => {
   cleanup()
@@ -171,6 +173,24 @@ describe('App', () => {
     expect(countPlaces()).toBe(24)
     fireEvent.click(screen.getByRole('button', { name: '全部主題' }))
     expect(countPlaces()).toBe(total)
+  })
+
+  it('篩選結果的範圍會傳給地圖：換主題改變範圍，回到全部恢復，沒有結果時維持不動', async () => {
+    const App = await load()
+    render(<App />)
+    const lastBounds = () => mapProps.bounds.at(-1)
+    const all = lastBounds()
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    const railway = lastBounds()
+    expect(railway).not.toBe(all)
+    expect(railway).not.toEqual(all)
+    // 同一個篩選結果重繪時範圍是同一個參照，地圖才不會重複縮放
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    expect(lastBounds()).toBe(railway)
+    fireEvent.change(screen.getByRole('searchbox', { name: '搜尋地點' }), { target: { value: '完全不存在的字串' } })
+    expect(lastBounds()).toBe(all)
+    fireEvent.click(screen.getByRole('button', { name: '清除篩選與搜尋' }))
+    expect(lastBounds()).toBe(all)
   })
 
   it('篩選排除了目前選取的地點時取消選取，網址只剩篩選', async () => {

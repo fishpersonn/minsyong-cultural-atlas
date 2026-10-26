@@ -61,7 +61,7 @@ export default function MapTools({ places, selectedId, onPick }: Props) {
   }
 
   return (
-    <div className="absolute top-28 right-2.5 z-10 flex max-w-[calc(100%-1.25rem)] flex-col items-end gap-2">
+    <div className="absolute top-44 right-2.5 z-10 flex max-w-[calc(100%-1.25rem)] flex-col items-end gap-2">
       <button type="button" onClick={random} className={BUTTON}>
         <Shuffle aria-hidden="true" className="size-4" />
         隨機一個
