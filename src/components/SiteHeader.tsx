@@ -13,7 +13,10 @@ const HEADER_BUTTON =
 export default function SiteHeader({ listOpen = false, onToggleList }: Props) {
   return (
     <header className="flex h-14 items-center justify-between gap-3 bg-atlas-ink px-4 text-atlas-paper">
-      <h1 className="truncate text-lg font-semibold tracking-wide">民雄鐵路高架化</h1>
+      <div className="min-w-0 leading-tight">
+        <h1 className="truncate text-lg font-semibold tracking-wide">Minsyong Cultural Atlas</h1>
+        <p className="truncate text-xs text-atlas-paper/70">民雄鐵路高架化</p>
+      </div>
       <div className="flex shrink-0 items-center gap-2">
         {onToggleList && (
           <Button
