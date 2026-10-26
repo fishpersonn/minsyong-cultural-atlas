@@ -3,6 +3,7 @@ import * as maplibregl from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { BASEMAP_STYLE_URL } from '@/constants'
 import { categoryStyle } from '@/lib/categories'
+import { clusterGroups, type Cluster } from '@/lib/clusterGroups'
 import type { PlaceGroup } from '@/types'
 import MapFallback, { type FallbackReason } from './MapFallback'
 
@@ -29,7 +30,7 @@ type Props = {
   onSelect: (id: string | null) => void
 }
 
-type Entry = { group: PlaceGroup; el: HTMLButtonElement; dot: HTMLSpanElement; marker: maplibregl.Marker }
+type Entry = { cluster: Cluster; el: HTMLButtonElement; dot: HTMLSpanElement; marker: maplibregl.Marker }
 
 // 外層 button 是 MapLibre 定位用的元素（會被寫入 transform），不可加 transition；
 // 視覺與動畫都放在內層 span，外層保證至少 44px 的點擊範圍。
@@ -42,13 +43,18 @@ const DOT_BASE =
 const dotClass = (count: number, active: boolean) =>
   `${DOT_BASE} ${count > 1 ? 'size-9' : 'size-8'} ${active ? 'atlas-pulse scale-125 ring-4 ring-white/80' : ''}`
 
-// 同一點有多個地點時，分類相同才用該分類的顏色，否則用中性色
-const groupCategory = (g: PlaceGroup) => {
-  const first = g.places[0].category
-  return g.places.every((p) => p.category === first) ? first : undefined
+// 一個標記裡有多個地點時，分類相同才用該分類的顏色，否則用中性色
+const clusterCategory = (c: Cluster) => {
+  const first = c.places[0].category
+  return c.places.every((p) => p.category === first) ? first : undefined
 }
 
-const contains = (g: PlaceGroup, id: string | null) => id !== null && g.places.some((p) => p.id === id)
+const contains = (c: Cluster, id: string | null) => id !== null && c.places.some((p) => p.id === id)
+
+// 螢幕上相距不到這個距離的標記會併成一個數字標記；縮到這個等級以上不再合併，
+// 選取地點時也會至少放大到這個等級，讓被選的標記一定看得到。
+const CLUSTER_PX = 40
+const DETAIL_ZOOM = 17
 
 export default function MapView({ groups, bounds, selectedId, onSelect }: Props) {
   const container = useRef<HTMLDivElement>(null)
@@ -59,6 +65,8 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
   const selectedRef = useRef(selectedId)
   const [failed, setFailed] = useState<FallbackReason | null>(null)
   const [ready, setReady] = useState(false)
+  // 縮放等級（四捨五入到 0.25）：變了才需要重新計算哪些標記要合併
+  const [zoomKey, setZoomKey] = useState(0)
 
   useEffect(() => {
     onSelectRef.current = onSelect
@@ -104,8 +112,11 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       dispose()
       setFailed('load-failed')
     })
+    const syncZoom = () => setZoomKey(Math.round((map?.getZoom() ?? 0) * 4) / 4)
+    map.on('zoomend', syncZoom)
     mapRef.current = map
     setReady(true)
+    syncZoom()
     return dispose
   }, [])
 
@@ -113,23 +124,42 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
   useEffect(() => {
     const map = mapRef.current
     if (!ready || !map) return
-    const created: Entry[] = groups.map((g) => {
-      const count = g.places.length
+    const clusters: Cluster[] =
+      zoomKey >= DETAIL_ZOOM
+        ? groups.map((g) => ({ groups: [g], places: g.places, lng: g.lng, lat: g.lat }))
+        : clusterGroups(groups, (lng, lat) => map.project([lng, lat]), CLUSTER_PX)
+    const created: Entry[] = clusters.map((c) => {
+      const count = c.places.length
       const el = document.createElement('button')
       el.type = 'button'
       el.className = BUTTON_CLASS
-      const label = count > 1 ? `${count} 個地點` : g.places[0].title
+      const label = count > 1 ? `${count} 個地點` : c.places[0].title
       el.setAttribute('aria-label', label)
       el.title = label
       const dot = document.createElement('span')
-      const style = categoryStyle(groupCategory(g))
+      const style = categoryStyle(clusterCategory(c))
       dot.style.backgroundColor = style.color
       if (count > 1) dot.textContent = String(count)
       else dot.innerHTML = style.icon
       el.appendChild(dot)
-      el.addEventListener('click', () => onSelectRef.current(g.places[0].id))
-      const marker = new maplibregl.Marker({ element: el }).setLngLat([g.lng, g.lat]).addTo(map)
-      return { group: g, el, dot, marker }
+      el.addEventListener('click', () => {
+        if (c.groups.length > 1) {
+          // 多個位置併成一個：放大到看得見各自的標記
+          const lngs = c.groups.map((g) => g.lng)
+          const lats = c.groups.map((g) => g.lat)
+          map.fitBounds(
+            [
+              [Math.min(...lngs), Math.min(...lats)],
+              [Math.max(...lngs), Math.max(...lats)],
+            ],
+            { padding: 120, maxZoom: DETAIL_ZOOM + 1 },
+          )
+        } else {
+          onSelectRef.current(c.places[0].id)
+        }
+      })
+      const marker = new maplibregl.Marker({ element: el }).setLngLat([c.lng, c.lat]).addTo(map)
+      return { cluster: c, el, dot, marker }
     })
     entries.current = created
     for (const e of created) paint(e, selectedRef.current)
@@ -137,18 +167,24 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
       created.forEach((e) => e.marker.remove())
       entries.current = []
     }
-  }, [groups, ready])
+  }, [groups, ready, zoomKey])
 
   // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
   useEffect(() => {
     for (const e of entries.current) paint(e, selectedId)
-  }, [selectedId, groups, ready])
+  }, [selectedId, groups, ready, zoomKey])
 
   useEffect(() => {
     const map = mapRef.current
     if (!ready || !map || !selectedId) return
-    const g = groups.find((x) => contains(x, selectedId))
-    if (g) map.flyTo({ center: [g.lng, g.lat], padding: cardPadding(container.current) })
+    const g = groups.find((x) => x.places.some((p) => p.id === selectedId))
+    if (g) {
+      map.flyTo({
+        center: [g.lng, g.lat],
+        zoom: Math.max(map.getZoom(), DETAIL_ZOOM),
+        padding: cardPadding(container.current),
+      })
+    }
   }, [groups, selectedId, ready])
 
   if (failed) return <MapFallback reason={failed} />
@@ -156,7 +192,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect }: Props)
 }
 
 function paint(e: Entry, selectedId: string | null) {
-  const active = contains(e.group, selectedId)
-  e.dot.className = dotClass(e.group.places.length, active)
+  const active = contains(e.cluster, selectedId)
+  e.dot.className = dotClass(e.cluster.places.length, active)
   e.el.setAttribute('aria-pressed', String(active))
 }

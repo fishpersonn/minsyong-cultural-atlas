@@ -40,6 +40,21 @@ cp <dovoha-Web-Crawle>/2026-團隊研究調查-民雄鐵路高架化/MinxiongRai
 
 其中 `<dovoha-Web-Crawle>` 是爬蟲 repo 在你電腦上的路徑。覆蓋後執行 `npm test`、`npm run build` 確認沒問題，再 commit 並 push 到 `main`。
 
+### 分類、年代與發布日期（補充資料）
+
+爬蟲輸出沒有分類與年代，這些放在獨立的 `src/data/<主題>.meta.json`（例如 `railway.meta.json`），以文章 ID 為鍵。
+重新複製爬蟲 JSON 不會蓋掉它：
+
+```json
+"96220": { "category": "歷史故事", "era": "1963", "published": "2026-10-15" }
+```
+
+- `category`：分類。顯示用的顏色與圖示定義在 `src/lib/categories.ts`；新增分類時要同步加進去，否則會用灰色圓點。測試會檢查每個地點的分類都有設定樣式。
+- `era`：年代，**只收標題或摘要裡明講的時間**（如 `1963`、`日治時期`），沒有就不要填。
+- `published`：官網文章的發布日期（`YYYY-MM-DD`），取自各文章頁面的「發布日期」。
+- 資料檔本身若也有 `分類`、`年代` 欄位，以資料檔為準。
+- 新增文章時，請同時補上這個檔案的對應項目；測試會檢查兩邊的 ID 一一對應。
+
 ### 資料格式與驗證規則
 
 資料是 GeoJSON `FeatureCollection`（`features` 陣列）。每個 feature 的欄位對應如下（`src/lib/parsePlaces.ts`）：

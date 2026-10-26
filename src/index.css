@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "@fontsource-variable/noto-serif-tc";
 
 /* 站台配色：所有元件改用 atlas-* 色彩，要換風格只改這裡 */
 @theme {
@@ -15,6 +16,8 @@
     --color-atlas-focus: #f2b134;
     --color-atlas-paper: #f4f6f3;
     --color-atlas-sand: #f6efe0;
+    --color-atlas-cream: #fbf7ef;
+    --font-title: 'Noto Serif TC Variable', 'Noto Serif TC', serif;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -150,4 +153,15 @@
 .atlas-pulse { animation: atlas-pulse 1.8s ease-out infinite; }
 @media (prefers-reduced-motion: reduce) {
     .atlas-pulse { animation: none; }
+}
+
+/* 老紙張質感：暖白底加上很淡的顆粒（SVG 雜訊），用在卡片、清單與說明框 */
+.atlas-paper {
+    background-color: var(--color-atlas-cream);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 底圖稍微泛黃、降低飽和，只作用在地圖畫布，不影響標記 */
+.maplibregl-canvas {
+    filter: sepia(0.2) saturate(0.9);
 }
