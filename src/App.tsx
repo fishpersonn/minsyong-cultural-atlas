@@ -14,7 +14,7 @@ import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
 
 // 資料是靜態的：在模組層級算一次，groups 在整個生命週期內保持同一個參照，
 // MapView 才不會在每次選取時重建標記（會遺失鍵盤焦點）。
-const parsed = themes.map((t) => ({ theme: t.id, ...parsePlaces(t.data, t.id) }))
+const parsed = themes.map((t) => ({ theme: t.id, ...parsePlaces(t.data, t.id, t.meta) }))
 const places = parsed.flatMap((r) => r.places)
 const skipped = parsed.flatMap((r) => r.skipped.map((s) => ({ ...s, theme: r.theme })))
 const groups = groupByLocation(places)

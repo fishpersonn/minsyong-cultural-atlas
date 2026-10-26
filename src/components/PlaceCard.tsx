@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
+import { categoryStyle } from '@/lib/categories'
 import { placeholderFor } from '@/lib/placeholder'
 import type { PlaceGroup } from '@/types'
 
@@ -48,13 +49,26 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav }:
         </div>
 
         <div className="flex flex-col gap-3 p-4">
-          {(place.category || place.year) && (
-            <p className="text-xs font-medium tracking-wide text-atlas-amber">
-              {[place.category, place.year].filter(Boolean).join('・')}
+          {(place.category || place.era) && (
+            <p className="flex items-center gap-2 text-xs font-medium tracking-wide text-atlas-body">
+              {place.category && (
+                <span className="inline-flex items-center gap-1.5">
+                  <span
+                    aria-hidden="true"
+                    className="size-2.5 rounded-full"
+                    style={{ backgroundColor: categoryStyle(place.category).color }}
+                  />
+                  {place.category}
+                </span>
+              )}
+              {place.era && <span className="text-atlas-muted">{place.era}</span>}
             </p>
           )}
           <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
           <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
+          {place.published && (
+            <p className="text-xs text-atlas-muted">官網發布於 {place.published.replaceAll('-', '.')}</p>
+          )}
           <div className="flex flex-wrap gap-2">
             {links.map((href, i) => (
               <Button
