@@ -1,4 +1,4 @@
-# 民雄文化地圖：民雄鐵路高架化
+# Minsyong Cultural Atlas（民雄文化地圖）
 
 一個靜態的互動地圖網站，把「民雄鐵路高架化」相關的大學路（https://dovoha.ccu.edu.tw/）文章標在地圖上。
 對象是想認識民雄文化的外地人，以手機優先設計，介面為繁體中文。
@@ -12,7 +12,7 @@
 
 - Vite + React + TypeScript（`strict`）
 - Tailwind CSS 4 + shadcn/ui（Radix UI）
-- MapLibre GL JS，底圖為 OpenFreeMap Liberty（`https://tiles.openfreemap.org/styles/liberty`）
+- MapLibre GL JS，底圖為 CARTO Positron（`https://basemaps.cartocdn.com/gl/positron-gl-style/style.json`，資料 © OpenStreetMap contributors © CARTO，地圖角落的標註不可移除）
 - Vitest + Testing Library
 - GitHub Actions 建置並部署到 GitHub Pages（Vite `base` 為 `/minsyong-cultural-atlas/`）
 
@@ -81,7 +81,7 @@ cp <dovoha-Web-Crawle>/2026-團隊研究調查-民雄鐵路高架化/MinxiongRai
    ]
    ```
 
-目前的限制：App 沒有主題切換介面。`src/App.tsx` 會把 `themes` 裡所有主題的地點合併，全部標在同一張地圖上，各主題之間沒有區分、篩選或不同標記樣式；頁首標題（`SiteHeader`）也固定是「民雄鐵路高架化」。因此新增主題後若需要切換、分色或更改標題，還要另外修改 App 與相關元件。
+目前的限制：App 沒有主題切換介面。`src/App.tsx` 會把 `themes` 裡所有主題的地點合併，全部標在同一張地圖上，各主題之間沒有區分、篩選或不同標記樣式；新增主題後若需要切換或分色，還要另外修改 App 與相關元件。
 
 ## 專屬網址
 

@@ -8,7 +8,7 @@ import { OFFICIAL_SITE_URL } from '@/constants'
 import { themes } from '@/data/themes'
 import { useSelectedId } from '@/hooks/useSelectedId'
 import { useIntroDismissed } from '@/hooks/useIntroDismissed'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { parsePlaces } from '@/lib/parsePlaces'
 import { groupByLocation, initialBounds } from '@/lib/groupPlaces'
 
@@ -29,7 +29,7 @@ if (import.meta.env.DEV && skipped.length > 0) {
 
 // 卡片與清單共用的面板：手機為底部抽屜，桌面為左側浮動面板（MapView 的 padding 依此計算）
 const PANEL_CLASS =
-  'absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
+  'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-8 motion-safe:duration-300 md:motion-safe:slide-in-from-bottom-0 md:motion-safe:slide-in-from-left-8 absolute inset-x-0 bottom-0 z-10 flex max-h-[60dvh] flex-col overflow-hidden rounded-t-2xl shadow-[0_-4px_20px_rgb(20_49_59/0.25)] md:inset-x-auto md:top-3 md:left-3 md:bottom-auto md:max-h-[calc(100dvh-6rem)] md:w-[400px] md:rounded-2xl md:shadow-xl'
 
 export default function App() {
   const [selectedId, select] = useSelectedId()
@@ -39,6 +39,23 @@ export default function App() {
   const choose = (id: string | null) => {
     setListOpen(false)
     select(id)
+  }
+
+  // Esc：先關清單，再關卡片
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      if (listOpen) setListOpen(false)
+      else if (selectedId) select(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [listOpen, selectedId, select])
+
+  const selectedIndex = selectedId ? places.findIndex((p) => p.id === selectedId) : -1
+  const step = (delta: number) => {
+    const n = places.length
+    choose(places[(selectedIndex + delta + n) % n].id)
   }
   // 找不到對應地點（網址亂填）等同無選取，不改寫網址
   const selectedGroup = selectedId
@@ -94,6 +111,16 @@ export default function App() {
                   selectedId={selectedId}
                   onSelect={choose}
                   onClose={() => select(null)}
+                  nav={
+                    selectedIndex >= 0
+                      ? {
+                          index: selectedIndex + 1,
+                          total: places.length,
+                          onPrev: () => step(-1),
+                          onNext: () => step(1),
+                        }
+                      : undefined
+                  }
                 />
               </aside>
             )}
