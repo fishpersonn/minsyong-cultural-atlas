@@ -45,6 +45,11 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose }: Prop
         </div>
 
         <div className="flex flex-col gap-3 p-4">
+          {(place.category || place.year) && (
+            <p className="text-xs font-medium tracking-wide text-atlas-amber">
+              {[place.category, place.year].filter(Boolean).join('・')}
+            </p>
+          )}
           <h2 className="text-lg leading-snug font-semibold">{place.title}</h2>
           <p className="text-sm leading-relaxed text-atlas-body">{place.summary}</p>
           <div className="flex flex-wrap gap-2">

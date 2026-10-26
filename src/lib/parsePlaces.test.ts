@@ -42,6 +42,21 @@ describe('parsePlaces validation', () => {
     expect(r.places.map((p) => p.id)).toEqual(['1', '6'])
     expect(r.skipped.map((s) => s.index)).toEqual([1, 2, 3, 4, 5])
   })
+  it('passes through optional category and year, ignoring blank or non-string values', () => {
+    const r2 = parsePlaces(
+      {
+        features: [
+          feat({ 分類: '歷史建築', 年代: '1905' }),
+          feat({ 分類: '  ', 年代: 1905, 查看更多: link(2) }),
+        ],
+      },
+      't',
+    )
+    expect(r2.places[0].category).toBe('歷史建築')
+    expect(r2.places[0].year).toBe('1905')
+    expect(r2.places[1].category).toBeUndefined()
+    expect(r2.places[1].year).toBeUndefined()
+  })
   it('defaults summary and images', () => {
     const r = parsePlaces({ features: [feat({ 摘要: null, 圖片: '' })] }, 't')
     expect(r.places[0].summary).toBe('')
