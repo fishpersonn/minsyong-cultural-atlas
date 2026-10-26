@@ -13,16 +13,16 @@ import MapFallback, { type FallbackReason } from './MapFallback'
 // Vite 預先打包與正式打包都不會帶上該檔，必須在建立任何 Map 前明確指定打包後的網址。
 maplibregl.setWorkerUrl(workerUrl)
 
-// 卡片覆蓋地圖的範圍：桌面為左側 400px 面板（含 12px 邊距再留一點空隙），手機為底部 60% 抽屜
+// 卡片覆蓋地圖的範圍：桌面為左側 400px 面板（含 12px 邊距再留一點空隙），手機為底部抽屜（高度比例由外面指定）
 const DESKTOP_QUERY = '(min-width: 768px)'
 const DESKTOP_PANEL_PADDING = 424
 const MOBILE_DRAWER_RATIO = 0.6
 
-function cardPadding(el: HTMLElement | null) {
+function cardPadding(el: HTMLElement | null, drawerRatio = MOBILE_DRAWER_RATIO) {
   if (window.matchMedia?.(DESKTOP_QUERY).matches) {
     return { left: DESKTOP_PANEL_PADDING, top: 0, right: 0, bottom: 0 }
   }
-  return { bottom: Math.round((el?.clientHeight ?? 0) * MOBILE_DRAWER_RATIO), top: 0, left: 0, right: 0 }
+  return { bottom: Math.round((el?.clientHeight ?? 0) * drawerRatio), top: 0, left: 0, right: 0 }
 }
 
 type Props = {
@@ -32,6 +32,10 @@ type Props = {
   onSelect: (id: string | null) => void
   // 數字變了就把地圖拉回目前的範圍（「回到首頁」用；第一次的值不算）
   resetSignal?: number
+  // 手機上卡片蓋住地圖底部的比例（卡片收合或展開時不同），用來決定被選的標記要放在剩下的地圖正中間
+  drawerRatio?: number
+  // 手機：卡片或清單蓋住地圖底部時，把右下角的版權標註往上推，才不會被蓋住（CSS 長度，例如 "44%"）
+  attributionBottom?: string
 }
 
 type Entry = { cluster: Cluster; el: HTMLButtonElement; dot: HTMLSpanElement; marker: maplibregl.Marker }
@@ -67,8 +71,9 @@ function fitToBounds(
   bounds: [[number, number], [number, number]],
   el: HTMLElement | null,
   cardOpen: boolean,
+  drawerRatio?: number,
 ) {
-  const pad = cardOpen ? cardPadding(el) : { top: 0, right: 0, bottom: 0, left: 0 }
+  const pad = cardOpen ? cardPadding(el, drawerRatio) : { top: 0, right: 0, bottom: 0, left: 0 }
   map.fitBounds(bounds, {
     padding: {
       top: FIT_PADDING + pad.top,
@@ -111,13 +116,22 @@ class ResetViewControl implements maplibregl.IControl {
 const CLUSTER_PX = 40
 const DETAIL_ZOOM = 17
 
-export default function MapView({ groups, bounds, selectedId, onSelect, resetSignal = 0 }: Props) {
+export default function MapView({
+  groups,
+  bounds,
+  selectedId,
+  onSelect,
+  resetSignal = 0,
+  drawerRatio,
+  attributionBottom,
+}: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const entries = useRef<Entry[]>([])
   const onSelectRef = useRef(onSelect)
   const boundsRef = useRef(bounds)
   const selectedRef = useRef(selectedId)
+  const drawerRatioRef = useRef(drawerRatio)
   const [failed, setFailed] = useState<FallbackReason | null>(null)
   const [ready, setReady] = useState(false)
   // 縮放等級（四捨五入到 0.25）：變了才需要重新計算哪些標記要合併
@@ -127,6 +141,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
     onSelectRef.current = onSelect
     selectedRef.current = selectedId
     boundsRef.current = bounds
+    drawerRatioRef.current = drawerRatio
   })
 
   useEffect(() => {
@@ -144,14 +159,21 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
       map = new maplibregl.Map({
         container: container.current,
         style: BASEMAP_STYLE_URL,
-        // 版權標註不放在地圖上，改放在「關於」的致謝裡
+        // 版權標註自己加（下面），才能控制位置與是否收合
         attributionControl: false,
       })
+      // OpenStreetMap 與 CARTO 要求在地圖上標註出處：常駐在右下角，不能拿掉。
+      // 手機空間小，縮成一顆小小的 ⓘ 按鈕（點開才看到文字），但仍然留在地圖上。
+      // 卡片、清單蓋住地圖底部時，位置由 index.css 的 --atlas-attr-bottom 往上推，免得被蓋住。
+      map.addControl(
+        new maplibregl.AttributionControl({ compact: !window.matchMedia?.(DESKTOP_QUERY).matches }),
+        'bottom-right',
+      )
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
       const created = map
       map.addControl(
         new ResetViewControl(() =>
-          fitToBounds(created, boundsRef.current, container.current, selectedRef.current !== null),
+          fitToBounds(created, boundsRef.current, container.current, selectedRef.current !== null, drawerRatioRef.current),
         ),
         'top-right',
       )
@@ -197,7 +219,13 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
       el.className = BUTTON_CLASS
       const label = count > 1 ? `${count} 個地點` : c.places[0].title
       el.setAttribute('aria-label', label)
-      el.title = label
+      // 滑過（或長按）時的說明：數字標記到底代表什麼、點了會怎樣
+      el.title =
+        c.groups.length > 1
+          ? `這個區域有 ${count} 個地點，點一下放大查看`
+          : count > 1
+            ? `這個位置有 ${count} 個地點，點一下查看`
+            : label
       const dot = document.createElement('span')
       const style = clusterStyle(c)
       dot.style.backgroundColor = style.color
@@ -237,7 +265,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
     const map = mapRef.current
     if (!ready || !map || bounds === fittedBounds.current) return
     fittedBounds.current = bounds
-    fitToBounds(map, bounds, container.current, selectedRef.current !== null)
+    fitToBounds(map, bounds, container.current, selectedRef.current !== null, drawerRatioRef.current)
   }, [bounds, ready])
 
   // 「回到首頁」：不管有沒有篩選、使用者縮放到哪，都拉回目前的範圍
@@ -246,7 +274,7 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
     const map = mapRef.current
     if (!ready || !map || resetSignal === lastReset.current) return
     lastReset.current = resetSignal
-    fitToBounds(map, boundsRef.current, container.current, selectedRef.current !== null)
+    fitToBounds(map, boundsRef.current, container.current, selectedRef.current !== null, drawerRatioRef.current)
   }, [resetSignal, ready])
 
   // 選取改變只更新樣式，不重建標記（保留鍵盤焦點）
@@ -262,13 +290,20 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
       map.flyTo({
         center: [g.lng, g.lat],
         zoom: Math.max(map.getZoom(), DETAIL_ZOOM),
-        padding: cardPadding(container.current),
+        padding: cardPadding(container.current, drawerRatioRef.current),
       })
     }
   }, [groups, selectedId, ready])
 
   if (failed) return <MapFallback reason={failed} />
-  return <div ref={container} className="h-full w-full" />
+  return (
+    <div
+      ref={container}
+      className="h-full w-full"
+      // 版權標註（右下角）被手機的卡片、清單蓋住時，往上推多少（CSS 長度，如 "44%"）；沒蓋住就是空的
+      style={attributionBottom ? ({ '--atlas-attr-bottom': attributionBottom } as React.CSSProperties) : undefined}
+    />
+  )
 }
 
 function paint(e: Entry, selectedId: string | null) {

@@ -140,6 +140,28 @@ describe('PlaceCard', () => {
     expect(screen.queryByRole('button', { name: '在這裡聽這一集' })).toBeNull()
   })
 
+  it('手機的展開／收合鈕：沒傳 onToggleExpanded 就沒有；有的話顯示目前狀態並回報', () => {
+    const { rerender } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('button', { name: /展開卡片|收合卡片/ })).toBeNull()
+    const onToggle = vi.fn()
+    rerender(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} expanded={false} onToggleExpanded={onToggle} />)
+    const open = screen.getByRole('button', { name: '展開卡片' })
+    expect(open.getAttribute('aria-expanded')).toBe('false')
+    fireEvent.click(open)
+    expect(onToggle).toHaveBeenCalledTimes(1)
+    rerender(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} expanded onToggleExpanded={onToggle} />)
+    expect(screen.getByRole('button', { name: '收合卡片' }).getAttribute('aria-expanded')).toBe('true')
+  })
+
+  it('「回到清單」：有傳 onBackToList 才顯示，點了回報', () => {
+    const onBack = vi.fn()
+    const { rerender } = render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
+    expect(screen.queryByRole('button', { name: '回到清單' })).toBeNull()
+    rerender(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} onBackToList={onBack} />)
+    fireEvent.click(screen.getByRole('button', { name: '回到清單' }))
+    expect(onBack).toHaveBeenCalledTimes(1)
+  })
+
   it('有「分享這個地點」鈕', () => {
     render(<PlaceCard group={group(mk('7'))} selectedId="7" onSelect={noop} onClose={noop} />)
     expect(screen.getByRole('button', { name: '分享這個地點' })).toBeTruthy()

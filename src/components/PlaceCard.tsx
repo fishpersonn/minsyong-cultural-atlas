@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { ArrowLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, X } from 'lucide-react'
 import { OFFICIAL_SITE_URL } from '@/constants'
 import { Button } from '@/components/ui/button'
 import { themeName } from '@/data/themes'
@@ -24,9 +24,14 @@ type Props = {
   nearby?: NearbyPlace[]
   // 目前的搜尋字串；有的話，符合的字會被標出來
   query?: string
+  // 手機：卡片預設只佔螢幕的一部分，讓地圖看得到；這個鈕展開成可以好好讀的高度（沒傳就沒有這顆鈕）
+  expanded?: boolean
+  onToggleExpanded?: () => void
+  // 從地點清單點進來時：回到清單的捷徑（沒傳就沒有這顆鈕）
+  onBackToList?: () => void
 }
 
-export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, nearby, query = '' }: Props) {
+export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, nearby, query = '', expanded = false, onToggleExpanded, onBackToList }: Props) {
   const terms = searchTerms(query)
   const place = group.places.find((p) => p.id === selectedId) ?? group.places[0]
   // 記錄失敗的網址而非布林值：換到另一個地點時自然重置，且預設圖不會再觸發切換
@@ -38,12 +43,37 @@ export default function PlaceCard({ group, selectedId, onSelect, onClose, nav, n
 
   return (
     <article className="atlas-paper relative flex min-h-0 w-full flex-1 flex-col overflow-hidden text-atlas-ink">
+      {(onToggleExpanded || onBackToList) && (
+        <div className="absolute top-2 left-2 z-10 flex items-center gap-2">
+          {onToggleExpanded && (
+            <button
+              type="button"
+              onClick={onToggleExpanded}
+              aria-expanded={expanded}
+              aria-label={expanded ? '收合卡片' : '展開卡片'}
+              className="flex size-11 cursor-pointer items-center justify-center rounded-full bg-atlas-ink/80 text-atlas-paper outline-none hover:bg-atlas-ink focus-visible:ring-2 focus-visible:ring-atlas-focus md:hidden"
+            >
+              {expanded ? <ChevronDown aria-hidden="true" className="size-5" /> : <ChevronUp aria-hidden="true" className="size-5" />}
+            </button>
+          )}
+          {onBackToList && (
+            <button
+              type="button"
+              onClick={onBackToList}
+              className="inline-flex h-11 cursor-pointer items-center gap-1 rounded-full bg-atlas-ink/80 px-3.5 text-sm font-medium text-atlas-paper outline-none hover:bg-atlas-ink focus-visible:ring-2 focus-visible:ring-atlas-focus sm:h-9"
+            >
+              <ArrowLeft aria-hidden="true" className="size-4" />
+              回到清單
+            </button>
+          )}
+        </div>
+      )}
       <Button
         type="button"
         size="icon"
         aria-label="關閉"
         onClick={onClose}
-        className="absolute top-2 right-2 z-10 size-9 rounded-full bg-atlas-ink/80 text-atlas-paper hover:bg-atlas-ink"
+        className="absolute top-2 right-2 z-10 size-9 rounded-full bg-atlas-ink/80 text-atlas-paper hover:bg-atlas-ink max-sm:size-11"
       >
         <X aria-hidden="true" />
       </Button>

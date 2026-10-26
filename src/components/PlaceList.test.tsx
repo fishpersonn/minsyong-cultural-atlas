@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import PlaceList from './PlaceList'
 import IntroHint from './IntroHint'
 import FilterBar from './FilterBar'
@@ -164,6 +164,72 @@ describe('FilterBar', () => {
     expect(() => render(<FilterBar {...base} activeThemes={['railway']} />)).not.toThrow()
   })
 
+  describe('橫向可滑的提示（邊緣淡出）', () => {
+    const stubScroll = (scrollWidth: number, clientWidth: number) => {
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { configurable: true, get: () => scrollWidth })
+      Object.defineProperty(HTMLElement.prototype, 'clientWidth', { configurable: true, get: () => clientWidth })
+    }
+    afterEach(() => {
+      // 還原成 setup.ts 的預設假尺寸
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { configurable: true, get: () => 0 })
+      Object.defineProperty(HTMLElement.prototype, 'clientWidth', { configurable: true, get: () => 400 })
+    })
+
+    it('內容比容器寬時，右邊淡出；沒有溢出就沒有淡出', () => {
+      stubScroll(2000, 300)
+      const { rerender } = render(<FilterBar {...base} />)
+      const group = screen.getByRole('group', { name: '依主題篩選' })
+      expect(group.getAttribute('data-fade')).toBe('right')
+      stubScroll(200, 300)
+      rerender(<FilterBar {...base} themes={[...themes]} />)
+      fireEvent.scroll(screen.getByRole('group', { name: '依主題篩選' }))
+      expect(screen.getByRole('group', { name: '依主題篩選' }).getAttribute('data-fade')).toBeNull()
+    })
+
+    it('有溢出時右邊出現「看更多」箭頭，點了往右捲約 7 成寬；沒有溢出就沒有箭頭', () => {
+      stubScroll(2000, 300)
+      const { rerender } = render(<FilterBar {...base} />)
+      const group = screen.getByRole('group', { name: '依主題篩選' }) as HTMLElement
+      const scrollBy = vi.fn()
+      group.scrollBy = scrollBy
+      expect(screen.queryByRole('button', { name: '依主題篩選：往前' })).toBeNull()
+      fireEvent.click(screen.getByRole('button', { name: '依主題篩選：看更多' }))
+      expect(scrollBy).toHaveBeenCalledWith({ left: 210, behavior: 'smooth' })
+      stubScroll(200, 300)
+      rerender(<FilterBar {...base} themes={[...themes]} />)
+      fireEvent.scroll(screen.getByRole('group', { name: '依主題篩選' }))
+      expect(screen.queryByRole('button', { name: '依主題篩選：看更多' })).toBeNull()
+    })
+
+    it('捲過之後左邊出現「往前」箭頭，點了往左捲；捲到底右邊的箭頭就消失', () => {
+      stubScroll(2000, 300)
+      render(<FilterBar {...base} />)
+      const group = screen.getByRole('group', { name: '依主題篩選' }) as HTMLElement
+      const scrollBy = vi.fn()
+      group.scrollBy = scrollBy
+      Object.defineProperty(group, 'scrollLeft', { configurable: true, value: 600 })
+      fireEvent.scroll(group)
+      fireEvent.click(screen.getByRole('button', { name: '依主題篩選：往前' }))
+      expect(scrollBy).toHaveBeenCalledWith({ left: -210, behavior: 'smooth' })
+      Object.defineProperty(group, 'scrollLeft', { configurable: true, value: 1700 })
+      fireEvent.scroll(group)
+      expect(screen.queryByRole('button', { name: '依主題篩選：看更多' })).toBeNull()
+      expect(screen.getByRole('button', { name: '依主題篩選：往前' })).toBeTruthy()
+    })
+
+    it('捲動之後左邊也淡出；捲到底時右邊不再淡出', () => {
+      stubScroll(2000, 300)
+      render(<FilterBar {...base} />)
+      const group = screen.getByRole('group', { name: '依主題篩選' }) as HTMLElement
+      Object.defineProperty(group, 'scrollLeft', { configurable: true, value: 500 })
+      fireEvent.scroll(group)
+      expect(group.getAttribute('data-fade')).toBe('left+right')
+      Object.defineProperty(group, 'scrollLeft', { configurable: true, value: 1700 })
+      fireEvent.scroll(group)
+      expect(group.getAttribute('data-fade')).toBe('left')
+    })
+  })
+
   it('沒有任何主題時不顯示', () => {
     const { container } = render(<FilterBar {...base} themes={[]} />)
     expect(container.firstChild).toBeNull()
@@ -175,8 +241,8 @@ describe('IntroHint', () => {
     const onOpenList = vi.fn()
     const onDismiss = vi.fn()
     render(<IntroHint count={24} onOpenList={onOpenList} onDismiss={onDismiss} />)
-    expect(screen.getByText(/標著 24 個地點/)).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: '看地點清單' }))
+    expect(screen.getByText('從地圖開始探索民雄的故事')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: '瀏覽 24 個地點' }))
     fireEvent.click(screen.getByRole('button', { name: '知道了' }))
     expect(onOpenList).toHaveBeenCalled()
     expect(onDismiss).toHaveBeenCalled()

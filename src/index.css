@@ -165,3 +165,26 @@
 .maplibregl-canvas {
     filter: sepia(0.2) saturate(0.9);
 }
+
+/* 手機上地圖的縮放與「回到全圖」鈕放大到拇指好點（MapLibre 預設只有 29px） */
+@media (max-width: 767px) {
+    .maplibregl-ctrl-group button {
+        width: 44px;
+        height: 44px;
+    }
+    /* 右下角的版權標註（縮成 ⓘ）：卡片或清單蓋住地圖底部時，往上推到蓋住的部分上面（MapView 設定 --atlas-attr-bottom） */
+    .maplibregl-ctrl-bottom-right {
+        bottom: var(--atlas-attr-bottom, 0px);
+        transition: bottom 0.2s;
+    }
+    .maplibregl-ctrl-attrib-button {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .maplibregl-ctrl-bottom-right {
+        transition: none;
+    }
+}

@@ -1,13 +1,14 @@
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-const mapProps = vi.hoisted(() => ({ groups: [] as unknown[], bounds: [] as unknown[], resets: [] as unknown[] }))
+const mapProps = vi.hoisted(() => ({ groups: [] as unknown[], bounds: [] as unknown[], resets: [] as unknown[], ratios: [] as unknown[] }))
 
 vi.mock('@/components/MapView', () => ({
-  default: (props: { groups: unknown[]; bounds: unknown; resetSignal?: number; onSelect: (id: string) => void }) => {
+  default: (props: { groups: unknown[]; bounds: unknown; resetSignal?: number; drawerRatio?: number; onSelect: (id: string) => void }) => {
     mapProps.groups.push(props.groups)
     mapProps.bounds.push(props.bounds)
     mapProps.resets.push(props.resetSignal)
+    mapProps.ratios.push(props.drawerRatio)
     return <button onClick={() => props.onSelect('96220')}>mock-map</button>
   },
 }))
@@ -29,6 +30,7 @@ beforeEach(() => {
   mapProps.groups = []
   mapProps.bounds = []
   mapProps.resets = []
+  mapProps.ratios = []
 })
 afterEach(() => {
   cleanup()
@@ -237,7 +239,7 @@ describe('App', () => {
     typeSearch('農會倉庫')
     expect(countPlaces()).toBeLessThan(total)
     expect(window.location.hash).toBe('#q=%E8%BE%B2%E6%9C%83%E5%80%89%E5%BA%AB')
-    expect(screen.getByRole('status', { name: '' }).textContent).toMatch(/^\d+ 個符合$/)
+    expect(screen.getByText(/^\d+ 個符合$/).textContent).toMatch(/^\d+ 個符合$/)
     fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
     const list = screen.getByRole('region', { name: '地點清單' })
     expect(within(list).getAllByRole('button', { name: /農會倉庫/ }).length).toBeGreaterThan(1)
@@ -349,6 +351,65 @@ describe('App', () => {
     expect(container.querySelectorAll('mark')).toHaveLength(0)
   })
 
+  it('手機卡片預設只蓋住地圖的一部分，展開鈕拉高，並讓地圖知道被蓋住的比例；換地點又回到收合', async () => {
+    window.location.hash = '#p=96220'
+    const App = await load()
+    render(<App />)
+    const card = screen.getByRole('complementary', { name: '地點資訊' })
+    expect(card.className).toContain('max-h-[44%]')
+    expect(mapProps.ratios.at(-1)).toBe(0.44)
+    const toggle = screen.getByRole('button', { name: '展開卡片' })
+    expect(toggle.getAttribute('aria-expanded')).toBe('false')
+    fireEvent.click(toggle)
+    expect(screen.getByRole('complementary', { name: '地點資訊' }).className).toContain('max-h-[88%]')
+    expect(mapProps.ratios.at(-1)).toBe(0.88)
+    expect(screen.getByRole('button', { name: '收合卡片' }).getAttribute('aria-expanded')).toBe('true')
+    // 換到下一個地點：回到收合
+    fireEvent.click(screen.getByRole('button', { name: '下一個地點' }))
+    expect(screen.getByRole('complementary', { name: '地點資訊' }).className).toContain('max-h-[44%]')
+    expect(mapProps.ratios.at(-1)).toBe(0.44)
+    // 收合鈕再按一次可以收回來
+    fireEvent.click(screen.getByRole('button', { name: '展開卡片' }))
+    fireEvent.click(screen.getByRole('button', { name: '收合卡片' }))
+    expect(mapProps.ratios.at(-1)).toBe(0.44)
+  })
+
+  it('從地點清單點進來的卡片有「回到清單」，點了回到清單；從地圖標記點進來的沒有', async () => {
+    const App = await load()
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    const list = screen.getByRole('region', { name: '地點清單' })
+    fireEvent.click(within(list).getAllByRole('button', { name: /從鐵路到電波/ })[0])
+    expect(screen.queryByRole('region', { name: '地點清單' })).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: '回到清單' }))
+    expect(screen.getByRole('region', { name: '地點清單' })).toBeTruthy()
+    expect(screen.queryByRole('complementary', { name: '地點資訊' })).toBeNull()
+    // 選取的地點在清單裡標示為目前這個
+    expect(within(screen.getByRole('region', { name: '地點清單' })).getAllByRole('button', { name: /從鐵路到電波/ })[0].getAttribute('aria-current')).toBe('true')
+    // 從地圖標記點進來（mock 地圖的按鈕）：沒有「回到清單」
+    fireEvent.click(screen.getByRole('button', { name: '關閉清單' }))
+    fireEvent.click(screen.getByRole('button', { name: 'mock-map' }))
+    expect(screen.queryByRole('button', { name: '回到清單' })).toBeNull()
+  })
+
+  it('篩選中地圖上有「篩選中・N 個地點」與「清除」；沒有篩選、卡片或清單開著時不顯示', async () => {
+    const App = await load()
+    render(<App />)
+    expect(screen.queryByText(/篩選中・/)).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /^民雄鐵路高架化/ }))
+    const pill = screen.getByText(/篩選中・24 個地點/)
+    expect(pill).toBeTruthy()
+    // 打開卡片或清單時讓位
+    fireEvent.click(screen.getByRole('button', { name: '地點清單' }))
+    expect(screen.queryByText(/篩選中・/)).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: '關閉清單' }))
+    expect(screen.getByText(/篩選中・24 個地點/)).toBeTruthy()
+    // 清除：篩選全部解除，提示消失
+    fireEvent.click(within(screen.getByText(/篩選中・24 個地點/)).getByRole('button', { name: '清除' }))
+    expect(screen.queryByText(/篩選中・/)).toBeNull()
+    expect(window.location.hash).toBe('')
+  })
+
   it('「隨便逛逛」在目前篩選的地點中挑一個並選取', async () => {
     window.location.hash = '#t=stele'
     const App = await load()
@@ -383,10 +444,10 @@ describe('App', () => {
     delete navigator.geolocation
   })
 
-  it('使用說明的「看地點清單」會開啟清單', async () => {
+  it('歡迎提示的「瀏覽 N 個地點」會開啟清單', async () => {
     const App = await load()
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: '看地點清單' }))
+    fireEvent.click(screen.getByRole('button', { name: /^瀏覽 \d+ 個地點$/ }))
     expect(screen.getByRole('region', { name: '地點清單' })).toBeTruthy()
   })
 

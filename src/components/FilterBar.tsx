@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import StyleDot from './StyleDot'
 
 export type Chip = { key: string; label: string; count: number; color: string; icon: string }
@@ -15,10 +16,10 @@ type Props = {
 }
 
 const CHIP =
-  'inline-flex min-h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
+  'inline-flex min-h-11 shrink-0 sm:min-h-8 cursor-pointer items-center gap-1.5 rounded-full border px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-atlas-focus'
 
 const chipClass = (selected: boolean) =>
-  `${CHIP} ${
+  `${CHIP} snap-start ${
     selected
       ? 'border-atlas-ink bg-atlas-ink text-atlas-paper'
       : 'border-atlas-ink/15 bg-white text-atlas-ink hover:bg-atlas-hover'
@@ -48,21 +49,67 @@ function Row({
       behavior: 'smooth',
     })
   }, [active])
+
+  // 還有晶片被捲到畫面外的那一側讓邊緣淡出，提示「這裡可以橫向滑」（手機沒有捲軸，不然很難發現）
+  const [edge, setEdge] = useState({ left: false, right: false })
+  useEffect(() => {
+    const el = row.current
+    if (!el) return
+    const update = () => {
+      const left = el.scrollLeft > 4
+      const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 4
+      setEdge((prev) => (prev.left === left && prev.right === right ? prev : { left, right }))
+    }
+    update()
+    el.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      el.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [chips.length])
+  const fade = `linear-gradient(to right, ${edge.left ? 'transparent, black 28px' : 'black, black 0'}, ${
+    edge.right ? 'black calc(100% - 36px), transparent' : 'black 100%, black'
+  })`
+  // 箭頭：滑鼠使用者不會「滑」，點箭頭往那一側捲大約 7 成的寬度
+  const scrollRow = (direction: -1 | 1) =>
+    row.current?.scrollBy?.({ left: direction * row.current.clientWidth * 0.7, behavior: 'smooth' })
+  const ARROW =
+    'absolute top-[calc(50%-2px)] z-10 flex size-9 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white text-atlas-ink shadow-md ring-1 ring-atlas-ink/15 outline-none hover:bg-atlas-hover focus-visible:ring-2 focus-visible:ring-atlas-focus'
   return (
-    <div ref={row} role="group" aria-label={label} className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
-      <button type="button" aria-pressed={active.length === 0} onClick={onAll} className={chipClass(active.length === 0)}>
-        {allLabel}
-      </button>
-      {chips.map((c) => {
-        const on = active.includes(c.key)
-        return (
-          <button key={c.key} type="button" aria-pressed={on} onClick={() => onToggle(c.key)} className={chipClass(on)}>
-            <StyleDot color={c.color} icon={c.icon} className="size-5 ring-1 ring-white/70" />
-            {c.label}
-            <span className={on ? 'text-atlas-paper/70' : 'text-atlas-muted'}>{c.count}</span>
-          </button>
-        )
-      })}
+    <div className="relative">
+      <div
+        ref={row}
+        role="group"
+        aria-label={label}
+        data-fade={edge.left || edge.right ? `${edge.left ? 'left' : ''}${edge.left && edge.right ? '+' : ''}${edge.right ? 'right' : ''}` : undefined}
+        style={edge.left || edge.right ? { maskImage: fade, WebkitMaskImage: fade } : undefined}
+        className="flex snap-x snap-proximity gap-2 overflow-x-auto pb-1 [scrollbar-width:none]"
+      >
+        <button type="button" aria-pressed={active.length === 0} onClick={onAll} className={chipClass(active.length === 0)}>
+          {allLabel}
+        </button>
+        {chips.map((c) => {
+          const on = active.includes(c.key)
+          return (
+            <button key={c.key} type="button" aria-pressed={on} onClick={() => onToggle(c.key)} className={chipClass(on)}>
+              <StyleDot color={c.color} icon={c.icon} className="size-5 ring-1 ring-white/70" />
+              {c.label}
+              <span className={on ? 'text-atlas-paper/70' : 'text-atlas-muted'}>{c.count}</span>
+            </button>
+          )
+        })}
+      </div>
+      {edge.left && (
+        <button type="button" aria-label={`${label}：往前`} onClick={() => scrollRow(-1)} className={`${ARROW} left-1`}>
+          <ChevronLeft aria-hidden="true" className="size-5" />
+        </button>
+      )}
+      {edge.right && (
+        <button type="button" aria-label={`${label}：看更多`} onClick={() => scrollRow(1)} className={`${ARROW} right-1`}>
+          <ChevronRight aria-hidden="true" className="size-5" />
+        </button>
+      )}
     </div>
   )
 }

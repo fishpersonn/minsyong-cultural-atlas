@@ -17,7 +17,7 @@ type Props = {
 
 // 窄螢幕只顯示圖示（文字用 sr-only 保留給螢幕閱讀器），寬螢幕顯示圖示加文字
 const HEADER_BUTTON =
-  'shrink-0 border-atlas-paper/30 bg-transparent px-2 text-atlas-paper hover:bg-atlas-paper/10 hover:text-white sm:px-3'
+  'shrink-0 border-atlas-paper/30 bg-transparent px-2 text-atlas-paper hover:bg-atlas-paper/10 hover:text-white max-sm:size-11 max-sm:px-0 sm:px-3'
 const LABEL = 'sr-only sm:not-sr-only'
 
 export default function SiteHeader({ listOpen = false, onToggleList, onOpenAbout, onHome, search }: Props) {
@@ -33,7 +33,7 @@ export default function SiteHeader({ listOpen = false, onToggleList, onOpenAbout
   return (
     <header className="flex h-14 items-center gap-3 border-b-2 border-atlas-amber/70 bg-atlas-ink px-3 text-atlas-paper sm:px-4">
       {/* 手機展開搜尋時，整條標題列讓給搜尋框；電腦上標題與搜尋框並排 */}
-      <h1 className={`min-w-0 md:flex-none ${searching ? 'hidden md:block' : 'block'}`}>
+      <h1 className={`min-w-0 flex-1 md:flex-none ${searching ? 'hidden md:block' : 'block'}`}>
         <button
           type="button"
           onClick={() => {
@@ -42,14 +42,16 @@ export default function SiteHeader({ listOpen = false, onToggleList, onOpenAbout
           }}
           disabled={!onHome}
           title={onHome ? '回到首頁' : undefined}
-          className="flex min-w-0 cursor-pointer items-center gap-2.5 rounded-lg text-left outline-none transition-opacity hover:opacity-85 focus-visible:ring-2 focus-visible:ring-atlas-focus disabled:cursor-default disabled:hover:opacity-100"
+          className="flex w-full min-w-0 max-w-full cursor-pointer items-center gap-2.5 overflow-hidden rounded-lg text-left outline-none transition-opacity hover:opacity-85 focus-visible:ring-2 focus-visible:ring-atlas-focus disabled:cursor-default disabled:hover:opacity-100"
         >
           <Logo className="hidden size-8 shrink-0 sm:block" />
           <span className="min-w-0 leading-tight">
-            <span className="font-title block truncate text-base font-semibold tracking-wide sm:text-lg">
+            {/* 中等寬度以下只顯示「民雄文化地圖」（省出右邊按鈕的空間）；寬螢幕才是英文大標加中文副標 */}
+            <span className="font-title block truncate text-base font-semibold tracking-wide lg:hidden">民雄文化地圖</span>
+            <span className="font-title hidden truncate text-lg font-semibold tracking-wide lg:block">
               Minsyong Cultural Atlas
             </span>
-            <span className="hidden truncate text-xs text-atlas-paper/70 sm:block">民雄文化地圖</span>
+            <span className="hidden truncate text-xs text-atlas-paper/70 lg:block">民雄文化地圖</span>
             {onHome && <span className="sr-only">（回到首頁）</span>}
           </span>
         </button>
@@ -117,7 +119,7 @@ export default function SiteHeader({ listOpen = false, onToggleList, onOpenAbout
             <span className={LABEL}>關於</span>
           </Button>
         )}
-        <Button asChild size="sm" variant="outline" className={HEADER_BUTTON}>
+        <Button asChild size="sm" variant="outline" className={`${HEADER_BUTTON} max-sm:hidden`}>
           <a href={OFFICIAL_SITE_URL} target="_blank" rel="noopener noreferrer" title="前往重構大學路網站">
             <ExternalLink aria-hidden="true" />
             <span className={LABEL}>重構大學路</span>
