@@ -144,10 +144,9 @@ export default function MapView({ groups, bounds, selectedId, onSelect, resetSig
       map = new maplibregl.Map({
         container: container.current,
         style: BASEMAP_STYLE_URL,
-        // 預設的右下角版權標示會被手機底部抽屜遮住，改放到上方
+        // 版權標註不放在地圖上，改放在「關於」的致謝裡
         attributionControl: false,
       })
-      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right')
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
       const created = map
       map.addControl(
